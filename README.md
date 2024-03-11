@@ -1,7 +1,10 @@
 # HealthApp
 Our project is an application meant to facilitate the life of patients, doctors and the lab assistants of a certain clinic
+
+Every user has access to:
 - hospital locations
 - hospital and emergency numbers
+
 The first window will be that shown to the unsigned guests which will contain the options: 
 - log in (as an existing user already in the database)
 - sign in (create a user profile based on their needs and role (client (in whichever subscription plan)/doctor/lab assistant/administrator))
