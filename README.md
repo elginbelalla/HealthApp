@@ -1,71 +1,21 @@
 # HealthApp
-Our project is an application meant to facilitate the life of patients, doctors and the lab assistants of a certain clinic
+Our project is an application meant to facilitate the life of patients, and freelance doctors of a certain clinic
 
-Every user has access to:
-- hospital locations
-- hospital and emergency numbers
+the application would best serve as a middle man between the client and various private clinics (aka freelance doctors), functioning like a medical version of Baboon/Fiverr.
+The project would be sold to an entrepreneur who will own this type of network.
+The part of the profit that the app will generate will be a cut from every transaction that is made through the app (20% of the service price).
 
-The first window will be that shown to the unsigned guests which will contain the options: 
-- log in (as an existing user already in the database)
-- sign in (create a user profile based on their needs and role (client (in whichever subscription plan)/doctor/lab assistant/administrator))
-- sees the results of rates and reviews of doctors 
-- sees a sample/null history of medical records, test results, appointment history (in order to give a visual idea of what the program offers without compromising the integrity and security of the data of other members)
-- sees a read only and sample page of a filled field of tracking symptoms 
-- see that they request appointments with their doctors if they (the client) have a profile 
-- see that they can request a personalized nutrition plan based on their med. records (read only)
-- see that they can request access to virtual visits (un- clickable btn)
-- see that they can request to have telehealth services available (un- clickable btn)
-- see that they can be reminded of appointments/medication time
-- see that they can request pay online for tests
-- see that they can request communicates with doctors and lab assistants (screenshot of a sample chat between a test client and doc/lab assist.)
+Users will be: guest, client, clinic, doctor and admin.
+Guest and client can communicate with a chat-bot to get oriented in the program and which doctor is recommended to click.
+Guests will also be able to see all other facilities they get once they are signed up, as a preview.
+Clients who are signed in can contact with doctors, can access their data as well as add symptoms in real time to complete it as a profile.
 
-Freemium Plan (no payment involved, but has a profile):
-- log out
-- see their medical records, test results, appointment history (in their user profile)
-- pay online for tests
-- track symptoms in real time
-- request appointments with their doctors
-- rate and review their doctors
-- be reminded of appointments/medication time
-- upgrade/downgrade between subscription tiers
+When customers sign up in addition to typical fields such as first name, last name, email, etc.
+They will be asked to fill out a form on their medical data to have a clearer idea of the patient's condition.
+They can also have access to a food plan recommended by the algorithm in collaboration with the doctor based on the problems they have, as well as rate and review the doctor, and the clinic in general.
 
-Are provided with sample screenshots of the given pages/ functions, so as to give them an idea of what they gain if they upgrade tiers:
-- sample chat of communication with doctors and lab assistants
--  have telehealth and virtual visits services available (voice and video call with their assigned doctor)
-- request a personalized nutrition plan based on their med. records
+The doctor on the other hand, when he registers, uploads a pdf containing the notarized diploma (which also passes a verification by the admin), chats with clients, has access to his client's personal data, uploads the results of the tests as well as checks and modifies the food plan.
+The doctors are connected to a clinic that supervises their daily plans and overall serves as an interface for the details of doctors that are part of the said clinic.
 
-Premium client, a client that pays a monthly/yearly subscription iin order to get more features that include:
-- log out
-- see their medical records, test results, appointment history (user profile)
-- track symptoms in real time (based on day, hour, gravity)
-- get priority treatment when it comes to choosing appointment times and shorter waiting times to get test results
-- request appointments with their doctors
-- rate and review their doctors
-- read reviews of doctors
-- request a personalized nutrition plan based on their med. records
-- have telehealth and virtual visits services available (voice and video call with their assigned doctor)
-- be reminded of appointments/medication time (alerts in calendar)
-- downgrade between subscription tiers
-- pays online for tests
-- communicates with doctors and lab assistants 
-
-Doctors can:
-- accept, reschedule or deny appointments
-- request test for patient
-- access only their client’s medical data (for privacy reasons)
-- communicate with patients and other doctors
-- redirect their patients to other doctors for a single appointment 
-- notify for days off
-
-Clinical laboratory scientist:
-- sees the test requests made in the app
-- lets the client know for potential delays
-- posts the lab results
-- lets the client know when the results are published
-
-Admin/ Owner:
-- has access to all communications between all parties
-- sees all reviews for doctors
-- adds, edits and removes staff 
-- check financial status of the entire clinic
-- check financial records of any particular client and which doc recommended what to them
+The clinic also has its own rating system and contact details.
+The admin serves for the verification of doctors, has access to all comments and evaluations, is aware of the number of tests requested/performed/the time it took for these tests as well as the amount of profit that has come from the app at different times.
