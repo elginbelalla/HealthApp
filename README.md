@@ -72,6 +72,7 @@ Homepage
 <img width="476" alt="Screenshot 2024-03-26 030517" src="https://github.com/elginbelalla/HealthApp/assets/104305685/99d4f3ee-58c3-4efb-9764-33a9cd0d4895">
 
 Patients
+
 <img width="498" alt="Screenshot 2024-03-26 030551" src="https://github.com/elginbelalla/HealthApp/assets/104305685/974b1a8c-aca0-40ba-aef2-20b79162b044">
 
 Patient Chart
@@ -87,9 +88,11 @@ Appointments
 Tests
 
 <img width="498" alt="Screenshot 2024-03-26 030914" src="https://github.com/elginbelalla/HealthApp/assets/104305685/b6dacc47-aa3b-4f65-99fe-0b927fcdc02e">
+
 ![New Test](https://github.com/elginbelalla/HealthApp/assets/104305685/3d04b321-1b25-4e00-b9e5-5f47e77f5461)
 
 Contacts
+
 <img width="498" alt="Screenshot 2024-03-26 031024" src="https://github.com/elginbelalla/HealthApp/assets/104305685/f1db3c67-611f-474f-927a-39b0c5d3587e">
 
 <img width="238" alt="Screenshot 2024-03-26 031045" src="https://github.com/elginbelalla/HealthApp/assets/104305685/96b92f29-dacc-4132-948b-b52e369f81b6">
@@ -97,7 +100,9 @@ Contacts
 Settings
 
 <img width="497" alt="Screenshot 2024-03-26 031104" src="https://github.com/elginbelalla/HealthApp/assets/104305685/acee16d9-18f7-4242-833f-c148f2edf9a0">
+
 <img width="498" alt="Screenshot 2024-03-26 031115" src="https://github.com/elginbelalla/HealthApp/assets/104305685/60d7c7b7-44e9-48ac-8fb9-24e0f3376fe8">
+
 <img width="498" alt="Screenshot 2024-03-26 031132" src="https://github.com/elginbelalla/HealthApp/assets/104305685/da0ba516-e41c-479b-a5e7-4cdd8329c22e">
 
 
