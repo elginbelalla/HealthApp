@@ -109,34 +109,37 @@ Clinic's Page
 
 Homepage
 
-![Clinic Homepage](https://github.com/elginbelalla/HealthApp/assets/104305685/4a804dd9-7fa0-497a-818b-b1996939dcb5)
+![Clinic Homepage](https://github.com/elginbelalla/HealthApp/assets/104305685/dace08da-4001-4f72-a37e-9918a9d4e77d)
 
 Staff
+  
+![Clinic Staff Management](https://github.com/elginbelalla/HealthApp/assets/104305685/74a521cc-570e-4672-9777-3be804a07b61)
 
-![Clinic Staff Management](https://github.com/elginbelalla/HealthApp/assets/104305685/607e62e3-a6a9-4e42-8b5b-46a3e52edb07)
+![Clinic Doctor Profile](https://github.com/elginbelalla/HealthApp/assets/104305685/f45d1376-84aa-43cd-ac13-09f55632fb82)
 
-![Clinic Doctor Profile](https://github.com/elginbelalla/HealthApp/assets/104305685/648be13e-c0d0-4c6d-83d8-62890e570465)
-
-![Clinic Doctor Profile (1)](https://github.com/elginbelalla/HealthApp/assets/104305685/292153c6-068f-48a3-b6dc-a8cb44d5d290)
-
-![Clinic Doctor Profile (2)](https://github.com/elginbelalla/HealthApp/assets/104305685/b805246c-e918-4709-8920-eb203d349c68)
+![Clinic Doctor Profile (1)](https://github.com/elginbelalla/HealthApp/assets/104305685/cd6edeb0-86f8-481a-a7fd-7be3b5eeaf6c)
 
 
-Booking an Appointment
+Booking Requests
 
-![Booking](https://github.com/elginbelalla/HealthApp/assets/104305685/43a25d36-5422-4481-a8df-4723c1be3e6a)
+![Booking](https://github.com/elginbelalla/HealthApp/assets/104305685/b79c242e-f53a-4e2b-b1f6-7f4dd07dd1a1)
 
 
 Doctor Review
 
-![Doctor Review](https://github.com/elginbelalla/HealthApp/assets/104305685/0cb862b5-3a86-42af-b48e-dc3b203cce20)
+![Doctor Review](https://github.com/elginbelalla/HealthApp/assets/104305685/47cfa926-148a-48a9-8e23-aefd9221ff5f)
+
+
+Patient Records
+
+![Clinic Doctor Profile (2)](https://github.com/elginbelalla/HealthApp/assets/104305685/dcfc2e83-96d2-4fba-8797-65c791270b8a)
 
 
 Settings
 
-![Clinic Settings](https://github.com/elginbelalla/HealthApp/assets/104305685/dd21c390-d4a9-4f96-86d0-f9af28f840ed)
+![Clinic Settings](https://github.com/elginbelalla/HealthApp/assets/104305685/e51ed5c0-ea8b-44eb-ae1d-4b5de07a9e40)
 
-![Clinic Settings-2](https://github.com/elginbelalla/HealthApp/assets/104305685/071a3c84-1fac-48a4-b362-195f75f28bb2)
+![Clinic Settings-2](https://github.com/elginbelalla/HealthApp/assets/104305685/47d1cc85-6d0a-468c-8647-0f011a7b1d66)
 
 
 Admin's Page
@@ -145,5 +148,5 @@ Homepage
 
 ![sds](https://github.com/elginbelalla/HealthApp/assets/104305685/85997b67-1aff-4677-b85b-53dc3580ac0c)
 
-
 ![asdas](https://github.com/elginbelalla/HealthApp/assets/104305685/8b810a0e-9837-4ec3-98c8-acab95e5bd16)
+
