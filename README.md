@@ -19,3 +19,6 @@ The doctors are connected to a clinic that supervises their daily plans and over
 
 The clinic also has its own rating system and contact details.
 The admin serves for the verification of doctors, has access to all comments and evaluations, is aware of the number of tests requested/performed/the time it took for these tests as well as the amount of profit that has come from the app at different times.
+
+
+[Website_Figma_Design.pdf](https://github.com/elginbelalla/HealthApp/files/14751729/Website_Figma_Design.pdf)
