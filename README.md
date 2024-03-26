@@ -66,6 +66,7 @@ Settings Center
 
 
 Doctor's Pages
+
 Homepage
 
 ![Doctor Homepage](https://github.com/elginbelalla/HealthApp/assets/104305685/0a98970b-f9ec-4340-8181-2caaeba54962)
@@ -95,6 +96,7 @@ Contacts
 ![Message frame](https://github.com/elginbelalla/HealthApp/assets/104305685/14ea9917-9f39-4854-a3b0-932f17c8144e)
 
 Settings
+
 ![Doctor Settings-1](https://github.com/elginbelalla/HealthApp/assets/104305685/8bb89766-16b1-4677-b778-656416ff17fb)
 
 ![Doctor Settings-2](https://github.com/elginbelalla/HealthApp/assets/104305685/4ec82f19-c6c8-4283-b197-a3618796eb3d)
@@ -103,7 +105,9 @@ Settings
 
 
 Admin's Page
+
 Homepage
+
 ![sds](https://github.com/elginbelalla/HealthApp/assets/104305685/85997b67-1aff-4677-b85b-53dc3580ac0c)
 
 
