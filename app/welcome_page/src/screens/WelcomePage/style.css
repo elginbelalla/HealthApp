@@ -1,0 +1,113 @@
+.welcome-page {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.welcome-page .div-2 {
+  background-image: url(../../../static/img/welcomepage.jpeg);
+  background-position: center;
+  background-size: cover;
+  height: 877px; 
+  position: relative;
+  width: 100%;
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 1200px) {
+  .welcome-page .div-2 {
+    height: 850px; /* Adjust height for smaller screens */
+    width: 100%; /* Make width 100% for smaller screens */
+  }
+}
+
+/* Adjustments for even smaller screens */
+@media screen and (max-width: 768px) {
+  .welcome-page .div-2 {
+    height: 700px; /* Adjust height for even smaller screens */
+    width: 100%; /* Make width 100% for even smaller screens */
+  }
+}
+
+.welcome-page .body-instance {
+  left: 40px !important;
+  position: absolute !important;
+  top: 433px !important;
+}
+
+.welcome-page .nav-bar-instance {
+  left: 0 !important;
+  position: relative;
+  top: 0 !important;
+}
+
+.welcome-page .logo-name-instance {
+  left: 0 !important;
+  position: absolute !important;
+  top: 147px !important;
+}
+
+.welcome-page .buttons {
+  align-items: center;
+  display: flex;
+  gap: 3.9375rem;
+  height: 61px;
+  left: 152px;
+  position: absolute;
+  top: 670px;
+  width: 756px;
+}
+
+.welcome-page .design-component-instance-node {
+  align-items: center !important;
+  background-color: #ffffff !important;
+  border: unset !important;
+  border-color: unset !important;
+  display: flex !important;
+  height: 61.24px !important;
+  justify-content: center !important;
+  width: 216.48px !important;
+}
+
+.welcome-page .guest {
+  color: #2a5f71 !important;
+  font-family: "Clash Display-Regular", Helvetica !important;
+  font-weight: 400 !important;
+  text-align: center !important;
+}
+
+.welcome-page .button-2 {
+  color: #2a5f71 !important;
+  font-family: "Clash Display-Regular", Helvetica !important;
+  font-weight: 400 !important;
+}
+
+.welcome-page .log-in {
+  align-items: center !important;
+  background-color: #ffffff !important;
+  border: unset !important;
+  border-color: unset !important;
+  display: flex !important;
+  height: 61.24px !important;
+  justify-content: center !important;
+  margin-right: -18.95px !important;
+  width: 216.48px !important;
+}
+
+.welcome-page .bottom-bar-instance {
+  border-color: #fcfdff !important;
+  left: 26px !important;
+  position: absolute !important;
+  top: 808px !important;
+  width: 100%;
+}
+
+.welcome-page .bottom-bar-2 {
+  justify-content: space-between !important;
+}
+
+.welcome-page .bottom-bar-3 {
+  color: #2a5f71 !important;
+}

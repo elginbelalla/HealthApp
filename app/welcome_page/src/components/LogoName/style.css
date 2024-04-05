@@ -1,0 +1,36 @@
+.logo-name {
+  height: auto; /* Allow the height to adjust based on content */
+  width: 100%; /* Set width to 100% */
+  max-width: 1466px; /* Set a maximum width */
+  margin: 0 auto; /* Center the element horizontally */
+  padding-left: 50px; /* Add padding to the left for space to the border */
+}
+
+.logo-name .text-wrapper {
+  color: #ffffff;
+  font-family: "Merriweather Sans", Helvetica;
+  font-size: 12vw; /* Adjust font size based on viewport width */
+  font-style: italic;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  top: -1px;
+  width: 100%; /* Set width to 100% */
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 1200px) {
+  .logo-name .text-wrapper {
+    font-size: 10vw; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Additional adjustments for even smaller screens */
+@media screen and (max-width: 768px) {
+  .logo-name .text-wrapper {
+    font-size: 8vw; /* Further adjust font size for even smaller screens */
+  }
+}
