@@ -1,15 +1,15 @@
 CREATE TABLE `Client` (
   `clientID` integer PRIMARY KEY,
-  `firstName` string,
-  `lastName` stirng,
+  `firstName` varchar(255),
+  `lastName` varchar(255),
   `email` varchar(255),
   `phoneNo` varchar(255),
-  `gender` string,
+  `gender` varchar(10),
   `dateOfBirth` datetime,
-  `placeOfBirth` string,
+  `placeOfBirth` varchar(255),
   `age` integer,
-  `height` varchar(255),
-  `weight` varchar(255)
+  `height` varchar(20),
+  `weight` varchar(20)
 );
 
 CREATE TABLE `PersonalHealth` (
@@ -41,19 +41,6 @@ CREATE TABLE `Test` (
   `test` longblob
 );
 
-CREATE TABLE `DoctorConversation` (
-  `doctorConversationId` integer PRIMARY KEY,
-  `clientId` integer,
-  `doctorid` integer
-);
-
-CREATE TABLE `ClientDoctorMessages` (
-  `messagesId` integer PRIMARY KEY,
-  `conversationId` integer,
-  `senderId` integer,
-  `text` vrachar
-);
-
 CREATE TABLE `Appointment` (
   `appointmentId` integer PRIMARY KEY,
   `dateOfAppointment` datetime,
@@ -64,11 +51,11 @@ CREATE TABLE `Appointment` (
 
 CREATE TABLE `Doctors` (
   `doctorId` integer PRIMARY KEY,
-  `name` string,
-  `lastName` string,
+  `name` varchar(255),
+  `lastName` varchar(255),
   `email` varchar(255),
   `clinicid` integer,
-  `specialty` string,
+  `specialty` varchar(255),
   `phoneNo` varchar(255),
   `address` varchar(255),
   `profileInfo` varchar(255),
@@ -106,37 +93,18 @@ CREATE TABLE `TestResultList` (
   `clientId` integer,
   `doctorId` integer,
   `clinicId` integer,
-  `testType` tesxt,
+  `testType` text,
   `requestDate` datetime,
   `arrivalDate` datetime,
   `testid` integer
 );
 
-CREATE TABLE `DoctorMessages` (
-  `doctorMessagesId` integer PRIMARY KEY,
-  `conversationId` integer,
-  `senderId` integer,
-  `text` vrachar
-);
-
 CREATE TABLE `ClientClinicMessages` (
-  `clientMessagesId` integer PRIMARY KEY,
-  `conversationId` integer,
-  `senderId` integer,
-  `text` vrachar
-);
-
-CREATE TABLE `ClinicConversation` (
-  `clinicConversationId` integer PRIMARY KEY,
-  `clientId` integer,
-  `clinicid` integer
-);
-
-CREATE TABLE `ClinicMessages` (
-  `doctorMessagesId` integer PRIMARY KEY,
-  `conversationId` integer,
-  `senderId` integer,
-  `text` vrachar
+  `clientClinicMessageId` integer PRIMARY KEY AUTO_INCREMENT,
+  `clientClinicConversationId` integer,
+  `sender` ENUM ('client', 'clinic'),
+  `text` varchar(255),
+  `timestamp` datetime DEFAULT (CURRENT_TIMESTAMP)
 );
 
 CREATE TABLE `SymptomReport` (
@@ -145,28 +113,37 @@ CREATE TABLE `SymptomReport` (
   `name` varchar(255)
 );
 
+CREATE TABLE `Clinic_Doctors` (
+  `Clinic_clinicId` integer,
+  `Doctors_clinicid` integer,
+  PRIMARY KEY (`Clinic_clinicId`, `Doctors_clinicid`)
+);
+
+CREATE TABLE `Client_ClinicConversation` (
+  `clientClinicConversationId` integer PRIMARY KEY AUTO_INCREMENT,
+  `Client_clientID` integer,
+  `Clinic_clinicID` integer
+);
+
+CREATE TABLE `Client_DoctorConversation` (
+  `clientDoctoraConversationId` integer PRIMARY KEY AUTO_INCREMENT,
+  `Client_clientID` integer,
+  `Doctor_doctorID` integer
+);
+
+CREATE TABLE `ClientDoctorMessages` (
+  `clientdoctorMessageId` integer PRIMARY KEY AUTO_INCREMENT,
+  `clientDoctorConversationId` integer,
+  `sender` ENUM ('client', 'doctor'),
+  `text` varchar(255),
+  `timestamp` datetime DEFAULT (CURRENT_TIMESTAMP)
+);
+
 ALTER TABLE `PersonalHealth` ADD FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`);
 
 ALTER TABLE `FamilyHealth` ADD FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`);
 
 ALTER TABLE `DoctorNotes` ADD FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`);
-
-CREATE TABLE `Client_DoctorConversation` (
-  `Client_clientID` integer,
-  `DoctorConversation_clientId` integer,
-  PRIMARY KEY (`Client_clientID`, `DoctorConversation_clientId`)
-);
-
-ALTER TABLE `Client_DoctorConversation` ADD FOREIGN KEY (`Client_clientID`) REFERENCES `Client` (`clientID`);
-
-ALTER TABLE `Client_DoctorConversation` ADD FOREIGN KEY (`DoctorConversation_clientId`) REFERENCES `DoctorConversation` (`clientId`);
-
-
-ALTER TABLE `DoctorConversation` ADD FOREIGN KEY (`doctorid`) REFERENCES `Doctors` (`doctorId`);
-
-ALTER TABLE `ClientDoctorMessages` ADD FOREIGN KEY (`conversationId`) REFERENCES `DoctorConversation` (`doctorConversationId`);
-
-ALTER TABLE `Client` ADD FOREIGN KEY (`clientID`) REFERENCES `ClientDoctorMessages` (`senderId`);
 
 ALTER TABLE `Appointment` ADD FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`);
 
@@ -174,16 +151,7 @@ ALTER TABLE `Appointment` ADD FOREIGN KEY (`doctorId`) REFERENCES `Doctors` (`do
 
 ALTER TABLE `Appointment` ADD FOREIGN KEY (`clinicId`) REFERENCES `Clinic` (`clinicId`);
 
-CREATE TABLE `Clinic_Doctors` (
-  `Clinic_clinicId` integer,
-  `Doctors_clinicid` integer,
-  PRIMARY KEY (`Clinic_clinicId`, `Doctors_clinicid`)
-);
-
-ALTER TABLE `Clinic_Doctors` ADD FOREIGN KEY (`Clinic_clinicId`) REFERENCES `Clinic` (`clinicId`);
-
-ALTER TABLE `Clinic_Doctors` ADD FOREIGN KEY (`Doctors_clinicid`) REFERENCES `Doctors` (`clinicid`);
-
+ALTER TABLE `Doctors` ADD FOREIGN KEY (`clinicid`) REFERENCES `Clinic` (`clinicId`);
 
 ALTER TABLE `DoctorRatings` ADD FOREIGN KEY (`doctorId`) REFERENCES `Doctors` (`doctorId`);
 
@@ -191,27 +159,9 @@ ALTER TABLE `DoctorRatings` ADD FOREIGN KEY (`clientId`) REFERENCES `Client` (`c
 
 ALTER TABLE `PatientsList` ADD FOREIGN KEY (`clinicId`) REFERENCES `Clinic` (`clinicId`);
 
-CREATE TABLE `Doctors_PatientsList` (
-  `Doctors_doctorId` integer,
-  `PatientsList_doctorId` integer,
-  PRIMARY KEY (`Doctors_doctorId`, `PatientsList_doctorId`)
-);
+ALTER TABLE `PatientsList` ADD FOREIGN KEY (`doctorId`) REFERENCES `Doctors` (`doctorId`);
 
-ALTER TABLE `Doctors_PatientsList` ADD FOREIGN KEY (`Doctors_doctorId`) REFERENCES `Doctors` (`doctorId`);
-
-ALTER TABLE `Doctors_PatientsList` ADD FOREIGN KEY (`PatientsList_doctorId`) REFERENCES `PatientsList` (`doctorId`);
-
-
-CREATE TABLE `Client_PatientsList` (
-  `Client_clientID` integer,
-  `PatientsList_clientId` integer,
-  PRIMARY KEY (`Client_clientID`, `PatientsList_clientId`)
-);
-
-ALTER TABLE `Client_PatientsList` ADD FOREIGN KEY (`Client_clientID`) REFERENCES `Client` (`clientID`);
-
-ALTER TABLE `Client_PatientsList` ADD FOREIGN KEY (`PatientsList_clientId`) REFERENCES `PatientsList` (`clientId`);
-
+ALTER TABLE `PatientsList` ADD FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`);
 
 ALTER TABLE `TestResultList` ADD FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`);
 
@@ -221,29 +171,20 @@ ALTER TABLE `TestResultList` ADD FOREIGN KEY (`clinicId`) REFERENCES `Clinic` (`
 
 ALTER TABLE `TestResultList` ADD FOREIGN KEY (`testid`) REFERENCES `Test` (`testId`);
 
-ALTER TABLE `DoctorMessages` ADD FOREIGN KEY (`conversationId`) REFERENCES `DoctorConversation` (`doctorConversationId`);
+ALTER TABLE `ClientClinicMessages` ADD FOREIGN KEY (`clientClinicConversationId`) REFERENCES `Client_ClinicConversation` (`clientClinicConversationId`);
 
-ALTER TABLE `Doctors` ADD FOREIGN KEY (`doctorId`) REFERENCES `DoctorMessages` (`senderId`);
+ALTER TABLE `SymptomReport` ADD FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`);
 
-ALTER TABLE `ClientClinicMessages` ADD FOREIGN KEY (`conversationId`) REFERENCES `ClinicConversation` (`clinicConversationId`);
+ALTER TABLE `Clinic_Doctors` ADD FOREIGN KEY (`Clinic_clinicId`) REFERENCES `Clinic` (`clinicId`);
 
-ALTER TABLE `Client` ADD FOREIGN KEY (`clientID`) REFERENCES `ClientClinicMessages` (`senderId`);
-
-CREATE TABLE `Client_ClinicConversation` (
-  `Client_clientID` integer,
-  `ClinicConversation_clientId` integer,
-  PRIMARY KEY (`Client_clientID`, `ClinicConversation_clientId`)
-);
+ALTER TABLE `Clinic_Doctors` ADD FOREIGN KEY (`Doctors_clinicid`) REFERENCES `Doctors` (`clinicid`);
 
 ALTER TABLE `Client_ClinicConversation` ADD FOREIGN KEY (`Client_clientID`) REFERENCES `Client` (`clientID`);
 
-ALTER TABLE `Client_ClinicConversation` ADD FOREIGN KEY (`ClinicConversation_clientId`) REFERENCES `ClinicConversation` (`clientId`);
+ALTER TABLE `Client_ClinicConversation` ADD FOREIGN KEY (`Clinic_clinicID`) REFERENCES `Clinic` (`clinicId`);
 
+ALTER TABLE `Client_DoctorConversation` ADD FOREIGN KEY (`Doctor_doctorID`) REFERENCES `Doctors` (`doctorId`);
 
-ALTER TABLE `ClinicConversation` ADD FOREIGN KEY (`clinicid`) REFERENCES `Clinic` (`clinicId`);
+ALTER TABLE `Client_DoctorConversation` ADD FOREIGN KEY (`Client_clientID`) REFERENCES `Client` (`clientID`);
 
-ALTER TABLE `ClinicMessages` ADD FOREIGN KEY (`conversationId`) REFERENCES `ClinicConversation` (`clinicConversationId`);
-
-ALTER TABLE `Clinic` ADD FOREIGN KEY (`clinicId`) REFERENCES `ClinicMessages` (`senderId`);
-
-ALTER TABLE `SymptomReport` ADD FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`);
+ALTER TABLE `ClientDoctorMessages` ADD FOREIGN KEY (`clientDoctorConversationId`) REFERENCES `Client_DoctorConversation` (`clientDoctoraConversationId`);
