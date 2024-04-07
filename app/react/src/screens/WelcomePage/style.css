@@ -16,22 +16,6 @@
   width: 100%;
 }
 
-/* Adjustments for smaller screens */
-@media screen and (max-width: 1200px) {
-  .welcome-page .div-2 {
-    height: 850px; /* Adjust height for smaller screens */
-    width: 100%; /* Make width 100% for smaller screens */
-  }
-}
-
-/* Adjustments for even smaller screens */
-@media screen and (max-width: 768px) {
-  .welcome-page .div-2 {
-    height: 700px; /* Adjust height for even smaller screens */
-    width: 100%; /* Make width 100% for even smaller screens */
-  }
-}
-
 
 
 /*nav bar style*/
@@ -66,31 +50,6 @@
   padding: 10px 20px; /* Add padding to buttons */
   margin-left: 40px; /* Adjust spacing between buttons */
 }
-
-/* Adjustments for smaller screens */
-@media screen and (max-width: 768px) {
-  .nav-bar {
-    flex-direction: row; /* Stack items vertically on smaller screens */
-    align-items: flex-start; /* Align items to the start */
-    padding: 0px; /* Adjust padding */
-  }
-
-  .buttons-container {
-    margin-top: 10px; /* Adjust margin between logo and buttons */
-    width: 50%;
-    position: absolute;
-    left: 85%;
-    top: 5%;
-    transform: translate(-50%, -10%);
-  }
-
-  .support,
-  .about-us {
-    margin-left: 10; /* Remove margin between buttons */
-    margin-top: 10px; /* Adjust margin between buttons */
-  }
-}
-
 
 
 
@@ -151,50 +110,7 @@
 }
 
 
-
-/* Adjustments for smaller screens */
-@media screen and (max-width: 1200px) {
-  .overlap-group{
-    transform: translateY(+10%);
-  }
-
-  .overlap-group .text-wrapper {
-    font-size: 12vw; /* Adjust font size for smaller screens */}
-
-  .overlap-group .slogan {
-    font-size: 35px; /* Adjust font size for smaller screens */
-    line-height: 45px; /* Adjust line height for smaller screens */
-  }
-
-  .overlap-group .description {
-    font-size: 25px; /* Adjust font size for smaller screens */
-    line-height: 33px; /* Adjust line height for smaller screens */
-    top: 8%; /* Further adjust position for even smaller screens */
-  }
-}
-
-/* Additional adjustments for even smaller screens */
-@media screen and (max-width: 768px) {
-  .overlap-group{
-    transform: translateY(+27%);
-  }
-  .overlap-group .slogan {
-    font-size: 30px; /* Further adjust font size for even smaller screens */
-    line-height: 40px; /* Further adjust line height for even smaller screens */
-  }
-  .overlap-group .text-wrapper {
-    font-size: 10vw; /* Further adjust font size for even smaller screens */
-  
-  }
-
-  .overlap-group .description {
-    font-size: 20px; /* Further adjust font size for even smaller screens */
-    top: 3%; /* Further adjust position for even smaller screens */
-    transform: translateY(+70%); /* Center vertically for even smaller screens */
-  }
-}
-
-
+/*chose your role button style*/
 
 .welcome-page .buttons {
   align-items: center;
@@ -202,8 +118,8 @@
   gap: 3.9375rem;
   height: 61px;
   left: 152px;
-  position: absolute;
-  top: 670px;
+  position: relative;
+  top: 550px;
   width: 756px;
 }
 
@@ -257,4 +173,91 @@
 
 .welcome-page .bottom-bar-3 {
   color: #2a5f71 !important;
+}
+
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 1200px) {
+  .welcome-page .div-2 {
+    height: 850px; /* Adjust height for smaller screens */
+    width: 100%; /* Make width 100% for smaller screens */
+  }
+
+  .overlap-group{
+    transform: translateY(+13%);
+  }
+
+  .overlap-group .text-wrapper {
+    font-size: 12vw; /* Adjust font size for smaller screens */}
+
+  .overlap-group .slogan {
+    font-size: 35px; /* Adjust font size for smaller screens */
+    line-height: 45px; /* Adjust line height for smaller screens */
+  }
+
+  .overlap-group .description {
+    font-size: 25px; /* Adjust font size for smaller screens */
+    line-height: 33px; /* Adjust line height for smaller screens */
+    top: 8%; /* Further adjust position for even smaller screens */
+  }
+
+   .buttons{
+    transform: translate(-10%, -20%);
+   }
+}
+
+/* Adjustments for even smaller screens */
+@media screen and (max-width: 768px) {
+  .welcome-page .div-2 {
+    height: 700px; /* Adjust height for even smaller screens */
+    width: 100%; /* Make width 100% for even smaller screens */
+  }
+
+  .nav-bar {
+    flex-direction: row; /* Stack items vertically on smaller screens */
+    align-items: flex-start; /* Align items to the start */
+    padding: 0px; /* Adjust padding */
+  }
+
+  .buttons-container {
+    margin-top: 10px; /* Adjust margin between logo and buttons */
+    width: 50%;
+    position: absolute;
+    left: 85%;
+    top: 5%;
+    transform: translate(-43%, -10%);
+  }
+
+  .support,
+  .about-us {
+    margin-left: 10; /* Remove margin between buttons */
+    margin-top: 10px; /* Adjust margin between buttons */
+  }
+
+  .overlap-group{
+    transform: translateY(+20%);
+  }
+  .overlap-group .slogan {
+    font-size: 30px; /* Further adjust font size for even smaller screens */
+    line-height: 40px; /* Further adjust line height for even smaller screens */
+    transform: translateY(+50%);
+  }
+  .overlap-group .text-wrapper {
+    font-size: 11vw; /* Further adjust font size for even smaller screens */
+  
+  }
+
+  .overlap-group .description {
+    font-size: 20px; /* Further adjust font size for even smaller screens */
+    top: 3%; /* Further adjust position for even smaller screens */
+    transform: translateY(+70%); /* Center vertically for even smaller screens */
+  }
+
+  .buttons{
+    transform: translate(-20%, -130%);
+    gap: 1rem !important;
+    border-radius: 30px;
+   }
+
+
 }

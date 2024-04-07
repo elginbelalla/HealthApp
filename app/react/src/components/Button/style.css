@@ -26,7 +26,7 @@
 /* Adjustments for smaller screens */
 @media screen and (max-width: 768px) {
   .button {
-    padding: 10px 20px; /* Adjust padding for smaller screens */
+    padding: 5px 10px; /* Adjust padding for smaller screens */
     gap: 10px; /* Adjust gap between buttons for smaller screens */
     margin-left: 5px; /* Move button slightly to the left */
   }

@@ -1,0 +1,110 @@
+.userIcon {
+  height: 3.75rem;
+  width: 3.75rem;
+  position: relative;
+  border-radius: var(--br-11xl);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.starHalfIcon,
+.starOutlineIcon,
+.starPurple500Icon,
+.starPurple500Icon1,
+.starPurple500Icon2 {
+  height: 2.006rem;
+  width: 2.006rem;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 2rem;
+}
+.dropdownbox {
+  align-self: stretch;
+  height: 2.006rem;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: var(--gap-7xs-3);
+}
+.dropdownbox,
+.dropdownboxWrapper,
+.userParent {
+  display: flex;
+  align-items: flex-start;
+}
+.dropdownboxWrapper {
+  width: 11.363rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-sm-6) 0 0;
+  box-sizing: border-box;
+}
+.userParent {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.foe,
+.sampleReview {
+  position: relative;
+  letter-spacing: 0.02em;
+}
+.foe {
+  width: 3.5rem;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 3.5rem;
+}
+.sampleReview {
+  align-self: stretch;
+  font-size: var(--font-size-2xl-4);
+  text-align: left;
+  display: -webkit-inline-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+.firstteamreview,
+.foeParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.foeParent {
+  align-self: stretch;
+  gap: var(--gap-base-1);
+}
+.firstteamreview {
+  width: 27.625rem;
+  border-radius: 5.35px;
+  background-color: var(--neutral-white);
+  border: 1.3px solid var(--color-whitesmoke);
+  box-sizing: border-box;
+  padding: var(--padding-15xl-4) var(--padding-7xl) var(--padding-12xl-8)
+    var(--padding-12xl);
+  gap: var(--gap-14xl-9);
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-10xl-4);
+  color: var(--color-darkslategray-200);
+  font-family: var(--font-manrope);
+}
+@media screen and (max-width: 450px) {
+  .userParent {
+    flex-wrap: wrap;
+  }
+  .foe {
+    font-size: var(--font-size-5xl);
+  }
+  .sampleReview {
+    font-size: var(--font-size-mid);
+  }
+  .firstteamreview {
+    gap: 1.063rem 2.119rem;
+    padding-top: var(--padding-3xl);
+    padding-bottom: var(--padding-2xl);
+    box-sizing: border-box;
+  }
+}

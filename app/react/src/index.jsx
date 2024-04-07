@@ -5,8 +5,7 @@ import { ProfileInfo } from "./screens/ProfileInfo";
 import { PersonalHistory } from "./screens/PersonalHistory";
 /*import { FamilyHistory } from "./screens/FamilyHistory";
 */
-
-
+import LeaveReviewDoc from './screens/ReviewPage/LeaveReviewDoc';
 
 const App = () => {
   return (
@@ -14,7 +13,7 @@ const App = () => {
       <WelcomePage />
       <ProfileInfo />
       <PersonalHistory/>
-    
+      <LeaveReviewDoc/>
     </div>
   );
 };

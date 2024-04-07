@@ -37,15 +37,10 @@
 
 /* Adjustments for smaller screens */
 @media screen and (max-width: 768px) {
-  .bottom-bar .items {
+  .bottom-bar .items, .element-all-rights {
     flex-direction: column; /* Stack items vertically on smaller screens */
     align-items: center; /* Align items to the center */
+    font-size: 10px;
   }
 
- 
-  .bottom-bar .div,
-.bottom-bar .element-all-rights {
-  font-size: 10px;
-
-}
 }

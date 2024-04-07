@@ -1,0 +1,74 @@
+.aboutUs {
+  display: inline-block;
+  min-width: 4.313rem;
+}
+.aboutUs,
+.emergencyNum {
+  position: relative;
+}
+.privacyPolicy,
+.reviews,
+.termsOfUse {
+  position: relative;
+  display: inline-block;
+  min-width: 3.75rem;
+}
+.privacyPolicy,
+.termsOfUse {
+  min-width: 6.375rem;
+}
+.termsOfUse {
+  min-width: 6rem;
+}
+.items {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-20xl-8);
+  min-width: 52rem;
+  max-width: 100%;
+}
+.allRightsReserved {
+  width: 12.688rem;
+  position: relative;
+  text-align: right;
+  display: inline-block;
+}
+.aboutus,
+.bottombar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.bottombar {
+  flex: 1;
+  border-top: 1px solid var(--color-gray-100);
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: var(--padding-5xl) 0;
+  row-gap: 20px;
+}
+.aboutus {
+  width: 95.688rem;
+  justify-content: flex-end;
+  padding: 0 var(--padding-5xl);
+  text-align: left;
+  font-size: var(--roboto-regular-16-size);
+  color: var(--color-darkslateblue);
+  font-family: var(--font-dm-sans);
+}
+@media screen and (max-width: 1225px) {
+  .items {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 850px) {
+  .items {
+    flex-wrap: wrap;
+    gap: 2.488rem 1.25rem;
+  }
+}
