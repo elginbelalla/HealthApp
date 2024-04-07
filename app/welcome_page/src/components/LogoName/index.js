@@ -1,1 +1,0 @@
-export { LogoName } from "./LogoName";

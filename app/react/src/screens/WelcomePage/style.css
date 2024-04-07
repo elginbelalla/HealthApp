@@ -1,0 +1,260 @@
+.welcome-page {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+/*body css*/
+.welcome-page .div-2 {
+  background-image: url(../../../static/img/welcomepage.jpeg);
+  background-position: center;
+  background-size: cover;
+  height: 877px; 
+  position: relative;
+  width: 100%;
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 1200px) {
+  .welcome-page .div-2 {
+    height: 850px; /* Adjust height for smaller screens */
+    width: 100%; /* Make width 100% for smaller screens */
+  }
+}
+
+/* Adjustments for even smaller screens */
+@media screen and (max-width: 768px) {
+  .welcome-page .div-2 {
+    height: 700px; /* Adjust height for even smaller screens */
+    width: 100%; /* Make width 100% for even smaller screens */
+  }
+}
+
+
+
+/*nav bar style*/
+
+.nav-bar {
+  height: 100px; /* Adjust height as needed */
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Align items at opposite ends */
+  align-items: center; /* Vertically center items */
+  padding: 0 20px; /* Add padding to the sides */
+}
+
+.logo {
+  height: 140px; /* Adjust height as needed */
+  width: auto; /* Allow width to adjust based on content */
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center; /* Align buttons vertically center */
+}
+
+.support,
+.about-us {
+  background-color: #ffffff;
+  border: 1px solid #3d77c7; /* Adjust border color */
+  color: #2a5f71;
+  font-family: "Clash Display-Regular", Helvetica;
+  font-weight: 200;
+  text-align: center;
+  padding: 10px 20px; /* Add padding to buttons */
+  margin-left: 40px; /* Adjust spacing between buttons */
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    flex-direction: row; /* Stack items vertically on smaller screens */
+    align-items: flex-start; /* Align items to the start */
+    padding: 0px; /* Adjust padding */
+  }
+
+  .buttons-container {
+    margin-top: 10px; /* Adjust margin between logo and buttons */
+    width: 50%;
+    position: absolute;
+    left: 85%;
+    top: 5%;
+    transform: translate(-50%, -10%);
+  }
+
+  .support,
+  .about-us {
+    margin-left: 10; /* Remove margin between buttons */
+    margin-top: 10px; /* Adjust margin between buttons */
+  }
+}
+
+
+
+
+/*body text style*/
+
+.overlap-group {
+  height: 501px; /* Adjust height to match parent */
+  position: absolute;
+  top: 120px;
+  left: 40px;
+  width: 100%; /* Change to percentage for responsiveness */
+  max-width: 1077px; /* Set a maximum width */
+  margin: 0 auto; /* Center the element horizontally */
+}
+
+.overlap-group .text-wrapper {
+  color: #ffffff;
+  font-family: "Merriweather Sans", Helvetica;
+  font-size: 12vw; /* Adjust font size based on viewport width */
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  width: 100%; /* Set width to 100% */
+}
+
+
+
+.overlap-group .slogan {
+  color: #ffffff;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 50px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 65px;
+  position: relative;
+  top: 0;
+  width: 100%; /* Change to percentage for responsiveness */
+  text-align: left; /* Center the text horizontally */
+}
+
+.overlap-group .description {
+  color: #ffffff;
+  font-family: "Tiro Telugu", Helvetica;
+  font-size: 27px;
+  font-weight: 390;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  top: 10%; /* Adjust position relative to parent */
+  transform: translateY(-10%); /* Center vertically */
+  width: 100%; /* Change to percentage for responsiveness */
+  text-align: left; /* Center the text horizontally */
+}
+
+
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 1200px) {
+  .overlap-group{
+    transform: translateY(+10%);
+  }
+
+  .overlap-group .text-wrapper {
+    font-size: 12vw; /* Adjust font size for smaller screens */}
+
+  .overlap-group .slogan {
+    font-size: 35px; /* Adjust font size for smaller screens */
+    line-height: 45px; /* Adjust line height for smaller screens */
+  }
+
+  .overlap-group .description {
+    font-size: 25px; /* Adjust font size for smaller screens */
+    line-height: 33px; /* Adjust line height for smaller screens */
+    top: 8%; /* Further adjust position for even smaller screens */
+  }
+}
+
+/* Additional adjustments for even smaller screens */
+@media screen and (max-width: 768px) {
+  .overlap-group{
+    transform: translateY(+27%);
+  }
+  .overlap-group .slogan {
+    font-size: 30px; /* Further adjust font size for even smaller screens */
+    line-height: 40px; /* Further adjust line height for even smaller screens */
+  }
+  .overlap-group .text-wrapper {
+    font-size: 10vw; /* Further adjust font size for even smaller screens */
+  
+  }
+
+  .overlap-group .description {
+    font-size: 20px; /* Further adjust font size for even smaller screens */
+    top: 3%; /* Further adjust position for even smaller screens */
+    transform: translateY(+70%); /* Center vertically for even smaller screens */
+  }
+}
+
+
+
+.welcome-page .buttons {
+  align-items: center;
+  display: flex;
+  gap: 3.9375rem;
+  height: 61px;
+  left: 152px;
+  position: absolute;
+  top: 670px;
+  width: 756px;
+}
+
+.welcome-page .design-component-instance-node {
+  align-items: center !important;
+  background-color: #ffffff !important;
+  border: unset !important;
+  border-color: unset !important;
+  display: flex !important;
+  height: 61.24px !important;
+  justify-content: center !important;
+  width: 216.48px !important;
+}
+
+.welcome-page .guest {
+  color: #2a5f71 !important;
+  font-family: "Clash Display-Regular", Helvetica !important;
+  font-weight: 400 !important;
+  text-align: center !important;
+}
+
+.welcome-page .button-2 {
+  color: #2a5f71 !important;
+  font-family: "Clash Display-Regular", Helvetica !important;
+  font-weight: 400 !important;
+}
+
+.welcome-page .log-in {
+  align-items: center !important;
+  background-color: #ffffff !important;
+  border: unset !important;
+  border-color: unset !important;
+  display: flex !important;
+  height: 61.24px !important;
+  justify-content: center !important;
+  margin-right: -18.95px !important;
+  width: 216.48px !important;
+}
+
+.welcome-page .bottom-bar-instance {
+  border-color: #fcfdff !important;
+  left: 26px !important;
+  position: absolute !important;
+  top: 808px !important;
+  width: 100%;
+}
+
+.welcome-page .bottom-bar-2 {
+  justify-content: space-between !important;
+}
+
+.welcome-page .bottom-bar-3 {
+  color: #2a5f71 !important;
+}

@@ -1,0 +1,1 @@
+export { PersonalHistory } from "./PersonalHistory";

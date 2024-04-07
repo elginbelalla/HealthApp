@@ -1,0 +1,255 @@
+.profile {
+  align-items: flex-start;
+  background-color: #ffffff;
+  display: flex;
+  gap: 420px;
+  height: 1117px;
+  min-width: 1728px;
+  padding: 44px 44px 44px 88px;
+  position: relative;
+  width: 100%;
+}
+
+.profile .logo {
+  height: 136px;
+  object-fit: cover;
+  position: relative;
+  width: 201.88px;
+}
+
+.profile .contents {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 8px 0px 0px;
+  position: relative;
+  width: 456px;
+}
+
+.profile .progress-bar {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+  width: 100%;
+}
+
+.profile .active-indicator {
+  background-color: #007aff;
+  border-radius: 6px;
+  height: 12px;
+  position: relative;
+  width: 12px;
+}
+
+.profile .img {
+  height: 1px;
+  object-fit: cover;
+  position: relative;
+  width: 40px;
+}
+
+.profile .default-indicator {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #b8b8c3;
+  border-radius: 6px;
+  height: 12px;
+  position: relative;
+  width: 12px;
+}
+
+.profile .history {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  width: 100%;
+}
+
+.profile .title {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.profile .large-title {
+  align-self: stretch;
+  color: #2d616e;
+  font-family: "Poppins", Helvetica;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 36px;
+  margin-top: -1px;
+  position: relative;
+}
+
+.profile .body-text {
+  align-self: stretch;
+  color: #575e6e;
+  font-family: "Roboto", Helvetica;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 22px;
+  position: relative;
+}
+
+.profile .body {
+  align-items: flex-start;
+  align-self: stretch;
+  border: 1px solid;
+  border-color: #e2e4e5;
+  border-radius: 8px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 48px;
+  padding: 32px;
+  position: relative;
+  width: 100%;
+}
+
+.profile .div {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  width: 100%;
+}
+
+.profile .subhead {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+  width: 100%;
+}
+
+.profile .text-wrapper {
+  align-self: stretch;
+  color: #2d616e;
+  font-family: "Poppins", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: -1px;
+  position: relative;
+}
+
+.profile .p {
+  align-self: stretch;
+  color: #575f6e;
+  font-family: "Poppins", Helvetica;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: relative;
+}
+
+.profile .input {
+  align-self: stretch;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #007aff;
+  border-radius: 30px;
+  height: 86px;
+  margin-right: -0.12px;
+  position: relative;
+  width: 100%;
+}
+
+.profile .rectangle-wrapper {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.profile .rectangle {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #007aff;
+  border-radius: 30px;
+  height: 86px;
+  position: relative;
+  width: 392px;
+}
+
+.profile .buttons {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 80px;
+  padding: 0px 60px;
+  position: relative;
+}
+
+.profile .label-wrapper {
+  all: unset;
+  align-items: center;
+  background-color: #52b2e2;
+  border: 1px solid;
+  border-color: #babfc1;
+  border-radius: 16px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 8px;
+  height: 48px;
+  justify-content: center;
+  padding: 0px 24px 0px 32px;
+  position: relative;
+  width: 127px;
+}
+
+.profile .label {
+  color: #ffffff;
+  flex: 1;
+  font-family: "Wix Madefor Text", Helvetica;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 24px;
+  position: relative;
+}
+
+.profile .label-2 {
+  color: #ffffff;
+  flex: 1;
+  font-family: "Wix Madefor Text", Helvetica;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 24px;
+  position: relative;
+  text-align: center;
+}
+
+.profile .exit-button {
+  height: 48px;
+  position: relative;
+  width: 48px;
+}
