@@ -1,1 +1,0 @@
-export { PersonalHistory } from "./PersonalHistory";

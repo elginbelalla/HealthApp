@@ -1,0 +1,343 @@
+.logoIcon {
+  height: 6.5rem;
+  width: 9.688rem;
+  position: relative;
+  object-fit: contain;
+}
+.activeIndicator {
+  height: 0.75rem;
+  width: 0.75rem;
+  position: relative;
+  border-radius: 50%;
+  background-color: #007aff;
+}
+
+.defaultLine {
+  width: 2.563rem;
+  height: 0.063rem;
+  position: relative;
+  border-top: 1px solid var(--color-silver-200);
+  box-sizing: border-box;
+}
+
+.defaultLineWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-8xs);
+}
+
+.defaultIndicator,
+.defaultLine1 {
+  position: relative;
+  box-sizing: border-box;
+}
+.defaultIndicator {
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-silver-200);
+}
+.defaultLine1 {
+  width: 2.563rem;
+  height: 0.063rem;
+  border-top: 1px solid var(--color-silver-200);
+}
+
+.defaultLineContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-8xs);
+}
+
+.defaultIndicator1 {
+  height: 0.75rem;
+  width: 0.75rem;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-silver-200);
+  box-sizing: border-box;
+}
+
+.progressBar,
+.progressBarWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+
+.progressBar {
+  flex: 1;
+  align-items: flex-end;
+  gap: var(--gap-5xs);
+}
+
+
+.progressBarWrapper {
+  align-self: stretch;
+  align-items: flex-start;
+  padding: 0 0 1.125rem;
+  box-sizing: border-box;
+}
+
+
+.largeTitle {
+  align-self: stretch;
+  position: relative;
+  line-height: 2.25rem;
+  font-size: 1.3rem;
+  padding: 0.3rem 0;
+}
+
+.largeTitleParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.4rem;
+  max-width: 80%;
+}
+
+
+.label {
+  position: relative;
+  line-height: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 800;
+  display: inline-block;
+  min-width: 4.438rem;
+}
+
+
+.previousbutton {
+  border-radius: var(--br-base);
+  background-color: var(--color-deepskyblue);
+  border: 1px solid var(--color-silver-100);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xs) var(--padding-4xl) var(--padding-xs)
+    var(--padding-12xl);
+  cursor: pointer;
+}
+
+.iconContainer .label1 {
+  flex: 1;
+  position: relative;
+  line-height: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 800;
+}
+
+.nextbutton,
+.previousbuttonParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.nextbutton {
+  width: 7.938rem;
+  border-radius: var(--br-base);
+  background-color: var(--color-deepskyblue);
+  border: 1px solid var(--color-silver-100);
+  box-sizing: border-box;
+  justify-content: flex-start;
+  padding: var(--padding-xs) var(--padding-4xl) var(--padding-xs)
+    var(--padding-12xl);
+  cursor: pointer;
+  text-align: center;
+}
+.previousbuttonParent {
+  flex: 1;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+
+
+.iconContainer,
+.profileInfo2Inner,
+.progressBarParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+
+.iconContainer {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-43xl) 0 var(--padding-41xl);
+  box-sizing: border-box;
+  font-size: var(--roboto-regular-16-size);
+  color: var(--neutral-white);
+  font-family: var(--font-wix-madefor-text);
+}
+
+.label1 {
+  flex: 1;
+  position: relative;
+  line-height: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 800;
+}
+
+
+.nextbutton,
+.previousNextButtonsLabel {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+
+.nextbutton {
+  width: 7.938rem;
+  border-radius: var(--br-base);
+  background-color: var(--color-deepskyblue);
+  border: 1px solid var(--color-silver-100);
+  box-sizing: border-box;
+  justify-content: flex-start;
+  padding: var(--padding-xs) var(--padding-4xl) var(--padding-xs)
+    var(--padding-12xl);
+  cursor: pointer;
+  text-align: center;
+}
+.previousNextButtonsLabel {
+  flex: 1;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+
+
+.contents,
+.previousNextButtonsLabelWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 80%;
+}
+
+
+.previousNextButtonsLabelWrapper {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-43xl) 0 3.75rem;
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+  font-family: var(--font-wix-madefor-text);
+}
+
+
+.contents {
+  flex-direction: column;
+  padding: 0 0 0;
+  gap: 0.6rem;
+}
+
+
+
+.exitbutton,
+.icon {
+  height: 2rem;
+  width: 2rem;
+}
+
+
+.icon {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+
+.exitbutton {
+  display: none;
+}
+
+
+.profileInfo {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--padding-25xl);
+  box-sizing: border-box;
+  letter-spacing: normal;
+  gap: 2.9;
+  text-align: left;
+  font-size: 2rem;
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-poppins);
+}
+
+
+
+
+@media screen and (max-width: 975px) {
+  .largeTitle {
+    font-size: 1.625rem;
+    line-height: 1.813rem;
+  }
+  .contents {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-3xl);
+    box-sizing: border-box;
+  }
+  .profileInfo {
+    flex-wrap: wrap;
+    padding-left: var(--padding-25xl);
+    padding-right: var(--padding-15xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .activeIndicator,
+  .defaultIndicator,
+  .defaultIndicator1 {
+    width: 100%;
+  }
+  .progressBar {
+    flex-wrap: wrap;
+  }
+  .largeTitle {
+    font-size: 1.188rem;
+    line-height: 1.375rem;
+  }
+  .largeTitleParent {
+    gap: 1rem 2rem;
+  }
+  .previousNextButtonsLabel {
+    flex-wrap: wrap;
+  }
+  .previousNextButtonsLabelWrapper {
+    padding-left: 1.875rem;
+    padding-right: var(--padding-12xl);
+    box-sizing: border-box;
+  }
+  .contents {
+    gap: 1.938rem 3.125rem;
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .profileInfo {
+    padding-left: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

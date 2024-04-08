@@ -1,0 +1,415 @@
+.name {
+  position: relative;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 3.269rem;
+  box-sizing: border-box;
+  padding-right: 0;
+}
+.nameInputContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-3xs) 0 var(--padding-2xs-4);
+}
+.xhesiBaze {
+  position: relative;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 6.513rem;
+  box-sizing: border-box;
+  padding-right: 0;
+}
+.inputxhbazegmailcom {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-3xs) 0 var(--padding-2xs-4);
+}
+.passwordInputContainer {
+  align-self: stretch;
+  height: 0.125rem;
+  position: relative;
+  backdrop-filter: blur(6px);
+  border-top: 2px solid var(--color-midnightblue-200);
+  box-sizing: border-box;
+}
+.labelEmail,
+.nameInputContainerParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.labelEmail {
+  gap: var(--gap-8xs-1);
+  color: var(--color-darkslategray-100);
+}
+.nameInputContainerParent {
+  padding: 0 var(--padding-7xs) 0 0;
+  gap: var(--gap-3xs-4);
+}
+.email {
+  position: relative;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 3.138rem;
+  box-sizing: border-box;
+  padding-right: 0;
+}
+.emailWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-3xs) 0 var(--padding-2xs-4);
+}
+.xhbazegmailcom {
+  position: relative;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  white-space: nowrap;
+  padding-right: 0;
+}
+.xhbazegmailcomWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-3xs) 0 var(--padding-2xs-4);
+}
+.frameChild {
+  align-self: stretch;
+  height: 0.125rem;
+  position: relative;
+  backdrop-filter: blur(6px);
+  border-top: 2px solid var(--color-midnightblue-200);
+  box-sizing: border-box;
+}
+.frameContainer,
+.frameDiv {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameDiv {
+  gap: var(--gap-8xs-2);
+  color: var(--color-darkslategray-100);
+}
+.frameContainer {
+  padding: 0 var(--padding-7xs) 0 0;
+  gap: var(--gap-3xs-4);
+}
+.password {
+  position: relative;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 5.644rem;
+}
+.inputpassword {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-3xs) 0 var(--padding-2xs-4);
+}
+.newMoonIcon,
+.newMoonIcon1,
+.newMoonIcon2 {
+  height: 0.594rem;
+  width: 0.844rem;
+  position: relative;
+  object-fit: cover;
+  min-height: 0.625rem;
+}
+.newMoonIcon2 {
+  width: 0.781rem;
+}
+.newMoonIcon3,
+.newMoonIcon4,
+.newMoonIcon5,
+.newMoonIcon6,
+.newMoonIcon7,
+.newMoonIcon8 {
+  height: 0.594rem;
+  width: 0.844rem;
+  position: relative;
+  object-fit: cover;
+  min-height: 0.625rem;
+}
+.newMoonIcon6,
+.newMoonIcon7,
+.newMoonIcon8 {
+  width: 0.781rem;
+}
+.newMoonIcon7,
+.newMoonIcon8 {
+  width: 0.844rem;
+}
+.frameWrapper1,
+.newMoonParent {
+  display: flex;
+  align-items: flex-start;
+}
+.newMoonParent {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: var(--gap-6xs-2);
+  flex-shrink: 0;
+  debug_commit: f6aba90;
+}
+.frameWrapper1 {
+  width: 10.575rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-9xs-2);
+  box-sizing: border-box;
+}
+.eyeIcon {
+  height: 1.119rem;
+  width: 3.763rem;
+  position: relative;
+  object-fit: cover;
+  flex-shrink: 0;
+  debug_commit: f6aba90;
+}
+.frameParent1 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+.frameItem,
+.frameWrapper {
+  align-self: stretch;
+  box-sizing: border-box;
+}
+.frameWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-2xs-4);
+  max-width: 100%;
+}
+.frameItem {
+  height: 0.125rem;
+  position: relative;
+  backdrop-filter: blur(6px);
+  border-top: 2px solid var(--color-midnightblue-200);
+}
+.frameGroup,
+.inputpasswordParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xs-9);
+  max-width: 100%;
+}
+.frameGroup {
+  height: 14.375rem;
+  padding: 0 0 var(--padding-67xl-2);
+  box-sizing: border-box;
+  gap: var(--gap-13xl-6);
+}
+.phoneNumber {
+  position: relative;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  padding-right: 0;
+}
+.phoneNumberWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-3xs) 0 var(--padding-2xs-4);
+}
+.frameInner {
+  position: absolute;
+  top: 1.375rem;
+  left: 0;
+  backdrop-filter: blur(6px);
+  border-top: 2px solid var(--color-midnightblue-200);
+  box-sizing: border-box;
+  width: 31.863rem;
+  height: 0.125rem;
+}
+.div {
+  position: absolute;
+  top: 0;
+  left: 0.65rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  display: inline-block;
+  width: 9.25rem;
+  height: 1.381rem;
+  white-space: nowrap;
+}
+.lineParent {
+  align-self: stretch;
+  height: 1.5rem;
+  position: relative;
+  color: var(--color-darkslategray-100);
+}
+.frameParent2 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-7xs) var(--padding-4xs-5) 0;
+  gap: var(--gap-5xl-2);
+  flex-shrink: 0;
+}
+.choseYourRole {
+  flex: 1;
+  position: relative;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+.caretupInstance {
+  width: 12.65rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xs) 0 var(--padding-smi-4);
+  box-sizing: border-box;
+}
+.defaultSelectionFormselect {
+  align-self: stretch;
+  font-family: var(--roboto-regular-16);
+  font-size: var(--roboto-regular-16-size);
+  color: var(--grey-grey-45);
+}
+.firstSelection {
+  flex: 1;
+  position: relative;
+  letter-spacing: 0.01em;
+  line-height: 1.25rem;
+}
+.selectionItem {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  background-color: var(--neutral-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-3xs) var(--padding-base);
+}
+.firstSelection1 {
+  flex: 1;
+  position: relative;
+  letter-spacing: 0.01em;
+  line-height: 1.25rem;
+}
+.selectionItem1 {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  background-color: var(--neutral-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-3xs) var(--padding-base);
+}
+.firstSelection2 {
+  flex: 1;
+  position: relative;
+  letter-spacing: 0.01em;
+  line-height: 1.25rem;
+}
+.lists,
+.selectionItem2 {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+}
+.selectionItem2 {
+  border-radius: var(--br-5xs);
+  background-color: var(--neutral-white);
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-3xs) var(--padding-base);
+}
+.lists {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 var(--padding-9xs);
+  gap: var(--gap-9xs);
+}
+.selectionList {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  background-color: var(--neutral-white);
+  border: 1px solid var(--grey-grey-45);
+  padding: var(--padding-5xs) 0;
+}
+.caretupInstanceParent,
+.dropDownBox,
+.frameParent,
+.selectionList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.dropDownBox {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+  gap: var(--gap-5xs);
+  color: var(--grey-grey-10);
+  font-family: var(--roboto-regular-16);
+}
+.caretupInstanceParent,
+.frameParent {
+  box-sizing: border-box;
+}
+.caretupInstanceParent {
+  margin-left: -0.125rem;
+  width: 15rem;
+  padding: 0 var(--padding-xl) 0 0;
+  gap: var(--gap-5xl);
+  flex-shrink: 0;
+}
+.frameParent {
+  position: absolute;
+  top: 8.25rem;
+  left: 6.125rem;
+  width: 32.125rem;
+  height: 40.5rem;
+  padding: var(--padding-122xl-8) 0 var(--padding-164xl-9);
+  gap: var(--gap-5xl-1);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--roboto-regular-16-size);
+  color: var(--color-midnightblue-200);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 450px) {
+  .frameParent1 {
+    flex-wrap: wrap;
+  }
+  .frameGroup,
+  .frameParent {
+    height: auto;
+  }
+}

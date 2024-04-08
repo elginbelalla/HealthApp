@@ -1,0 +1,28 @@
+.alreadyHaveAn,
+.signIn {
+  position: relative;
+  letter-spacing: 0.1em;
+  line-height: 1.2rem;
+  font-weight: 500;
+}
+.signIn {
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: -5rem;
+  color: var(--color-midnightblue-100);
+  display: inline-block;
+  min-width: 4rem;
+  cursor: pointer;
+}
+.signInMessage {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  text-align: left;
+  font-size: var(--roboto-regular-16-size);
+  color: var(--color-midnightblue-200);
+  font-family: var(--font-inter);
+}

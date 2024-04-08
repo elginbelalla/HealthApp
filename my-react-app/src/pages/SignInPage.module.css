@@ -1,0 +1,176 @@
+.instanceParent {
+  align-self: stretch;
+  height: 48.75rem;
+  position: relative;
+  max-width: 100%;
+}
+.component1Child {
+  height: 4.063rem;
+  width: 17.5rem;
+  position: relative;
+  border-radius: var(--br-base);
+  background-color: var(--color-deepskyblue);
+  display: none;
+}
+.continue {
+  width: 6.856rem;
+  position: relative;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  flex-shrink: 0;
+  min-width: 6.856rem;
+  z-index: 1;
+}
+.component1,
+.component1Wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.component1 {
+  flex: 1;
+  border-radius: var(--br-base);
+  background-color: var(--color-deepskyblue);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  padding: var(--padding-lg-8) var(--padding-xl) var(--padding-2xl-2);
+  cursor: pointer;
+}
+.component1Wrapper {
+  align-self: stretch;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-13xl);
+}
+.alreadyHaveAn,
+.signIn {
+  position: relative;
+  letter-spacing: 0.1em;
+  line-height: 1.2rem;
+  font-weight: 500;
+}
+.signIn {
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: -5.562rem;
+  color: var(--color-midnightblue-100);
+  display: inline-block;
+  min-width: 4.438rem;
+  white-space: nowrap;
+}
+.frameGroup,
+.signInMessage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.signInMessage {
+  flex-direction: row;
+  padding: 0 var(--padding-2xl) 0 0;
+  position: relative;
+  text-align: left;
+  font-size: var(--roboto-regular-16-size);
+  color: var(--color-midnightblue-200);
+  font-family: var(--font-inter);
+}
+.frameGroup {
+  width: 19.5rem;
+  flex-direction: column;
+  gap: var(--gap-12xl);
+}
+.frameParent,
+.frameWrapper,
+.signinpageInner {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.frameWrapper {
+  width: 38.75rem;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+.frameParent,
+.signinpageInner {
+  flex-direction: column;
+}
+.frameParent {
+  align-self: stretch;
+  justify-content: flex-start;
+  gap: var(--gap-124xl);
+}
+.signinpageInner {
+  width: 44.375rem;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-13xl);
+  box-sizing: border-box;
+  min-width: 44.375rem;
+}
+.signinpage,
+.signinpageChild {
+  height: 69.813rem;
+  position: relative;
+  overflow: hidden;
+}
+.signinpageChild {
+  flex: 1;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 36.125rem;
+}
+.signinpage {
+  width: 100%;
+  background-color: var(--neutral-white);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 8.063rem;
+  letter-spacing: normal;
+  text-align: center;
+  font-size: var(--font-size-xl);
+  color: var(--neutral-white);
+  font-family: var(--font-ubuntu);
+}
+@media screen and (max-width: 1350px) {
+  .signinpageInner {
+    flex: 1;
+  }
+  .signinpage {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1125px) {
+  .signinpage {
+    gap: 8.063rem 4rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .frameParent {
+    gap: 4.438rem 8.938rem;
+  }
+  .signinpageChild,
+  .signinpageInner {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .instanceParent {
+    height: auto;
+    min-height: 780;
+  }
+  .continue {
+    font-size: var(--roboto-regular-16-size);
+  }
+  .frameGroup {
+    gap: 0.938rem 1.938rem;
+  }
+  .frameParent {
+    gap: 2.25rem 8.938rem;
+  }
+  .signinpage {
+    gap: 8.063rem 2rem;
+  }
+}

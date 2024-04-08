@@ -1,1 +1,0 @@
-export { FamilyHistory } from "./FamilyHistory";

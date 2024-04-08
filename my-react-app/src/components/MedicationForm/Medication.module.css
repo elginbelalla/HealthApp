@@ -1,0 +1,43 @@
+.listAllYour,
+.previousMedication {
+  align-self: stretch;
+  position: relative;
+}
+.previousMedication {
+  margin: 0;
+  font-size: inherit;
+  line-height: 1.5rem;
+  font-weight: 600;
+  font-family: inherit;
+}
+.listAllYour {
+  font-size: var(--font-size-xs);
+  line-height: 1rem;
+  font-weight: 300;
+  color: var(--color-dimgray);
+}
+.previousMedicationParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-11xs);
+}
+.inputFormgroup {
+  width: 24.5rem;
+  align-self: stretch;
+  height: 5.375rem;
+}
+.medication {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-mini);
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-poppins);
+}

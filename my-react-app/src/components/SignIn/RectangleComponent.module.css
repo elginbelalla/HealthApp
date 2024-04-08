@@ -1,0 +1,39 @@
+.signIn {
+  margin: 0;
+  height: 4.563rem;
+  width: 13.563rem;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.signInWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44.375rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-19xl) var(--padding-211xl) var(--padding-15xl);
+  box-sizing: border-box;
+  max-width: 100%;
+  z-index: 1;
+  text-align: center;
+  font-size: var(--font-size-41xl);
+  color: var(--color-skyblue);
+  font-family: var(--font-ubuntu);
+}
+@media screen and (max-width: 800px) {
+  .signIn {
+    font-size: var(--font-size-29xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .signIn {
+    font-size: var(--font-size-17xl);
+  }
+}

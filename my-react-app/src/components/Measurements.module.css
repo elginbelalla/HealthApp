@@ -1,0 +1,89 @@
+.fieldLabel {
+  width: 24.5rem;
+  position: relative;
+  line-height: 1.25rem;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+
+
+
+
+.fieldLabel1,
+.line {
+  align-self: stretch;
+  position: relative;
+}
+
+
+.line {
+  height: 0.063rem;
+  border-top: 1px solid var(--color-gainsboro);
+  box-sizing: border-box;
+}
+
+
+.fieldLabel1 {
+  line-height: 1.25rem;
+}
+
+
+.contents {
+  border: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 1.875rem;
+  max-width: 100%;
+  
+}
+
+
+.fieldLabelParent {
+  align-self: stretch;
+  gap: 0.3rem;
+}
+
+
+
+.fieldLabelParent,
+.lineParent,
+.measurements {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+
+.lineParent {
+  width: 24.5rem;
+  gap: var(--gap-base);
+}
+
+.contents input {
+  font-size: 10px; /* Adjust the font size as needed */
+}
+
+
+.measurements {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--color-silver-200);
+  box-sizing: border-box;
+  padding: 0.7rem 0.8rem;
+  gap: 0.4rem;
+  text-align: left;
+  font-size: 0.7rem;
+  width: 100%;
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-poppins);
+}
+
+
+@media screen and (max-width: 450px) {
+  .measurements {
+    gap: 1.375rem 2.813rem;
+  }
+}

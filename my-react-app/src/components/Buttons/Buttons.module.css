@@ -1,0 +1,101 @@
+.guest1 {
+  
+  position: relative;
+  font-size: var(--font-size-8xl-2-1);
+  font-family: var(--font-ubuntu);
+  color: var(--color-darkslategray);
+  text-align: left;
+  display: inline-block;
+  min-width: 2.063rem;
+  font-weight: 200;
+}
+
+
+.guest {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-sm-6-1) var(--padding-50xl-7-1);
+  background-color: var(--color-white);
+  border-radius: 20.77px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  mix-blend-mode: normal;
+}
+
+
+.signUp {
+  position: relative;
+  font-size: var(--font-size-8xl-2-1);
+  font-family: var(--font-ubuntu);
+  color: var(--color-darkslategray);
+  text-align: left;
+  display: inline-block;
+  min-width: 2.063rem;
+  font-weight: 200;
+}
+
+
+.signup {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-sm-6-1) var(--padding-40xl-7-1);
+  background-color: var(--color-white);
+  border-radius: 20.77px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  mix-blend-mode: normal;
+  white-space: nowrap;
+}
+
+
+.logIn {
+  position: relative;
+  font-size: var(--font-size-8xl-2-1);
+  font-family: var(--font-ubuntu);
+  color: var(--color-darkslategray);
+  text-align: left;
+  display: inline-block;
+  min-width: 2.05rem;
+  font-weight: 200;
+}
+
+
+.buttons,
+.login {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.login {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-sm-6-1) var(--padding-51xl-2-1);
+  background-color: var(--color-white);
+  border-radius: 20.77px;
+  mix-blend-mode: normal;
+  white-space: nowrap;
+}
+.buttons {
+  width: 45.281rem;
+  flex-wrap: wrap;
+  gap: var(--gap-44xl);
+  max-width: 100%;
+}
+@media screen and (max-width: 1050px) {
+  .buttons {
+    gap: var(--gap-12xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .guest1 {
+    font-size: var(--font-size-3xl-1);
+  }
+  .buttons {
+    gap: var(--gap-base);
+  }
+}

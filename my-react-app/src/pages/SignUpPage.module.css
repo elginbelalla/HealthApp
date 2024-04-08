@@ -1,0 +1,186 @@
+.signIn {
+  margin: 0;
+  height: 0.931rem;
+  width: 13.588rem;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.signInWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44.375rem;
+  height: 9.063rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1.463rem 14.35rem var(--padding-4xl);
+  box-sizing: border-box;
+  z-index: 1;
+}
+.componentParent {
+  align-self: stretch;
+  height: 48.75rem;
+  position: relative;
+  max-width: 100%;
+}
+.component1Child {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-base);
+  background-color: var(--color-deepskyblue);
+}
+.signUp {
+  width: 6.688rem;
+  position: relative;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  min-width: 6.688rem;
+  z-index: 1;
+}
+.component1 {
+  flex: 1;
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  padding: 1.175rem var(--padding-xl) 1.325rem;
+  position: relative;
+  cursor: pointer;
+}
+.component1,
+.component1Wrapper,
+.signInMessageWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.component1Wrapper {
+  width: 25.063rem;
+  justify-content: flex-end;
+  padding: 0 4rem;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.signInMessageWrapper {
+  align-self: stretch;
+  overflow: hidden;
+  justify-content: flex-start;
+  padding: var(--padding-12xl) 3.438rem var(--padding-13xl);
+}
+.componentContainer {
+  width: 27rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.componentContainerWrapper,
+.frameParent {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.componentContainerWrapper {
+  width: 39.25rem;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  font-size: var(--font-size-xl);
+  color: var(--neutral-white);
+}
+.frameParent {
+  width: 44.375rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8.938rem;
+  min-width: 44.375rem;
+}
+.doctorHoldingMedicalReportIcon {
+  height: 69.813rem;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  min-width: 36.375rem;
+}
+.signUpPage {
+  width: 100%;
+  position: relative;
+  background-color: var(--neutral-white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 7.625rem;
+  letter-spacing: normal;
+  text-align: center;
+  font-size: 3.75rem;
+  color: #62b9cf;
+  font-family: var(--font-ubuntu);
+}
+@media screen and (max-width: 1350px) {
+  .frameParent {
+    flex: 1;
+  }
+  .signUpPage {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1125px) {
+  .doctorHoldingMedicalReportIcon {
+    display: none;
+  }
+  .signUpPage {
+    gap: 7.625rem 3.813rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .signIn {
+    font-size: 3rem;
+  }
+  .frameParent {
+    gap: 4.438rem 8.938rem;
+  }
+  .doctorHoldingMedicalReportIcon,
+  .frameParent {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .signIn {
+    font-size: 2.25rem;
+  }
+  .componentParent {
+    height: auto;
+    min-height: 780;
+  }
+  .signUp {
+    font-size: var(--roboto-regular-16-size);
+  }
+  .component1Wrapper,
+  .signInMessageWrapper {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .frameParent {
+    gap: 2.25rem 8.938rem;
+  }
+  .signUpPage {
+    gap: 7.625rem 1.875rem;
+  }
+}
