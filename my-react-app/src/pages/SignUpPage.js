@@ -17,7 +17,7 @@ const SignUpPage = () => {
         <div className={styles.componentParent}>
           <GroupComponent />
           <div className={styles.signInWrapper}>
-            <h1 className={styles.signIn}>Sign In</h1>
+            <h1 className={styles.signIn}>Sign Up</h1>
           </div>
         </div>
         <div className={styles.componentContainerWrapper}>

@@ -367,7 +367,7 @@
 
 
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1020px) {
   .navBar1 {
     flex-wrap: wrap;
   }
@@ -378,7 +378,15 @@
     font-size: 2.5rem;
     line-height: 2.25rem;
   }
+  .slogan{
+      padding: var(--padding-14xl-9) var(--bs-body-font-size) var(--padding-26xl);
+    
+  }
   
+  .bodyParent {
+    gap: var(--gap-5xs-8) var(--gap-43xl);
+    padding-top: var(--gap-34xl);
+  }
   .description {
     font-size: 1.2rem;
   }
@@ -434,13 +442,17 @@
 }
 
 /*
-@media screen and (max-height: 1200px) {
+@media screen and (max-height: 970px) {
   .welcomepageInner{
-    padding-top: var(--gap-69xl);
+    padding-top: var(--padding-51xl-3);
   }
 
   .slogan{
-    padding-top: var( --gap-51xl);
+    padding-top: var(--padding-9xl);
+  }
+
+  .sloganParent{
+    gap: var(--padding-51xl-3);
   }
 
  

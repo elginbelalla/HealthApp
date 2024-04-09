@@ -58,7 +58,7 @@ function App() {
       <Route path="/signup-info1" element={<ProfileInfo1 />} />
       <Route path="/signup-info2" element={<ProfileInfo2 />} />
       <Route path="/login" element={<SignInPage />} />
-      <Route path="/sign-up" element={<SignUpPage />} />
+      <Route path="/signup" element={<SignUpPage />} />
 
     </Routes>
   );
