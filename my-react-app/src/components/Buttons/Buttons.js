@@ -20,11 +20,11 @@ const Buttons = () => {
       <button className={styles.guest}>
         <div className={styles.guest1}>Guest</div>
       </button>
-      <button className={styles.signup} onClick={onSignUpClick}>
-        <div className={styles.signUp}>Sign Up</div>
+      <button className={styles.guest} onClick={onSignUpClick}>
+        <div className={styles.guest1}>Sign Up</div>
       </button>
-      <button className={styles.login} onClick={onLogInClick}>
-        <div className={styles.logIn}>Log In</div>
+      <button className={styles.guest} onClick={onLogInClick}>
+        <div className={styles.guest1}>Log In</div>
       </button>
     </div>
   );

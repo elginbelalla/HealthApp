@@ -85,7 +85,7 @@ const PersonalInfo = ({ onUpdate }) => {
         <div className={styles.nextButtonLabel}>
           <Form className={styles.contents2}>
             <Form.Control 
-            type="text" 
+            type="date" 
             name="dateB" 
             value={dateB} 
             onChange={handleInputChange}/>

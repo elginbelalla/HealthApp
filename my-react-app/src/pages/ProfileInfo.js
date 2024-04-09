@@ -1,26 +1,10 @@
 import { useCallback, useState } from "react";
 import PersonalInfo from "../components/PersonalInfo/PersonalInfo";
-import Measurements from "../components/Measurements";
-import PrevNextButtons from "../components/PrevNextButtons/PrevNextButtons";
 import { useNavigate } from "react-router-dom";
 import styles from "./ProfileInfo.module.css";
 
 
 const ProfileInfo = () => {
-  /*
-  
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({});
-
-  const handleUpdateFormData = (newData) => {
-    setFormData({ ...formData, ...newData });
-  };
-
-  const onNextButtonClicked = () => {
-    // Navigate to the next profile info page
-    navigate("/ProfileInfo1");
-  };
-  */
   
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
@@ -30,7 +14,7 @@ const ProfileInfo = () => {
   };
 
   const onPreviousButtonClicked = () => {
-    navigate("/");
+    navigate("/sign-up");
   };
 
   const onNextButtonClicked = async () => {
@@ -43,7 +27,7 @@ const ProfileInfo = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        navigate("/login-profile1");
+        navigate("/signup-info1");
       } else {
         console.error("Failed to save profile info:", await response.text());
       }

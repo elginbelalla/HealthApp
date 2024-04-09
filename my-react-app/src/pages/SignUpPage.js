@@ -8,7 +8,7 @@ const SignUpPage = () => {
   const navigate = useNavigate();
 
   const onComponent1ContainerClick = useCallback(() => {
-    navigate("/profile-info");
+    navigate("/signup-info");
   }, [navigate]);
 
   return (

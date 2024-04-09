@@ -25,12 +25,12 @@ const WelcomePage = () => {
           </div>
         </header>
       </section>
-      <section className={styles.logoName}>
-        <h1 className={styles.medinteract}>MedInteract</h1>
-      </section>
       <section className={styles.welcomepageInner}>
         <div className={styles.sloganParent}>
           <div className={styles.slogan}>
+          <section className={styles.logoName}>
+            <h1 className={styles.medinteract}>MedInteract</h1>
+             </section>
             <div className={styles.bodyParent}>
               <div className={styles.body}>
                 <div className={styles.guestSignUpLogIn}>

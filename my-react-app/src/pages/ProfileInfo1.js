@@ -14,7 +14,7 @@ const ProfileInfo1 = () => {
   };
 
   const onPreviousButtonClicked = () => {
-    navigate("/login-profile");
+    navigate("/signup-info");
   };
 
   const onNextButtonClicked = async () => {
@@ -27,7 +27,7 @@ const ProfileInfo1 = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        navigate("/login-profile2");
+        navigate("/singup-info2");
       } else {
         console.error("Failed to save profile info:", await response.text());
       }

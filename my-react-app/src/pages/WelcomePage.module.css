@@ -17,23 +17,6 @@
   display: inline-block;
   min-width: 5.438rem;
 }
-.aboutus {
-  cursor: pointer;
-  border: 2.7px solid var(--color-cornflowerblue);
-  padding: var(--padding-sm-6-1) var(--padding-12xl-1);
-  background-color: var(--color-white);
-  width: 8.7rem;
-  border-radius: 28.77px;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  mix-blend-mode: normal;
-  white-space: nowrap;
-}
-
 
 .support1 {
   width: 8.438rem;
@@ -45,6 +28,27 @@
   display: inline-block;
   min-width: 5.438rem;
 }
+
+
+
+.aboutus {
+  cursor: pointer;
+  border: 2.7px solid var(--color-cornflowerblue);
+  padding: var(--padding-sm-6-1) var(--padding-sm-6-1);
+  background-color: var(--color-white);
+  width: 8.7rem;
+  border-radius: 28.77px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  mix-blend-mode: normal;
+}
+
+
+
 .support {
   cursor: pointer;
   border: 2.7px solid var(--color-cornflowerblue);
@@ -100,11 +104,14 @@
   padding: 0 0 0 1.288rem;
   gap: var(--gap-xl);
 }
+
+
 .navBar {
-  width: 88.438rem;
+  width: 100%;
   justify-content: flex-start;
-  padding: 0 1.25rem 1.188rem 0;
+  padding: 0 var(--padding-8xs-1) var(--padding-8xs-1) 0;
 }
+
 
 
 
@@ -119,18 +126,18 @@
   font-family: inherit;
   max-width: 100%;
   padding-top:0.5rem;
-  padding-left: 4.2rem;
+ 
 }
 
 
 .logoName {
-  width: 99.125rem;
+  width: 100%;
   height: 8.638rem;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0 3.563rem 0 0;
+  padding: 0 0 0 0;
   box-sizing: border-box;
   max-width: 100%;
   text-align: left;
@@ -142,7 +149,7 @@
 .slogan1 {
   margin-bottom: -1rem;
   margin: 0;
-  height: 8.438rem;
+  height: var(--gap-122xl);
   flex: 1;
   position: relative;
   font-size: 2.5rem;
@@ -170,7 +177,7 @@
 .description {
   margin: 0;
   align-self: stretch;
-  height: 5.1rem;
+  height: var(--padding-51xl);
   position: relative;
   font-size: 1.3rem;
   font-weight: 100;
@@ -193,7 +200,7 @@
 
 .supportButton {
   flex-direction: row;
-  padding: 0 3.875rem;
+  padding: 0 var(--padding-34xl);
   box-sizing: border-box;
 }
 
@@ -210,11 +217,12 @@
   flex: 1;
   flex-direction: column;
   gap: 0.1rem;
+  padding-top: var(--gap-9xl);
 }
 
 .slogan {
-  width: 69.063rem;
-  flex-direction: row;
+  width: 100%;
+  flex-direction: column;
   padding: 0 0;
   box-sizing: border-box;
 }
@@ -252,7 +260,7 @@
   justify-content: space-between;
   min-width: 52rem;
   max-width: 100%;
-  gap: var(--gap-xl);
+  gap: 0;
 }
 
 .allRightsReserved {
@@ -269,7 +277,7 @@
   box-sizing: border-box;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 1rem 0;
+  padding: var(--gap-xl) var(--bs-border-width);
   max-width: 100%;
   row-gap: 20px;
   font-size: var(--font-size-bases);
@@ -286,18 +294,22 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
+
 .sloganParent {
   flex: 1;
   flex-direction: column;
-  gap: 2.38rem;
+  gap: var(--gap-19xl);
   max-width: 100%;
 }
+
+
 .welcomepage,
 .welcomepageInner {
   box-sizing: border-box;
 }
 .welcomepageInner {
-  width: 99.688rem;
+  width: 100%;
   flex-direction: row;
   padding: 0 3.5rem;
   max-width: 100%;
@@ -311,7 +323,7 @@
   position: relative;
   overflow: hidden;
   flex-direction: column;
-  padding: 0 0 0.5rem;
+  padding: 0 0 0 0;
   background-image: url(/public/welcomepage@3x.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -322,30 +334,45 @@
 
 @media screen and (max-width: 1200px) {
   .logoName {
-    padding-right: var(--padding-9xl-1);
+    
     box-sizing: border-box;
-    height: 7rem;
+    height: var(--gap-97xl);
   }
+
   .bodyParent {
-    gap: 1.875rem 3.813rem;
+    gap: var(-padding-37xl) var(-padding-37xl);
   }
+
+  .slogan{
+    padding: var(--padding-14xl-9) var(--bs-body-font-size) var(--padding-26xl);
+  }
+
+
+
   .medinteract {
     font-size: 4.75rem;
-    padding-left: 1.2rem;
   }
+
+
   .welcomepageInner {
     padding-left: var(--padding-9xl-1);
     padding-right: var(--padding-9xl-1);
     box-sizing: border-box;
   }
+
+  .bottombar.items{
+   gap: var(--gap-11xs);
+  }
 }
+
+
+
 @media screen and (max-width: 1050px) {
   .navBar1 {
     flex-wrap: wrap;
   }
   .medinteract {
-    font-size: 4.75rem;
-    padding-left: 1.2rem;
+    font-size: var(--font-size-51xl-3);
   }
   .slogan1 {
     font-size: 2.5rem;
@@ -366,7 +393,8 @@
 }
 @media screen and (max-width: 750px) {
   .bodyParent {
-    gap: 0.438rem 3.813rem;
+    gap: var(--gap-5xs-8) var(--gap-43xl);
+    padding-top: var(--gap-34xl);
   }
   .items {
     flex-wrap: wrap;
@@ -374,8 +402,13 @@
   .sloganParent {
     gap: 1.375rem 3.738rem;
   }
-  .medinteract{
-  padding-left: 1.2rem;
+ 
+
+.sloganParent {
+  flex: 1;
+  flex-direction: column;
+
+  max-width: 100%;
 }
 }
 
@@ -397,5 +430,29 @@
   }
   .sloganParent {
     gap: 1.788rem 2.738rem;
+  }
+}
+
+/*
+@media screen and (max-height: 1200px) {
+  .welcomepageInner{
+    padding-top: var(--gap-69xl);
+  }
+
+  .slogan{
+    padding-top: var( --gap-51xl);
+  }
+
+ 
+}
+*/
+
+@media screen and (max-height: 600px) {
+  
+  .bodyParent {
+    flex-direction: column; /* Change to a column layout */
+  }
+  .sloganParent {
+    flex-direction: column; /* Change to a column layout */
   }
 }

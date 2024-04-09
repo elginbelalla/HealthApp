@@ -54,9 +54,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<WelcomePage />} />
-      <Route path="/login-profile" element={<ProfileInfo />} />
-      <Route path="/login-profile1" element={<ProfileInfo1 />} />
-      <Route path="/login-profile2" element={<ProfileInfo2 />} />
+      <Route path="/signup-info" element={<ProfileInfo />} />
+      <Route path="/signup-info1" element={<ProfileInfo1 />} />
+      <Route path="/signup-info2" element={<ProfileInfo2 />} />
       <Route path="/login" element={<SignInPage />} />
       <Route path="/sign-up" element={<SignUpPage />} />
 
