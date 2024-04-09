@@ -1,48 +1,52 @@
 CREATE TABLE `Client` (
-  `clientID` integer PRIMARY KEY,
-  `firstName` varchar(255),
-  `lastName` varchar(255),
-  `email` varchar(255),
-  `phoneNo` varchar(255),
-  `gender` varchar(10),
-  `dateOfBirth` datetime,
-  `placeOfBirth` varchar(255),
-  `age` integer,
-  `height` varchar(20),
-  `weight` varchar(20)
+  `clientID` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `firstName` VARCHAR(255),
+  `lastName` VARCHAR(255),
+  `email` VARCHAR(255),
+  `phoneNo` VARCHAR(255),
+  `gender` VARCHAR(10),
+  `dateOfBirth` VARCHAR(10),
+  `placeOfBirth` VARCHAR(255),
+  `age` INTEGER,
+  `height` VARCHAR(20),
+  `weight` VARCHAR(20),
+  `password` VARCHAR(255)
 );
 
 CREATE TABLE `PersonalHealth` (
-  `personalHealthId` integer PRIMARY KEY,
-  `clientId` integer,
-  `healthConcerns` varchar(255),
-  `previousMedication` varchar(255),
-  `notes` varchar(255)
+  `personalHealthId` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `clientId` INTEGER,
+  `healthConcerns` VARCHAR(255),
+  `previousMedication` VARCHAR(255),
+  `notes` VARCHAR(255),
+  FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`)
 );
 
 CREATE TABLE `FamilyHealth` (
-  `familiyHId` integer PRIMARY KEY,
-  `clientId` integer,
-  `prevHistory` varchar(255),
-  `prevMedication` varchar(255),
-  `notes` varchar(255)
+  `familyHId` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `clientId` INTEGER,
+  `prevHistory` VARCHAR(255),
+  `prevMedication` VARCHAR(255),
+  `notes` VARCHAR(255),
+  FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`)
 );
 
 CREATE TABLE `DoctorNotes` (
-  `doctorNotesId` integer PRIMARY KEY,
-  `clientId` integer,
-  `physicalExam` varchar(255),
-  `diagnosis` varchar(255),
-  `plan` varchar(255)
+  `doctorNotesId` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `clientId` INTEGER,
+  `physicalExam` VARCHAR(255),
+  `diagnosis` VARCHAR(255),
+  `plan` VARCHAR(255),
+  FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`)
 );
 
 CREATE TABLE `Test` (
-  `testId` integer PRIMARY KEY,
+  `testId` integer PRIMARY KEY AUTO_INCREMENT,
   `test` longblob
 );
 
 CREATE TABLE `Appointment` (
-  `appointmentId` integer PRIMARY KEY,
+  `appointmentId` integer PRIMARY KEY AUTO_INCREMENT,
   `dateOfAppointment` datetime,
   `clientId` integer,
   `doctorId` integer,
@@ -50,7 +54,7 @@ CREATE TABLE `Appointment` (
 );
 
 CREATE TABLE `Doctors` (
-  `doctorId` integer PRIMARY KEY,
+  `doctorId` integer PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255),
   `lastName` varchar(255),
   `email` varchar(255),
@@ -63,7 +67,7 @@ CREATE TABLE `Doctors` (
 );
 
 CREATE TABLE `Clinic` (
-  `clinicId` integer PRIMARY KEY,
+  `clinicId` integer PRIMARY KEY AUTO_INCREMENT,
   `clinicName` varchar(255),
   `clinicAddress` varchar(255),
   `clinicPhoneNo` varchar(255),
@@ -73,7 +77,7 @@ CREATE TABLE `Clinic` (
 );
 
 CREATE TABLE `DoctorRatings` (
-  `ratingId` integer PRIMARY KEY,
+  `ratingId` integer PRIMARY KEY AUTO_INCREMENT,
   `doctorId` integer,
   `clientId` integer,
   `rating` integer,
@@ -82,14 +86,14 @@ CREATE TABLE `DoctorRatings` (
 );
 
 CREATE TABLE `PatientsList` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `clinicId` integer,
   `doctorId` integer,
   `clientId` integer
 );
 
 CREATE TABLE `TestResultList` (
-  `tableResultListId` integer PRIMARY KEY,
+  `tableResultListId` integer PRIMARY KEY AUTO_INCREMENT,
   `clientId` integer,
   `doctorId` integer,
   `clinicId` integer,
@@ -108,9 +112,9 @@ CREATE TABLE `ClientClinicMessages` (
 );
 
 CREATE TABLE `SymptomReport` (
-  `symptomReportId` integer PRIMARY KEY,
+  `symptomReportId` integer PRIMARY KEY AUTO_INCREMENT,
   `clientId` integer,
-  `name` varchar(255)
+  `report` varchar(255)
 );
 
 CREATE TABLE `Clinic_Doctors` (

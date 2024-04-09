@@ -6,9 +6,9 @@
 class DbConnect
 {
     private $server = 'localhost';
-    private $dbname = 'healthapp';
+    private $dbname = 'medinteract';
     private $user = 'root';
-    private $pass = '107310';
+    private $pass = '';
 
     public function connect()
     {

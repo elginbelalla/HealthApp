@@ -2,18 +2,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
 import styles from "./PersonalInfo.module.css";
 import { useState } from "react";
-;
+
+
+
 
 const PersonalInfo = ({ onUpdate }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [dateB, setDateOfBirth] = useState("");
   const [placeB, setPlaceOfBirth] = useState("");
-  const[height, setHeight] = useState('')
-  const[weight, setWeight] = useState('')
+  const[height, setHeight] = useState('');
+  const[weight, setWeight] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    
+    // Update the state based on the input name
     switch (name) {
       case "firstName":
         setFirstName(value);
@@ -22,7 +26,8 @@ const PersonalInfo = ({ onUpdate }) => {
         setLastName(value);
         break;
       case "dateB":
-        setDateOfBirth(value);
+        const formattedDate = value.split('-').reverse().join('/');
+        setDateOfBirth(formattedDate);
         break;
       case "placeB":
         setPlaceOfBirth(value);
@@ -33,13 +38,12 @@ const PersonalInfo = ({ onUpdate }) => {
       case "weight":
         setWeight(value);
         break;
-        default:
+      default:
         break;
-
     }
+  
     onUpdate({ [name]: value });
   };
-
 
   return (
     <div className={styles.personalinfo}>

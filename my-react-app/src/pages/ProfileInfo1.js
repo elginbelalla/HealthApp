@@ -1,8 +1,42 @@
 import PersonalHistory from "../components/PersonalHistory/PersonalHistory";
 import PrevNextButtons from "../components/PrevNextButtons/PrevNextButtons";
 import styles from "./ProfileInfo1.module.css";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 
 const ProfileInfo1 = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({});
+
+  const handleUpdateFormData = (newData) => {
+    setFormData({ ...formData, ...newData });
+  };
+
+  const onPreviousButtonClicked = () => {
+    navigate("/login-profile");
+  };
+
+  const onNextButtonClicked = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/savePersonalHealthinfo.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        navigate("/login-profile2");
+      } else {
+        console.error("Failed to save profile info:", await response.text());
+      }
+    } catch (error) {
+      console.error("Failed to save profile info:", error.message);
+    }
+  };
+
+
   return (
     <div className={styles.profileInfo2}>
       <img
@@ -35,8 +69,20 @@ const ProfileInfo1 = () => {
           <div className={styles.bodyWrapper}>
             <PersonalHistory />
           </div>
-          <PrevNextButtons />
+          <div className={styles.iconContainer}>
+      <div className={styles.previousbuttonParent}>
+        <div
+          className={styles.previousbutton}
+          onClick={onPreviousButtonClicked}
+        >
+          <div className={styles.label}>Previous</div>
         </div>
+        <div className={styles.nextbutton} 
+        onClick={onNextButtonClicked}>
+          <div className={styles.label1}>Next</div>
+        </div>
+      </div>
+    </div>        </div>
       </div>
       <img className={styles.icon} loading="lazy" alt="" src="/icon.svg" />
     </div>

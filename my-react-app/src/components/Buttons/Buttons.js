@@ -1,14 +1,17 @@
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Buttons.module.css";
 
 const Buttons = () => {
   
-  const onSignUpClick = useCallback(() => {
-    // Please sync "Sign Up Page" to the project
-  }, []);
+  const navigate = useNavigate();
 
+
+  const onSignUpClick = useCallback(() => {
+    navigate("/sign-up");
+  }, [navigate]);
   const onLogInClick = useCallback(() => {
-    // Please sync "Sign In Page" to the project
+    navigate("/login");
   }, []);
 
 

@@ -1,10 +1,14 @@
 import { useCallback } from "react";
 import styles from "./SignInMessage.module.css";
+import { useNavigate } from "react-router-dom";
 
 const SignInMessage = () => {
+
+  const navigate = useNavigate();
+
   const onSignInTextClick = useCallback(() => {
-    // Please sync "Sign In Page" to the project
-  }, []);
+    navigate("/login")
+  }, [navigate]);
 
   return (
     <div className={styles.signInMessage}>
