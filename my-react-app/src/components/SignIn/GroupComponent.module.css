@@ -77,7 +77,6 @@
   padding: 0 var(--padding-7xs) 0 0;
   gap: var(--gap-3xs-4);
   flex-shrink: 0;
-  debug_commit: f6aba90;
 }
 .password {
   position: relative;
@@ -190,7 +189,6 @@
   align-self: stretch;
   gap: var(--gap-5xs-8);
   flex-shrink: 0;
-  debug_commit: f6aba90;
 }
 .nameParent {
   height: 8.863rem;

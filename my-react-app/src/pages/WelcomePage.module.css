@@ -1,3 +1,12 @@
+.welcomepage,
+.welcomepageInner,
+.sloganParent,
+.bodyParent,
+.bottombar {
+  height: 100vh;
+}
+
+
 .logoIcon {
   height: 5.5rem;
   width: 12.106rem;
@@ -225,6 +234,8 @@
   flex-direction: column;
   padding: 0 0;
   box-sizing: border-box;
+  position:fixed;
+  top: 25%;
 }
 
 
@@ -283,6 +294,8 @@
   font-size: var(--font-size-bases);
   color: var(--color-darkslategray);
   font-family: var(--font-dm-sans);
+  position:fixed;
+  top: 90%;
 }
 
 

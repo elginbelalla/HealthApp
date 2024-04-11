@@ -82,12 +82,6 @@ const GroupComponent = () => {
                   />
                 </div>
               </div>
-              <img
-                className={styles.eyeIcon}
-                loading="lazy"
-                alt=""
-                src="/eye@2x.png"
-              />
             </div>
           </div>
           <div className={styles.button} />
