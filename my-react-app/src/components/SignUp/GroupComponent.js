@@ -3,6 +3,27 @@ import { Form } from 'react-bootstrap';
 import styles from './GroupComponent.module.css';
 
 const GroupComponent = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePhoneNumberChange = (e) => {
+    setPhoneNumber(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
   const [isOpen, setIsOpen] = useState(false); 
 
   const toggleDropDown = () => {
@@ -13,14 +34,18 @@ const GroupComponent = () => {
     <div className={styles.frameParent}>
       <div className={styles.frameGroup}>
         <div className={styles.nameInputContainerParent}>
-          <div className={styles.nameInputContainer}>
-            <div className={styles.name}>Name</div>
-          </div>
+          <div className={styles.name}>Name</div>
           <div className={styles.labelEmail}>
             <div className={styles.inputxhbazegmailcom}>
-              <div className={styles.xhesiBaze}>Xhesi Baze</div>
+              <input
+                type="text"
+                value={name}
+                onChange={handleNameChange}
+                className={styles.xhesiBaze}
+              />
             </div>
-            <div className={styles.passwordInputContainer} />
+            <div className={styles.passwordInputContainer}>
+            </div>
           </div>
         </div>
         <div className={styles.frameContainer}>
@@ -29,7 +54,12 @@ const GroupComponent = () => {
           </div>
           <div className={styles.frameDiv}>
             <div className={styles.xhbazegmailcomWrapper}>
-              <div className={styles.xhbazegmailcom}>xhbaze@gmail.com</div>
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                className={styles.xhbazegmailcom}
+              />
             </div>
             <div className={styles.frameChild} />
           </div>
@@ -41,62 +71,13 @@ const GroupComponent = () => {
           <div className={styles.frameWrapper}>
             <div className={styles.frameParent1}>
               <div className={styles.frameWrapper1}>
-                <div className={styles.newMoonParent}>
-                  <img
-                    className={styles.newMoonIcon}
-                    loading="lazy"
-                    alt=""
-                    src="/new-moon@2x.png"
-                  />
-                  <img
-                    className={styles.newMoonIcon1}
-                    loading="lazy"
-                    alt=""
-                    src="/new-moon-1@2x.png"
-                  />
-                  <img
-                    className={styles.newMoonIcon2}
-                    loading="lazy"
-                    alt=""
-                    src="/new-moon-2@2x.png"
-                  />
-                  <img
-                    className={styles.newMoonIcon3}
-                    loading="lazy"
-                    alt=""
-                    src="/new-moon-3@2x.png"
-                  />
-                  <img
-                    className={styles.newMoonIcon4}
-                    loading="lazy"
-                    alt=""
-                    src="/new-moon-4@2x.png"
-                  />
-                  <img
-                    className={styles.newMoonIcon5}
-                    loading="lazy"
-                    alt=""
-                    src="/new-moon-5@2x.png"
-                  />
-                  <img
-                    className={styles.newMoonIcon6}
-                    loading="lazy"
-                    alt=""
-                    src="/new-moon-6@2x.png"
-                  />
-                  <img
-                    className={styles.newMoonIcon7}
-                    loading="lazy"
-                    alt=""
-                    src="/new-moon-7@2x.png"
-                  />
-                  <img
-                    className={styles.newMoonIcon8}
-                    loading="lazy"
-                    alt=""
-                    src="/new-moon-8@2x.png"
-                  />
-                </div>
+                {/* Password input */}
+                <input
+                  type="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                  className={styles.passwordInput}
+                />
               </div>
             </div>
           </div>
@@ -109,12 +90,17 @@ const GroupComponent = () => {
         </div>
         <div className={styles.lineParent}>
           <div className={styles.frameInner} />
-          <div className={styles.div}>+355685159749</div>
+          <input
+            type="tel"
+            value={phoneNumber}
+            onChange={handlePhoneNumberChange}
+            className={styles.div}
+          />
         </div>
       </div>
       <div className={styles.caretupInstanceParent}>
         <div className={styles.caretupInstance} onClick={toggleDropDown}>
-          <div className={styles.choseYourRole}>Chose your Role</div>
+          <div className={styles.choseYourRole}>Choose your Role</div>
         </div>
         <div className={styles.dropDownBox}>
           <Form.Select

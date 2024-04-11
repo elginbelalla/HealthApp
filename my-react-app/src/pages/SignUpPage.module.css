@@ -8,6 +8,7 @@
   font-family: inherit;
   display: inline-block;
   flex-shrink: 0;
+  
 }
 .signInWrapper {
   position: absolute;
@@ -28,6 +29,7 @@
   height: 48.75rem;
   position: relative;
   max-width: 100%;
+  
 }
 .component1Child {
   height: 100%;
@@ -40,6 +42,7 @@
   left: 0;
   border-radius: var(--br-base);
   background-color: var(--color-deepskyblue);
+  
 }
 .signUp {
   width: 6.688rem;
@@ -56,6 +59,7 @@
   padding: 1.175rem var(--padding-xl) 1.325rem;
   position: relative;
   cursor: pointer;
+  
 }
 .component1,
 .component1Wrapper,
@@ -76,6 +80,7 @@
   overflow: hidden;
   justify-content: flex-start;
   padding: var(--padding-12xl) 3.438rem var(--padding-13xl);
+  
 }
 .componentContainer {
   width: 27rem;
@@ -84,6 +89,7 @@
   align-items: flex-end;
   justify-content: flex-start;
   max-width: 100%;
+  
 }
 .componentContainerWrapper,
 .frameParent {
@@ -99,6 +105,7 @@
   box-sizing: border-box;
   font-size: var(--font-size-xl);
   color: var(--neutral-white);
+  
 }
 .frameParent {
   width: 44.375rem;
@@ -106,6 +113,9 @@
   justify-content: flex-start;
   gap: 8.938rem;
   min-width: 44.375rem;
+  height: 100vh;
+  
+  
 }
 .doctorHoldingMedicalReportIcon {
   height: 69.813rem;
@@ -115,6 +125,7 @@
   overflow: hidden;
   object-fit: cover;
   min-width: 36.375rem;
+  height: 100vh;
 }
 .signUpPage {
   width: 100%;
@@ -131,6 +142,7 @@
   font-size: 3.75rem;
   color: #62b9cf;
   font-family: var(--font-ubuntu);
+  height: 100vh;
 }
 @media screen and (max-width: 1350px) {
   .frameParent {
