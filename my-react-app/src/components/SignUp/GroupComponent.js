@@ -2,29 +2,18 @@ import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import styles from './GroupComponent.module.css';
 
-const GroupComponent = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [password, setPassword] = useState('');
+const GroupComponent = ({ formData, onFormChange, updateRole }) => {
+  const { name, email, phoneNumber, password, role } = formData;
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
+  const handleInputChange = (field, value) => {
+    onFormChange(field, value);
   };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleRoleChange = (value) => {
+    updateRole(value);
   };
 
-  const handlePhoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const [isOpen, setIsOpen] = useState(false); 
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropDown = () => {
     setIsOpen(!isOpen);
@@ -40,12 +29,11 @@ const GroupComponent = () => {
               <input
                 type="text"
                 value={name}
-                onChange={handleNameChange}
+                onChange={(e) => handleInputChange('name', e.target.value)}
                 className={styles.xhesiBaze}
               />
             </div>
-            <div className={styles.passwordInputContainer}>
-            </div>
+            <div className={styles.passwordInputContainer}></div>
           </div>
         </div>
         <div className={styles.frameContainer}>
@@ -57,7 +45,7 @@ const GroupComponent = () => {
               <input
                 type="email"
                 value={email}
-                onChange={handleEmailChange}
+                onChange={(e) => handleInputChange('email', e.target.value)}
                 className={styles.xhbazegmailcom}
               />
             </div>
@@ -75,7 +63,7 @@ const GroupComponent = () => {
                 <input
                   type="password"
                   value={password}
-                  onChange={handlePasswordChange}
+                  onChange={(e) => handleInputChange('password', e.target.value)}
                   className={styles.passwordInput}
                 />
               </div>
@@ -91,15 +79,15 @@ const GroupComponent = () => {
         <div className={styles.lineParent}>
           <div className={styles.frameInner} />
           <input
-            type="tel"
+            type="phoneNumber"
             value={phoneNumber}
-            onChange={handlePhoneNumberChange}
+            onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
             className={styles.div}
           />
         </div>
       </div>
       <div className={styles.caretupInstanceParent}>
-        <div className={styles.caretupInstance} onClick={toggleDropDown}>
+        <div className={styles.caretupInstance} onClick={() => toggleDropDown()}>
           <div className={styles.choseYourRole}>Choose your Role</div>
         </div>
         <div className={styles.dropDownBox}>
@@ -107,25 +95,27 @@ const GroupComponent = () => {
             className={styles.defaultSelectionFormselect}
             name="dropdown"
             id="dropdown"
-            onClick={(e) => e.stopPropagation()} 
+            value={formData.role}
+            onClick={(e) => e.stopPropagation()}
+            onChange={(e) => handleRoleChange(e.target.value)}
           >
             <option>Select a role</option>
             <option value="User">User</option>
             <option value="Clinic">Clinic</option>
             <option value="Doctor">Doctor</option>
           </Form.Select>
-        
+
           {isOpen && (
             <div className={styles.selectionList}>
               <div className={styles.lists}>
                 <div className={styles.selectionItem}>
-                  <div className={styles.firstSelection}>User</div>
+                  <div className={styles.firstSelection} onClick={() => handleRoleChange("User")}>User</div>
                 </div>
                 <div className={styles.selectionItem1}>
-                  <div className={styles.firstSelection1}>Clinic</div>
+                  <div className={styles.firstSelection1} onClick={() => handleRoleChange("Clinic")}>Clinic</div>
                 </div>
                 <div className={styles.selectionItem2}>
-                  <div className={styles.firstSelection2}>Doctor</div>
+                  <div className={styles.firstSelection2} onClick={() => handleRoleChange("Doctor")}>Doctor</div>
                 </div>
               </div>
             </div>

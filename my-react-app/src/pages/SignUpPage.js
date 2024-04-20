@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import GroupComponent from "../components/SignUp/GroupComponent";
 import { useNavigate } from "react-router-dom";
 import SignInMessage from "../components/SignUp/SignInMessage";
@@ -6,16 +6,87 @@ import styles from "./SignUpPage.module.css";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    password: '',
+    role: ''
+  });
 
-  const onComponent1ContainerClick = useCallback(() => {
-    navigate("/signup-info");
-  }, [navigate]);
+  const validateForm = () =>{
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if( formData.name.length === 0 || formData.email.length === 0 || formData.password.length === 0 || formData.phoneNumber.length === 0){
+      alert("Please fill in all fields.");
+      return false;
+    }
+    else if (!emailRegex.test(formData.email)){
+      alert("Please enter a correct email format.");
+      return false;
+    }
+    else if (formData.password.length < 7){
+      alert("Please make sure the password is 8 or more characters long.")
+      return false;
+    }
+    else if (!(formData.phoneNumber.length >= 10) && !(formData.phoneNumber.length <= 15)){
+      alert("Please enter a valid phone number.")
+      return false;
+    }
+    else
+      return true;
+  }
+
+  const onComponent1ContainerClick = async() => {
+
+    if (!validateForm()) {
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/api/saveSignUpInfo.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        const clientId = response.headers.get("client-id");
+          if (formData.role === 'User') {
+            console.log(clientId);
+          navigate("/signup-info", { state: { clientId: clientId } });
+        }
+      } else {
+        console.error("Failed to save profile info:", await response.text());
+      }
+   }catch (error) {
+      console.error("Failed to save profile info:", error.message);
+    }
+  };
+
+  const handleFormChange = (field, value) => {
+    console.log("Selected value:", value); 
+    setFormData({
+      ...formData,
+      [field]: value
+    });
+  };
+  
+  const handleRoleChange = (selectedRole) => {
+    console.log("Selected role:", selectedRole); 
+    setFormData({
+      ...formData,
+      role: selectedRole
+    });
+  };
+
 
   return (
     <div className={styles.signUpPage}>
       <div className={styles.frameParent}>
         <div className={styles.componentParent}>
-          <GroupComponent />
+          <GroupComponent formData={formData} onFormChange={handleFormChange} updateRole={handleRoleChange}/>
           <div className={styles.signInWrapper}>
             <h1 className={styles.signIn}>Sign Up</h1>
           </div>

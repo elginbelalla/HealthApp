@@ -1,16 +1,20 @@
 CREATE TABLE `Client` (
   `clientID` INTEGER PRIMARY KEY AUTO_INCREMENT,
-  `firstName` VARCHAR(255),
-  `lastName` VARCHAR(255),
   `email` VARCHAR(255),
   `phoneNo` VARCHAR(255),
-  `gender` VARCHAR(10),
-  `dateOfBirth` VARCHAR(10),
-  `placeOfBirth` VARCHAR(255),
-  `age` INTEGER,
-  `height` VARCHAR(20),
-  `weight` VARCHAR(20),
   `password` VARCHAR(255)
+);
+
+CREATE TABLE `ClientInfo` (
+    `clientInfoId` INTEGER PRIMARY KEY AUTO_INCREMENT,
+    `clientId` INTEGER,
+    `firstName` VARCHAR(255),
+    `lastName` VARCHAR(255),
+    `dateOfBirth` VARCHAR(10),
+    `placeOfBirth` VARCHAR(255),
+    `height` VARCHAR(20),
+    `weight` VARCHAR(20),
+    FOREIGN KEY (`clientId`) REFERENCES `Client` (`clientID`)
 );
 
 CREATE TABLE `PersonalHealth` (

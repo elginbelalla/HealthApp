@@ -1,30 +1,54 @@
 import { useCallback, useState } from "react";
 import PersonalInfo from "../components/PersonalInfo/PersonalInfo";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./ProfileInfo.module.css";
 
 
 const ProfileInfo = () => {
   
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({});
+  const location = useLocation();
+  const clientId = location.state ? location.state.clientId : null;
 
-  const handleUpdateFormData = (newData) => {
-    setFormData({ ...formData, ...newData });
+
+  const [personalInfo, setPersonalInfo] = useState({
+    firstName: '',
+    lastName: '',
+    dateB: '',
+    placeB: '',
+    height: '',
+    weight: ''
+  });
+
+  const navigate = useNavigate();
+
+  const handleUpdatePersonalInfo = (newData) => {
+    setPersonalInfo((prevPersonalInfo) => ({
+      ...prevPersonalInfo,
+      ...newData,
+    }));
   };
 
   const onPreviousButtonClicked = () => {
-    navigate("/sign-up");
+    navigate("/signup");
   };
 
   const onNextButtonClicked = async () => {
-    try {
+    
+      // Log the payload before sending the request
+      //console.log("Payload:", payload);
+  
+      try{
+      const payload = {
+        clientId: clientId, // Include clientId in the payload
+        personalInfo: personalInfo
+      };
+
       const response = await fetch("http://localhost:3000/api/savePersonalInfo.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(personalInfo),
       });
       if (response.ok) {
         navigate("/signup-info1");
@@ -60,7 +84,7 @@ const ProfileInfo = () => {
         </div>
         <div className={styles.largeTitleParent}>
           <b className={styles.largeTitle}>Personal information</b>
-            <PersonalInfo onUpdate={handleUpdateFormData} />
+            <PersonalInfo onUpdate={handleUpdatePersonalInfo} />
         </div>
         <div className={styles.iconContainer}>
       <div className={styles.previousbuttonParent}>
