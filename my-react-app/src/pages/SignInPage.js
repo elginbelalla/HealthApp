@@ -1,31 +1,22 @@
-import { useCallback } from "react";
-import GroupComponent from "../components/SignIn/GroupComponent";
+import React from "react";
+import GroupComponentSignIn from "../components/SignIn/GroupComponentSignIn";
 import RectangleComponent from "../components/SignIn/RectangleComponent";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"; // Change import to Link from react-router-dom
 import styles from "./SignInPage.module.css";
 
 const SignInPage = () => {
-  const navigate = useNavigate();
-
-  const onComponent1ContainerClick = useCallback(() => {
-    navigate("/profile-info");
-  }, [navigate]);
-
   return (
     <div className={styles.signinpage}>
       <div className={styles.signinpageInner}>
         <div className={styles.frameParent}>
           <div className={styles.instanceParent}>
-            <GroupComponent />
+            <GroupComponentSignIn />
             <RectangleComponent />
           </div>
           <div className={styles.frameWrapper}>
             <div className={styles.frameGroup}>
               <div className={styles.component1Wrapper}>
-                <div
-                  className={styles.component1}
-                  onClick={onComponent1ContainerClick}
-                >
+                <div className={styles.component1}>
                   <div className={styles.component1Child} />
                   <b className={styles.continue}>Continue</b>
                 </div>
@@ -34,7 +25,10 @@ const SignInPage = () => {
                 <div className={styles.alreadyHaveAn}>
                   Don’t have an account?
                 </div>
-                <div className={styles.signIn}>Sign Up</div>
+                {/* Replace div with Link */}
+                <Link className={styles.signIn} to="/signup">
+                  Sign Up
+                </Link>
               </div>
             </div>
           </div>

@@ -28,11 +28,15 @@
   align-items: flex-start;
 }
 .component1 {
+  height: 63.2px;
+  width:273px;
   flex: 1;
   border-radius: var(--br-base);
   background-color: var(--color-deepskyblue);
   backdrop-filter: blur(4px);
+  display: flex; /* Add display flex */
   justify-content: center;
+  align-items: center; /* Center vertically */
   padding: var(--padding-lg-8) var(--padding-xl) var(--padding-2xl-2);
   cursor: pointer;
 }
@@ -57,6 +61,7 @@
   display: inline-block;
   min-width: 4.438rem;
   white-space: nowrap;
+  text-decoration: none;
 }
 .frameGroup,
 .signInMessage {
@@ -91,6 +96,7 @@
   justify-content: center;
   padding: 0 var(--padding-xl);
   box-sizing: border-box;
+  
 }
 .frameParent,
 .signinpageInner {
@@ -100,6 +106,7 @@
   align-self: stretch;
   justify-content: flex-start;
   gap: var(--gap-124xl);
+  height: 100vh;
 }
 .signinpageInner {
   width: 44.375rem;
@@ -113,12 +120,16 @@
   height: 69.813rem;
   position: relative;
   overflow: hidden;
+
 }
 .signinpageChild {
-  flex: 1;
-  max-width: 100%;
-  object-fit: cover;
-  min-width: 36.125rem;
+  width: 45%; 
+  position: absolute; 
+  top: 0;
+  right: 0;
+  height: 100%; 
+  object-fit: cover; 
+  height: 100vh;
 }
 .signinpage {
   width: 100%;
@@ -133,8 +144,10 @@
   font-size: var(--font-size-xl);
   color: var(--neutral-white);
   font-family: var(--font-ubuntu);
+  height: 100vh;
 }
-@media screen and (max-width: 1350px) {
+
+@media screen and (max-width: 800px) {
   .signinpageInner {
     flex: 1;
   }
@@ -147,14 +160,14 @@
     gap: 8.063rem 4rem;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .frameParent {
     gap: 4.438rem 8.938rem;
   }
-  .signinpageChild,
-  .signinpageInner {
-    min-width: 100%;
+  .signinpageChild {
+    display: none; 
   }
+  
 }
 @media screen and (max-width: 450px) {
   .instanceParent {
@@ -172,5 +185,12 @@
   }
   .signinpage {
     gap: 8.063rem 2rem;
+  }
+}
+
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+  .signinpageChild {
+    width: 30%; 
   }
 }

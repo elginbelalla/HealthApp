@@ -1,0 +1,148 @@
+.email {
+  position: relative;
+  box-sizing: border-box;
+}
+.email {
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 3.137rem;
+  padding-right: 0;
+}
+.emailWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-3xs) 0 var(--padding-2xs-4);
+}
+.xhbazegmailcom {
+  position: relative;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  white-space: nowrap;
+  padding-right: 0;
+  border: none; 
+  outline: none; 
+}
+.xhbazegmailcomWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-3xs) 0 var(--padding-2xs-4);
+}
+.frameItem {
+  align-self: stretch;
+  height: 0.125rem;
+  position: relative;
+  backdrop-filter: blur(6px);
+  border-top: 2px solid var(--color-midnightblue-200);
+  box-sizing: border-box;
+}
+.frameContainer,
+.frameGroup {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameContainer {
+  gap: var(--gap-8xs-2);
+  color: var(--color-darkslategray-100);
+}
+.frameGroup {
+  padding: 0 var(--padding-7xs) 0 0;
+  gap: var(--gap-3xs-4);
+  flex-shrink: 0;
+}
+.passwordInput {
+  border: none; 
+  outline: none; 
+
+}
+.password {
+  position: relative;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 5.644rem;
+}
+.passwordWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-3xs) 0 var(--padding-2xs-4);
+}
+.button,
+.signUpButtonInner {
+  align-self: stretch;
+  box-sizing: border-box;
+  
+}
+.signUpButtonInner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-2xs-4);
+  max-width: 100%;
+}
+.button {
+  height: 0.125rem;
+  position: relative;
+  backdrop-filter: blur(6px);
+  border-top: 2px solid var(--color-midnightblue-200);
+
+}
+.nameParent,
+.signUpButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.signUpButton {
+  align-self: stretch;
+  gap: var(--gap-5xs-8);
+  flex-shrink: 0;
+  
+}
+.nameParent {
+  display:flex;
+  height: 8.863rem;
+  flex: 1;
+  padding: 0 0 var(--padding-67xl-2);
+  box-sizing: border-box;
+  gap: var(--gap-13xl-6);
+  width:50%;
+}
+
+.frameParent {
+  position: absolute;
+  top: 50%;
+  left: 6.125rem;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  padding: 5% 0; 
+  box-sizing: border-box;
+  min-height: 40.5rem;
+  max-width: 32.125rem; 
+  text-align: left;
+  font-size: var(--roboto-regular-16-size);
+  color: var(--color-midnightblue-200);
+  font-family: var(--font-inter);
+}
+
+@media screen and (max-width: 450px) {
+  .parentContainerParent {
+    flex-wrap: wrap;
+  }
+  .nameParent {
+    height: auto;
+  }
+}

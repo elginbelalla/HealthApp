@@ -289,7 +289,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   padding: var(--gap-xl) var(--bs-border-width);
-  max-width: 100%;
+  width: 90%;
   row-gap: 20px;
   font-size: var(--font-size-bases);
   color: var(--color-darkslategray);

@@ -118,13 +118,12 @@
   
 }
 .doctorHoldingMedicalReportIcon {
-  height: 69.813rem;
-  flex: 1;
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-  object-fit: cover;
-  min-width: 36.375rem;
+  width: 45%; 
+  position: absolute; 
+  top: 0;
+  right: 0;
+  height: 100%; 
+  object-fit: cover; 
   height: 100vh;
 }
 .signUpPage {
@@ -153,9 +152,6 @@
   }
 }
 @media screen and (max-width: 1125px) {
-  .doctorHoldingMedicalReportIcon {
-    display: none;
-  }
   .signUpPage {
     gap: 7.625rem 3.813rem;
   }
@@ -167,7 +163,6 @@
   .frameParent {
     gap: 4.438rem 8.938rem;
   }
-  .doctorHoldingMedicalReportIcon,
   .frameParent {
     min-width: 100%;
   }
@@ -194,5 +189,11 @@
   }
   .signUpPage {
     gap: 7.625rem 1.875rem;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  .doctorHoldingMedicalReportIcon {
+    width: 30%; 
   }
 }
