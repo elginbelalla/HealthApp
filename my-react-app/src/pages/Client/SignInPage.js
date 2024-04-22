@@ -1,6 +1,6 @@
 import React from "react";
-import GroupComponentSignIn from "../components/SignIn/GroupComponentSignIn";
-import RectangleComponent from "../components/SignIn/RectangleComponent";
+import GroupComponentSignIn from "../../components/SignIn/GroupComponentSignIn";
+import RectangleComponent from "../../components/SignIn/RectangleComponent";
 import { Link } from "react-router-dom"; // Change import to Link from react-router-dom
 import styles from "./SignInPage.module.css";
 

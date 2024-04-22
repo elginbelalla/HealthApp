@@ -1,4 +1,4 @@
-import Buttons from "../components/Buttons/Buttons.js";
+import Buttons from "../../components/Buttons/Buttons.js";
 import styles from "./WelcomePage.module.css";
 
 const WelcomePage = () => {

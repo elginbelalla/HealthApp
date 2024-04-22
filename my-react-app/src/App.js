@@ -5,12 +5,21 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import WelcomePage from "./pages/WelcomePage";
-import ProfileInfo from "./pages/ProfileInfo"
-import ProfileInfo1 from "./pages/ProfileInfo1";
-import ProfileInfo2 from "./pages/ProfileInfo2";
-import SignInPage from "./pages/SignInPage";
-import SignUpPage from "./pages/SignUpPage";
+import WelcomePage from "./pages/Client/WelcomePage";
+import ProfileInfo from "./pages/Client/ProfileInfo"
+import ProfileInfo1 from "./pages/Client/ProfileInfo1";
+import ProfileInfo2 from "./pages/Client/ProfileInfo2";
+import SignInPage from "./pages/Client/SignInPage";
+import SignUpPage from "./pages/Client/SignUpPage";
+import DoctorAppointments from "./pages/Doctor/DoctorAppointments";
+import DoctorMessages from "./pages/Doctor/DoctorMessages";
+import DoctorPatients from "./pages/Doctor/DoctorPatients";
+import DoctorSettings from "./pages/Doctor/DoctorSettings";
+import DoctorDashboard from "./pages/Doctor/DoctorDashboard";
+import DoctorTests from "./pages/Doctor/DoctorTests";
+
+
+
 
 function App() {
   const action = useNavigationType();
@@ -53,12 +62,18 @@ function App() {
 
   return (
     <Routes>
-       <Route path="/" element={<WelcomePage />} />
+      <Route path="/" element={<WelcomePage/>}/>
       <Route path="/signup-info" element={<ProfileInfo />} />
       <Route path="/signup-info1" element={<ProfileInfo1 />} />
       <Route path="/signup-info2" element={<ProfileInfo2 />} />
       <Route path="/login" element={<SignInPage />} />
       <Route path="/sign-up" element={<SignUpPage />} />
+      <Route path="/doctor/dashboard" element={<DoctorDashboard/>} />
+      <Route path="/doctor/appointments" element={<DoctorAppointments />} />
+      <Route path="/doctor/patients" element={<DoctorPatients />} />
+      <Route path="/doctor/messages" element={<DoctorMessages />} />
+      <Route path="/doctor/settings" element={<DoctorSettings />} />
+      <Route path="/doctor/tests" element={<DoctorTests />} />
     
 
     </Routes>

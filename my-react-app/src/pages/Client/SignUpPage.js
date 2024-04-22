@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
-import GroupComponent from "../components/SignUp/GroupComponent";
+import GroupComponent from "../../components/SignUp/GroupComponent";
 import { useNavigate } from "react-router-dom";
-import SignInMessage from "../components/SignUp/SignInMessage";
+import SignInMessage from "../../components/SignUp/SignInMessage";
 import styles from "./SignUpPage.module.css";
 
 const SignUpPage = () => {

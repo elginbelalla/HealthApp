@@ -410,9 +410,36 @@
     padding: 0 var(--padding-43xl) 0 var(--padding-43xl);
   }
 }
+@media screen and (max-width: 700px) {
+ 
+  .logoIcon {
+    width: auto;
+    align-self: unset;
+    height: 5.563rem;
+  }
+  .body {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .progressDetailsWrapper {
+    width: 25rem;
+  }
+  .icon {
+    mix-blend-mode: color-burn;
+  }
+  .navigation,
+  .navigationButtons {
+    width: auto;
+    align-self: unset;
+  }
+  .buttonArea {
+    padding: 0 var(--padding-43xl) 0 var(--padding-43xl);
+  }
+}
+
 @media screen and (max-width: 675px) {
   .logoIcon {
-    mix-blend-mode: color-burn;
     width: auto;
     align-self: unset;
     height: 5.563rem;
@@ -440,16 +467,32 @@
 
 
 @media screen and (max-width: 450px) {
-  .activeIndicator,
-  .defaultIndicator,
-  .defaultIndicator1 {
-    width: 100%;
+  .profile1 {
+    gap: var(--gap-xl);
+    padding-left: var(  --padding-lg);
+    padding-right: var(--padding-lg);
+    box-sizing: border-box;
+    padding-top: var(--padding-5xs);
   }
-  .progressBar {
+  .activeIndicator,
+  .activeIndicator1,
+  .defaultIndicator {
+    width: 5%;
+    
+  }
+  .progressBar{
+    padding: 0 0 0 var(--padding-11xl);
+
+  }
+  .logoIcon{
+    height: 5rem;
+    width: 7rem;
+  }
+  .progressBar1 {
     flex-wrap: wrap;
   }
   .largeTitle {
-    font-size: var(--font-size-lgi);
+    font-size: var(--font-size-7xl);
     line-height: 1.375rem;
   }
   .progressBarContainer {
@@ -470,12 +513,7 @@
   .progressDetails {
     gap: var(--gap-base);
   }
-  .profile1 {
-    gap: var(--gap-xl);
-    padding-left: var(--padding-xl);
-    padding-right: var(--padding-xl);
-    box-sizing: border-box;
-  }
+
   .buttonArea {
     padding: 0 var(--padding-43xl) 0 var(--padding-43xl);
   }
