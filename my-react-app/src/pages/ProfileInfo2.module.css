@@ -1,237 +1,417 @@
-.defaultIndicator2 {
-    height: 0.75rem;
-    width: 0.75rem;
-    position: relative;
-    border-radius: 50%;
-    background-color: var(--color-royalblue)!important;
-  }
-  
+.logoIcon {
+  height: 8.5rem;
+  width: 12.619rem;
+  position: relative;
+  object-fit: contain;
+}
+.activeIndicator {
+  height: 0.75rem;
+  width: 0.75rem;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-royalblue);
+}
+.activeLine {
+  width: 2.563rem;
+  height: 0.063rem;
+  position: relative;
+  border-top: 1px solid var(--color-royalblue);
+  box-sizing: border-box;
+}
+.activeLineWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-8xs);
+}
+.activeIndicator1 {
+  height: 0.75rem;
+  width: 0.75rem;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-royalblue);
+}
+.defaultLine {
+  width: 2.563rem;
+  height: 0.063rem;
+  position: relative;
+  border-top: 1px solid var(--color-silver-200);
+  box-sizing: border-box;
+}
+.defaultLineWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-8xs);
+}
 
-  .logoIcon {
-    height: 6.5rem;
-    width: 9.688rem;
-    position: relative;
-    object-fit: contain;
+.defaultIndicator {
+  height: 0.75rem;
+  width: 0.75rem;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-royalblue);
+}
+.progressBar,
+.progressBar1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.progressBar1 {
+  flex: 1;
+  align-items: flex-end;
+  gap: var(--gap-5xs);
+}
+.progressBar {
+  align-self: stretch;
+  align-items: flex-start;
+  padding: 0 0 var(--padding-5xs);
+  box-sizing: border-box;
+}
+.bodyText,
+.largeTitle {
+  align-self: stretch;
+  position: relative;
+}
+.largeTitle {
+  margin: 0;
+  font-size: inherit;
+  line-height: 2.25rem;
+  font-weight: 700;
+  font-family: inherit;
+}
+.bodyText {
+  font-size: var(--roboto-regular-16-size);
+  line-height: 1.375rem;
+  font-weight: 300;
+  font-family: var(--roboto-regular-16);
+  color: var(--color-dimgray);
+}
+.infoArea {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.listAllYour,
+.previousHealthRelatedConcer {
+  align-self: stretch;
+  position: relative;
+  font-family: var(--font-poppins);
+  text-align: left;
+}
+.previousHealthRelatedConcer {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  line-height: 1.5rem;
+  font-weight: 600;
+  color: var(--color-darkslategray-100);
+}
+.listAllYour {
+  font-size: var(--font-size-xs);
+  line-height: 1rem;
+  font-weight: 300;
+  color: var(--color-dimgray);
+}
+.previousHealthRelatedConcerParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-11xs);
+}
+.inputFormgroup {
+  align-self: stretch;
+  height: 5.375rem;
+  position: relative;
+}
+.concerns {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-mini);
+}
+.listAllYour1,
+.previousMedication {
+  align-self: stretch;
+  position: relative;
+  font-family: var(--font-poppins);
+  text-align: left;
+}
+.previousMedication {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  line-height: 1.5rem;
+  font-weight: 600;
+  color: var(--color-darkslategray-100);
+}
+.listAllYour1 {
+  font-size: var(--font-size-xs);
+  line-height: 1rem;
+  font-weight: 300;
+  color: var(--color-dimgray);
+}
+.previousMedicationParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-11xs);
+}
+.inputFormgroup1 {
+  width: 24.5rem;
+  align-self: stretch;
+  height: 5.375rem;
+}
+.medication {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-mini);
+}
+.listAnyNotes,
+.notes1 {
+  align-self: stretch;
+  position: relative;
+  font-family: var(--font-poppins);
+  text-align: left;
+}
+.notes1 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  line-height: 1.5rem;
+  font-weight: 600;
+  color: var(--color-darkslategray-100);
+}
+.listAnyNotes {
+  font-size: var(--font-size-xs);
+  line-height: 1rem;
+  font-weight: 300;
+  color: var(--color-dimgray);
+}
+.notesParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-11xs);
+}
+.inputFormgroup2 {
+  width: 24.5rem;
+  align-self: stretch;
+  height: 5.375rem;
+}
+.body,
+.informationArea,
+.notes {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.notes {
+  align-self: stretch;
+  flex-direction: column;
+  gap: var(--gap-mini);
+}
+.body,
+.informationArea {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.body {
+  margin: 0;
+  flex: 1;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--color-gainsboro);
+  flex-direction: column;
+  padding: var(--padding-11xl) var(--padding-12xl);
+  gap: 3rem;
+}
+.informationArea {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 0 var(--padding-5xs);
+}
+.label {
+  position: relative;
+  font-size: var(--roboto-regular-16-size);
+  line-height: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 800;
+  font-family: var(--font-wix-madefor-text);
+  color: var(--neutral-white);
+  text-align: left;
+  display: inline-block;
+  min-width: 4.438rem;
+}
+.previousbutton {
+  cursor: pointer;
+  border: 1px solid var(--color-silver-100);
+  padding: var(--padding-3xs) var(--padding-4xl) var(--padding-3xs)
+    var(--padding-12xl);
+  background-color: var(--color-deepskyblue);
+  border-radius: var(--br-base);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.previousbutton:hover {
+  background-color: #1f80b0;
+  border: 1px solid #878c8f;
+  box-sizing: border-box;
+}
+.label1 {
+  flex: 1;
+  position: relative;
+  line-height: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 800;
+}
+.nextbutton,
+.previousbuttonParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.nextbutton {
+  width: 7.938rem;
+  border-radius: var(--br-base);
+  background-color: var(--color-deepskyblue);
+  border: 1px solid var(--color-silver-100);
+  box-sizing: border-box;
+  justify-content: flex-start;
+  padding: var(--padding-3xs) var(--padding-4xl) var(--padding-3xs)
+    var(--padding-12xl);
+  cursor: pointer;
+}
+.previousbuttonParent {
+  flex: 1;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+.buttonArea,
+.progressArea,
+.progressAreaWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.buttonArea {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-43xl) 0 var(--padding-41xl);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--roboto-regular-16-size);
+  color: var(--neutral-white);
+  font-family: var(--font-wix-madefor-text);
+}
+.progressArea,
+.progressAreaWrapper {
+  flex-direction: column;
+}
+.progressArea {
+  align-self: stretch;
+  gap: var(--gap-13xl);
+}
+.progressAreaWrapper {
+  width: 28.5rem;
+  padding: var(--padding-5xs) 0 0;
+  box-sizing: border-box;
+}
+.icon,
+.profileInfo2 {
+  position: relative;
+  overflow: hidden;
+}
+.icon {
+  height: 3rem;
+  width: 3rem;
+  flex-shrink: 0;
+}
+.profileInfo2 {
+  width: 100%;
+  background-color: var(--neutral-white);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--padding-25xl) 5.881rem 11.937rem var(--padding-69xl);
+  box-sizing: border-box;
+  line-height: normal;
+  letter-spacing: normal;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-poppins);
+}
+@media screen and (max-width: 925px) {
+  .largeTitle {
+    font-size: var(--font-size-7xl);
+    line-height: 1.813rem;
   }
-  
-  
-  .activeIndicator {
-    height: 0.75rem;
-    width: 0.75rem;
-    position: relative;
-    border-radius: 50%;
-    background-color: var(--color-royalblue);
-  }
-  
-  
-  .activeLine {
-    width: 2.563rem;
-    height: 0.063rem;
-    position: relative;
-    border-top: 1px solid var(--color-royalblue);
+  .profileInfo2 {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-17xl) var(--padding-3xs) var(--padding-151xl);
     box-sizing: border-box;
   }
-  
-  
+}
+@media screen and (max-width: 700px) {
+  .body {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .activeIndicator,
+  .activeIndicator1,
   .defaultIndicator {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 0 0 var(--padding-8xs);
+    width: 100%;
   }
-  
-  
-  .activeIndicator1 {
-    height: 0.75rem;
-    width: 0.75rem;
-    position: relative;
-    border-radius: 50%;
-    background-color: var(--color-royalblue);
-  }
-  
-  
-  .defaultLine {
-    width: 2.563rem;
-    height: 0.063rem;
-    position: relative;
-    border-top: 1px solid var(--color-silver-200);
-    box-sizing: border-box;
-  }
-  
-  
-  .defaultIndicator1 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 0 0 var(--padding-8xs);
-  }
-  
-  
-  
-  .progressBar,
   .progressBar1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    max-width: 100%;
+    flex-wrap: wrap;
   }
-  
-  
-  .progressBar1 {
-    flex: 1;
-    align-items: flex-end;
-    gap: var(--gap-5xs);
-  }
-  
-  
-  .progressBar {
-    align-self: stretch;
-    align-items: flex-start;
-    padding: 0 0 var(--padding-5xs);
-    box-sizing: border-box;
-  }
-  
-  
-  .bodyText,
   .largeTitle {
-    align-self: stretch;
-    position: relative;
-  }
-  
-  
-  .largeTitle {
-    margin: 0;
-    font-size: inherit;
-    line-height: 2.25rem;
-    font-weight: 700;
-    font-family: inherit;
-  }
-  
-  
-  .bodyText {
-    font-size: var(--roboto-regular-16-size);
+    font-size: var(--font-size-lgi);
     line-height: 1.375rem;
-    font-weight: 300;
-    font-family: var(--roboto-regular-16);
-    color: var(--color-dimgray);
   }
-  
-  
-  .largeTitleParent {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+  .body {
+    gap: var(--gap-5xl);
+  }
+  .previousbuttonParent {
+    flex-wrap: wrap;
+  }
+  .buttonArea {
+    padding-left: var(--padding-11xl);
+    padding-right: var(--padding-12xl);
+    box-sizing: border-box;
+  }
+  .progressArea {
     gap: var(--gap-base);
   }
-  
-  
-  .bodyWrapper,
-  .profileInfo2Inner,
-  .progressBarParent {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    max-width: 100%;
-  }
-  
-  
-  .bodyWrapper {
-    align-self: stretch;
-    flex-direction: row;
-    padding: 0 0 var(--padding-5xs);
-    box-sizing: border-box;
-  }
-  
-  
-  .profileInfo2Inner,
-  .progressBarParent {
-    flex-direction: column;
-  }
-  
-  
-  .progressBarParent {
-    align-self: stretch;
-    gap: var(--gap-13xl);
-  }
-  
-  
-  .profileInfo2Inner {
-    width: 28.5rem;
-    padding: var(--padding-5xs) 0 0;
-    box-sizing: border-box;
-  }
-  
-  
-  .icon,
   .profileInfo2 {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  
-  .icon {
-    height: 2rem;
-    width: 2rem;
-    flex-shrink: 0;
-  }
-  
-  
-  .profileInfo2 {
-    width: 100%;
-    background-color: var(--neutral-white);
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: var(--padding-25xl) 5.875rem 13rem var(--padding-69xl);
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
     box-sizing: border-box;
-    letter-spacing: normal;
-    gap: var(--gap-xl);
-    text-align: left;
-    font-size: var(--font-size-13xl);
-    color: var(--color-darkslategray-100);
-    font-family: var(--font-poppins);
   }
-  
-  
-  @media screen and (max-width: 925px) {
-    .largeTitle {
-      font-size: var(--font-size-7xl);
-      line-height: 1.813rem;
-    }
-    .profileInfo2 {
-      flex-wrap: wrap;
-      padding-left: var(--padding-25xl);
-      padding-right: 2.938rem;
-      box-sizing: border-box;
-    }
-  }
-  
-  
-  @media screen and (max-width: 450px) {
-    .activeIndicator,
-    .activeIndicator1,
-    .defaultIndicator2 {
-      width: 100%;
-    }
-    .progressBar1 {
-      flex-wrap: wrap;
-    }
-    .largeTitle {
-      font-size: var(--font-size-lgi);
-      line-height: 1.375rem;
-    }
-    .progressBarParent {
-      gap: 1rem 2rem;
-    }
-    .profileInfo2 {
-      padding-left: var(--padding-xl);
-      padding-right: var(--padding-xl);
-      box-sizing: border-box;
-    }
-  }
-  
+}

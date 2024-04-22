@@ -1,23 +1,30 @@
-import PersonalHistory from "../components/PersonalHistory/PersonalHistory";
-import PrevNextButtons from "../components/PrevNextButtons/PrevNextButtons";
-import styles from "./ProfileInfo1.module.css";
+import React, { useState, useCallback } from "react";
+import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-
+import styles from "./ProfileInfo1.module.css";
 
 const ProfileInfo1 = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({});
 
-  const handleUpdateFormData = (newData) => {
-    setFormData({ ...formData, ...newData });
+  // Initialize formData state with default values
+  const [formData, setFormData] = useState({
+    'prev-health-issues': '',
+    'prev-medication': '',
+    'other-notes': ''
+  });
+
+  // Function to update form data based on input changes
+  const handleUpdateFormData = (fieldName, value) => {
+    setFormData({ ...formData, [fieldName]: value });
   };
 
-  const onPreviousButtonClicked = () => {
+  // Callback function for the previous button click
+  const onPreviousButtonClick = useCallback(() => {
     navigate("/signup-info");
-  };
+  }, [navigate]);
 
-  const onNextButtonClicked = async () => {
+  // Callback function for the next button click
+  const onNextButtonContainerClick = useCallback(async () => {
     try {
       const response = await fetch("http://localhost:3000/api/savePersonalHealthinfo.php", {
         method: "POST",
@@ -27,15 +34,14 @@ const ProfileInfo1 = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        navigate("/singup-info2");
+        navigate("/signup-info2");
       } else {
         console.error("Failed to save profile info:", await response.text());
       }
     } catch (error) {
       console.error("Failed to save profile info:", error.message);
     }
-  };
-
+  }, [formData, navigate]);
 
   return (
     <div className={styles.profileInfo2}>
@@ -45,44 +51,99 @@ const ProfileInfo1 = () => {
         alt=""
         src="/logo2@2x.png"
       />
-      <div className={styles.profileInfo2Inner}>
-        <div className={styles.progressBarParent}>
+      <div className={styles.progressAreaWrapper}>
+        <div className={styles.progressArea}>
           <div className={styles.progressBar}>
             <div className={styles.progressBar1}>
               <div className={styles.activeIndicator} />
-              <div className={styles.defaultIndicator}>
+              <div className={styles.activeLineWrapper}>
                 <div className={styles.activeLine} />
               </div>
               <div className={styles.activeIndicator1} />
-              <div className={styles.defaultIndicator1}>
+              <div className={styles.defaultLineWrapper}>
                 <div className={styles.defaultLine} />
               </div>
-              <div className={styles.defaultIndicator2} />
+              <div className={styles.defaultIndicator} />
             </div>
           </div>
-          <div className={styles.largeTitleParent}>
+          <div className={styles.infoArea}>
             <h1 className={styles.largeTitle}>Personal health history</h1>
-            <div
-              className={styles.bodyText}
-            >{`Fill in the data based on your health history and previous assessments.. It will take a couple of minutes. `}</div>
+            <div className={styles.bodyText}>
+            {`Fill in the data based on your health history and previous assessments.. It will take a couple of minutes. `}</div>
           </div>
-          <div className={styles.bodyWrapper}>
-            <PersonalHistory />
+          <div className={styles.informationArea}>
+            <form className={styles.body}>
+              <div className={styles.concerns}>
+                <div className={styles.previousHealthRelatedConcerParent}>
+                  <h3 className={styles.previousHealthRelatedConcer}>
+                    Previous health-related concerns
+                  </h3>
+                  <div className={styles.listAllYour}>
+                   List all your previous health issues.
+                  </div>
+                </div>
+                <Form.Group className={styles.inputFormgroup}>
+                  <Form.Control
+                    name="prev-health-issues"
+                    as="textarea"
+                    value={formData['prev-health-issues']}
+                    onChange={(e) => handleUpdateFormData('prev-health-issues', e.target.value)}
+                  />
+                </Form.Group>
+              </div>
+              <div className={styles.medication}>
+                <div className={styles.previousMedicationParent}>
+                  <h3 className={styles.previousMedication}>
+                    Previous medication
+                  </h3>
+                  <div className={styles.listAllYour1}>
+                    List all your previous medication.
+                  </div>
+                </div>
+                <Form.Group className={styles.inputFormgroup1}>
+                  <Form.Control
+                    name="prev-medication"
+                    as="textarea"
+                    value={formData['prev-medication']}
+                    onChange={(e) => handleUpdateFormData('prev-medication', e.target.value)}
+                  />
+                </Form.Group>
+              </div>
+              <div className={styles.notes}>
+                <div className={styles.notesParent}>
+                  <h3 className={styles.notes1}>Notes</h3>
+                  <div className={styles.listAnyNotes}>
+                     List any notes you might have about your health concerns.
+                  </div>
+                </div>
+                <Form.Group className={styles.inputFormgroup2}>
+                  <Form.Control
+                    name="other-notes"
+                    as="textarea"
+                    value={formData['other-notes']}
+                    onChange={(e) => handleUpdateFormData('other-notes', e.target.value)}
+                  />
+                </Form.Group>
+              </div>
+            </form>
           </div>
-          <div className={styles.iconContainer}>
-      <div className={styles.previousbuttonParent}>
-        <div
-          className={styles.previousbutton}
-          onClick={onPreviousButtonClicked}
-        >
-          <div className={styles.label}>Previous</div>
+          <div className={styles.buttonArea}>
+            <div className={styles.previousbuttonParent}>
+              <button
+                className={styles.previousbutton}
+                onClick={onPreviousButtonClick}
+              >
+                <div className={styles.label}>Previous</div>
+              </button>
+              <div
+                className={styles.nextbutton}
+                onClick={onNextButtonContainerClick}
+              >
+                <div className={styles.label1}>Next</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className={styles.nextbutton} 
-        onClick={onNextButtonClicked}>
-          <div className={styles.label1}>Next</div>
-        </div>
-      </div>
-    </div>        </div>
       </div>
       <img className={styles.icon} loading="lazy" alt="" src="/icon.svg" />
     </div>

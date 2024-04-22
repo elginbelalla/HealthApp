@@ -26,7 +26,7 @@ const SignInPage = () => {
                   Don’t have an account?
                 </div>
                 {/* Replace div with Link */}
-                <Link className={styles.signIn} to="/signup">
+                <Link className={styles.signIn} to="/sign-up">
                   Sign Up
                 </Link>
               </div>

@@ -8,7 +8,7 @@ const Buttons = () => {
 
 
   const onSignUpClick = useCallback(() => {
-    navigate("/signup");
+    navigate("/sign-up");
   }, [navigate]);
   const onLogInClick = useCallback(() => {
     navigate("/login");

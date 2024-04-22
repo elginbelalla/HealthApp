@@ -1,17 +1,16 @@
 .logoIcon {
-  height: 6.5rem;
-  width: 9.688rem;
+  height: 8.5rem;
+  width: 12.619rem;
   position: relative;
-  object-fit: contain;
+  object-fit: cover;
 }
 .activeIndicator {
   height: 0.75rem;
   width: 0.75rem;
   position: relative;
   border-radius: 50%;
-  background-color: #007aff;
+  background-color: var(--color-royalblue);
 }
-
 .defaultLine {
   width: 2.563rem;
   height: 0.063rem;
@@ -19,15 +18,13 @@
   border-top: 1px solid var(--color-silver-200);
   box-sizing: border-box;
 }
-
-.defaultLineWrapper {
+.progressIndicator {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
   padding: 0 0 var(--padding-8xs);
 }
-
 .defaultIndicator,
 .defaultLine1 {
   position: relative;
@@ -37,7 +34,7 @@
   height: 0.75rem;
   width: 0.75rem;
   border-radius: 50%;
-  background-color: var(--color-white);
+  background-color: var(--neutral-white);
   border: 1px solid var(--color-silver-200);
 }
 .defaultLine1 {
@@ -45,145 +42,272 @@
   height: 0.063rem;
   border-top: 1px solid var(--color-silver-200);
 }
-
-.defaultLineContainer {
+.progressIndicator1 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
   padding: 0 0 var(--padding-8xs);
 }
-
 .defaultIndicator1 {
   height: 0.75rem;
   width: 0.75rem;
   position: relative;
   border-radius: 50%;
-  background-color: var(--color-white);
+  background-color: var(--neutral-white);
   border: 1px solid var(--color-silver-200);
   box-sizing: border-box;
 }
-
-.progressBar,
-.progressBarWrapper {
+.progressBar {
+  align-self: stretch;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  max-width: 100%;
-}
-
-
-.progressBar {
-  flex: 1;
   align-items: flex-end;
+  justify-content: flex-start;
   gap: var(--gap-5xs);
 }
-
-
-.progressBarWrapper {
-  align-self: stretch;
-  align-items: flex-start;
-  padding: 0 0 1.125rem;
-  box-sizing: border-box;
-}
-
-
 .largeTitle {
+  margin: 0;
   align-self: stretch;
   position: relative;
+  font-size: inherit;
   line-height: 2.25rem;
-  font-size: 1.3rem;
-  padding: 0.3rem 0;
+  font-weight: 700;
+  font-family: inherit;
 }
-
-.largeTitleParent {
+.progressBarContainer {
   align-self: stretch;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 0.4rem;
-  max-width: 80%;
+  gap: var(--gap-21xl);
+}
+.basedOnYour,
+.personalMeasurements {
+  align-self: stretch;
+  position: relative;
+}
+.personalMeasurements{
+  margin: 0;
+  font-size: inherit;
+  line-height: 1.75rem;
+  font-weight: 600;
+  font-size: var(--font-size-3xl-1);
+  font-family: inherit;
+}
+.basedOnYour {
+  font-size: var(--regular-size);
+  line-height: 1.7rem;
+  font-weight: 300;
+  color: var(--color-dimgray);
+}
+.measurements {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-11xs);
+  font-size: var(--sidebar-text-size);
+}
+.fieldLabel {
+  align-self: stretch;
+  position: relative;
+  line-height: 1.25rem;
+}
+.contents {
+  border: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 2.75rem;
+}
+.fieldBlock {
+  align-self: stretch;
+  display: flex;
+  gap: var( --gap-7xs);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.fieldLabel1 {
+  align-self: stretch;
+  position: relative;
+  line-height: 1.25rem;
+}
+.contents1 {
+  border: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 2.75rem;
+}
+.fieldBlock1 {
+  align-self: stretch;
+  display: flex;
+  gap: var( --gap-7xs);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.fieldLabel2,
+.fieldLabel3 {
+  flex: 1;
+  position: relative;
+  line-height: 1.25rem;
+  display: inline-block;
+  min-width: 7.313rem;
+}
+.userDataLabels {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+.contents2,
+.contents3 {
+  border: 0;
+  background-color: transparent;
+  height: 2.5rem;
+  flex: 1;
+  min-width: 7.313rem;
+}
+.contents3 {
+  z-index: 1;
+}
+.userData,
+.userDataValues {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.userDataValues {
+  flex-direction: row;
+  gap: var(--gap-13xl);
+}
+.userData {
+  flex-direction: column;
+  gap: var( --gap-7xs);
+}
+.fieldLabel4 {
+  align-self: stretch;
+  position: relative;
+  line-height: 1.25rem;
+}
+.contents4 {
+  border: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 2.75rem;
+  z-index: 1;
+}
+.fieldBlock2 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var( --gap-7xs);
+  justify-content: flex-start;
+}
+.fieldLabel5 {
+  align-self: stretch;
+  position: relative;
+  line-height: 1.25rem;
+}
+.contents5 {
+  border: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 2.75rem;
+  z-index: 1;
+}
+.fieldBlock3 {
+  align-self: stretch;
+  display: flex;
+  gap: var( --gap-7xs);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.body {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--color-gainsboro);
+  padding: var(--padding-11xl) var(--padding-12xl);
+  gap: var(--gap-17xl);
+  font-size: var(--font-size-sm);
+}
+.body,
+.progressDetails,
+.progressDetailsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.progressDetails {
+  align-self: stretch;
+  gap: var(--gap-13xl);
+}
+.progressDetailsWrapper {
+  width: 28.5rem;
+  padding: var(--padding-5xs) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.icon {
+  height: 3rem;
+  width: 3rem;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.mainContent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-poppins);
 }
 
 
 .label {
   position: relative;
+  font-size: var(--roboto-regular-16-size);
   line-height: 1.5rem;
   text-transform: capitalize;
   font-weight: 800;
+  font-family: var(--font-wix-madefor-text);
+  color: var(--neutral-white);
+  text-align: left;
   display: inline-block;
   min-width: 4.438rem;
 }
-
-
 .previousbutton {
-  border-radius: var(--br-base);
-  background-color: var(--color-deepskyblue);
-  border: 1px solid var(--color-silver-100);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--padding-xs) var(--padding-4xl) var(--padding-xs)
-    var(--padding-12xl);
   cursor: pointer;
-}
-
-.iconContainer .label1 {
-  flex: 1;
-  position: relative;
-  line-height: 1.5rem;
-  text-transform: capitalize;
-  font-weight: 800;
-}
-
-.nextbutton,
-.previousbuttonParent {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-.nextbutton {
-  width: 7.938rem;
-  border-radius: var(--br-base);
-  background-color: var(--color-deepskyblue);
   border: 1px solid var(--color-silver-100);
-  box-sizing: border-box;
-  justify-content: flex-start;
-  padding: var(--padding-xs) var(--padding-4xl) var(--padding-xs)
+  padding: var(--padding-3xs) var(--padding-4xl) var(--padding-3xs)
     var(--padding-12xl);
-  cursor: pointer;
-  text-align: center;
-}
-.previousbuttonParent {
-  flex: 1;
-  justify-content: space-between;
-  max-width: 100%;
-  gap: var(--gap-xl);
-}
-
-
-.iconContainer,
-.profileInfo2Inner,
-.progressBarParent {
+  background-color: var(--color-deepskyblue);
+  border-radius: var(--br-base);
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  max-width: 100%;
 }
-
-
-.iconContainer {
-  align-self: stretch;
-  flex-direction: row;
-  padding: 0 var(--padding-43xl) 0 var(--padding-41xl);
+.previousbutton:hover {
+  background-color: #1f80b0;
+  border: 1px solid #878c8f;
   box-sizing: border-box;
-  font-size: var(--roboto-regular-16-size);
-  color: var(--neutral-white);
-  font-family: var(--font-wix-madefor-text);
 }
-
 .label1 {
   flex: 1;
   position: relative;
@@ -192,15 +316,12 @@
   font-weight: 800;
 }
 
-
 .nextbutton,
-.previousNextButtonsLabel {
+.previousbuttonParent {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 }
-
-
 .nextbutton {
   width: 7.938rem;
   border-radius: var(--br-base);
@@ -208,105 +329,113 @@
   border: 1px solid var(--color-silver-100);
   box-sizing: border-box;
   justify-content: flex-start;
-  padding: var(--padding-xs) var(--padding-4xl) var(--padding-xs)
+  padding: var(--padding-3xs) var(--padding-4xl) var(--padding-3xs)
     var(--padding-12xl);
   cursor: pointer;
-  text-align: center;
 }
-.previousNextButtonsLabel {
+
+.previousbuttonParent {
   flex: 1;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 100%;
-  gap: var(--gap-xl);
+  gap: var(--gap-21xl);
 }
 
 
-.contents,
-.previousNextButtonsLabelWrapper {
+.buttonArea,
+.progressArea,
+.progressAreaWrapper {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  box-sizing: border-box;
-  max-width: 80%;
+  max-width: 100%;
 }
-
-
-.previousNextButtonsLabelWrapper {
+.buttonArea {
   align-self: stretch;
   flex-direction: row;
-  padding: 0 var(--padding-43xl) 0 3.75rem;
-  font-size: var(--font-size-base);
-  color: var(--color-white);
+  padding: 0 var(--padding-43xl) 0 var(  --padding-188xl);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--roboto-regular-16-size);
+  color: var(--neutral-white);
   font-family: var(--font-wix-madefor-text);
 }
 
 
-.contents {
-  flex-direction: column;
-  padding: 0 0 0;
-  gap: 0.6rem;
-}
 
-
-
-.exitbutton,
-.icon {
-  height: 2rem;
-  width: 2rem;
-}
-
-
-.icon {
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-
-.exitbutton {
-  display: none;
-}
-
-
-.profileInfo {
+.profile1 {
   width: 100%;
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--neutral-white);
   overflow: hidden;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: var(--padding-25xl);
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: var(--padding-25xl) 5.881rem 11.937rem var(--padding-69xl);
   box-sizing: border-box;
+  gap: var(--gap-21xl);
   letter-spacing: normal;
-  gap: 2.9;
+  line-height: normal;
   text-align: left;
-  font-size: 2rem;
-  color: var(--color-darkslategray-100);
-  font-family: var(--font-poppins);
+  font-size: var(--roboto-regular-16-size);
+  color: var(--neutral-white);
+  font-family: var(--font-wix-madefor-text);
 }
-
-
-
-
-@media screen and (max-width: 975px) {
+@media screen and (max-width: 900px) {
+  .logoIcon {
+    width: 6.25rem;
+    height: 5.563rem;
+  }
   .largeTitle {
-    font-size: 1.625rem;
+    font-size: var(--font-size-7xl);
     line-height: 1.813rem;
   }
-  .contents {
-    padding-top: var(--padding-xl);
-    padding-bottom: var(--padding-3xl);
+  .icon {
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+  .mainContent {
+    flex-wrap: wrap;
+  }
+  .profile1 {
+    padding-left: var(--padding-25xl);
+    padding-right: 2.938rem;
     box-sizing: border-box;
   }
-  .profileInfo {
-    flex-wrap: wrap;
-    padding-left: var(--padding-25xl);
-    padding-right: var(--padding-15xl);
-    box-sizing: border-box;
+  .buttonArea {
+    padding: 0 var(--padding-43xl) 0 var(--padding-43xl);
   }
 }
+@media screen and (max-width: 675px) {
+  .logoIcon {
+    mix-blend-mode: color-burn;
+    width: auto;
+    align-self: unset;
+    height: 5.563rem;
+  }
+  .body {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .progressDetailsWrapper {
+    width: 25rem;
+  }
+  .icon {
+    mix-blend-mode: color-burn;
+  }
+  .navigation,
+  .navigationButtons {
+    width: auto;
+    align-self: unset;
+  }
+  .buttonArea {
+    padding: 0 var(--padding-43xl) 0 var(--padding-43xl);
+  }
+}
+
+
 @media screen and (max-width: 450px) {
   .activeIndicator,
   .defaultIndicator,
@@ -317,27 +446,34 @@
     flex-wrap: wrap;
   }
   .largeTitle {
-    font-size: 1.188rem;
+    font-size: var(--font-size-lgi);
     line-height: 1.375rem;
   }
-  .largeTitleParent {
-    gap: 1rem 2rem;
+  .progressBarContainer {
+    gap: var(--gap-xl);
   }
-  .previousNextButtonsLabel {
+  .personalMeasurements {
+    font-size: var(--roboto-regular-16-size);
+    line-height: 1.375rem;
+  }
+  .userDataLabels,
+  .userDataValues {
     flex-wrap: wrap;
+    gap: var(--gap-base);
   }
-  .previousNextButtonsLabelWrapper {
-    padding-left: 1.875rem;
-    padding-right: var(--padding-12xl);
-    box-sizing: border-box;
+  .body {
+    gap: var(--gap-5xl);
   }
-  .contents {
-    gap: 1.938rem 3.125rem;
-    padding-bottom: var(--padding-xl);
-    box-sizing: border-box;
+  .progressDetails {
+    gap: var(--gap-base);
   }
-  .profileInfo {
+  .profile1 {
+    gap: var(--gap-xl);
     padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
     box-sizing: border-box;
+  }
+  .buttonArea {
+    padding: 0 var(--padding-43xl) 0 var(--padding-43xl);
   }
 }
