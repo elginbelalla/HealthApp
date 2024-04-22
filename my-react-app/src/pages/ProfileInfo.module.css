@@ -65,6 +65,7 @@
   align-items: flex-end;
   justify-content: flex-start;
   gap: var(--gap-5xs);
+  padding-left: 9rem;
 }
 .largeTitle {
   margin: 0;
@@ -74,6 +75,7 @@
   line-height: 2.25rem;
   font-weight: 700;
   font-family: inherit;
+  padding-left: 3.5rem;
 }
 .progressBarContainer {
   align-self: stretch;
@@ -321,6 +323,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  padding-left: 10rem;
 }
 .nextbutton {
   width: 7.938rem;

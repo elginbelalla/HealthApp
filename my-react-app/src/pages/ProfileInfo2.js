@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import styles from "./ProfileInfo2.module.css";
@@ -8,9 +8,9 @@ const ProfileInfo2 = () => {
 
   // Initialize formData state with default values
   const [formData, setFormData] = useState({
-    'prev-health-issues': '',
-    'prev-medication': '',
-    'other-notes': ''
+    'prevHistory': '',
+    'prevMedication': '',
+    'notes': ''
   });
 
   // Function to update form data based on input changes
@@ -23,10 +23,37 @@ const ProfileInfo2 = () => {
     navigate("/signup-info1");
   }, [navigate]);
 
+
+  useEffect(() => {
+    fetchPreviousData();
+  }, []);
+
+  // Fetch previous data if there is any, used when user goes back one page
+  const fetchPreviousData = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/saveFamilyHealth.php", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setFormData(data);
+      } else {
+        console.error("Failed to fetch previous data i:", await response.text());
+      }
+    } catch (error) {
+      console.error("Failed to fetch previous data:", error.message);
+    }
+  }; 
+
+
   // Callback function for the next button click
   const onNextButtonContainerClick = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/savePersonalHealthinfo.php", {
+      const response = await fetch("http://localhost:3000/api/saveFamilyHealth.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -85,10 +112,11 @@ const ProfileInfo2 = () => {
                 </div>
                 <Form.Group className={styles.inputFormgroup}>
                   <Form.Control
-                    name="prev-health-issues"
+                    name="prevHistory"
                     as="textarea"
-                    value={formData['prev-health-issues']}
-                    onChange={(e) => handleUpdateFormData('prev-health-issues', e.target.value)}
+                    value={formData['prevHistory']}
+                    onChange={(e) => handleUpdateFormData('prevHistory', e.target.value)}
+                    defaultValue={formData.prevHistory || ""}
                   />
                 </Form.Group>
               </div>
@@ -103,10 +131,11 @@ const ProfileInfo2 = () => {
                 </div>
                 <Form.Group className={styles.inputFormgroup1}>
                   <Form.Control
-                    name="prev-medication"
+                    name="prevMedication"
                     as="textarea"
-                    value={formData['prev-medication']}
-                    onChange={(e) => handleUpdateFormData('prev-medication', e.target.value)}
+                    value={formData['prevMedication']}
+                    onChange={(e) => handleUpdateFormData('prevMedication', e.target.value)}
+                    defaultValue={formData.prevMedication || ""}
                   />
                 </Form.Group>
               </div>
@@ -119,10 +148,11 @@ const ProfileInfo2 = () => {
                 </div>
                 <Form.Group className={styles.inputFormgroup2}>
                   <Form.Control
-                    name="other-notes"
+                    name="notes"
                     as="textarea"
-                    value={formData['other-notes']}
-                    onChange={(e) => handleUpdateFormData('other-notes', e.target.value)}
+                    value={formData['notes']}
+                    onChange={(e) => handleUpdateFormData('notes', e.target.value)}
+                    defaultValue={formData.notes || ""}
                   />
                 </Form.Group>
               </div>

@@ -1,29 +1,20 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
 import styles from "./ProfileInfo.module.css";
 
 const ProfileInfo = () => {
-
-
-  
-     const location = useLocation();
-     const clientId = location.state ? location.state.clientId : null;
-
+   const location = useLocation();
+   const clientId = location.state ? location.state.clientId : null;
   
     const navigate = useNavigate();
-  
-    const onPreviousButtonClick = useCallback(() => {
-      navigate("/sign-up");
-    }, [navigate]);
-  
 
     const [formData, setFormData] = useState({
       'fullName': '',
       'gender': '',
-      'dateB': '',
-      'placeB': '',
+      'dateOfBirth': '',
+      'placeOfBirth': '',
       'height': '',
       'weight': ''
       
@@ -34,17 +25,72 @@ const ProfileInfo = () => {
       setFormData({ ...formData, [fieldName]: value });
     };
   
+    const handleGenderChange = (selectedGender) => {
+      console.log("Selected Gender:", selectedGender); 
+      setFormData({
+        ...formData,
+        gender: selectedGender
+      });
+    };
+
+    useEffect(() => {
+      fetchPreviousData()
+    },[])
+
+// Fetch previous data if there is any, used when user goes back one page
+  const fetchPreviousData = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/savePersonalInfo.php", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const formattedDate = data.dateOfBirth ? formatDateForInput(data.dateOfBirth) : '';
+
+        setFormData({
+          ...formData,
+          fullName: data.fullName || '',
+          gender: data.gender || '',
+          dateOfBirth: formattedDate,
+          placeOfBirth: data.placeOfBirth || '',
+          height: data.height || '',
+          weight: data.weight || ''
+        });
+      } else {
+        console.error("Failed to fetch previous data:", await response.text());
+      }
+    } catch (error) {
+      console.error("Failed to fetch previous data:", error.message);
+    }
+  }; 
+
+  const formatDateForInput = (date) => {
+    const [year, month, day] = date.split('-');
+    return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+  };
+  
+
+  const validateForm = () =>{
+    if( formData.fullName.length === 0 || formData.gender.length === 0 || formData.dateOfBirth.length === 0 || formData.placeOfBirth.length === 0 || formData.height.length === 0 || formData.weight.length === 0){
+      alert("Please fill in all fields.");
+      return false;
+    }
+    else
+      return true;
+  }
+
 
   const onNextButtonContainerClick = async () => {
-    
-      // Log the payload before sending the request
-      //console.log("Payload:", payload);
-  
-      try{
-      const payload = {
-        clientId: clientId, // Include clientId in the payload
-      };
 
+    if (!validateForm()) {
+      return;
+    }
+
+    try{
       const response = await fetch("http://localhost:3000/api/savePersonalInfo.php", {
         method: "POST",
         headers: {
@@ -102,7 +148,9 @@ const ProfileInfo = () => {
                      name="fullName"
                       type="text"
                       value={formData['fullName']}
-                      onChange={(e) => handleUpdateFormData('fullName', e.target.value)}/>
+                      onChange={(e) => handleUpdateFormData('fullName', e.target.value)}
+                      defaultValue={formData.fullName || ""}
+                      />
                   </Form>
               </div>
               <div className={styles.fieldBlock1}>
@@ -110,7 +158,8 @@ const ProfileInfo = () => {
                 <Form.Select
                   name="gender"
                   value={formData.gender}
-                  onChange={(e) => handleUpdateFormData("gender", e.target.value)}
+                  onChange={(e) => handleGenderChange(e.target.value)}
+                  defaultValue={formData.gender || ""}
                 >
                   <option value="">Select Gender</option>
                   <option value="Male">Male</option>
@@ -125,17 +174,22 @@ const ProfileInfo = () => {
                 <div className={styles.userDataValues}>
                   <Form className={styles.contents2}>
                   <Form.Control 
-                      name="dateB"
+                      name="dateOfBirth"
                       type="date"
-                      value={formData['dateB']}
-                      onChange={(e) => handleUpdateFormData('dateB', e.target.value)}/>
+                      value={formData['dateOfBirth']}
+                      onChange={(e) => handleUpdateFormData('dateOfBirth', e.target.value)}
+                      defaultValue={formData.dateOfBirth || ""}
+                      />
                     </Form>
                   <Form className={styles.contents3}>
                   <Form.Control 
-                      name="placeB"
+                      name="placeOfBirth"
                       type="text"
-                      value={formData['placeB']}
-                      onChange={(e) => handleUpdateFormData('placeB', e.target.value)}/>
+                      value={formData['placeOfBirth']}
+                      onChange={(e) => handleUpdateFormData('placeB', e.target.value)}
+                      defaultValue={formData.placeOfBirth || ""}
+                      />
+
                     </Form>
                 </div>
               </div>
@@ -146,7 +200,9 @@ const ProfileInfo = () => {
                       name="height"
                       type="number"
                       value={formData['height']}
-                      onChange={(e) => handleUpdateFormData('height', e.target.value)}/>
+                      onChange={(e) => handleUpdateFormData('height', e.target.value)}
+                      defaultValue={formData.height || ""}
+                      />
                   </Form>
               </div>
               <div className={styles.fieldBlock3}>
@@ -156,7 +212,9 @@ const ProfileInfo = () => {
                     name="weight"
                     type="number"
                     value={formData['weight']}
-                    onChange={(e) => handleUpdateFormData('weight', e.target.value)}/>
+                    onChange={(e) => handleUpdateFormData('weight', e.target.value)}
+                    defaultValue={formData.weight || ""}
+                    />
                   </Form>
               </div>
             </div>
@@ -166,12 +224,7 @@ const ProfileInfo = () => {
       </main>
       <div className={styles.buttonArea}>
             <div className={styles.previousbuttonParent}>
-              <button
-                className={styles.previousbutton}
-                onClick={onPreviousButtonClick}
-              >
-                <div className={styles.label}>Previous</div>
-              </button>
+             
               <div
                 className={styles.nextbutton}
                 onClick={onNextButtonContainerClick}

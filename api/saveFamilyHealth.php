@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-header("Access-Control-Allow-Origin: *"); // Allows all origins
+header("Access-Control-Allow-Origin: *"); // Allow requests from any origin
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS'); // Allows specific HTTP methods
 header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
@@ -15,8 +15,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch ($method) {
     case "POST":
         $data = json_decode($user, true);
-        $prevHealhConc = isset($data['healthConcerns']) ? trim($data['healthConcerns']) : '';
-        $prevMed = isset($data['previousMedication']) ? trim($data['previousMedication']) : '';
+        $prevHealhConc = isset($data['prevHistory']) ? trim($data['prevHistory']) : '';
+        $prevMed = isset($data['prevMedication']) ? trim($data['prevMedication']) : '';
         $notes = isset($data['notes']) ? trim($data['notes']) : '';
     
         $sql = "SELECT clientID FROM Client ORDER BY clientID DESC LIMIT 1";
@@ -27,18 +27,18 @@ switch ($method) {
 
         echo($clientId);
 
-        $sqlDelete = "DELETE FROM PersonalHealth WHERE clientId = :clientId";
+        $sqlDelete = "DELETE FROM FamilyHealth WHERE clientId = :clientId";
         $stmtDelete = $conn->prepare($sqlDelete);
         $stmtDelete->bindValue(':clientId', $clientId);
         $stmtDelete->execute();
 
-        $sql = "INSERT INTO PersonalHealth (clientId, healthConcerns, previousMedication, notes) VALUES (:clientId, :healthConcerns, :previousMedication, :notes)";
+        $sql = "INSERT INTO FamilyHealth (clientId, prevHistory, prevMedication, notes) VALUES (:clientId, :prevHistory, :prevMedication, :notes)";
 
         $stmt = $conn->prepare($sql);
 
         $stmt->bindValue(':clientId', $clientId);
-        $stmt->bindValue(':healthConcerns', $prevHealhConc);
-        $stmt->bindValue(':previousMedication', $prevMed);
+        $stmt->bindValue(':prevHistory', $prevHealhConc);
+        $stmt->bindValue(':prevMedication', $prevMed);
         $stmt->bindValue(':notes', $notes);
         
         if($stmt -> execute()){
@@ -55,7 +55,7 @@ switch ($method) {
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         $clientId = $result['clientID'];
 
-        $sql = "SELECT * FROM PersonalHealth WHERE clientId = :clientId";
+        $sql = "SELECT * FROM FamilyHealth WHERE clientId = :clientId";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':clientId', $clientId);
         $stmt->execute();

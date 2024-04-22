@@ -72,6 +72,7 @@
   align-items: flex-start;
   padding: 0 0 var(--padding-5xs);
   box-sizing: border-box;
+  padding-left: 9rem;
 }
 .bodyText,
 .largeTitle {
@@ -84,6 +85,7 @@
   line-height: 2.25rem;
   font-weight: 700;
   font-family: inherit;
+  padding-left: 2rem;
 }
 .bodyText {
   font-size: var(--roboto-regular-16-size);
@@ -91,6 +93,7 @@
   font-weight: 300;
   font-family: var(--roboto-regular-16);
   color: var(--color-dimgray);
+  padding-left: 2rem;
 }
 .infoArea {
   align-self: stretch;
@@ -301,9 +304,9 @@
 }
 .previousbuttonParent {
   flex: 1;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 100%;
-  gap: var(--gap-xl);
+  gap: var(--gap-21xl);
 }
 .buttonArea,
 .progressArea,
