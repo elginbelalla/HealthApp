@@ -1,0 +1,342 @@
+.firstName,
+.getInTouch {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+.getInTouch {
+  margin: 0 !important;
+  width: 42.625rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: var(--font-size-21xl);
+  font-family: inherit;
+  white-space: pre-wrap;
+  text-align: left;
+}
+.firstName {
+  width: 10.625rem;
+  height: 3.25rem;
+  position: relative;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.firstnameChild {
+  border: 0;
+  background-color: var(--color-deepskyblue-300);
+  height: 5.688rem;
+  width: 22.5rem;
+  outline: 0;
+  position: relative;
+  border-radius: var(--br-3xs);
+  max-width: 100%;
+}
+.firstname,
+.lastName {
+  display: flex;
+  flex-shrink: 0;
+}
+.firstname {
+  width: 27.313rem;
+  margin: 0 !important;
+  position: absolute;
+  top: 4.563rem;
+  left: 0;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xs) var(--padding-12xl) var(--padding-15xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.lastName {
+  width: 10.625rem;
+  height: 3.25rem;
+  position: relative;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+}
+.lastnameChild {
+  border: 0;
+  background-color: var(--color-deepskyblue-300);
+  height: 5.688rem;
+  width: auto;
+  outline: 0;
+  align-self: stretch;
+  position: relative;
+  border-radius: var(--br-3xs);
+}
+.email1,
+.lastname {
+  display: flex;
+  flex-shrink: 0;
+}
+.lastname {
+  width: 26.813rem;
+  margin: 0 !important;
+  position: absolute;
+  top: 4.563rem;
+  left: 27.938rem;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-base) var(--padding-13xl) var(--padding-11xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.email1 {
+  width: 10.625rem;
+  height: 3.25rem;
+  position: relative;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+}
+.frameChild {
+  border: 0;
+  background-color: var(--color-deepskyblue-300);
+  height: 5.688rem;
+  width: auto;
+  outline: 0;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-3xs);
+  max-width: 100%;
+}
+.email,
+.emailInner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.emailInner {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-lg) 0 var(--padding-14xl);
+}
+.email {
+  width: 27.313rem;
+  margin: 0 !important;
+  position: absolute;
+  top: 17rem;
+  left: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  flex-direction: column;
+  padding: var(--padding-2xs) var(--padding-smi) var(--padding-10xl);
+  gap: var(--gap-11xs);
+}
+.phoneNumber {
+  height: 3.25rem;
+  flex: 1;
+  position: relative;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phoneNumberWrapper {
+  width: 11.75rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-4xs);
+  box-sizing: border-box;
+}
+.phonenumberChild {
+  border: 0;
+  background-color: var(--color-deepskyblue-300);
+  height: 5.688rem;
+  width: auto;
+  outline: 0;
+  align-self: stretch;
+  position: relative;
+  border-radius: var(--br-3xs);
+}
+.message1,
+.phonenumber {
+  display: flex;
+  flex-shrink: 0;
+}
+.phonenumber {
+  width: 27.25rem;
+  margin: 0 !important;
+  position: absolute;
+  top: 17rem;
+  left: 27.938rem;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xs) var(--padding-18xl) var(--padding-28xl)
+    var(--padding-20xl);
+  box-sizing: border-box;
+  gap: var(--gap-11xs);
+  max-width: 100%;
+}
+.message1 {
+  width: 10.625rem;
+  height: 3.25rem;
+  position: relative;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+}
+.frameItem {
+  height: 24.313rem;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-3xs);
+  max-width: 100%;
+  overflow: hidden;
+}
+.getincontact,
+.message,
+.messageInner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.messageInner {
+  align-self: stretch;
+  flex: 1;
+  flex-direction: row;
+  padding: 0 var(--padding-xl) 0 var(--padding-14xl);
+  box-sizing: border-box;
+}
+.getincontact,
+.message {
+  overflow: hidden;
+}
+.message {
+  height: 30.313rem;
+  width: 53.438rem;
+  margin: 0 !important;
+  position: absolute;
+  top: 30.375rem;
+  left: 0;
+  flex-shrink: 0;
+  flex-direction: column;
+  padding: 0 var(--padding-8xs) var(--padding-11xl);
+  box-sizing: border-box;
+  gap: var(--gap-sm);
+}
+.getincontact {
+  height: 60.688rem;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  gap: 0.625rem 0.5rem;
+  min-width: 35.875rem;
+}
+.frameInner {
+  height: 31.063rem;
+  width: 17rem;
+  top: 0;
+  left: 3.75rem;
+  border-radius: var(--br-3xs);
+}
+.frameChild1,
+.frameChild2,
+.frameIcon,
+.frameInner {
+  position: absolute;
+  margin: 0 !important;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.frameIcon {
+  height: 30.375rem;
+  width: 16.75rem;
+  top: 0;
+  left: 24rem;
+  border-radius: var(--br-3xs);
+}
+.frameChild1,
+.frameChild2 {
+  height: 31.25rem;
+  width: 18.75rem;
+  top: 37.313rem;
+}
+.frameChild1 {
+  left: 0;
+  border-radius: var(--br-5xs);
+}
+.frameChild2 {
+  left: 22rem;
+  border-radius: var(--br-3xs);
+}
+.instanceParent {
+  align-self: stretch;
+  height: 68.563rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  gap: 6.25rem 3.125rem;
+}
+.frameWrapper,
+.getincontactParent {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.frameWrapper {
+  width: 40.75rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) 0 0;
+  box-sizing: border-box;
+  min-width: 40.75rem;
+}
+.getincontactParent {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--gap-8xl-5);
+  text-align: center;
+  font-size: var(--menu-text-size);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-poppins);
+}
+@media screen and (max-width: 1575px) {
+  .frameWrapper {
+    flex: 1;
+  }
+  .getincontactParent {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 825px) {
+  .getInTouch {
+    font-size: var(--font-size-13xl);
+  }
+  .frameWrapper,
+  .getincontact {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .getInTouch {
+    font-size: var(--font-size-5xl);
+  }
+  .email1,
+  .firstName,
+  .lastName,
+  .message1,
+  .phoneNumber {
+    font-size: var(--roboto-regular-16-size);
+  }
+}

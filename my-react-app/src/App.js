@@ -17,6 +17,7 @@ import DoctorPatients from "./pages/Doctor/DoctorPatients";
 import DoctorSettings from "./pages/Doctor/DoctorSettings";
 import DoctorDashboard from "./pages/Doctor/DoctorDashboard";
 import DoctorTests from "./pages/Doctor/DoctorTests";
+import Client from "./pages/Client/Client";
 
 
 
@@ -74,6 +75,7 @@ function App() {
       <Route path="/doctor/messages" element={<DoctorMessages />} />
       <Route path="/doctor/settings" element={<DoctorSettings />} />
       <Route path="/doctor/tests" element={<DoctorTests />} />
+      <Route path="/clientpage" element={<Client />} />
     
 
     </Routes>

@@ -1,0 +1,230 @@
+.accessYourHealthcare {
+  margin: 0;
+  height: 21.375rem;
+  width: 61.188rem;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  max-width: 100%;
+  z-index: 2;
+}
+.accessYourHealthcareAnywheWrapper {
+  width: 96.938rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 0 11.563rem;
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: center;
+  font-size: 4.375rem;
+  color: var(--neutral-white);
+  font-family: var(--font-poppins);
+}
+.rela1Icon {
+  width: 108.563rem;
+  height: 46rem;
+  position: absolute;
+  margin: 0 !important;
+  top: 11.813rem;
+  right: -0.75rem;
+  flex-shrink: 0;
+  object-fit: cover;
+  z-index: 1;
+}
+.whatCanWe {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.whatCanWeHelpYouWithTodaWrapper {
+  width: 91.813rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl) var(--padding-xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.notFindingWhat {
+  margin: 0;
+  width: 58.813rem;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.notFindingWhatYouAreLookiWrapper {
+  width: 91.813rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: center;
+}
+.clientInner,
+.frameParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.frameParent {
+  flex: 1;
+  flex-direction: column;
+  gap: 7.563rem;
+}
+.clientInner {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 0 var(--padding-42xl) var(--padding-7xs);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-31xl);
+  color: var(--not-selected-menu);
+  font-family: var(--font-poppins);
+}
+.aboutUs {
+  display: inline-block;
+  min-width: 4.313rem;
+}
+.aboutUs,
+.emergencyNum {
+  position: relative;
+}
+.privacyPolicy,
+.reviews,
+.termsOfUse {
+  position: relative;
+  display: inline-block;
+  min-width: 3.75rem;
+}
+.privacyPolicy,
+.termsOfUse {
+  min-width: 6.375rem;
+}
+.termsOfUse {
+  min-width: 6rem;
+}
+.items {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-20xl-8);
+  min-width: 52rem;
+  max-width: 100%;
+}
+.allRightsReserved {
+  width: 12.688rem;
+  position: relative;
+  text-align: right;
+  display: inline-block;
+}
+.bottombar,
+.client {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.bottombar {
+  width: 92.688rem;
+  border-top: 1px solid var(--color-gray-100);
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: var(--padding-5xl) 0;
+  max-width: 100%;
+  row-gap: 20px;
+}
+.client {
+  width: 100%;
+  position: relative;
+  background-color: var(--neutral-white);
+  overflow-y: auto;
+  flex-direction: column;
+  padding: 0 2.156rem 3.563rem 7.625rem;
+  gap: 7.875rem;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: var(--roboto-regular-16-size);
+  color: var(--color-darkslateblue);
+  font-family: var(--font-dm-sans);
+}
+@media screen and (max-width: 1250px) {
+  .frameParent {
+    gap: 3.75rem 7.563rem;
+  }
+  .clientInner {
+    padding-bottom: var(--padding-7xl);
+    box-sizing: border-box;
+  }
+  .items {
+    min-width: 100%;
+  }
+  .client {
+    gap: 3.938rem 7.875rem;
+    padding-left: var(--padding-42xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 825px) {
+  .accessYourHealthcare {
+    font-size: 3.5rem;
+  }
+  .accessYourHealthcareAnywheWrapper {
+    padding-bottom: 7.5rem;
+    box-sizing: border-box;
+  }
+  .notFindingWhat,
+  .whatCanWe {
+    font-size: var(--font-size-21xl);
+  }
+  .frameParent {
+    gap: 1.875rem 7.563rem;
+  }
+  .clientInner {
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .items {
+    flex-wrap: wrap;
+    gap: 2.488rem 1.25rem;
+  }
+  .client {
+    gap: 1.938rem 7.875rem;
+    padding-left: var(--padding-11xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .accessYourHealthcare {
+    font-size: 2.625rem;
+  }
+  .notFindingWhat,
+  .whatCanWe {
+    font-size: var(--font-size-11xl);
+  }
+  .frameParent {
+    gap: 0.938rem 7.563rem;
+  }
+  .client {
+    gap: 1rem 7.875rem;
+  }
+}

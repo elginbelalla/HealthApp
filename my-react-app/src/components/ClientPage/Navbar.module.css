@@ -1,0 +1,224 @@
+
+.logoIcon {
+  height: 3rem; /* Adjusted height */
+  width: 6rem; /* Adjusted width */
+  position: relative;
+  object-fit: cover;
+}
+.homePage {
+  width: 4.5rem; /* Adjusted width */
+  height: 3rem;
+  min-width: 4.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.aboutUs {
+  position: relative;
+  width: 3.5rem; /* Adjusted width */
+  height: 3rem;
+  min-width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 5.375rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.bookAppointement {
+  position: relative;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.medicalHistory,
+.nutritionPlan,
+.requestTest {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.requestTest {
+  width: 7.563rem;
+  min-width: 7.563rem;
+  height: 3rem;
+}
+.medicalHistory,
+.nutritionPlan {
+  width: 9.063rem;
+  height: 3rem;
+}
+.nutritionPlan {
+  width: 8.125rem;
+  height: 3rem;
+}
+.homePageParent,
+.topBar {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  height: 3rem;
+}
+.homePageParent {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: var(--gap-15xl);
+  text-align: center;
+  font-size: var(--menu-text-size);
+  color: var(--not-selected-menu);
+  font-family: var(--menu-text);
+}
+.topBar {
+  width: 59.125rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-lgi-5);
+  box-sizing: border-box;
+  max-width: 100%;
+  height: 3rem;
+}
+.userIcon {
+  width: 3.75rem;
+  height: 3.75rem;
+  position: relative;
+  border-radius: var(--br-11xl);
+  overflow: hidden;
+  flex-shrink: 0;
+  height: 3rem;
+}
+.navbar,
+.userWrapper {
+  display: flex;
+  box-sizing: border-box;
+}
+.userWrapper {
+  height: 3.938rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-10xs);
+}
+
+.navbar {
+  position:relative;
+  right: 10%;
+  width: 117%; 
+  background: linear-gradient(
+    180deg,
+    rgba(82, 178, 226, 0.23),
+    rgba(255, 255, 255, 0.23)
+  );
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: var(--padding-4xl) var(--padding-87xl) var(--padding-64xl) var(--padding-43xl);
+  flex-shrink: 0;
+  gap: var(--gap-xl);
+  align-self: stretch; 
+  flex-wrap: wrap;
+  height:30px;
+}
+
+/*
+
+@media screen and (max-width: 1575px) {
+  .navbar {
+    flex-wrap: wrap;
+    max-width: 1800px; 
+  }
+}
+
+
+
+@media screen and (min-width: 800px) and (max-width: 1360px) {
+
+  .homePageParent{
+    gap: 3rem;
+  }
+
+  .navbar {
+    padding-left: var(--padding-2xl);
+    box-sizing: border-box;
+
+  }
+
+  .logoIcon {
+    height: 7rem; 
+    width: 8rem; 
+  }
+
+  .homePage {
+    width: 5rem; 
+    min-width: 5rem; 
+  }
+  .aboutUs {
+    width: 4rem; 
+    min-width: 4rem; 
+  }
+  .requestTest {
+    width: 5rem;
+    min-width: 5rem; 
+  }
+  .medicalHistory,
+  .nutritionPlan {
+    width: 7rem; 
+    min-width: 7rem; 
+  }
+  .bookAppointement {
+    width:4rem;
+    min-width:4rem;
+    flex: 1;
+  }
+  
+}
+
+@media screen and (max-width: 800px) {
+  .homePageParent {
+    gap: 2.125rem 1.063rem;
+  }
+  .topBar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .navbar {
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .logoIcon {
+    height: 4rem; 
+    width: 8rem; 
+  }
+  .homePage {
+    width: 5rem; 
+    min-width: 5rem; 
+  }
+  .aboutUs {
+    width: 4rem; 
+    min-width: 4rem; 
+  }
+  .requestTest {
+    width: 6rem;
+    min-width: 6rem; 
+  }
+  .medicalHistory,
+  .nutritionPlan {
+    width: 7rem; 
+    min-width: 7rem; 
+  }
+  .bookAppointement {
+    flex: 1;
+  }
+}
+
+*/
