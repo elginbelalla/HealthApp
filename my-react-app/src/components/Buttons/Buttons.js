@@ -12,12 +12,15 @@ const Buttons = () => {
   }, [navigate]);
   const onLogInClick = useCallback(() => {
     navigate("/login");
-  }, []);
+  }, [navigate]);
+  const onGuestClick = useCallback(() => {
+    navigate("/guest");
+  }, [navigate]);
 
 
   return (
     <div className={styles.buttons}>
-      <button className={styles.guest}>
+      <button className={styles.guest} onClick={onGuestClick}>
         <div className={styles.guest1}>Guest</div>
       </button>
       <button className={styles.guest} onClick={onSignUpClick}>
