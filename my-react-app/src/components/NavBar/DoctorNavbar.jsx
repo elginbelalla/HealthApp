@@ -7,16 +7,17 @@ import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { userAppStore } from '../../appStore';
+import './doctorNavbar.css';
 
-const drawerWidth = 240;
+
+const drawerWidth = 200;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -48,23 +49,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(['width', 'margin'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
+
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -72,34 +57,39 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     flexShrink: 0,
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
-    ...(open && {
-      ...openedMixin(theme),
-      '& .MuiDrawer-paper': openedMixin(theme),
-    }),
-    ...(!open && {
-      ...closedMixin(theme),
-      '& .MuiDrawer-paper': closedMixin(theme),
-    }),
+    '& .MuiDrawer-paper': {
+      backgroundColor: 'transparent', // Set the background color of the paper to transparent
+      ...(open && openedMixin(theme)),
+      ...(!open && closedMixin(theme)),
+    },
   }),
 );
 
 export default function DoctorNavbar() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  //const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
+  const location = useLocation(); // Add useLocation hook
+
+  const open = userAppStore((state)=> state.dopen);
+
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex'}}>
       <CssBaseline />
+      <Box height={10} />
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={()=>setOpen(!open)}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
+         <DrawerHeader>
+        
         </DrawerHeader>
         <Divider />
         <List>
-            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/doctor/dashboard")}}>
+        <ListItem  
+            disablePadding 
+            className={isActive("/doctor/dashboard") ? "selectedListItem" : "unselectedListItem"}
+            onClick={() => navigate("/doctor/dashboard")}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -116,11 +106,15 @@ export default function DoctorNavbar() {
                 >
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 , fontFamily: 'Poppins, sans-serif'}} className='menuItem' />
               </ListItemButton>
             </ListItem>
 
-            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/doctor/patients")}}>
+            <ListItem  
+            disablePadding 
+            className={isActive("/doctor/patients") ? "selectedListItem" : "unselectedListItem"}
+            onClick={() => navigate("/doctor/patients")}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -137,12 +131,16 @@ export default function DoctorNavbar() {
                 >
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Patients" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Patients" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
               </ListItemButton>
             </ListItem>
 
 
-            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/doctor/appointments")}}>
+            <ListItem  
+            disablePadding 
+            className={isActive("/doctor/appointments") ? "selectedListItem" : "unselectedListItem"}
+            onClick={() => navigate("/doctor/appointments")}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -159,11 +157,15 @@ export default function DoctorNavbar() {
                 >
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Appointments" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Appointments" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
               </ListItemButton>
             </ListItem>
 
-            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/doctor/tests")}}>
+            <ListItem  
+            disablePadding 
+            className={isActive("/doctor/tests") ? "selectedListItem" : "unselectedListItem"}
+            onClick={() => navigate("/doctor/tests")}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -180,11 +182,15 @@ export default function DoctorNavbar() {
                 >
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Tests" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Tests" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
               </ListItemButton>
             </ListItem>
 
-            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/doctor/messages")}}>
+            <ListItem  
+            disablePadding 
+            className={isActive("/doctor/messages") ? "selectedListItem" : "unselectedListItem"}
+            onClick={() => navigate("/doctor/messages")}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -201,11 +207,15 @@ export default function DoctorNavbar() {
                 >
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Messages" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Messages" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
               </ListItemButton>
             </ListItem>
 
-            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/doctor/settings")}}>
+            <ListItem  
+            disablePadding 
+            className={isActive("/doctor/settings") ? "selectedListItem" : "unselectedListItem"}
+            onClick={() => navigate("/doctor/settings")}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -222,11 +232,15 @@ export default function DoctorNavbar() {
                 >
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Settings" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Settings" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem' />
               </ListItemButton>
             </ListItem>
 
-            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/")}}>
+            <ListItem  
+            disablePadding 
+            className={isActive("/") ? "selectedListItem" : "unselectedListItem"}
+            onClick={() => navigate("/")}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -243,7 +257,7 @@ export default function DoctorNavbar() {
                 >
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Log out" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Log out" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
               </ListItemButton>
             </ListItem>
         </List>

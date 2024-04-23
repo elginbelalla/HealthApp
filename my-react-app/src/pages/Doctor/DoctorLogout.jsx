@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 export default function DoctorLogout (){
   return(
     <>
+    
     <Box sx={{ display: 'flex' }}>
     <DoctorNavbar/>
     <h1>Dashboard</h1>

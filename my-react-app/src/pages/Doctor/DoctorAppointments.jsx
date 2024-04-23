@@ -8,9 +8,12 @@ export default function DoctorAppointments (){
   return(
     <>
     <DoctorAppBar/>
+    <Box height={60} />
     <Box sx={{ display: 'flex' }}>
     <DoctorNavbar/>
-    <h1>Appointments</h1>
+    <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+       <h1>Appointments</h1>
+      </Box>
     </Box>
     </>
   )

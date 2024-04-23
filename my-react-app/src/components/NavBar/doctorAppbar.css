@@ -1,0 +1,22 @@
+.logo {
+    width: 10rem; /* Set the initial size of the image */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .clickable:hover {
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .clickable:active {
+    opacity: 0.7; /* Reduce opacity when clicked */
+  }
+
+  .pageIndicator{
+    color: #4c869a;
+    font-family: var(--font-poppins);
+    font-weight: 10;
+  }
+
+  .box-item{
+    color: #4c869a;
+  }

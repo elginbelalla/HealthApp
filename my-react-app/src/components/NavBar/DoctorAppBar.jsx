@@ -9,30 +9,29 @@ import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { userAppStore } from '../../appStore';
-
-
-
-
+import './doctorAppbar.css';
+import { useNavigate } from 'react-router-dom';
 
 const AppBar = styled(MuiAppBar, {
-})(({theme}) => ({
+  shouldForwardProp: (prop) => prop !== 'elevation',
+})(({ theme }) => ({
   zIndex: theme.zIndex.drawer + 1,
+  borderBottom: 'none', // Remove the bottom border
+  boxShadow: 'none', // Remove the shadow
 }));
 
-const Search = styled('div')((
-    { theme, open }) => ({
+const Search = styled('div')(({ theme }) => ({
   position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  borderRadius: '20px', // Adjust the value as needed for the desired roundness
+  backgroundColor: '#FFFFFF', // White background color
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.common.white, 0.95),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -42,8 +41,6 @@ const Search = styled('div')((
     width: 'auto',
   },
 }));
-
-
 
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -71,50 +68,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function DoctorAppBar() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const updateOpen = userAppStore((state) => state.updateOpen);
+  const dopen = userAppStore((state) => state.dopen);
+  const navigate = useNavigate();
 
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
@@ -153,43 +121,35 @@ export default function DoctorAppBar() {
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
     </Menu>
   );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar position="fixed" sx={{ height: '60px', background: 'transparent' }}>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <img
+            className="logo clickable"
+            src='/logo@2x.png'
+            alt="Logo"
+            onClick={() => updateOpen(!dopen)}
+          />
+
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            className = "pageIndicator"
+            sx={{ display: { xs: 'none', sm: 'block' }, paddingLeft:'40px' }}
+
           >
             MedInteract
           </Typography>
-          <Search>
+
+
+          <Box sx={{ flexGrow: 1 }}/>
+          
+          <Search className='box-item'>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -198,8 +158,8 @@ export default function DoctorAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }} className='box-item'>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
@@ -214,19 +174,9 @@ export default function DoctorAppBar() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }} className='box-item'>
             <IconButton
               size="large"
               aria-label="show more"
@@ -238,10 +188,20 @@ export default function DoctorAppBar() {
               <MoreIcon />
             </IconButton>
           </Box>
+
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-haspopup="true"
+            onClick={() => navigate("/doctor/settings")}
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
+
     </Box>
   );
 }
