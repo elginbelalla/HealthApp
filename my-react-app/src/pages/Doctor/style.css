@@ -1,5 +1,7 @@
 body {
     background: linear-gradient(#DDEFF9, white);
-    height: 100vh; /* Ensure the gradient covers the entire viewport */
+    height: 130vh; /* Ensure the gradient covers the entire viewport */
     margin: 0; /* Remove default body margin */
   }
+
+  

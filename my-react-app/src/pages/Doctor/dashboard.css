@@ -1,0 +1,39 @@
+.body-container{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 50px;
+  }
+
+  .app-body{
+    background: #def2fd;
+    border-radius: 15px;
+    padding:10px 5px 5px 5px;
+    width: 100%;
+
+  }
+
+  
+  .appointment {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 2px solid #E0E0E0;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .lab-body{
+    background: #def2fd;
+    border-radius: 15px;
+    padding:10px 5px 5px 5px;
+    width: 100%;
+
+  }
+
+   
+  .lab-result {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 2px solid #E0E0E0;
+    padding: 10px;
+   
+  }

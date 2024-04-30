@@ -11,7 +11,8 @@ export default function DoctorMessages (){
     <Box sx={{ display: 'flex' }}>
     <DoctorNavbar/>
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <h1>Messages</h1>
+       <Paper className="body-container">
+       </Paper>
       </Box>
     </Box>
     </>

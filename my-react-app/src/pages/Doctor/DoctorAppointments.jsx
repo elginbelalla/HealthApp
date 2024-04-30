@@ -2,7 +2,7 @@ import DoctorNavbar from "../../components/NavBar/DoctorNavbar";
 import React from "react";
 import Box from '@mui/material/Box';
 import DoctorAppBar from "../../components/NavBar/DoctorAppBar";
-
+import Paper from '@mui/material/Paper';
 
 export default function DoctorAppointments (){
   return(
@@ -12,7 +12,9 @@ export default function DoctorAppointments (){
     <Box sx={{ display: 'flex' }}>
     <DoctorNavbar/>
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-       <h1>Appointments</h1>
+       <Paper className="body-container">
+
+       </Paper>
       </Box>
     </Box>
     </>

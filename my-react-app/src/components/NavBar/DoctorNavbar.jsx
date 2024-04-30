@@ -15,6 +15,12 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { useLocation, useNavigate } from "react-router-dom";
 import { userAppStore } from '../../appStore';
 import './doctorNavbar.css';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import SettingsInputComponentOutlinedIcon from '@mui/icons-material/SettingsInputComponentOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import ContentPasteSearchOutlinedIcon from '@mui/icons-material/ContentPasteSearchOutlined';
 
 
 const drawerWidth = 200;
@@ -129,7 +135,7 @@ export default function DoctorNavbar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <InboxIcon />
+                  <BadgeOutlinedIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Patients" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
               </ListItemButton>
@@ -155,7 +161,7 @@ export default function DoctorNavbar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <InboxIcon />
+                  <CalendarMonthOutlinedIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Appointments" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
               </ListItemButton>
@@ -180,7 +186,7 @@ export default function DoctorNavbar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <InboxIcon />
+                  <ContentPasteSearchOutlinedIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Tests" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
               </ListItemButton>
@@ -205,7 +211,7 @@ export default function DoctorNavbar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <InboxIcon />
+                   <EmailOutlinedIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Messages" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
               </ListItemButton>
@@ -230,7 +236,7 @@ export default function DoctorNavbar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <InboxIcon />
+                  <SettingsInputComponentOutlinedIcon />
                 </ListItemIcon>
                 <ListItemText primary="Settings" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem' />
               </ListItemButton>
@@ -255,7 +261,7 @@ export default function DoctorNavbar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <InboxIcon />
+                  <LogoutOutlinedIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Log out" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
               </ListItemButton>
