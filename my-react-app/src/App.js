@@ -5,6 +5,7 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+
 import WelcomePage from "./pages/Client/WelcomePage";
 import ProfileInfo from "./pages/Client/ProfileInfo"
 import ProfileInfo1 from "./pages/Client/ProfileInfo1";
