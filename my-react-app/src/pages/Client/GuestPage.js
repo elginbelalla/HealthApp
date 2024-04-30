@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'; // Import React and useEffect
 import styles from "./GuestPage.module.css";
 import { useNavigate } from 'react-router-dom';
 
@@ -7,6 +8,29 @@ const GuestPage = () => {
   const handleGoBack = () => {
     navigate('/');
   };
+
+  useEffect(() => { 
+    const script = document.createElement('script');
+    script.text = `
+      window.embeddedChatbotConfig = {
+        chatbotId: "Mt-z-Z792VxDhNQbt46x8",
+        domain: "www.chatbase.co"
+      };
+    `;
+    document.head.appendChild(script);
+
+    const chatbotScript = document.createElement('script');
+    chatbotScript.src = 'https://www.chatbase.co/embed.min.js';
+    chatbotScript.chatbotId = 'Mt-z-Z792VxDhNQbt46x8';
+    chatbotScript.domain = 'www.chatbase.co';
+    chatbotScript.defer = true;
+    document.head.appendChild(chatbotScript);
+
+    return () => {
+      document.head.removeChild(script);
+      document.head.removeChild(chatbotScript);
+    };
+  }, []);
 
   return (
     <div className={styles.guestpage}>
@@ -28,12 +52,6 @@ const GuestPage = () => {
           </div>
           <div className={styles.utilityPanel}>
             <div className={styles.chatPanel}>
-              <img
-                className={styles.chatboxicon}
-                loading="lazy"
-                alt=""
-                src="/chatboxicon.svg"
-              />
               <div className={styles.utilityPanel}>
                 <div className={styles.component1}>
                   <button className={styles.buttonShape} onClick={handleGoBack} />

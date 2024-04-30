@@ -62,14 +62,7 @@
   gap: 1.562rem;
   height: 120px;
 }
-.chatboxicon {
-  width: 7.5rem;
-  height: 5.438rem;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-  left:400px;
-}
+
 .chatPanel {
   width: 58.563rem;
   flex-direction: column;
