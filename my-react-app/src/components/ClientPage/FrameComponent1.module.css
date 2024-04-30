@@ -47,7 +47,8 @@
   gap: var(--gap-5xs);
 }
 .bookappointement {
-  width: 23.125rem;
+  width: 20rem;
+  height:33.6rem;
   border-radius: var(--br-3xs);
   background-color: var(--color-deepskyblue-200);
   overflow: hidden;
@@ -56,6 +57,7 @@
     var(--padding-9xl);
   box-sizing: border-box;
   gap: var(--gap-4xl);
+  align-items:center;
 }
 .groupIcon {
   height: 7.5rem;
@@ -99,7 +101,8 @@
   gap: var(--gap-5xs);
 }
 .medicalhistory {
-  width: 23.125rem;
+  width: 20rem;
+  height:33.6rem;
   border-radius: var(--br-3xs);
   background: linear-gradient(#fff, #fff), #52b2e2;
   border: 3px solid var(--color-deepskyblue-100);
@@ -109,6 +112,7 @@
   align-items: flex-start;
   padding: var(--padding-30xl) var(--padding-9xl) var(--padding-50xl);
   gap: var(--gap-12xl);
+  align-items:center;
 }
 .healthiconsnutritionOutline {
   height: 8.75rem;
@@ -156,7 +160,8 @@
   color: var(--color-darkslategray-300);
 }
 .nutrition {
-  width: 23.125rem;
+  width: 20rem;
+  height:33.6rem;
   border-radius: var(--br-3xs);
   background-color: var(--color-deepskyblue-200);
   overflow: hidden;
@@ -169,6 +174,7 @@
     var(--padding-lg);
   box-sizing: border-box;
   gap: var(--gap-xs);
+  align-items:center;
 }
 .services,
 .servicesWrapper {
@@ -185,14 +191,15 @@
 }
 .servicesWrapper {
   width: 91.813rem;
-  justify-content: flex-start;
   padding: 0 var(--padding-30xl) 0 var(--padding-30xl-5);
   box-sizing: border-box;
   text-align: center;
   font-size: var(--font-size-6xl);
   color: var(--color-teal-200);
   font-family: var(--font-poppins);
+  justify-content: space-between;
 }
+
 @media screen and (max-width: 1250px) {
   .servicesWrapper {
     padding-left: var(--padding-5xl);

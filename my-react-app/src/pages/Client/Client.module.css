@@ -1,6 +1,6 @@
 .accessYourHealthcare {
   margin: 0;
-  height: 21.375rem;
+  height: 10rem;
   width: 61.188rem;
   position: relative;
   font-size: inherit;
@@ -29,10 +29,10 @@
 }
 .rela1Icon {
   width: 108.563rem;
-  height: 46rem;
+  height: 30rem;
   position: absolute;
   margin: 0 !important;
-  top: 11.813rem;
+  top: 9.2rem;
   right: -0.75rem;
   flex-shrink: 0;
   object-fit: cover;
@@ -41,9 +41,10 @@
 .whatCanWe {
   margin: 0;
   position: relative;
-  font-size: inherit;
+  font-size: 2.2rem;
   font-weight: 700;
   font-family: inherit;
+  right:2.5rem;
 }
 .whatCanWeHelpYouWithTodaWrapper {
   width: 91.813rem;
@@ -54,12 +55,13 @@
   padding: 0 var(--padding-xl) var(--padding-xl);
   box-sizing: border-box;
   max-width: 100%;
+
 }
 .notFindingWhat {
   margin: 0;
   width: 58.813rem;
   position: relative;
-  font-size: inherit;
+  font-size: 2.2rem;
   font-weight: 700;
   font-family: inherit;
   display: flex;
@@ -154,8 +156,8 @@
   row-gap: 20px;
 }
 .client {
-  width: 100%;
-  position: relative;
+  width: 100%; /* Adjusted width */
+  position: absolute;
   background-color: var(--neutral-white);
   overflow-y: auto;
   flex-direction: column;
@@ -167,6 +169,8 @@
   color: var(--color-darkslateblue);
   font-family: var(--font-dm-sans);
 }
+
+
 @media screen and (max-width: 1250px) {
   .frameParent {
     gap: 3.75rem 7.563rem;

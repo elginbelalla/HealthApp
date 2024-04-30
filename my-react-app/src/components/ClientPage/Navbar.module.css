@@ -1,12 +1,13 @@
-
 .logoIcon {
-  height: 3rem; /* Adjusted height */
-  width: 6rem; /* Adjusted width */
+  height: 6rem; /* Adjust height */
+  width: 8rem; /* Adjust width */
+  bottom:1rem;
   position: relative;
   object-fit: cover;
 }
+
 .homePage {
-  width: 4.5rem; /* Adjusted width */
+  width: 4.5rem;
   height: 3rem;
   min-width: 4.5rem;
   position: relative;
@@ -14,11 +15,14 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
+  padding: 2.5rem 3rem;
+  font-size: small;
+  bottom:1rem;
 }
 
 .aboutUs {
   position: relative;
-  width: 3.5rem; /* Adjusted width */
+  width: 3.5rem;
   height: 3rem;
   min-width: 3.5rem;
   display: flex;
@@ -27,11 +31,24 @@
   min-width: 5.375rem;
   white-space: nowrap;
   cursor: pointer;
+  padding: 2.5rem 3rem;
+  font-size: small;
+  bottom:1rem;
 }
 .bookAppointement {
   position: relative;
+  width: 3.5rem;
+  height: 3rem;
+  min-width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 5.375rem;
   white-space: nowrap;
   cursor: pointer;
+  padding: 2.5rem 5rem;
+  font-size: small;
+  bottom:1rem;
 }
 
 .medicalHistory,
@@ -43,11 +60,16 @@
   justify-content: center;
   white-space: nowrap;
   cursor: pointer;
+  padding: 2.5rem 4rem;
+  font-size: small;
+  bottom:1rem;
 }
 .requestTest {
   width: 7.563rem;
   min-width: 7.563rem;
   height: 3rem;
+  font-size: small;
+  bottom:1rem;
 }
 .medicalHistory,
 .nutritionPlan {
@@ -58,40 +80,41 @@
   width: 8.125rem;
   height: 3rem;
 }
+
 .homePageParent,
 .topBar {
   margin: 0;
   display: flex;
   align-items: flex-start;
-  height: 3rem;
 }
 .homePageParent {
   align-self: stretch;
   flex-direction: row;
-  justify-content: flex-start;
-  gap: var(--gap-15xl);
-  text-align: center;
   font-size: var(--menu-text-size);
   color: var(--not-selected-menu);
   font-family: var(--menu-text);
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Center text within elements */
 }
 .topBar {
   width: 59.125rem;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 0 var(--padding-lgi-5);
+  justify-content: space-between; 
   box-sizing: border-box;
   max-width: 100%;
-  height: 3rem;
+  height: 5rem;
 }
 .userIcon {
-  width: 3.75rem;
-  height: 3.75rem;
+  width: 2.2rem;
+  height: 2.5rem;
   position: relative;
   border-radius: var(--br-11xl);
   overflow: hidden;
   flex-shrink: 0;
-  height: 3rem;
+  height: 5rem;
+  right: 40px;
+  bottom:1rem;
 }
 .navbar,
 .userWrapper {
@@ -107,9 +130,9 @@
 }
 
 .navbar {
-  position:relative;
+  position: relative;
   right: 10%;
-  width: 117%; 
+  width: 117%;
   background: linear-gradient(
     180deg,
     rgba(82, 178, 226, 0.23),
@@ -119,12 +142,12 @@
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
-  padding: var(--padding-4xl) var(--padding-87xl) var(--padding-64xl) var(--padding-43xl);
+  padding: var(--padding-4xl) var(--padding-87xl) var(--padding-64xl)
+    var(--padding-43xl);
   flex-shrink: 0;
-  gap: var(--gap-xl);
-  align-self: stretch; 
+  align-self: stretch;
   flex-wrap: wrap;
-  height:30px;
+  height: 11rem;
 }
 
 /*
@@ -135,7 +158,6 @@
     max-width: 1800px; 
   }
 }
-
 
 
 @media screen and (min-width: 800px) and (max-width: 1360px) {
