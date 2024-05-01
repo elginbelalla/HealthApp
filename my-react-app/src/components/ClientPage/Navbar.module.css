@@ -93,9 +93,9 @@
   font-size: var(--menu-text-size);
   color: var(--not-selected-menu);
   font-family: var(--menu-text);
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  text-align: center; /* Center text within elements */
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
 }
 .topBar {
   width: 59.125rem;
@@ -106,8 +106,8 @@
   height: 5rem;
 }
 .userIcon {
-  width: 2.2rem;
-  height: 2.5rem;
+  width: 2.8rem;
+  height: 2.8rem;
   position: relative;
   border-radius: var(--br-11xl);
   overflow: hidden;

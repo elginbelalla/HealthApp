@@ -10,7 +10,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  font-size: var(--font-size-21xl);
+  font-size: 2rem;
   font-family: inherit;
   white-space: pre-wrap;
   text-align: left;
@@ -25,7 +25,7 @@
 .firstnameChild {
   border: 0;
   background-color: var(--color-deepskyblue-300);
-  height: 5.688rem;
+  height: 3rem;
   width: 22.5rem;
   outline: 0;
   position: relative;
@@ -62,7 +62,7 @@
 .lastnameChild {
   border: 0;
   background-color: var(--color-deepskyblue-300);
-  height: 5.688rem;
+  height: 3rem;
   width: auto;
   outline: 0;
   align-self: stretch;
@@ -79,7 +79,7 @@
   margin: 0 !important;
   position: absolute;
   top: 4.563rem;
-  left: 27.938rem;
+  left: 19rem;
   overflow: hidden;
   flex-direction: column;
   align-items: flex-start;
@@ -88,6 +88,7 @@
   box-sizing: border-box;
   max-width: 100%;
 }
+
 .email1 {
   width: 10.625rem;
   height: 3.25rem;
@@ -99,13 +100,12 @@
 .frameChild {
   border: 0;
   background-color: var(--color-deepskyblue-300);
-  height: 5.688rem;
-  width: auto;
+  height: 3rem;
+  width: 100%;
   outline: 0;
-  flex: 1;
+  align-self: stretch;
   position: relative;
   border-radius: var(--br-3xs);
-  max-width: 100%;
 }
 .email,
 .emailInner {
@@ -118,7 +118,6 @@
 .emailInner {
   align-self: stretch;
   flex-direction: row;
-  padding: 0 var(--padding-lg) 0 var(--padding-14xl);
 }
 .email {
   width: 27.313rem;
@@ -153,7 +152,7 @@
 .phonenumberChild {
   border: 0;
   background-color: var(--color-deepskyblue-300);
-  height: 5.688rem;
+  height: 3rem;
   width: auto;
   outline: 0;
   align-self: stretch;
@@ -170,7 +169,7 @@
   margin: 0 !important;
   position: absolute;
   top: 17rem;
-  left: 27.938rem;
+  left: 19rem;
   overflow: hidden;
   flex-direction: column;
   align-items: flex-start;
@@ -189,14 +188,15 @@
   align-items: center;
   justify-content: center;
 }
+
 .frameItem {
-  height: 24.313rem;
+  height: 20rem;
   flex: 1;
   position: relative;
   border-radius: var(--br-3xs);
-  max-width: 100%;
   overflow: hidden;
 }
+
 .getincontact,
 .message,
 .messageInner {
@@ -205,6 +205,7 @@
   justify-content: flex-start;
   max-width: 100%;
 }
+
 .messageInner {
   align-self: stretch;
   flex: 1;
@@ -212,10 +213,9 @@
   padding: 0 var(--padding-xl) 0 var(--padding-14xl);
   box-sizing: border-box;
 }
-.getincontact,
-.message {
-  overflow: hidden;
-}
+
+
+
 .message {
   height: 30.313rem;
   width: 53.438rem;
@@ -229,15 +229,16 @@
   box-sizing: border-box;
   gap: var(--gap-sm);
 }
+
 .getincontact {
   height: 60.688rem;
   flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
-  gap: 0.625rem 0.5rem;
   min-width: 35.875rem;
 }
+
 .frameInner {
   height: 31.063rem;
   width: 17rem;
@@ -245,16 +246,8 @@
   left: 3.75rem;
   border-radius: var(--br-3xs);
 }
-.frameChild1,
-.frameChild2,
-.frameIcon,
-.frameInner {
-  position: absolute;
-  margin: 0 !important;
-  overflow: hidden;
-  flex-shrink: 0;
-  object-fit: cover;
-}
+
+
 .frameIcon {
   height: 30.375rem;
   width: 16.75rem;
@@ -262,20 +255,24 @@
   left: 24rem;
   border-radius: var(--br-3xs);
 }
+
 .frameChild1,
 .frameChild2 {
   height: 31.25rem;
   width: 18.75rem;
   top: 37.313rem;
 }
+
 .frameChild1 {
   left: 0;
   border-radius: var(--br-5xs);
 }
+
 .frameChild2 {
   left: 22rem;
   border-radius: var(--br-3xs);
 }
+
 .instanceParent {
   align-self: stretch;
   height: 68.563rem;
@@ -287,12 +284,14 @@
   position: relative;
   gap: 6.25rem 3.125rem;
 }
+
 .frameWrapper,
 .getincontactParent {
   display: flex;
   align-items: flex-start;
   max-width: 100%;
 }
+
 .frameWrapper {
   width: 40.75rem;
   flex-direction: column;
@@ -301,6 +300,7 @@
   box-sizing: border-box;
   min-width: 40.75rem;
 }
+
 .getincontactParent {
   align-self: stretch;
   flex-direction: row;
@@ -311,6 +311,36 @@
   color: var(--color-darkslategray-100);
   font-family: var(--font-poppins);
 }
+
+
+.frameItem {
+  height: 15rem; /* Adjust the height as per your preference */
+  right:9rem;
+}
+
+.firstnameChild,
+.lastnameChild,
+.frameChild,
+.phonenumberChild {
+  font-size: 14px; 
+  resize: none;
+}
+
+.firstname,
+.lastname,
+.email,
+.phonenumber {
+  width: 30%; 
+  margin: 0;
+  padding: 0;
+}
+
+.frameItem {
+  height: 15rem; /* Adjust the height as per your preference */
+  right:5rem;
+} 
+
+
 @media screen and (max-width: 1575px) {
   .frameWrapper {
     flex: 1;

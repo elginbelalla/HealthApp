@@ -1,7 +1,8 @@
 .iconStethoscope {
-  height: 8rem;
-  width: 7.563rem;
+  height: 4rem;
+  width: 4rem;
   position: relative;
+  margin: auto;
 }
 .iconStethoscopeWrapper {
   width: 18.35rem;
@@ -11,66 +12,79 @@
   align-items: flex-start;
   justify-content: center;
 }
+
 .bookAnAppointment {
   align-self: stretch;
-  height: 3.5rem;
+  height: 35%; 
   position: relative;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  font-size: 70%; 
+  margin-bottom: 0.01rem; 
 }
+
 .bookAnAppointment1 {
   flex: 1;
   position: relative;
+  font-size: 60%; 
+  align-items:center;
 }
+
 .bookAnAppointmentWithOurPWrapper {
   align-self: stretch;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 0 var(--padding-base) 0 var(--padding-mid);
+  align-items: center; 
+  justify-content: center; 
+  padding: 0 var(--padding-base); 
   font-size: var(--menu-text-size);
   color: var(--color-darkslategray-300);
 }
+
 .bookAnAppointmentParent,
 .bookappointement {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center; 
+  width: 100%; 
+  justify-content: center;
 }
+
 .bookAnAppointmentParent {
   align-self: stretch;
   gap: var(--gap-5xs);
 }
+
 .bookappointement {
-  width: 20rem;
-  height:33.6rem;
+  width: 15rem;
+  height:25rem;
   border-radius: var(--br-3xs);
   background-color: var(--color-deepskyblue-200);
   overflow: hidden;
   flex-shrink: 0;
-  padding: var(--padding-30xl) var(--padding-19xl) var(--padding-50xl)
-    var(--padding-9xl);
+  padding: var(--padding-30xl) var(--padding-19xl);
   box-sizing: border-box;
   gap: var(--gap-4xl);
   align-items:center;
 }
 .groupIcon {
-  height: 7.5rem;
-  width: 7.325rem;
+  height: 4rem;
+  width: 4rem;
   position: relative;
+  margin: auto;
+
 }
 .groupWrapper {
-  width: 18.988rem;
-  height: 7.5rem;
+  width: 18.35rem;
+  height: 8rem;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+
 }
 .accessYouHistory,
 .gainInstantAccess {
@@ -82,27 +96,41 @@
 }
 .accessYouHistory {
   align-self: stretch;
-  height: 3.5rem;
+  height: 35%; 
+  position: relative;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 70%; 
+  margin-bottom: 0.01rem; 
+
 }
 .gainInstantAccess {
-  width: 18.5rem;
-  height: 15.188rem;
-  font-size: var(--menu-text-size);
+  flex: 1;
+  position: relative;
+  font-size: 45%; 
+  align-items:center;
   color: var(--color-darkslategray-300);
+}
+
+.accessYouHistoryParent{
+  align-self: stretch;
+  gap: var(--gap-5xs);
 }
 .accessYouHistoryParent,
 .medicalhistory {
-  width: 19rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center; 
+  width: 100%; 
+  justify-content: center;
   gap: var(--gap-5xs);
 }
 .medicalhistory {
-  width: 20rem;
-  height:33.6rem;
+  width: 15rem;
+  height:25rem;
   border-radius: var(--br-3xs);
   background: linear-gradient(#fff, #fff), #52b2e2;
   border: 3px solid var(--color-deepskyblue-100);
@@ -110,26 +138,27 @@
   overflow: hidden;
   flex-shrink: 0;
   align-items: flex-start;
-  padding: var(--padding-30xl) var(--padding-9xl) var(--padding-50xl);
-  gap: var(--gap-12xl);
+  padding: var(--padding-30xl) var(--padding-19xl);
+  gap: var(--gap-4xl);
   align-items:center;
 }
+
+
 .healthiconsnutritionOutline {
-  height: 8.75rem;
-  width: 8.75rem;
+  height: 5rem;
+  width: 5rem;
   position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
+  margin-top: -1rem; 
+  margin-left: auto; 
+  margin-right: auto; 
 }
 .healthiconsnutritionOutlineWrapper {
-  align-self: stretch;
-  height: 8.75rem;
+  width: 10rem;
+  height: 5rem;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: flex-start; 
   justify-content: center;
-  padding: 0 var(--padding-xl);
-  box-sizing: border-box;
 }
 .requestNutritionAdvice,
 .unlockPersonalizedNutrition {
@@ -139,66 +168,78 @@
   justify-content: center;
 }
 .requestNutritionAdvice {
-  align-self: stretch;
-  height: 3.188rem;
+  align-self: flex-start;
+  height: 22%; 
+  position: relative;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
   flex-shrink: 0;
+  font-size: 70%; 
+  align-items: flex-start; 
+
 }
 .unlockPersonalizedNutrition {
-  height: 15.188rem;
   flex: 1;
+  position: relative;
+  font-size: 60%; 
+  align-items: flex-start; 
 }
 .unlockPersonalizedNutritionWrapper {
-  width: 19.25rem;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 0 var(--padding-7xs);
-  box-sizing: border-box;
+  align-items: center; 
+  justify-content: center; 
+  padding: 0 var(--padding-base); 
   font-size: var(--menu-text-size);
   color: var(--color-darkslategray-300);
+
 }
 .nutrition {
-  width: 20rem;
-  height:33.6rem;
+  width: 15rem;
+  height:25rem;
   border-radius: var(--br-3xs);
   background-color: var(--color-deepskyblue-200);
   overflow: hidden;
   flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
-  padding: var(--padding-30xl) var(--padding-9xl) var(--padding-50xl)
-    var(--padding-lg);
+  padding: var(--padding-30xl) var(--padding-19xl);
   box-sizing: border-box;
-  gap: var(--gap-xs);
+  gap: var(--gap-4xl);
   align-items:center;
+
 }
+
+
 .services,
 .servicesWrapper {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  max-width: 100%;
+  max-width: 98.5%;
 }
 .services {
   flex: 1;
-  overflow-x: auto;
+  overflow-x: scroll; 
+  overflow-y: hidden;
   justify-content: space-between;
   gap: var(--gap-xl);
 }
+
+.services::-webkit-scrollbar {
+  width: 0; 
+}
+
 .servicesWrapper {
-  width: 91.813rem;
-  padding: 0 var(--padding-30xl) 0 var(--padding-30xl-5);
+  width: 80rem;
+  padding: 0 var(--padding-50xl) 0 var(--padding-13xl); 
   box-sizing: border-box;
   text-align: center;
   font-size: var(--font-size-6xl);
   color: var(--color-teal-200);
   font-family: var(--font-poppins);
-  justify-content: space-between;
 }
+
 
 @media screen and (max-width: 1250px) {
   .servicesWrapper {

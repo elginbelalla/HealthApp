@@ -89,7 +89,7 @@
 .frameParent {
   flex: 1;
   flex-direction: column;
-  gap: 7.563rem;
+  gap: 3rem;
 }
 .clientInner {
   align-self: stretch;
@@ -155,19 +155,28 @@
   max-width: 100%;
   row-gap: 20px;
 }
+
 .client {
-  width: 100%; /* Adjusted width */
-  position: absolute;
+  width: 100%;
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  bottom: 0;
+  overflow-y: scroll; 
+  overflow-x: hidden; 
   background-color: var(--neutral-white);
-  overflow-y: auto;
   flex-direction: column;
   padding: 0 2.156rem 3.563rem 7.625rem;
-  gap: 7.875rem;
+  gap: 5rem;
   letter-spacing: normal;
   text-align: left;
   font-size: var(--roboto-regular-16-size);
   color: var(--color-darkslateblue);
   font-family: var(--font-dm-sans);
+}
+
+.client::-webkit-scrollbar {
+  width: 0; 
 }
 
 

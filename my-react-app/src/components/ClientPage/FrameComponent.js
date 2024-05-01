@@ -28,12 +28,7 @@ const FrameComponent = () => {
         <div className={styles.message}>
           <div className={styles.message1}>Message</div>
           <div className={styles.messageInner}>
-            <img
-              className={styles.frameItem}
-              loading="lazy"
-              alt=""
-              src="/rectangle-4187.svg"
-            />
+          <textarea className={styles.frameItem} rows={5} cols={18} />
           </div>
         </div>
       </div>
