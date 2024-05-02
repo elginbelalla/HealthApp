@@ -32,7 +32,7 @@
   height: 30rem;
   position: absolute;
   margin: 0 !important;
-  top: 9.2rem;
+  top: 8rem;
   right: -0.75rem;
   flex-shrink: 0;
   object-fit: cover;
@@ -104,10 +104,12 @@
 .aboutUs {
   display: inline-block;
   min-width: 4.313rem;
+  font-size:14px;
 }
 .aboutUs,
 .emergencyNum {
   position: relative;
+  font-size:14px;
 }
 .privacyPolicy,
 .reviews,
@@ -115,6 +117,7 @@
   position: relative;
   display: inline-block;
   min-width: 3.75rem;
+  font-size:14px;
 }
 .privacyPolicy,
 .termsOfUse {
@@ -130,15 +133,26 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: var(--gap-20xl-8);
-  min-width: 52rem;
+  min-width: 46.625rem;
   max-width: 100%;
 }
 .allRightsReserved {
-  width: 12.688rem;
   position: relative;
   text-align: right;
-  display: inline-block;
+  font-size:14px;
 }
+
+.component1 {
+  width: 15rem;
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  padding: 1.175rem var(--padding-xl) 1.387rem var(--padding-2xl);
+  box-sizing: border-box;
+  position: relative;
+  white-space: nowrap;
+  left:300px;
+}
+
 .bottombar,
 .client {
   display: flex;
@@ -147,13 +161,15 @@
   box-sizing: border-box;
 }
 .bottombar {
-  width: 92.688rem;
+  width: 82rem;
   border-top: 1px solid var(--color-gray-100);
   flex-direction: row;
   flex-wrap: wrap;
-  padding: var(--padding-5xl) 0;
+  justify-content: flex-start;
+  padding: var(--padding-3xl) 0 var(--padding-5xl);
   max-width: 100%;
   row-gap: 20px;
+
 }
 
 .client {
@@ -177,6 +193,36 @@
 
 .client::-webkit-scrollbar {
   width: 0; 
+}
+
+.buttonShape {
+  height: 50px;
+  width: 230px;
+  position: absolute;
+  margin: 0;
+  bottom: 20px;
+  right: 90px;
+  border-radius: 16px;
+  background-color: var(--color-deepskyblue-100);
+  border:none;
+  align-items: center;
+}
+
+.submit{
+  font-family: var(--font-wix-madefor-text);
+  color: white;
+  position: relative;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  min-width: 6rem;
+  z-index: 1;
+  font-size:17px;
+  right:20px;
+}
+
+.buttonShape,
+.submit{
+  cursor: pointer;
 }
 
 
