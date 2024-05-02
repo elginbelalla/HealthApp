@@ -2,6 +2,7 @@ import DoctorNavbar from "../../components/NavBar/DoctorNavbar";
 import React from "react";
 import Box from '@mui/material/Box';
 import DoctorAppBar from "../../components/NavBar/DoctorAppBar";
+import Paper from '@mui/material/Paper';
 
 export default function DoctorMessages (){
   return(

@@ -20,7 +20,7 @@ export default function DoctorDashboard (){
   const appointments = [
     { id: 1, name: "John Doe", avatar: "https://example.com/avatar1.jpg", time: "9:00 AM" },
     { id: 2, name: "Jane Smith", avatar: "https://example.com/avatar2.jpg", time: "10:30 AM" },
-    { id: 3, name: "Alice Johnson", avatar: "https://example.com/avatar3.jpg", time: "2:00 PM" },
+    { id: 2, name: "Jane Smith", avatar: "https://example.com/avatar2.jpg", time: "10:30 AM" },
     // Add more appointments as needed
   ];
 
@@ -74,50 +74,49 @@ export default function DoctorDashboard (){
     <DoctorNavbar/>
      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
      <Paper className="body-container">
-     <Grid container spacing={2}>
+      <Grid container spacing={2}>
        <Grid item xs={12}>
         <Stack spacing={5} direction={"row"}>
 
-          <Card sx={{ maxWidth:700}}>
+          <Card sx={{ maxWidth:700, height: 40+"vh"}} className="card">
             <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
+              <Typography gutterBottom component="div" className="sub-title">
                  My Appointments
               </Typography>
               <div className="app-body">
                  {/* Mapping through appointments to render each appointment */}
                   {appointments.map((appointment, index) => (
-                  <Box key={appointment.id} className="appointment" sx={{ marginBottom: 3 }}>
+                  <Box key={appointment.id} className="appointment" sx={{ marginBottom: 1 }}>
                   <Stack direction="row" alignItems="center" spacing={2}>
                   {/* Avatar */}
-                  <Avatar alt={appointment.name} src={appointment.avatar} />
+                  <Avatar alt={appointment.name} src={appointment.avatar} className="avatar-p" />
                   {/* Name */}
-                  <Typography variant="body1">{appointment.name}</Typography>
+                  <Typography variant="body1" className="p-name">{appointment.name}</Typography>
                   {/* Time */}
-                  <Typography variant="body2" color="textSecondary">{appointment.time}</Typography>
+                  <Typography variant="body2" className="p-time">{appointment.time}</Typography>
                   </Stack>
                   </Box>
                 ))}
             </div>
             </CardContent>
             <CardActions>
-          
             </CardActions>
           </Card> 
           
            {/* Recent Lab Results Card */}
-           <Card sx={{ maxWidth:700}}>
+           <Card sx={{ maxWidth:700,  height: 40+"vh" }} className="card">
              <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                  Recent Lab Results
+              <Typography gutterBottom  component="div" className="sub-title">
+                  Recent Lab Requests
               </Typography>
               <Typography className="lab-body">
                 {labResults.map((result) => (
-                  <Box key={result.id} className="lab-result" sx={{ marginBottom: 3 }}>
+                  <Box key={result.id} className="lab-result" sx={{ marginBottom: 1 }}>
                   <Stack direction="row" alignItems="center" spacing={2}>
-                    <Avatar alt={result.name} src={result.avatar} />
-                    <Typography variant="body1">{result.name}</Typography>
-                    <Typography variant="body2" color="textSecondary">{result.type}</Typography>
-                   <Typography variant="body2" color="textSecondary">{result.date}</Typography>
+                    <Avatar alt={result.name} src={result.avatar} className="avatar-p" />
+                    <Typography variant="body1" className="p-name">{result.name}</Typography>
+                    <Typography variant="body2"  className="p-type">{result.type}</Typography>
+                   <Typography variant="body2"  className="p-date">{result.date}</Typography>
                   </Stack>
                   </Box>
                 ))}
@@ -134,9 +133,9 @@ export default function DoctorDashboard (){
       <Box height={20} />
       <Grid container spacing={1}>
         <Grid item xs={8}>
-        <Card sx={{height: 60+ "vh", maxWidth:600 }}>
+        <Card sx={{height: 60+ "vh", maxWidth:600 }} className="card-2">
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom component="div" className="sub-title">
                   Weekly Activity
               </Typography>
               <BarChart
@@ -155,9 +154,9 @@ export default function DoctorDashboard (){
           </Card>
         </Grid>
         <Grid item xs={4}>
-        <Card sx={{ maxWidth: 700, height: 60+ "vh" }}>
+        <Card sx={{ maxWidth: 700, height: 60+ "vh" }} className="card-2">
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom  component="div" className="sub-title">
                   Rating Statistics
               </Typography>
               <PieChart

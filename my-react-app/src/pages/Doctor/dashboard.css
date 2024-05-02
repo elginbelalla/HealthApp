@@ -7,7 +7,7 @@
   .app-body{
     background: #def2fd;
     border-radius: 15px;
-    padding:10px 5px 5px 5px;
+    padding:10px 10px 10px 10px;
     width: 100%;
 
   }
@@ -17,14 +17,31 @@
     background-color: #FFFFFF;
     border-radius: 8px;
     border: 2px solid #E0E0E0;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+
+  .avatar-p{
+    width: 0.7rem;
+    height:0.7rem;
+  }
+
+   .p-name{
+    font-family: var(font-poppins);
+    font-size: 0.7rem;
+    color: #434343 ;
+  }
+
+  .p-time{
+    font-family: var(font-poppins);
+    font-size: 0.7rem;
+    color: #2d616e;
   }
 
   .lab-body{
     background: #def2fd;
     border-radius: 15px;
-    padding:10px 5px 5px 5px;
+    padding:20px 5px 20px 5px;
     width: 100%;
 
   }
@@ -36,4 +53,41 @@
     border: 2px solid #E0E0E0;
     padding: 10px;
    
+  }
+
+  .lab-result  .avatar-p{
+    width: 0.5rem;
+    height:0.5rem;
+  }
+
+  .lab-result.p-name{
+    font-family: var(font-poppins);
+    font-size: 0.5rem;
+    color: #434343 ;
+  }
+
+  .p-type{
+    font-family: var(font-poppins);
+    font-size: 0.5rem;
+    color: #434343 ;
+
+  }
+
+  .p-date{
+    font-family: var(font-poppins);
+    font-size: 0.5rem;
+    color: #2d616e;
+  }
+  
+
+  .sub-title{
+    font-family: var(font-poppins);
+    font-size: 0.2rem;
+    font-weight: 600;
+    color: #2a5f71 ;
+  }
+
+  .card{
+    box-shadow: none !important;
+    border: none;
   }

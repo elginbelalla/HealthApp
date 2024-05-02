@@ -14,10 +14,10 @@ import SignInPage from "./pages/Client/SignInPage";
 import SignUpPage from "./pages/Client/SignUpPage";
 import DoctorAppointments from "./pages/Doctor/DoctorAppointments";
 import DoctorMessages from "./pages/Doctor/DoctorMessages";
-import DoctorPatients from "./pages/Doctor/DoctorPatients";
+import DoctorPatients from "./pages/Doctor/Doctor Patient/DoctorPatients";
 import DoctorSettings from "./pages/Doctor/DoctorSettings";
 import DoctorDashboard from "./pages/Doctor/DoctorDashboard";
-import DoctorTests from "./pages/Doctor/DoctorTests";
+import DoctorTests from "./pages/Doctor/Doctor Test/DoctorTests";
 import Client from "./pages/Client/Client";
 import Guest from "./pages/Client/GuestPage";
 

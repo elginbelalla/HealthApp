@@ -1,0 +1,58 @@
+
+
+.patient-card{
+    border-radius: 10px!important;
+    box-shadow: none !important;
+    border: 3px solid #52b2e2 ;
+   
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button1, .view-more {
+    text-align: center;
+    margin-right: 8px;
+    font-family: var(font-poppins);
+    border-radius: 10px!important; /* Rounded corners */
+    margin-right: 8px!important; /* Right margin */
+    box-shadow: none !important;
+    
+  }
+
+  .button1 {
+    color:  #355f6d!important; /* Blue text color */
+    border: 1px solid  #355f6d!important;
+    font-size: 0.7rem!important;
+
+  }
+  
+  .view-more {
+    color: white; 
+    background-color:#52b2e2!important; 
+    font-size:0.7rem!important;
+  }
+
+  .avatar{
+    height: 80px!important;
+    width: 80px!important;
+  }
+
+  .user, .regDate, .diagnosis{
+    font-family: var(font-poppins);
+    color: #355f6d;
+
+  }
+
+  .diagnosis{
+    background-color: #d1f0fa;
+    border-radius: 5px;
+  }
+
+  .add-button{
+    color: white!important; 
+    background-color:#52b2e2!important; 
+    border-radius: 10px!important;
+  }
