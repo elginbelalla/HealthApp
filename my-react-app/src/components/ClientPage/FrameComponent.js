@@ -38,25 +38,7 @@ const FrameComponent = () => {
             className={styles.frameInner}
             loading="lazy"
             alt=""
-            src="/frame-6@2x.png"
-          />
-          <img
-            className={styles.frameIcon}
-            loading="lazy"
-            alt=""
-            src="/frame-3@2x.png"
-          />
-          <img
-            className={styles.frameChild1}
-            loading="lazy"
-            alt=""
-            src="/frame-5@2x.png"
-          />
-          <img
-            className={styles.frameChild2}
-            loading="lazy"
-            alt=""
-            src="/frame-2@2x.png"
+            src="/doc.png"
           />
         </div>
       </div>
