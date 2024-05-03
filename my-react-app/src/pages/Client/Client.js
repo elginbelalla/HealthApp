@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../components/ClientPage/Navbar";
 import FrameComponent from "../../components/ClientPage/FrameComponent";
 import FrameComponent1 from "../../components/ClientPage/FrameComponent1";
 import styles from "./Client.module.css";
 
 const Client = () => {
-  
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY === 0) {
+        navbar.style.top = '0';
+      } else {
+        navbar.style.top = '-5rem'; 
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const handleSubmit = () => {
     console.log("Submit button clicked");
   };
@@ -34,9 +50,8 @@ const Client = () => {
           </div>
           <FrameComponent />
           <div className={styles.component1}>
-          <button className={styles.buttonShape} onClick={handleSubmit} />
-                  <div className={styles.submit} onClick={handleSubmit}>Submit</div>
-
+            <button className={styles.buttonShape} onClick={handleSubmit} />
+            <div className={styles.submit} onClick={handleSubmit}>Submit</div>
           </div>
         </div>
       </section>

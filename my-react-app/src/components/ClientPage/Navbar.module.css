@@ -1,9 +1,10 @@
 .logoIcon {
-  height: 6vw; /* Adjust height */
-  width: 8vw; /* Adjust width */
+  height: 5rem; 
+  width: 8vw; 
   bottom: 1vw;
   position: relative;
   object-fit: cover;
+  right:0px;
 }
 
 .homePage {
@@ -18,7 +19,7 @@
   padding: 2.5rem 3rem;
   font-size: small;
   bottom:1rem;
-  
+  cursor:pointer;
 }
 
 .aboutUs {
@@ -82,13 +83,9 @@
   height: 3rem;
 }
 
-.homePageParent,
-.topBar {
-  margin: 0;
-  display: flex;
-  align-items: flex-start;
-}
+
 .homePageParent {
+  position:relative;
   align-self: stretch;
   flex-direction: row;
   font-size: var(--menu-text-size);
@@ -97,15 +94,11 @@
   justify-content: center; 
   align-items: center; 
   text-align: center; 
+  width:0rem;
+  margin: 0;
+  display: flex;
 }
-.topBar {
-  width: 59.125rem;
-  flex-direction: column;
-  justify-content: space-between; 
-  box-sizing: border-box;
-  max-width: 100%;
-  height: 5rem;
-}
+
 .userIcon {
   width: 2.8rem;
   height: 2.8rem;
@@ -117,42 +110,28 @@
   right: 40px;
   bottom:1rem;
 }
-.navbar,
-.userWrapper {
-  display: flex;
-  box-sizing: border-box;
-}
-.userWrapper {
-  height: 3.938rem;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 0 0 var(--padding-10xs);
-}
 
 .navbar {
-  position: relative;
-  right: 10%;
-  width: 117%;
-  background: linear-gradient(
-    180deg,
-    rgba(82, 178, 226, 0.23),
-    rgba(255, 255, 255, 0.23)
-  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(82, 178, 226, 0.23), rgba(255, 255, 255, 0.23));
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
-  padding: var(--padding-4xl) var(--padding-87xl) var(--padding-64xl)
-    var(--padding-43xl);
+  padding: var(--padding-4xl) var(--padding-87xl) var(--padding-64xl) var(--padding-43xl);
   flex-shrink: 0;
   align-self: stretch;
   flex-wrap: wrap;
-  height: 11rem;
+  box-sizing: border-box;
 }
 
 
 
+
+ /*
 @media screen and (max-width: 1575px) {
   .navbar {
     flex-wrap: wrap;
@@ -167,22 +146,21 @@
   }
 
   .userWrapper {
-    order: 2; /* Move user icon wrapper to the bottom */
-    margin-top: 1rem; /* Add some spacing between user icon and other items */
+    order: 2; 
+    margin-top: 1rem; 
   }
 
   .userIcon {
-    order: 1; /* Move user icon to the top */
+    order: 1; 
     right: auto;
     bottom: auto;
-    margin-top: 1rem; /* Add some spacing between user icon and other items */
+    margin-top: 1rem; 
   }
 
   .navbar > * {
-    margin-top: 1rem; /* Add some spacing between navbar items */
+    margin-top: 1rem; 
   }
 
-  
 }
 
 
