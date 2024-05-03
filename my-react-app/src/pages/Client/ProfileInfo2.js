@@ -31,7 +31,7 @@ const ProfileInfo2 = () => {
   // Fetch previous data if there is any, used when user goes back one page
   const fetchPreviousData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/saveFamilyHealth.php", {
+      const response = await fetch("http://localhost/HealthApp/api/getFamilyHealth", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -47,13 +47,13 @@ const ProfileInfo2 = () => {
     } catch (error) {
       console.error("Failed to fetch previous data:", error.message);
     }
-  }; 
+  };
 
 
   // Callback function for the next button click
   const onNextButtonContainerClick = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/saveFamilyHealth.php", {
+      const response = await fetch("http://localhost/HealthApp/api/saveFamilyHealth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

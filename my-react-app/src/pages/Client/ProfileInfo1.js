@@ -25,7 +25,7 @@ const ProfileInfo1 = () => {
   // Fetch previous data if there is any, used when user goes back one page
   const fetchPreviousData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/savePersonalHealthInfo.php", {
+      const response = await fetch("http://localhost/HealthApp/api/getPersonalHealth", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const ProfileInfo1 = () => {
     } catch (error) {
       console.error("Failed to fetch previous data:", error.message);
     }
-  }; 
+  };
 
   // Callback function for the previous button click
   const onPreviousButtonClick = useCallback(() => {
@@ -51,7 +51,7 @@ const ProfileInfo1 = () => {
   // Callback function for the next button click
   const onNextButtonContainerClick = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/savePersonalHealthinfo.php", {
+      const response = await fetch("http://localhost/HealthApp/api/savePersonalHealth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -94,7 +94,7 @@ const ProfileInfo1 = () => {
           <div className={styles.infoArea}>
             <h1 className={styles.largeTitle}>Personal health history</h1>
             <div className={styles.bodyText}>
-            {`Fill in the data based on your health history and previous assessments.. It will take a couple of minutes. `}</div>
+              {`Fill in the data based on your health history and previous assessments.. It will take a couple of minutes. `}</div>
           </div>
           <div className={styles.informationArea}>
             <form className={styles.body}>
@@ -104,7 +104,7 @@ const ProfileInfo1 = () => {
                     Previous health-related concerns
                   </h3>
                   <div className={styles.listAllYour}>
-                   List all your previous health issues.
+                    List all your previous health issues.
                   </div>
                 </div>
                 <Form.Group className={styles.inputFormgroup}>
@@ -139,7 +139,7 @@ const ProfileInfo1 = () => {
                 <div className={styles.notesParent}>
                   <h3 className={styles.notes1}>Notes</h3>
                   <div className={styles.listAnyNotes}>
-                     List any notes you might have about your health concerns.
+                    List any notes you might have about your health concerns.
                   </div>
                 </div>
                 <Form.Group className={styles.inputFormgroup2}>

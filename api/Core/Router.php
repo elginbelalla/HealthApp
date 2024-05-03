@@ -2,9 +2,7 @@
 
 namespace Core;
 
-use Core\Middleware\Authenticated;
-use Core\Middleware\Guest;
-use Core\Middleware\Middleware;
+use Error;
 
 class Router
 {
@@ -16,7 +14,6 @@ class Router
             'uri' => $uri,
             'controller' => $controller,
             'method' => $method,
-            'middleware' => null
         ];
 
         return $this;
@@ -47,22 +44,31 @@ class Router
         return $this->add('PUT', $uri, $controller);
     }
 
-    public function only($key)
-    {
-        $this->routes[array_key_last($this->routes)]['middleware'] = $key;
-
-        return $this;
-    }
-
     public function route($uri, $method)
     {
-        foreach ($this->routes as $route) {
-            if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
-                Middleware::resolve($route['middleware']);
 
-                return require base_path('Http/controllers/' . $route['controller']);
+        // echo "\n" . $uri;
+        // echo "\n";
+        // echo $method . "\n";
+
+        // /HealthApp/api/savePersonalInfo
+        // GET
+
+        // require_once("controllers/SavePersonal.php");
+
+        // echo "Here is the routes: \n";
+        foreach ($this->routes as $route) {
+
+            if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
+
+                return require("controllers/" . $route['controller'] . ".php");
             }
         }
+
+
+
+
+        echo "finished";
 
         $this->abort();
     }
@@ -72,12 +78,8 @@ class Router
         return $_SERVER['HTTP_REFERER'];
     }
 
-    protected function abort($code = 404)
+    public function abort()
     {
-        http_response_code($code);
-
-        require base_path("views/{$code}.php");
-
-        die();
+        return die();
     }
 }

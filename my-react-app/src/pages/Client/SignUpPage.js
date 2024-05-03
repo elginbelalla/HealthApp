@@ -14,22 +14,22 @@ const SignUpPage = () => {
     role: ''
   });
 
-  const validateForm = () =>{
+  const validateForm = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if( formData.name.length === 0 || formData.email.length === 0 || formData.password.length === 0 || formData.phoneNumber.length === 0){
+    if (formData.name.length === 0 || formData.email.length === 0 || formData.password.length === 0 || formData.phoneNumber.length === 0) {
       alert("Please fill in all fields.");
       return false;
     }
-    else if (!emailRegex.test(formData.email)){
+    else if (!emailRegex.test(formData.email)) {
       alert("Please enter a correct email format.");
       return false;
     }
-    else if (formData.password.length < 7){
+    else if (formData.password.length < 7) {
       alert("Please make sure the password is 8 or more characters long.")
       return false;
     }
-    else if (!(formData.phoneNumber.length >= 10) && !(formData.phoneNumber.length <= 15)){
+    else if (!(formData.phoneNumber.length >= 10) && !(formData.phoneNumber.length <= 15)) {
       alert("Please enter a valid phone number.")
       return false;
     }
@@ -37,14 +37,14 @@ const SignUpPage = () => {
       return true;
   }
 
-  const onComponent1ContainerClick = async() => {
+  const onComponent1ContainerClick = async () => {
 
     if (!validateForm()) {
       return;
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/saveSignUpInfo.php", {
+      const response = await fetch("http://localhost/HealthApp/api/saveSignUpInfo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,29 +52,30 @@ const SignUpPage = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        const clientId = response.headers.get("client-id");
-          if (formData.role === 'User') {
-            console.log(clientId);
+        const responseData = await response.json();
+        const clientId = responseData.clientId;
+        if (formData.role === 'User') {
+          console.log(clientId);
           navigate("/signup-info", { state: { clientId: clientId } });
         }
       } else {
         console.error("Failed to save profile info:", await response.text());
       }
-   }catch (error) {
+    } catch (error) {
       console.error("Failed to save profile info:", error.message);
     }
   };
 
   const handleFormChange = (field, value) => {
-    console.log("Selected value:", value); 
+    console.log("Selected value:", value);
     setFormData({
       ...formData,
       [field]: value
     });
   };
-  
+
   const handleRoleChange = (selectedRole) => {
-    console.log("Selected role:", selectedRole); 
+    console.log("Selected role:", selectedRole);
     setFormData({
       ...formData,
       role: selectedRole
@@ -86,7 +87,7 @@ const SignUpPage = () => {
     <div className={styles.signUpPage}>
       <div className={styles.frameParent}>
         <div className={styles.componentParent}>
-          <GroupComponent formData={formData} onFormChange={handleFormChange} updateRole={handleRoleChange}/>
+          <GroupComponent formData={formData} onFormChange={handleFormChange} updateRole={handleRoleChange} />
           <div className={styles.signInWrapper}>
             <h1 className={styles.signIn}>Sign Up</h1>
           </div>
