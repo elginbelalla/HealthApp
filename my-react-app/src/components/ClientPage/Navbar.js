@@ -1,25 +1,33 @@
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+
+  const onHomePageTextClick = useCallback(() => {
+    navigate("/clientpage");
+  }, [navigate]);
+
   const onAboutUsTextClick = useCallback(() => {
-    // Please sync "AboutUs/Reviews" to the project
-  }, []);
+    navigate("/aboutus");
+  }, [navigate]);
 
   const onBookAppointementTextClick = useCallback(() => {
-    // Please sync "BookingPage" to the project
+    
   }, []);
 
   const onRequestTestTextClick = useCallback(() => {
-    // Please sync "RequestTest" to the project
+   
   }, []);
 
   const onMedicalHistoryTextClick = useCallback(() => {
-    // Please sync "MedicalRecords" to the project
+    
   }, []);
 
   const onNutritionPlanTextClick = useCallback(() => {
-    // Please sync "NutritionRecommendations" to the project
+    
   }, []);
 
   return (
@@ -32,7 +40,9 @@ const Navbar = () => {
       />
       <nav className={styles.topBar}>
         <nav className={styles.homePageParent}>
-          <div className={styles.homePage}>Home Page</div>
+        <div className={styles.homePage} onClick={onHomePageTextClick}>
+            Home Page
+          </div>
           <div className={styles.aboutUs} onClick={onAboutUsTextClick}>
             About Us
           </div>

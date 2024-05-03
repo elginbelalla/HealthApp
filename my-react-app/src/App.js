@@ -20,6 +20,7 @@ import DoctorDashboard from "./pages/Doctor/DoctorDashboard";
 import DoctorTests from "./pages/Doctor/Doctor Test/DoctorTests";
 import Client from "./pages/Client/Client";
 import Guest from "./pages/Client/GuestPage";
+import AboutUsReviews from "./pages/Client/AboutUsReviews";
 
 
 
@@ -79,6 +80,7 @@ function App() {
       <Route path="/doctor/tests" element={<DoctorTests />} />
       <Route path="/clientpage" element={<Client />} />
       <Route path="/guest"    element={<Guest />} />
+      <Route path="/aboutus"    element={<AboutUsReviews />} />
 
     </Routes>
   );
