@@ -1,0 +1,24 @@
+.button-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap-xl);
+   
+}
+
+.upload, .submit{
+    color: white !important;
+    border-radius: 10px !important;
+    font-family: var(--font-inter)!important;
+    font-size: var(--font-size-xs)!important;
+
+}
+.upload{
+    background-color: #388192!important;
+   
+}
+
+.submit{
+    background-color: #52b2e2!important;
+}
+

@@ -56,8 +56,8 @@
   }
 
   .lab-result  .avatar-p{
-    width: 0.5rem;
-    height:0.5rem;
+    width: 2rem !important;
+    height: 2rem !important;
   }
 
   .lab-result.p-name{

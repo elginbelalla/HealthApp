@@ -74,16 +74,15 @@ export default function DoctorDashboard (){
     <DoctorNavbar/>
      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
      <Paper className="body-container">
-      <Grid container spacing={2}>
-       <Grid item xs={12}>
-        <Stack spacing={5} direction={"row"}>
-
+      <Grid container spacing={2} padding={2}>
+       <Stack spacing={5} direction={"row"}>
+        <Grid item xs={6}>
           <Card sx={{ maxWidth:700, height: 40+"vh"}} className="card">
             <CardContent>
               <Typography gutterBottom component="div" className="sub-title">
                  My Appointments
               </Typography>
-              <div className="app-body">
+              <CardContent className="app-body">
                  {/* Mapping through appointments to render each appointment */}
                   {appointments.map((appointment, index) => (
                   <Box key={appointment.id} className="appointment" sx={{ marginBottom: 1 }}>
@@ -97,19 +96,21 @@ export default function DoctorDashboard (){
                   </Stack>
                   </Box>
                 ))}
-            </div>
+            </CardContent>
             </CardContent>
             <CardActions>
             </CardActions>
           </Card> 
-          
+          </Grid>
+
+          <Grid item xs={8}>
            {/* Recent Lab Results Card */}
            <Card sx={{ maxWidth:700,  height: 40+"vh" }} className="card">
              <CardContent>
               <Typography gutterBottom  component="div" className="sub-title">
                   Recent Lab Requests
               </Typography>
-              <Typography className="lab-body">
+              <CardContent className="lab-body">
                 {labResults.map((result) => (
                   <Box key={result.id} className="lab-result" sx={{ marginBottom: 1 }}>
                   <Stack direction="row" alignItems="center" spacing={2}>
@@ -120,16 +121,30 @@ export default function DoctorDashboard (){
                   </Stack>
                   </Box>
                 ))}
-                </Typography>
+                </CardContent>
               </CardContent>
             <CardActions>
            </CardActions>
            </Card>
+          
+          </Grid>
 
+           <Grid item xs={3}>
+            <Card sx={{ maxWidth: 345 }} className="card">
+             <CardContent>
+               <Typography gutterBottom component="div" className="sub-title">
+                 Number of Patients
+               </Typography>
+               <Typography variant="body2" color="text.secondary">
+                   Will be some text and stuff
+               </Typography>
+             </CardContent>
+            </Card>
+          </Grid>
+        
          </Stack>
         </Grid>
 
-      </Grid>
       <Box height={20} />
       <Grid container spacing={1}>
         <Grid item xs={8}>
@@ -153,7 +168,7 @@ export default function DoctorDashboard (){
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={3}>
         <Card sx={{ maxWidth: 700, height: 60+ "vh" }} className="card-2">
             <CardContent>
               <Typography gutterBottom  component="div" className="sub-title">

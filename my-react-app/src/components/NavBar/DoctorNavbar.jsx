@@ -221,10 +221,6 @@ export default function DoctorNavbar() {
             disablePadding 
             className={isActive("/doctor/settings") ? "selectedListItem" : "unselectedListItem"}
             onClick={() => navigate("/doctor/settings")}
-            sx={{
-              paddingTop: 10, // Adding padding to the top
-              
-            }}
             >
               <ListItemButton
                 sx={{
