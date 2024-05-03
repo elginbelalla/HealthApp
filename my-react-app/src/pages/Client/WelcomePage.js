@@ -13,16 +13,6 @@ const WelcomePage = () => {
             alt=""
             src="/logo@2x.png"
           />
-          <div className={styles.navBarInner}>
-            <div className={styles.aboutusParent}>
-              <button className={styles.aboutus}>
-                <div className={styles.aboutUs}>About Us</div>
-              </button>
-              <button className={styles.support}>
-                <div className={styles.support1}>Support</div>
-              </button>
-            </div>
-          </div>
         </header>
       </section>
       <section className={styles.welcomepageInner}>
@@ -45,18 +35,6 @@ const WelcomePage = () => {
               <div className={styles.supportButton}>
                 <Buttons />
               </div>
-            </div>
-          </div>
-          <div className={styles.bottombar}>
-            <div className={styles.items}>
-              <div className={styles.aboutUs1}>About Us</div>
-              <div className={styles.emergencyNum}>Emergency Numbers</div>
-              <div className={styles.reviews}>Reviews</div>
-              <div className={styles.privacyPolicy}>Privacy Policy</div>
-              <div className={styles.termsOfUse}>Terms of Use</div>
-            </div>
-            <div className={styles.allRightsReserved}>
-              © 2024, All Rights Reserved
             </div>
           </div>
         </div>
