@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useCallback, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -5,42 +6,41 @@ import { Form } from "react-bootstrap";
 import styles from "./ProfileInfo.module.css";
 
 const ProfileInfo = () => {
-   const location = useLocation();
-   const clientId = location.state ? location.state.clientId : null;
-  
-    const navigate = useNavigate();
+  const location = useLocation();
+  const clientId = location.state ? location.state.clientId : null;
 
-    const [formData, setFormData] = useState({
-      'fullName': '',
-      'gender': '',
-      'dateOfBirth': '',
-      'placeOfBirth': '',
-      'height': '',
-      'weight': ''
-      
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    'fullName': '',
+    'gender': '',
+    'dateOfBirth': '',
+    'placeOfBirth': '',
+    'height': '',
+    'weight': ''
+  });
+
+  // Function to update form data based on input changes
+  const handleUpdateFormData = (fieldName, value) => {
+    setFormData({ ...formData, [fieldName]: value });
+  };
+
+  const handleGenderChange = (selectedGender) => {
+    console.log("Selected Gender:", selectedGender);
+    setFormData({
+      ...formData,
+      gender: selectedGender
     });
-  
-    // Function to update form data based on input changes
-    const handleUpdateFormData = (fieldName, value) => {
-      setFormData({ ...formData, [fieldName]: value });
-    };
-  
-    const handleGenderChange = (selectedGender) => {
-      console.log("Selected Gender:", selectedGender); 
-      setFormData({
-        ...formData,
-        gender: selectedGender
-      });
-    };
+  };
 
-    useEffect(() => {
-      fetchPreviousData()
-    },[])
+  useEffect(() => {
+    fetchPreviousData()
+  }, []);
 
-// Fetch previous data if there is any, used when user goes back one page
+  // Fetch previous data if there is any, used when user goes back one page
   const fetchPreviousData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/savePersonalInfo.php", {
+      const response = await fetch("http://localhost/HealthApp/api/getPersonalInfo", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +53,7 @@ const ProfileInfo = () => {
 
         setFormData({
           ...formData,
-          fullName: data.fullName || '',
+          fullName: data.name || '',
           gender: data.gender || '',
           dateOfBirth: formattedDate,
           placeOfBirth: data.placeOfBirth || '',
@@ -66,16 +66,16 @@ const ProfileInfo = () => {
     } catch (error) {
       console.error("Failed to fetch previous data:", error.message);
     }
-  }; 
+  };
 
   const formatDateForInput = (date) => {
     const [year, month, day] = date.split('-');
     return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
   };
-  
 
-  const validateForm = () =>{
-    if( formData.fullName.length === 0 || formData.gender.length === 0 || formData.dateOfBirth.length === 0 || formData.placeOfBirth.length === 0 || formData.height.length === 0 || formData.weight.length === 0){
+
+  const validateForm = () => {
+    if (formData.fullName.length === 0 || formData.gender.length === 0 || formData.dateOfBirth.length === 0 || formData.placeOfBirth.length === 0 || formData.height.length === 0 || formData.weight.length === 0) {
       alert("Please fill in all fields.");
       return false;
     }
@@ -90,8 +90,8 @@ const ProfileInfo = () => {
       return;
     }
 
-    try{
-      const response = await fetch("http://localhost:3000/api/savePersonalInfo.php", {
+    try {
+      const response = await fetch("http://localhost/HealthApp/api/savePersonalInfo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -107,6 +107,12 @@ const ProfileInfo = () => {
       console.error("Failed to save profile info:", error.message);
     }
   };
+
+  // Function to handle icon click and navigate to '/sign-up' route
+  const handleIconClick = () => {
+    navigate("/sign-up");
+  };
+
   return (
     <div className={styles.profile1}>
       <main className={styles.mainContent}>
@@ -144,14 +150,13 @@ const ProfileInfo = () => {
               <div className={styles.fieldBlock}>
                 <div className={styles.fieldLabel}>Full Name</div>
                 <Form className={styles.contents}>
-                <Form.Control
-                     name="fullName"
-                      type="text"
-                      value={formData['fullName']}
-                      onChange={(e) => handleUpdateFormData('fullName', e.target.value)}
-                      defaultValue={formData.fullName || ""}
-                      />
-                  </Form>
+                  <Form.Control
+                    name="fullName"
+                    type="text"
+                    value={formData['fullName']}
+                    onChange={(e) => handleUpdateFormData('fullName', e.target.value)}
+                  />
+                </Form>
               </div>
               <div className={styles.fieldBlock1}>
                 <div className={styles.fieldLabel1}>Gender</div>
@@ -159,7 +164,6 @@ const ProfileInfo = () => {
                   name="gender"
                   value={formData.gender}
                   onChange={(e) => handleGenderChange(e.target.value)}
-                  defaultValue={formData.gender || ""}
                 >
                   <option value="">Select Gender</option>
                   <option value="Male">Male</option>
@@ -173,66 +177,65 @@ const ProfileInfo = () => {
                 </div>
                 <div className={styles.userDataValues}>
                   <Form className={styles.contents2}>
-                  <Form.Control 
+                    <Form.Control
                       name="dateOfBirth"
                       type="date"
-                      value={formData['dateOfBirth']}
                       onChange={(e) => handleUpdateFormData('dateOfBirth', e.target.value)}
                       defaultValue={formData.dateOfBirth || ""}
-                      />
-                    </Form>
+                    />
+                  </Form>
                   <Form className={styles.contents3}>
-                  <Form.Control 
+                    <Form.Control
                       name="placeOfBirth"
                       type="text"
-                      value={formData['placeOfBirth']}
-                      onChange={(e) => handleUpdateFormData('placeB', e.target.value)}
+                      onChange={(e) => handleUpdateFormData('placeOfBirth', e.target.value)}
                       defaultValue={formData.placeOfBirth || ""}
-                      />
+                    />
 
-                    </Form>
+                  </Form>
                 </div>
               </div>
               <div className={styles.fieldBlock2}>
                 <div className={styles.fieldLabel4}>Height (in cm)</div>
                 <Form className={styles.contents4}>
-                <Form.Control 
-                      name="height"
-                      type="number"
-                      value={formData['height']}
-                      onChange={(e) => handleUpdateFormData('height', e.target.value)}
-                      defaultValue={formData.height || ""}
-                      />
-                  </Form>
+                  <Form.Control
+                    name="height"
+                    type="number"
+                    value={formData['height']}
+                    onChange={(e) => handleUpdateFormData('height', e.target.value)}
+                    defaultValue={formData.height || ""}
+                  />
+                </Form>
               </div>
               <div className={styles.fieldBlock3}>
                 <div className={styles.fieldLabel5}>Weight (in kg)</div>
                 <Form className={styles.contents5}>
-                <Form.Control 
+                  <Form.Control
                     name="weight"
                     type="number"
                     value={formData['weight']}
                     onChange={(e) => handleUpdateFormData('weight', e.target.value)}
                     defaultValue={formData.weight || ""}
-                    />
-                  </Form>
+                  />
+                </Form>
               </div>
             </div>
           </div>
         </div>
-        <img className={styles.icon} loading="lazy" alt="" src="/icon.svg" />
+        {/* Adding onClick event handler to the icon */}
+        <img className={styles.icon} loading="lazy" alt="" src="/icon.svg" onClick={handleIconClick} />
       </main>
       <div className={styles.buttonArea}>
-            <div className={styles.previousbuttonParent}>
-             
-              <div
-                className={styles.nextbutton}
-                onClick={onNextButtonContainerClick}
-              >
-                <div className={styles.label1}>Next</div>
-              </div>
-            </div>
-         </div>
+        <div className={styles.previousbuttonParent}>
+
+          <div
+            className={styles.nextbutton}
+            onClick={onNextButtonContainerClick}
+          >
+            <div className={styles.label1}>Next</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

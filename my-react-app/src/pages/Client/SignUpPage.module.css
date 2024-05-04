@@ -32,18 +32,21 @@
   
 }
 .component1Child {
-  height: 100%;
-  width: 100%;
-  position: absolute;
+  height: 3.5rem;
+  width: 15rem;
+  position: relative;
   margin: 0 !important;
-  top: 0;
+  top: 3rem;
   right: 0;
   bottom: 0;
   left: 0;
   border-radius: var(--br-base);
   background-color: var(--color-deepskyblue);
+  display: flex;
+  margin-bottom:30px;
   
 }
+
 .signUp {
   width: 6.688rem;
   position: relative;
@@ -51,15 +54,18 @@
   display: inline-block;
   min-width: 6.688rem;
   z-index: 1;
+  top:50px;
+  align-self:center;
+  color:white;
+  left:-10.8rem;
 }
 .component1 {
   flex: 1;
-  backdrop-filter: blur(4px);
   justify-content: center;
   padding: 1.175rem var(--padding-xl) 1.325rem;
   position: relative;
   cursor: pointer;
-  
+  margin-top:30px;
 }
 .component1,
 .component1Wrapper,
@@ -68,14 +74,9 @@
   flex-direction: row;
   align-items: flex-start;
 }
-.component1Wrapper {
-  width: 25.063rem;
-  justify-content: flex-end;
-  padding: 0 4rem;
-  box-sizing: border-box;
-  max-width: 100%;
-}
+
 .signInMessageWrapper {
+  margin-top:20px;
   align-self: stretch;
   overflow: hidden;
   justify-content: flex-start;
@@ -114,8 +115,7 @@
   gap: 8.938rem;
   min-width: 44.375rem;
   height: 100vh;
-  
-  
+
 }
 .doctorHoldingMedicalReportIcon {
   width: 45%; 

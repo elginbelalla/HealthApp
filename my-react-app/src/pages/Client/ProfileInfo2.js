@@ -23,15 +23,14 @@ const ProfileInfo2 = () => {
     navigate("/signup-info1");
   }, [navigate]);
 
-
   useEffect(() => {
     fetchPreviousData();
   }, []);
 
-  // Fetch previous data if there is any, used when user goes back one page
+  // Fetch previous data if there is any, used when the user goes back one page
   const fetchPreviousData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/saveFamilyHealth.php", {
+      const response = await fetch("http://localhost/HealthApp/api/getFamilyHealth", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -47,13 +46,12 @@ const ProfileInfo2 = () => {
     } catch (error) {
       console.error("Failed to fetch previous data:", error.message);
     }
-  }; 
-
+  };
 
   // Callback function for the next button click
   const onNextButtonContainerClick = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/saveFamilyHealth.php", {
+      const response = await fetch("http://localhost/HealthApp/api/saveFamilyHealth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +59,7 @@ const ProfileInfo2 = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        navigate("/login");
+        navigate("/clientpage"); // Redirect to '/clientpage' route
       } else {
         console.error("Failed to save profile info:", await response.text());
       }
@@ -69,6 +67,11 @@ const ProfileInfo2 = () => {
       console.error("Failed to save profile info:", error.message);
     }
   }, [formData, navigate]);
+
+  // Function to handle icon click and navigate to '/sign-up' route
+  const handleIconClick = () => {
+    navigate("/sign-up");
+  };
 
   return (
     <div className={styles.profileInfo2}>
@@ -170,13 +173,14 @@ const ProfileInfo2 = () => {
                 className={styles.nextbutton}
                 onClick={onNextButtonContainerClick}
               >
-                <div className={styles.label1}>Next</div>
+                <div className={styles.label1}>Finish</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <img className={styles.icon} loading="lazy" alt="" src="/icon.svg" />
+      {/* Adding onClick event handler to the icon */}
+      <img className={styles.icon} loading="lazy" alt="" src="/icon.svg" onClick={handleIconClick} />
     </div>
   );
 };

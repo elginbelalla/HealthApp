@@ -340,16 +340,25 @@
   color: var(--grey-grey-10);
   font-family: var(--roboto-regular-16);
 }
+
+.specializationInput input {
+  border: none !important;
+  outline: none;
+  font-size:14px;
+}
+
 .caretupInstanceParent,
 .frameParent {
   box-sizing: border-box;
 }
 .caretupInstanceParent {
+  position:relative;
   margin-left: -0.125rem;
   width: 15rem;
   padding: 0 var(--padding-xl) 0 0;
   gap: var(--gap-5xl);
   flex-shrink: 0;
+  z-index:1;
 }
 .frameParent {
   position: absolute;
@@ -362,9 +371,10 @@
   max-width: 100%;
   text-align: left;
   font-size: var(--roboto-regular-16-size);
-  color: var(--color-midnightblue-200);
   font-family: var(--font-inter);
 }
+
+
 @media screen and (max-width: 450px) {
   .frameParent1 {
     flex-wrap: wrap;

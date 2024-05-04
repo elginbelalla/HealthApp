@@ -260,12 +260,13 @@
   max-width: 100%;
 }
 .icon {
-  height: 3rem;
   width: 3rem;
-  position: relative;
+  height: 3rem;
   overflow: hidden;
   flex-shrink: 0;
+  cursor:pointer;
 }
+
 .mainContent {
   align-self: stretch;
   display: flex;

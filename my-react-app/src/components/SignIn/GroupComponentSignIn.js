@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React from 'react';
 import styles from "./GroupComponentSignIn.module.css";
 
-const GroupComponentSignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const GroupComponentSignIn = ({ formData = { email: '', password: '' }, onFormChange }) => {
+  const { email, password } = formData;
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+  const handleInputChange = (field, value) => {
+    onFormChange(field, value);
   };
 
   return (
@@ -25,7 +20,7 @@ const GroupComponentSignIn = () => {
               <input
                 type="email"
                 value={email}
-                onChange={handleEmailChange}
+                onChange={(e) => handleInputChange("email", e.target.value)}
                 className={styles.xhbazegmailcom}
               />
             </div>
@@ -40,7 +35,7 @@ const GroupComponentSignIn = () => {
             <input
               type="password"
               value={password}
-              onChange={handlePasswordChange}
+              onChange={(e) => handleInputChange("password", e.target.value)}
               className={styles.passwordInput}
             />
           </div>

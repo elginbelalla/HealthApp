@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap';
 import styles from './GroupComponent.module.css';
 
 const GroupComponent = ({ formData, onFormChange, updateRole }) => {
-  const { name, email, phoneNumber, password, role } = formData;
+  const { name, email, phoneNumber, password, role, specialization } = formData;
 
   const handleInputChange = (field, value) => {
     onFormChange(field, value);
@@ -22,6 +22,7 @@ const GroupComponent = ({ formData, onFormChange, updateRole }) => {
   return (
     <div className={styles.frameParent}>
       <div className={styles.frameGroup}>
+        {/* Name input */}
         <div className={styles.nameInputContainerParent}>
           <div className={styles.name}>Name</div>
           <div className={styles.labelEmail}>
@@ -36,6 +37,7 @@ const GroupComponent = ({ formData, onFormChange, updateRole }) => {
             <div className={styles.passwordInputContainer}></div>
           </div>
         </div>
+        {/* Email input */}
         <div className={styles.frameContainer}>
           <div className={styles.emailWrapper}>
             <div className={styles.email}>Email</div>
@@ -52,6 +54,7 @@ const GroupComponent = ({ formData, onFormChange, updateRole }) => {
             <div className={styles.frameChild} />
           </div>
         </div>
+        {/* Password input */}
         <div className={styles.inputpasswordParent}>
           <div className={styles.inputpassword}>
             <div className={styles.password}>Password</div>
@@ -59,7 +62,6 @@ const GroupComponent = ({ formData, onFormChange, updateRole }) => {
           <div className={styles.frameWrapper}>
             <div className={styles.frameParent1}>
               <div className={styles.frameWrapper1}>
-                {/* Password input */}
                 <input
                   type="password"
                   value={password}
@@ -72,6 +74,7 @@ const GroupComponent = ({ formData, onFormChange, updateRole }) => {
           <div className={styles.frameItem} />
         </div>
       </div>
+      {/* Phone Number input */}
       <div className={styles.frameParent2}>
         <div className={styles.phoneNumberWrapper}>
           <div className={styles.phoneNumber}>Phone Number</div>
@@ -86,6 +89,7 @@ const GroupComponent = ({ formData, onFormChange, updateRole }) => {
           />
         </div>
       </div>
+      {/* Role dropdown */}
       <div className={styles.caretupInstanceParent}>
         <div className={styles.caretupInstance} onClick={() => toggleDropDown()}>
           <div className={styles.choseYourRole}>Choose your Role</div>
@@ -105,6 +109,19 @@ const GroupComponent = ({ formData, onFormChange, updateRole }) => {
             <option value="Doctor">Doctor</option>
           </Form.Select>
 
+          {/* Specialization input for Doctor */}
+          {role === "Doctor" && (
+            <div className={styles.specializationInput}>
+              <input
+                type="text"
+                value={specialization}
+                onChange={(e) => handleInputChange('specialization', e.target.value)}
+                placeholder="Enter your specialization"
+              />
+            </div>
+          )}
+
+          {/* List of roles */}
           {isOpen && (
             <div className={styles.selectionList}>
               <div className={styles.lists}>
