@@ -1,0 +1,198 @@
+.pleaseVerifyYour {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  line-height: 2.25rem;
+  font-weight: 700;
+  font-family: inherit;
+  padding-left: 3.5rem;
+  left:10px;
+}
+.pleaseVerifyYourIdentityWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-37xl) 0 var(--padding-37xl-5);
+}
+.selectRelevantDocuments {
+  margin: 0;
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--color-gray-600);
+  left:70px;
+  margin-bottom:20px;
+}
+.frameGroup,
+.frameWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.frameGroup {
+  flex-direction: column;
+  gap: var(--gap-xl);
+}
+.frameWrapper {
+  flex-direction: row;
+  padding: 0 var(--padding-lg);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.featheruploadCloudIcon {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-top:10px;
+}
+.selectAFile {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 1.9rem;
+  font-weight: 400;
+  font-family: inherit;
+  cursor:pointer;
+}
+
+.jpgPngOr {
+  position: relative;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-gray-700);
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-xs);
+  flex-shrink: 0;
+}
+.selectFile {
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 900;
+  display: inline-block;
+  min-width: 4.313rem;
+  cursor:pointer;
+}
+.button {
+  height: 3.25rem;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-gray-500);
+  border: 1px solid var(--color-steelblue-200);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-base) var(--padding-lg) var(--padding-base)
+    var(--padding-base);
+  white-space: nowrap;
+  font-size: var(--font-size-xs);
+  color: var(--color-steelblue-100);
+}
+.bottomContent,
+.uploadField {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-5xl);
+  max-width: 100%;
+}
+.uploadField {
+  align-self: stretch;
+  border-radius: var(--br-3xs);
+  border: 1px dashed var(--color-silver-100);
+  box-sizing: border-box;
+  padding: var(--padding-42xl-5) var(--padding-xl);
+  flex-shrink: 0;
+  font-size: var(--font-size-xl);
+}
+.frameParent,
+.unsplashdmsdujjlgInner {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.frameParent {
+  position:relative;
+  width: 36.75rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-38xl-5);
+  top:0px;
+}
+.unsplashdmsdujjlgInner {
+  position:relative;
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 0 var(--padding-11xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-poppins);
+}
+
+.selectedFilesCount {
+  margin-top: 10px; 
+  font-size: 14px; 
+  color: #666; 
+}
+
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* Ensure it appears on top of other content */
+}
+
+.popup p {
+  margin: 0;
+  font-size: 16px;
+  color: #333333;
+}
+
+
+
+
+@media screen and (max-width: 1050px) {
+  .pleaseVerifyYour {
+    font-size: var(--font-size-7xl);
+  }
+}
+@media screen and (max-width: 750px) {
+  .pleaseVerifyYourIdentityWrapper {
+    padding-left: var(--padding-9xl);
+    padding-right: var(--padding-9xl);
+    box-sizing: border-box;
+  }
+  .frameParent {
+    gap: var(--gap-10xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .pleaseVerifyYour {
+    font-size: var(--font-size-lgi);
+  }
+  .selectAFile,
+  .selectRelevantDocuments {
+    font-size: var(--font-size-base);
+  }
+}

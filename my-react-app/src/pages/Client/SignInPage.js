@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import GroupComponentSignIn from "../../components/SignIn/GroupComponentSignIn";
 import RectangleComponent from "../../components/SignIn/RectangleComponent";
 import { Link } from "react-router-dom"; // Change import to Link from react-router-dom
@@ -116,7 +116,6 @@ const SignInPage = () => {
                 <div className={styles.alreadyHaveAn}>
                   Don’t have an account?
                 </div>
-                {/* Replace div with Link */}
                 <Link className={styles.signIn} to="/sign-up">
                   Sign Up
                 </Link>

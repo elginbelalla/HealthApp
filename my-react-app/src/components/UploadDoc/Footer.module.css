@@ -1,0 +1,107 @@
+.label {
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-base);
+  line-height: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 800;
+  font-family: var(--font-wix-madefor-text);
+  color: var(--neutral-white);
+  text-align: center;
+  right:7px;
+}
+.cancelbutton {
+  cursor: pointer;
+  border: 1px solid var(--color-silver);
+  padding: var(--padding-3xs) var(--padding-4xl) var(--padding-3xs)
+    var(--padding-12xl);
+  background-color: var(--color-deepskyblue-100);
+  flex: 1;
+  border-radius: var(--br-base);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.cancelbutton:hover,
+.uploadButton:hover {
+  background-color: var(--color-deepskyblue-100);
+  border: 1px solid var(--color-gray-300);
+  box-sizing: border-box;
+  opacity: 0.6;
+}
+.label1 {
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-base);
+  line-height: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 800;
+  font-family: var(--font-wix-madefor-text);
+  color: var(--neutral-white);
+  text-align: center;
+  right:5px;
+}
+.uploadButton {
+  cursor: pointer;
+  border: 1px solid var(--color-silver);
+  padding: var(--padding-3xs) var(--padding-4xl) var(--padding-3xs)
+    var(--padding-12xl);
+  background-color: var(--color-deepskyblue-100);
+  flex: 1;
+  border-radius: var(--br-base);
+  justify-content: flex-start;
+}
+.buttons,
+.footer,
+.uploadButton {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.buttons {
+  width: 18.563rem;
+  border-radius: var(--br-base);
+  justify-content: flex-start;
+  gap: var(--gap-24xl);
+}
+.footer {
+  align-self: stretch;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0 0 var(--br-3xs) var(--br-3xs);
+  background-color: var(--neutral-white);
+  overflow: hidden;
+  justify-content: flex-end;
+  padding: var(--padding-11xl) var(--padding-37xl) var(--padding-5xl);
+}
+
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* Ensure it appears on top of other content */
+}
+
+.popup p {
+  margin: 0;
+  font-size: 16px;
+  color: #333333;
+}
+
+
+@media screen and (max-width: 450px) {
+  .buttons {
+    gap: var(--gap-2xl);
+  }
+  .footer {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

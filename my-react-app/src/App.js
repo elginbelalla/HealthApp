@@ -21,6 +21,7 @@ import DoctorTests from "./pages/Doctor/Doctor Test/DoctorTests";
 import Client from "./pages/Client/Client";
 import Guest from "./pages/Client/GuestPage";
 import AboutUsReviews from "./pages/Client/AboutUsReviews";
+import UploadDoc from "./pages/Client/UploadDoc";
 
 
 
@@ -81,6 +82,7 @@ function App() {
       <Route path="/clientpage" element={<Client />} />
       <Route path="/guest"    element={<Guest />} />
       <Route path="/aboutus"    element={<AboutUsReviews />} />
+      <Route path="/upload-documents"    element={<UploadDoc />} />
 
     </Routes>
   );
