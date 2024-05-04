@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from "./Footer.module.css";
 
-const Footer = ({ onCancelClick, selectedFilesCount }) => {
+const Footer = ({ onCancelClick, selectedFilesCount, userRole }) => {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleUploadClick = () => {
@@ -9,8 +9,12 @@ const Footer = ({ onCancelClick, selectedFilesCount }) => {
       setShowPopup(true);
       setTimeout(() => {
         setShowPopup(false);
-        // Redirect user after 5 seconds
-        window.location.href = '/doctor/dashboard/';
+        // Redirect user after 5 seconds based on role
+        if (userRole === 'doctor') {
+          window.location.href = '/doctor/dashboard';
+        } else if (userRole === 'clinic') {
+          window.location.href = '/clinic/dashboard';
+        }
       }, 5000);
     } else {
       setShowPopup(true);

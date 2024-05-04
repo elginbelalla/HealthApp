@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useCallback, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,7 +18,6 @@ const ProfileInfo = () => {
     'placeOfBirth': '',
     'height': '',
     'weight': ''
-
   });
 
   // Function to update form data based on input changes
@@ -107,6 +107,12 @@ const ProfileInfo = () => {
       console.error("Failed to save profile info:", error.message);
     }
   };
+
+  // Function to handle icon click and navigate to '/sign-up' route
+  const handleIconClick = () => {
+    navigate("/sign-up");
+  };
+
   return (
     <div className={styles.profile1}>
       <main className={styles.mainContent}>
@@ -216,7 +222,8 @@ const ProfileInfo = () => {
             </div>
           </div>
         </div>
-        <img className={styles.icon} loading="lazy" alt="" src="/icon.svg" />
+        {/* Adding onClick event handler to the icon */}
+        <img className={styles.icon} loading="lazy" alt="" src="/icon.svg" onClick={handleIconClick} />
       </main>
       <div className={styles.buttonArea}>
         <div className={styles.previousbuttonParent}>

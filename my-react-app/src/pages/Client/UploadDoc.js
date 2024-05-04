@@ -11,7 +11,7 @@ const UploadDoc = () => {
   const handleCancelClick = () => {
     if (frameComponentRef.current) {
       frameComponentRef.current.clearSelectedFiles();
-      setSelectedFilesCount(0); // Reset selected files count
+      setSelectedFilesCount(0); 
     }
   };
 

@@ -264,7 +264,9 @@
   height: 3rem;
   overflow: hidden;
   flex-shrink: 0;
+  cursor:pointer;
 }
+
 .mainContent {
   align-self: stretch;
   display: flex;

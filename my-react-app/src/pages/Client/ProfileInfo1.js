@@ -68,6 +68,11 @@ const ProfileInfo1 = () => {
     }
   }, [formData, navigate]);
 
+  // Function to handle icon click and navigate to '/sign-up' route
+  const handleIconClick = () => {
+    navigate("/sign-up");
+  };
+
   return (
     <div className={styles.profileInfo2}>
       <img
@@ -94,7 +99,8 @@ const ProfileInfo1 = () => {
           <div className={styles.infoArea}>
             <h1 className={styles.largeTitle}>Personal health history</h1>
             <div className={styles.bodyText}>
-              {`Fill in the data based on your health history and previous assessments.. It will take a couple of minutes. `}</div>
+              {`Fill in the data based on your health history and previous assessments.. It will take a couple of minutes. `}
+            </div>
           </div>
           <div className={styles.informationArea}>
             <form className={styles.body}>
@@ -111,8 +117,10 @@ const ProfileInfo1 = () => {
                   <Form.Control
                     name="healthConcerns"
                     as="textarea"
-                    value={formData['healthConcerns']}
-                    onChange={(e) => handleUpdateFormData('healthConcerns', e.target.value)}
+                    value={formData["healthConcerns"]}
+                    onChange={(e) =>
+                      handleUpdateFormData("healthConcerns", e.target.value)
+                    }
                     defaultValue={formData.healthConcerns || ""}
                   />
                 </Form.Group>
@@ -130,8 +138,10 @@ const ProfileInfo1 = () => {
                   <Form.Control
                     name="previousMedication"
                     as="textarea"
-                    value={formData['previousMedication']}
-                    onChange={(e) => handleUpdateFormData('previousMedication', e.target.value)}
+                    value={formData["previousMedication"]}
+                    onChange={(e) =>
+                      handleUpdateFormData("previousMedication", e.target.value)
+                    }
                   />
                 </Form.Group>
               </div>
@@ -146,8 +156,10 @@ const ProfileInfo1 = () => {
                   <Form.Control
                     name="notes"
                     as="textarea"
-                    value={formData['notes']}
-                    onChange={(e) => handleUpdateFormData('notes', e.target.value)}
+                    value={formData["notes"]}
+                    onChange={(e) =>
+                      handleUpdateFormData("notes", e.target.value)
+                    }
                   />
                 </Form.Group>
               </div>
@@ -171,7 +183,14 @@ const ProfileInfo1 = () => {
           </div>
         </div>
       </div>
-      <img className={styles.icon} loading="lazy" alt="" src="/icon.svg" />
+      {/* Adding onClick event handler to the icon */}
+      <img
+        className={styles.icon}
+        loading="lazy"
+        alt=""
+        src="/icon.svg"
+        onClick={handleIconClick}
+      />
     </div>
   );
 };

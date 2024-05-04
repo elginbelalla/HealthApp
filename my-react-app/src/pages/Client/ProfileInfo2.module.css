@@ -350,6 +350,7 @@
   height: 3rem;
   width: 3rem;
   flex-shrink: 0;
+  cursor:pointer;
 }
 .profileInfo2 {
   width: 100%;
