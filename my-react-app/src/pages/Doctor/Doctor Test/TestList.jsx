@@ -92,11 +92,6 @@ const TestList = () => {
                   </Button>
                   <Button component="label" variant="contained" className='submit'>
                     Submit
-                    <Input
-                      type="file"
-                      style={{ display: 'none' }}
-                      onChange={handleUpload(row.id)}
-                    />
                   </Button>
                   </Box>
                 </TableCell>

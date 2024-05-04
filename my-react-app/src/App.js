@@ -12,7 +12,7 @@ import ProfileInfo1 from "./pages/Client/ProfileInfo1";
 import ProfileInfo2 from "./pages/Client/ProfileInfo2";
 import SignInPage from "./pages/Client/SignInPage";
 import SignUpPage from "./pages/Client/SignUpPage";
-import DoctorAppointments from "./pages/Doctor/DoctorAppointments";
+import DoctorAppointments from "./pages/Doctor/Doctor Appointment/DoctorAppointments";
 import DoctorMessages from "./pages/Doctor/DoctorMessages";
 import DoctorPatients from "./pages/Doctor/Doctor Patient/DoctorPatients";
 import DoctorSettings from "./pages/Doctor/Doctor Settings/DoctorSettings";
@@ -21,8 +21,6 @@ import DoctorTests from "./pages/Doctor/Doctor Test/DoctorTests";
 import Client from "./pages/Client/Client";
 import Guest from "./pages/Client/GuestPage";
 import AboutUsReviews from "./pages/Client/AboutUsReviews";
-
-
 
 
 function App() {

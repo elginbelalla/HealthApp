@@ -2,16 +2,13 @@ import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { useLocation, useNavigate } from "react-router-dom";
 import { userAppStore } from '../../appStore';
 import './doctorNavbar.css';
@@ -21,7 +18,7 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import SettingsInputComponentOutlinedIcon from '@mui/icons-material/SettingsInputComponentOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import ContentPasteSearchOutlinedIcon from '@mui/icons-material/ContentPasteSearchOutlined';
-
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 const drawerWidth = 200;
 
@@ -55,8 +52,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-
-
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     width: drawerWidth,
@@ -73,11 +68,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function DoctorNavbar() {
   const theme = useTheme();
-  //const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
-  const location = useLocation(); // Add useLocation hook
+  const location = useLocation();
 
-  const open = userAppStore((state)=> state.dopen);
+  const open = userAppStore((state) => state.dopen);
 
   const isActive = (path) => location.pathname === path;
 
@@ -86,15 +80,26 @@ export default function DoctorNavbar() {
       <CssBaseline />
       <Box height={10} />
       <Drawer variant="permanent" open={open}>
-         <DrawerHeader>
-        
-        </DrawerHeader>
+        <DrawerHeader />
         <Divider />
         <List>
-        <ListItem  
-            disablePadding 
-            className={isActive("/doctor/dashboard") ? "selectedListItem" : "unselectedListItem"}
-            onClick={() => navigate("/doctor/dashboard")}
+          {[
+            { path: '/doctor/dashboard', icon: < HomeOutlinedIcon /> },
+            { path: '/doctor/patients', icon: <BadgeOutlinedIcon /> },
+            { path: '/doctor/appointments', icon: <CalendarMonthOutlinedIcon /> },
+            { path: '/doctor/tests', icon: <ContentPasteSearchOutlinedIcon /> },
+            { path: '/doctor/messages', icon: <EmailOutlinedIcon /> },
+            { path: '/doctor/settings', icon: <SettingsInputComponentOutlinedIcon /> },
+            { path: '/', icon: <LogoutOutlinedIcon /> },
+          ].map((item, index) => (
+            <ListItem
+              key={item.path}
+              disablePadding
+              className={isActive(item.path) ? "selectedListItem" : "unselectedListItem"}
+              onClick={() => navigate(item.path)}
+              sx={{
+                marginBottom: index == 4 ? '26px' : '0', // Add extra margin to items from index 5 onwards
+              }}
             >
               <ListItemButton
                 sx={{
@@ -108,164 +113,22 @@ export default function DoctorNavbar() {
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
                     justifyContent: 'center',
+                    color: isActive(item.path) ? '#FFFFFF' : '#388192', // Set icon color based on active state
                   }}
                 >
-                  <InboxIcon />
+                  {item.icon}
                 </ListItemIcon>
-                <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 , fontFamily: 'Poppins, sans-serif'}} className='menuItem' />
-              </ListItemButton>
-            </ListItem>
-
-            <ListItem  
-            disablePadding 
-            className={isActive("/doctor/patients") ? "selectedListItem" : "unselectedListItem"}
-            onClick={() => navigate("/doctor/patients")}
-            >
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+                <ListItemText
+                  primary={item.path === '/' ? "Log out" : item.path.replace('/doctor/', '').replace(/^\w/, (c) => c.toUpperCase())}
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    opacity: open ? 1 : 0,
+                    fontFamily: 'Poppins, sans-serif',
                   }}
-                >
-                  <BadgeOutlinedIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Patients" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
+                  className='menuItem'
+                />
               </ListItemButton>
             </ListItem>
-
-
-            <ListItem  
-            disablePadding 
-            className={isActive("/doctor/appointments") ? "selectedListItem" : "unselectedListItem"}
-            onClick={() => navigate("/doctor/appointments")}
-            >
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <CalendarMonthOutlinedIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Appointments" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
-              </ListItemButton>
-            </ListItem>
-
-            <ListItem  
-            disablePadding 
-            className={isActive("/doctor/tests") ? "selectedListItem" : "unselectedListItem"}
-            onClick={() => navigate("/doctor/tests")}
-            >
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <ContentPasteSearchOutlinedIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Tests" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
-              </ListItemButton>
-            </ListItem>
-
-            <ListItem  
-            disablePadding 
-            className={isActive("/doctor/messages") ? "selectedListItem" : "unselectedListItem"}
-            onClick={() => navigate("/doctor/messages")}
-            >
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                   <EmailOutlinedIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Messages" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
-              </ListItemButton>
-            </ListItem>
-
-            <ListItem  
-            disablePadding 
-            className={isActive("/doctor/settings") ? "selectedListItem" : "unselectedListItem"}
-            onClick={() => navigate("/doctor/settings")}
-            >
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <SettingsInputComponentOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Settings" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem' />
-              </ListItemButton>
-            </ListItem>
-
-            <ListItem  
-            disablePadding 
-            className={isActive("/") ? "selectedListItem" : "unselectedListItem"}
-            onClick={() => navigate("/")}
-            >
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <LogoutOutlinedIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Log out" sx={{ opacity: open ? 1 : 0, fontFamily: 'Poppins, sans-serif' }} className='menuItem'/>
-              </ListItemButton>
-            </ListItem>
+          ))}
         </List>
       </Drawer>
     </Box>

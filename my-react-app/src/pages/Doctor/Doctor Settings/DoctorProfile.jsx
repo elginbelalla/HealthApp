@@ -7,6 +7,7 @@ import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Grid from "@mui/material/Grid";
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import './profile.css'
 
 export default function DoctorProfile() {
     const initialDoctorProfile = {
@@ -21,6 +22,7 @@ export default function DoctorProfile() {
   
     const [doctorProfile, setDoctorProfile] = useState(initialDoctorProfile);
     const [editableProfile, setEditableProfile] = useState({ ...initialDoctorProfile });
+    const [avatarImage, setAvatarImage] = useState("/path_to_avatar_image.jpg"); // State for avatar image
   
     const handleSave = () => {
       // Perform save operation with editableProfile data
@@ -34,6 +36,12 @@ export default function DoctorProfile() {
         [field]: value,
       }));
     };
+
+    const handleAvatarChange = (e) => {
+      // Handle avatar image change when a new image is selected
+      const newAvatar = URL.createObjectURL(e.target.files[0]);
+      setAvatarImage(newAvatar);
+    };
   
     return (
       <Box
@@ -44,19 +52,31 @@ export default function DoctorProfile() {
           minHeight: "100vh",
           padding: 4,
         }}
-      >
+      > <Box className="avatar-space">
         <Avatar
-          sx={{ width: 120, height: 120, marginBottom: 2, marginRight: 10 }}
+          sx={{ width: 120, height: 120 }}
           alt="Doctor Avatar"
           src="/path_to_avatar_image.jpg"
         />
+        <label htmlFor="avatar-input"  className="edit-icon">
+        <EditOutlinedIcon/>
+        </label>
+        <input
+        id="avatar-input"
+        type="file"
+        style={{ display: "none" }}
+        accept="image/*"
+        onChange={handleAvatarChange}
+      />
+        </Box>
       <Grid container spacing={2} sx={{ width: "100%" }}>
         {Object.entries(initialDoctorProfile).map(([field, value]) => (
           <Grid item xs={12} md={field === "profileInformation" ? 12 : 6} key={field}>
             <FormControl fullWidth>
-              <FormLabel>{field.charAt(0).toUpperCase() + field.slice(1)}</FormLabel>
+              <FormLabel className="label">{field.charAt(0).toUpperCase() + field.slice(1)}</FormLabel>
               {field === "clinic" ? (
                 <Input
+                  className="input-text"
                   placeholder={`Enter ${field}`}
                   value={value}
                   readOnly
@@ -64,6 +84,7 @@ export default function DoctorProfile() {
                 />
               ) : (
                 <Input
+                  className="input-text"
                   placeholder={`Enter ${field}`}
                   value={editableProfile[field]}
                   onChange={(e) => handleInputChange(field, e.target.value)}
