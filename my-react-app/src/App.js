@@ -13,7 +13,7 @@ import ProfileInfo2 from "./pages/Client/ProfileInfo2";
 import SignInPage from "./pages/Client/SignInPage";
 import SignUpPage from "./pages/Client/SignUpPage";
 import DoctorAppointments from "./pages/Doctor/Doctor Appointment/DoctorAppointments";
-import DoctorMessages from "./pages/Doctor/DoctorMessages";
+import DoctorMessages from "./pages/Doctor/Doctor Messages/DoctorMessages";
 import DoctorPatients from "./pages/Doctor/Doctor Patient/DoctorPatients";
 import DoctorSettings from "./pages/Doctor/Doctor Settings/DoctorSettings";
 import DoctorDashboard from "./pages/Doctor/DoctorDashboard";
