@@ -69,7 +69,12 @@ const ChatElement=()=>{
             <Typography className="chat-time">
                 9:23
             </Typography>
-            <Badge color="primary" badgeContent={2}></Badge>
+            <Badge  sx={{
+              "& .MuiBadge-badge": {
+              color: "white",
+              backgroundColor: "#b7d9e4"
+             }}}
+              badgeContent={2}></Badge>
         </Stack>
     </Box>
 );
