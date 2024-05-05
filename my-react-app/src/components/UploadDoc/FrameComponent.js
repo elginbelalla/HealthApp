@@ -3,21 +3,21 @@ import styles from "./FrameComponent.module.css";
 
 const FrameComponent = React.forwardRef(({ setSelectedFilesCount }, ref) => {
   const [selectedFilesCount, setSelectedFilesCountLocal] = useState(0);
+  const [selectedFiles, setSelectedFiles] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const fileInputRef = useRef(null);
 
   React.useImperativeHandle(ref, () => ({
     clearSelectedFiles() {
       setSelectedFilesCountLocal(0);
-      fileInputRef.current.value = ''; 
-      fileInputRef.current.removeAttribute('disabled'); 
+      setSelectedFiles([]);
+      fileInputRef.current.value = '';
     }
   }));
 
   const handleFileChange = async (e) => {
     const files = e.target.files;
     let validFiles = [];
-    let invalidFiles = [];
 
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
@@ -25,23 +25,23 @@ const FrameComponent = React.forwardRef(({ setSelectedFilesCount }, ref) => {
       if (isValidExtension) {
         validFiles.push(file);
       } else {
-        invalidFiles.push(file);
+        // Notify the user if an invalid file is selected
+        setShowPopup(true);
+        setTimeout(() => setShowPopup(false), 10000);
       }
     }
 
-    if (invalidFiles.length > 0) {
-      setShowPopup(true);
-      setTimeout(() => setShowPopup(false), 10000); 
-    }
+    // Update selected files count and display only for valid files
+    const newSelectedFiles = [...selectedFiles, ...validFiles];
+    setSelectedFiles(newSelectedFiles);
+    setSelectedFilesCountLocal(newSelectedFiles.length);
+    setSelectedFilesCount(newSelectedFiles.length);
 
-    setSelectedFilesCountLocal(validFiles.length);
-    setSelectedFilesCount(validFiles.length); 
-
-    console.log('Selected files:', validFiles);
+    console.log('Selected files:', newSelectedFiles);
   };
 
   const handleFileSelect = () => {
-    fileInputRef.current.click(); 
+    fileInputRef.current.click();
   };
 
   const checkFileExtension = (fileName) => {
@@ -91,13 +91,19 @@ const FrameComponent = React.forwardRef(({ setSelectedFilesCount }, ref) => {
           ref={fileInputRef}
           style={{ display: 'none' }}
           onChange={handleFileChange}
-          multiple // Allow multiple file selection
+          accept=".jpg, .jpeg, .png, .pdf" 
+          multiple
         />
-        <div className={styles.selectedFilesCount}>
-          {selectedFilesCount > 0 && (
+        {selectedFilesCount > 0 && (
+          <div className={styles.selectedFilesCount}>
             <p>{`${selectedFilesCount} file(s) selected`}</p>
-          )}
-        </div>
+            <ul>
+              {selectedFiles.map((file, index) => (
+                <li key={index}>{file.name}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         {showPopup && (
           <div className={styles.popup}>
             <p>File cannot be selected. Please make sure it is in the correct format.</p>

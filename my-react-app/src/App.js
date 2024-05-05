@@ -22,8 +22,8 @@ import Client from "./pages/Client/Client";
 import Guest from "./pages/Client/GuestPage";
 import AboutUsReviews from "./pages/Client/AboutUsReviews";
 import UploadDoc from "./pages/Client/UploadDoc";
+import BookingPage from './pages/Client/BookingPage'
 import { registerLicense } from '@syncfusion/ej2-base';
-
 // Registering Syncfusion license key
 registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cWWFCeEx1WmFZfVpgdl9GaFZVQmYuP1ZhSXxXdkBjXX5WcX1VQWlZUUQ=');
 
@@ -84,6 +84,7 @@ function App() {
       <Route path="/guest"    element={<Guest />} />
       <Route path="/aboutus"    element={<AboutUsReviews />} />
       <Route path="/upload-documents"    element={<UploadDoc />} />
+      <Route path="/booking-page"    element={<BookingPage />} />
 
     </Routes>
   );
