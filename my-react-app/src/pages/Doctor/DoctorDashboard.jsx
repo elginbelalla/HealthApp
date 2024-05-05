@@ -12,15 +12,16 @@ import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import Paper from '@mui/material/Paper';
 import { BarChart } from '@mui/x-charts';
-import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
+import { PieChart } from '@mui/x-charts/PieChart';
 import './dashboard.css'
-
+import MasksIcon from '@mui/icons-material/Masks';
+import WatchLaterIcon from '@mui/icons-material/WatchLater';
 
 export default function DoctorDashboard (){
   const appointments = [
     { id: 1, name: "John Doe", avatar: "https://example.com/avatar1.jpg", time: "9:00 AM" },
     { id: 2, name: "Jane Smith", avatar: "https://example.com/avatar2.jpg", time: "10:30 AM" },
-    { id: 2, name: "Jane Smith", avatar: "https://example.com/avatar2.jpg", time: "10:30 AM" },
+    { id: 3, name: "Jane Smith", avatar: "https://example.com/avatar2.jpg", time: "10:30 AM" },
     // Add more appointments as needed
   ];
 
@@ -52,12 +53,7 @@ export default function DoctorDashboard (){
       { label: '1 Stars', value: 20, color: '#5F9EA0' },
     ];
     
-    const sizing = {
-      margin: { right: 5 },
-      width: 300,
-      height: 300,
-      legend: { hidden: true },
-    };
+    
     const TOTAL = data.map((item) => item.value).reduce((a, b) => a + b, 0);
     
     const getArcLabel = (params) => {
@@ -74,9 +70,11 @@ export default function DoctorDashboard (){
     <DoctorNavbar/>
      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
      <Paper className="body-container">
-      <Grid container spacing={2} padding={2}>
-       <Stack spacing={5} direction={"row"}>
-        <Grid item xs={6}>
+      
+      <Grid container spacing={2}>
+        <Grid item xs={7}>
+        <Stack direction={"row"}>
+          
           <Card sx={{ maxWidth:700, height: 40+"vh"}} className="card">
             <CardContent>
               <Typography gutterBottom component="div" className="sub-title">
@@ -98,12 +96,8 @@ export default function DoctorDashboard (){
                 ))}
             </CardContent>
             </CardContent>
-            <CardActions>
-            </CardActions>
           </Card> 
-          </Grid>
 
-          <Grid item xs={8}>
            {/* Recent Lab Results Card */}
            <Card sx={{ maxWidth:700,  height: 40+"vh" }} className="card">
              <CardContent>
@@ -126,28 +120,53 @@ export default function DoctorDashboard (){
             <CardActions>
            </CardActions>
            </Card>
-          
+           </Stack>
           </Grid>
 
-           <Grid item xs={3}>
-            <Card sx={{ maxWidth: 345 }} className="card">
-             <CardContent>
-               <Typography gutterBottom component="div" className="sub-title">
+           <Grid item xs={5}>
+            <Stack direction={'column'}>
+
+            <Card sx={{ maxWidth: 700, height: 20+"vh" }} className="card">
+            <CardContent>
+             <Typography gutterBottom component="div"  className="sub-title">
                  Number of Patients
                </Typography>
-               <Typography variant="body2" color="text.secondary">
-                   Will be some text and stuff
-               </Typography>
+               <CardContent className="sub-card">
+               <Stack direction={'row'} spacing={2}>
+               <MasksIcon className="icon"/>
+                <div className="card-text">
+                <span className="num-patients">243</span>
+                <span className="ev-patients">+21 from last week</span>
+                </div>
+
+                </Stack>
+             </CardContent>
              </CardContent>
             </Card>
+
+            <Card sx={{ maxWidth: 700,height: 20+"vh" }} className="card">
+              <CardContent>
+               <Typography gutterBottom component="div"  className="sub-title">
+                 Number of Hours
+               </Typography>
+               <CardContent className="sub-card">
+               <Stack direction={'row'} spacing={2}>
+               <WatchLaterIcon className="icon"/>
+               <div className="card-text">
+                <span className="num-hours">243</span>
+                <span className="ev-patients">+21 from last week</span>
+                </div>
+                </Stack>
+               </CardContent>
+               </CardContent>
+            </Card>
+           </Stack>
           </Grid>
-        
-         </Stack>
         </Grid>
 
       <Box height={20} />
       <Grid container spacing={1}>
-        <Grid item xs={8}>
+        <Grid item xs={7}>
         <Card sx={{height: 60+ "vh", maxWidth:600 }} className="card-2">
             <CardContent>
               <Typography gutterBottom component="div" className="sub-title">
@@ -157,10 +176,10 @@ export default function DoctorDashboard (){
                 width={500}
                 height={300}
                 series={[
-                    { data: pData, label: 'Patients Online', id: 'poId'},
-                    { data: uData, label: 'Patient Apps', id: 'paId' },
+                    { data: pData, label: 'Patients Online', id: 'poId', color:'#0b8fac'},
+                    { data: uData, label: 'Patient Apps', id: 'paId', color:'#16dbcc' },
                   ]}
-                 xAxis={[{ data: xLabels, scaleType: 'band' }]}
+                 xAxis={[{ data: xLabels, scaleType: 'band', }]}
               />
             </CardContent>
             <CardActions>
@@ -168,27 +187,24 @@ export default function DoctorDashboard (){
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={3}>
+
+        <Grid item xs={5}>
         <Card sx={{ maxWidth: 700, height: 60+ "vh" }} className="card-2">
             <CardContent>
               <Typography gutterBottom  component="div" className="sub-title">
                   Rating Statistics
               </Typography>
+              </CardContent>
+              <CardContent>
               <PieChart
-              series={[
-               {
-                outerRadius: 80,
+             series={[
+              {
                 data,
                 arcLabel: getArcLabel,
               },
-               ]}
-               sx={{
-               [`& .${pieArcLabelClasses.root}`]: {
-                fill: 'white',
-                fontSize: 14,
-               },
-               }}
-               {...sizing}
+              ]}
+              width={400}
+              height={200}
               />
             </CardContent>
             <CardActions>

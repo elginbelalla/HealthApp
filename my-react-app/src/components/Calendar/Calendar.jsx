@@ -1,18 +1,19 @@
 import React from "react";
 import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
 
-function Calendar() {
+function Calendar({workingHours}) {
     // Define the dataSource for events
     const localData = {
         dataSource: [
             {
                 Id: 1,
                 Subject: 'Event 1',
-                StartTime: new Date(2024, 4, 3, 10, 0), 
-                EndTime: new Date(2024, 4, 3, 12, 0) 
+                StartTime: workingHours.startTime, 
+                EndTime: workingHours.endTime 
             }
         ]
     };
+
 
     return (
         <div>

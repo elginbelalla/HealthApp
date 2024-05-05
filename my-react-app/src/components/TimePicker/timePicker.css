@@ -1,0 +1,19 @@
+.week-container{
+    color: #a3a3a3;
+    box-shadow: 0 1px ;
+}
+
+.week-day{
+    color: #a3a3a3;
+    font-family: var(--font-roboto);
+}
+
+.button-text{
+    color: #4589a3;
+    font-family: var(--font-roboto);
+}
+
+.buttonArea{
+    padding: 5px;
+    align-self: flex-end;
+}

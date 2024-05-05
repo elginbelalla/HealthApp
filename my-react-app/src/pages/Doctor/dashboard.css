@@ -41,7 +41,7 @@
   .lab-body{
     background: #def2fd;
     border-radius: 15px;
-    padding:20px 5px 20px 5px;
+    padding:20px 0 20px 5px;
     width: 100%;
 
   }
@@ -90,4 +90,27 @@
   .card{
     box-shadow: none !important;
     border: none;
+  }
+
+  .sub-card{
+    color: white;
+    border: 10px solid #def2fd ;
+    border-radius: 8px;
+  }
+
+  .card-text{
+    color:#2a5f71 ;
+    font-family: var(font-poppins);
+    font-size: 1.4rem;
+  }
+
+  .icon{
+    color: #2a5f71;
+    
+  }
+
+  .ev-patients{
+    font-size: 1rem!important;
+    color: #2a5f71;
+    padding-left:2rem;
   }
