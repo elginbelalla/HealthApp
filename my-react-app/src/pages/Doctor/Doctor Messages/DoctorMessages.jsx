@@ -16,14 +16,9 @@ export default function DoctorMessages (){
     <Box sx={{ display: 'flex' }}>
     <DoctorNavbar/>
      <Box component="main" sx={{ flexGrow: 1, p: 3}}>
-       <Stack direction={"row"} spacing={3.5}>
-        <Grid item xs={5}>
+       <Stack direction={"row"} spacing={2}>   
            <Chats/>
-        </Grid>
-
-        <Grid item xs={7}>
-        <Conversation/>
-        </Grid>
+           <Conversation/>
         </Stack>
       </Box>
     </Box>

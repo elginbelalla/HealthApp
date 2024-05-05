@@ -49,7 +49,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const Conversation=()=>{
     return(
         <Box className="container">
-        <Stack maxHeight={"100vh"} width={980}>
+        <Stack maxHeight={"100vh"}>
             {/*Chat header*/}
             <Box className="chat-header">
                 <Stack className="header" direction={'row'}>

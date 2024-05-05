@@ -84,7 +84,7 @@ const ChatElement=()=>{
 const Chats =()=>{
 
     return(
-    <Box className='container' sx={{overflow:"scroll", height:"100%", scrollbarWidth: "none", msOverflowStyle: "none"}}>
+    <Box className='main-container' sx={{overflow:"scroll",  scrollbarWidth: "none", msOverflowStyle: "none"}}>
         <Toolbar>
           <IconButton
             size="large"
