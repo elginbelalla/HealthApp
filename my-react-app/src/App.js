@@ -22,6 +22,7 @@ import Client from "./pages/Client/Client";
 import Guest from "./pages/Client/GuestPage";
 import AboutUsReviews from "./pages/Client/AboutUsReviews";
 import UploadDoc from "./pages/Client/UploadDoc";
+import BookingPage from './pages/Client/BookingPage'
 
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
       <Route path="/guest"    element={<Guest />} />
       <Route path="/aboutus"    element={<AboutUsReviews />} />
       <Route path="/upload-documents"    element={<UploadDoc />} />
+      <Route path="/booking-page"    element={<BookingPage />} />
 
     </Routes>
   );

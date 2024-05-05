@@ -191,6 +191,8 @@
   font-size:14px;
 }
 .bottombar {
+  position:relative;
+  margin-left:-55px;
   align-self: stretch;
   border-top: 1px solid var(--color-gray-100);
   box-sizing: border-box;
@@ -215,7 +217,7 @@
   gap: var(--gap-61xl);
 }
 .footer {
-  width: 94.313rem;
+  width: 100%;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-end;

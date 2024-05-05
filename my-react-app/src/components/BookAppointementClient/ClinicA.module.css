@@ -1,0 +1,180 @@
+.clinicaChild {
+  height: 10.119rem;
+  width: 23.538rem;
+  position: relative;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-deepskyblue);
+  display: none;
+  max-width: 100%;
+}
+.pngtreemedicalLogoVector91 {
+  height: 5.5rem;
+  width: 5.5rem;
+  position: relative;
+  object-fit: contain;
+  z-index: 1;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+.clinica1,
+.joremIpsumDolor {
+  position: relative;
+  line-height: 100%;
+  z-index: 1;
+}
+.clinica1 {
+  position:relative;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 3.688rem;
+  margin-top:15px;
+}
+
+.joremIpsumDolor {
+  position:relative;
+  align-self: stretch;
+  font-size: var(--font-size-xs);
+  letter-spacing: -0.02em;
+  color: var(--gray);
+  white-space: pre-wrap;
+  width: 100%; 
+  word-wrap: break-word; 
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-left:5px;
+}
+
+.clinicBookingChild {
+  height: 1.775rem;
+  width: 4.938rem;
+  position: relative;
+  border-radius: var(--br-xl);
+  background-color: var(--primary);
+  display: none;
+
+}
+.book {
+  position: relative;
+  font-size: var(--font-size-base);
+  letter-spacing: -0.02em;
+  line-height: 100%;
+  font-family: var(--menu-text);
+  color: var(--white);
+  text-align: left;
+  display: inline-block;
+  min-width: 2.375rem;
+  cursor: pointer;
+  z-index: 2;
+}
+.clinicBooking {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-6xs-2) var(--padding-lg-5) var(--padding-6xs-2)
+    var(--padding-3xl-5);
+  background-color: var(--primary);
+  border-radius: var(--br-xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 1;
+  font-weight: bold; 
+  color: var(--color-deepskyblue);
+}
+
+.thumbnailImagesIcon {
+  height: 1.25rem;
+  width: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 1.25rem;
+  z-index: 1;
+}
+.spacingElements {
+  position: relative;
+  letter-spacing: -0.02em;
+  line-height: 100%;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 1.438rem;
+  z-index: 1;
+}
+.thumbnailSpacing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs) 0 0;
+}
+.clinicThumbnails {
+
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: var(--gap-7xs);
+
+}
+.clinicActions,
+.clinicDetails,
+.clinicThumbnails {
+  display: flex;
+  align-items: flex-start;
+}
+.clinicDetails {
+  position:relative;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-8xs-2) 0 0;
+  margin-right:7px;
+}
+.clinicActions {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  font-size: var(--font-size-base);
+}
+.clinicInfoCards,
+.clinica {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+
+.clinicInfoCards {
+  flex: 1;
+  flex-direction: column;
+  gap: var(--gap-lg-9);
+  min-width: 7.5rem;
+  width: fit-content; 
+}
+
+
+.clinica {
+  position: relative;
+  width: auto; /* Adjust width to fit content width */
+  border-radius: var(--br-3xs);
+  background-color: rgba(82, 178, 226, 0.23);
+  flex-direction: row;
+  padding: var(--padding-7xl-7) var(--padding-mini) var(--padding-base-1) var(--padding-17xl);
+  box-sizing: border-box;
+  gap: var(--gap-22xl-3);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--black);
+  font-family: var(--menu-text);
+}
+
+
+
+@media screen and (max-width: 450px) {
+  .pngtreemedicalLogoVector91 {
+    flex: 1;
+  }
+  .clinica {
+    flex-wrap: wrap;
+    gap: var(--gap-2xl);
+  }
+}
