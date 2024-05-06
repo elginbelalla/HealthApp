@@ -15,12 +15,12 @@ const Navbar = () => {
   }, [navigate]);
 
   const onBookAppointementTextClick = useCallback(() => {
-    navigate("/booking-page")
+    navigate("/booking-page");
   }, [navigate]);
 
   const onRequestTestTextClick = useCallback(() => {
-   
-  }, []);
+    navigate("/request-test");
+  }, [navigate]);
 
   const onMedicalHistoryTextClick = useCallback(() => {
     
