@@ -6,7 +6,6 @@ const ClinicA = ({
   clinicA,
   propPadding,
   propMinWidth,
-  onBookTextClick,
 }) => {
   const clinicAStyle = useMemo(() => {
     return {
@@ -19,6 +18,11 @@ const ClinicA = ({
       minWidth: propMinWidth,
     };
   }, [propMinWidth]);
+
+  const handleBookTextClick = () => {
+
+    window.location.href = '/calendly';
+  };
 
   return (
     <div className={styles.clinica} style={clinicAStyle}>
@@ -38,7 +42,7 @@ const ClinicA = ({
           interdum, ac mattis.
         </div>
         <div className={styles.clinicActions}>
-          <button className={styles.clinicBooking} onClick={onBookTextClick}>
+          <button className={styles.clinicBooking} onClick={handleBookTextClick}>
             <div className={styles.clinicBookingChild} />
             Book
           </button>

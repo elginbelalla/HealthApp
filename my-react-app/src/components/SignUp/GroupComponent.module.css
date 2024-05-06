@@ -19,6 +19,7 @@
   padding-right: 0;
 }
 .nameInputContainer {
+  position:relative;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -48,6 +49,8 @@
   backdrop-filter: blur(6px);
   border-top: 2px solid var(--color-midnightblue-200);
   box-sizing: border-box;
+  width:50%;
+  height:50%;
 }
 .labelEmail,
 .nameInputContainerParent {
@@ -102,6 +105,8 @@
   backdrop-filter: blur(6px);
   border-top: 2px solid var(--color-midnightblue-200);
   box-sizing: border-box;
+  width:50%;
+  height:50%;
 }
 .frameContainer,
 .frameDiv {
@@ -118,6 +123,12 @@
 .frameContainer {
   padding: 0 var(--padding-7xs) 0 0;
   gap: var(--gap-3xs-4);
+}
+
+.inputpasswordParent{
+
+  width:50%;
+  height:50%;
 }
 .password {
   position: relative;
@@ -201,14 +212,14 @@
   padding: 0 var(--padding-3xs) 0 var(--padding-2xs-4);
 }
 .frameInner {
-  position: absolute;
+  width:50%;
+  position: relative;
   top: 1.375rem;
   left: 0;
   backdrop-filter: blur(6px);
   border-top: 2px solid var(--color-midnightblue-200);
   box-sizing: border-box;
-  width: 31.863rem;
-  height: 0.125rem;
+
 }
 .div {
   position: absolute;
@@ -365,7 +376,7 @@
   top: 8.25rem;
   left: 6.125rem;
   width: 32.125rem;
-  height: 40.5rem;
+  height: auto;
   padding: var(--padding-122xl-8) 0 var(--padding-164xl-9);
   gap: var(--gap-5xl-1);
   max-width: 100%;

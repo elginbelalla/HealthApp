@@ -31,41 +31,28 @@
   max-width: 100%;
   
 }
+
 .component1Child {
   height: 3.5rem;
   width: 15rem;
-  position: relative;
-  margin: 0 !important;
-  top: 3rem;
-  right: 0;
-  bottom: 0;
-  left: 0;
   border-radius: var(--br-base);
   background-color: var(--color-deepskyblue);
   display: flex;
-  margin-bottom:30px;
-  
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  margin-top: 3rem;
+  position: relative;
 }
 
 .signUp {
-  width: 6.688rem;
-  position: relative;
-  letter-spacing: 0.1em;
-  display: inline-block;
-  min-width: 6.688rem;
-  z-index: 1;
-  top:50px;
-  align-self:center;
-  color:white;
-  left:-10.8rem;
+  color: white;
+  font-weight:bold;
 }
+
+
 .component1 {
-  flex: 1;
-  justify-content: center;
-  padding: 1.175rem var(--padding-xl) 1.325rem;
-  position: relative;
-  cursor: pointer;
-  margin-top:30px;
+
+  margin-top:3rem;
 }
 .component1,
 .component1Wrapper,
@@ -76,7 +63,6 @@
 }
 
 .signInMessageWrapper {
-  margin-top:20px;
   align-self: stretch;
   overflow: hidden;
   justify-content: flex-start;
@@ -84,7 +70,6 @@
   
 }
 .componentContainer {
-  width: 27rem;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -126,11 +111,11 @@
   object-fit: cover; 
   height: 100vh;
 }
+
 .signUpPage {
   width: 100%;
   position: relative;
   background-color: var(--neutral-white);
-  overflow: hidden;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -141,8 +126,17 @@
   font-size: 3.75rem;
   color: #62b9cf;
   font-family: var(--font-ubuntu);
-  height: 100vh;
+  overflow-x: auto; 
+  white-space: nowrap; 
 }
+
+
+.signUpPage > * {
+  flex-shrink: 0;
+}
+
+
+
 @media screen and (max-width: 1350px) {
   .frameParent {
     flex: 1;

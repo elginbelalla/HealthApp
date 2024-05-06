@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import SignInMessage from "../../components/SignUp/SignInMessage";
 import styles from "./SignUpPage.module.css";
 
-const SignUpPage = ({ userRole }) => { // Receive userRole as prop
+const SignUpPage = ({ userRole }) => {
+  // Receive userRole as prop
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -68,10 +69,7 @@ const SignUpPage = ({ userRole }) => { // Receive userRole as prop
           navigate("/upload-documents", { state: { clientId: clientId } });
         }
       } else {
-        console.error(
-          "Failed to save profile info:",
-          await response.text()
-        );
+        console.error("Failed to save profile info:", await response.text());
       }
     } catch (error) {
       console.error("Failed to save profile info:", error.message);
@@ -114,8 +112,9 @@ const SignUpPage = ({ userRole }) => { // Receive userRole as prop
                 className={styles.component1}
                 onClick={onComponent1ContainerClick}
               >
-                <div className={styles.component1Child} />
-                <b className={styles.signUp}>Continue</b>
+                <div className={styles.component1Child}>
+                  <span className={styles.signUp}>Continue</span>
+                </div>
               </div>
             </div>
             <div className={styles.signInMessageWrapper}>
