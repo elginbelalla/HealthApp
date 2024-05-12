@@ -31,7 +31,9 @@ try {
     try {
         if($userType == "Doctor"){
             $doctorData = Doctor::findById($id);
+            
             if ($doctorData) {
+
                 $name = $doctorData['name'];
                 $lastName = $doctorData['lastName'];
                 $email = $doctorData['email'];
@@ -50,7 +52,7 @@ try {
                 } else {
                     echo json_encode(array("message" => "Failed to update record"));
                     http_response_code(500);
-                }
+                }                
 
             } else {
                 echo json_encode(array("message" => "Doctor not found"));

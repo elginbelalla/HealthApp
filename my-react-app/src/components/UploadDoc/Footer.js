@@ -29,8 +29,8 @@ const Footer = ({ onCancelClick, selectedFiles, selectedFilesCount, id, userRole
     
     
           if (response.ok) {
-            const responseData = await response.json();
-            console.log("Response data:", responseData);
+            console.log(userRole);
+            
             if (userRole === 'Doctor') {
               navigate("/doctor/dashboard", {state: {doctorId: id}});
             } else if (userRole === 'Clinic') {

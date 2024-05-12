@@ -66,25 +66,25 @@ class Doctor
     {
         $conn = App::resolve(Database::class);
         $sql = "SELECT * FROM doctors WHERE doctorId = :doctorId LIMIT 1";
-        $stmt = $conn->query($sql, [':doctorID' => $doctorId]);
+        $stmt = $conn->query($sql, [':doctorId' => $doctorId]);
         return $stmt->find(PDO::FETCH_ASSOC);
     }
 
-    public static function update($doctorId, $name, $lastName, $email, $clinicId, $specialty, $phoneNo, $address, $profileInfo, $password, $document)
+    public static function update($doctorId, $name, $lastName, $email, $clinicid, $specialty, $phoneNo, $address, $profileInfo, $password, $document)
 {
     $conn = App::resolve(Database::class);
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "UPDATE doctors SET name = :name, lastName = :lastName, email = :email, clinicid = :clinicid, specialty = :specialty, phoneNo = :phoneNo, address = :address, profileInfo = :profileInfo, password = :password, document = :document WHERE doctorId = :id";
+    $sql = "UPDATE doctors SET name = :name, lastName = :lastName, email = :email, clinicid = :clinicid, specialty = :specialty, phoneNo = :phoneNo, address = :address, profileInfo = :profileInfo, password = :password, document = :document WHERE doctorId = :doctorId";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':lastName', $lastName);
     $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':clinicId', $clinicId);
+    $stmt->bindParam(':clinicid', $clinicid);
     $stmt->bindParam(':specialty', $specialty);
     $stmt->bindParam(':phoneNo', $phoneNo);
     $stmt->bindParam(':address', $address);
     $stmt->bindParam(':profileInfo', $profileInfo);
-    $stmt->bindParam(':password', $hashedPassword);
+    $stmt->bindParam(':password', $password);
     $stmt->bindParam(':document', $document, PDO::PARAM_LOB);
     $stmt->bindParam(':doctorId', $doctorId);
     

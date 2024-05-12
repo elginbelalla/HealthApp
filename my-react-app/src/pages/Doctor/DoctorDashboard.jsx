@@ -64,6 +64,32 @@ export default function DoctorDashboard (){
     }
   };
 
+
+  /*
+  <Grid item xs={7}>
+        <Card sx={{height: 60+ "vh", maxWidth:600 }} className="card-2">
+            <CardContent>
+              <Typography gutterBottom component="div" className="sub-title">
+                  Weekly Activity
+              </Typography>
+              <BarChart
+                width={500}
+                height={300}
+                series={[
+                    { data: pData, label: 'Patients Online', id: 'poId', color:'#0b8fac'},
+                    { data: uData, label: 'Patient Apps', id: 'paId', color:'#16dbcc' },
+                  ]}
+                 xAxis={[{ data: xLabels, scaleType: 'band', }]}
+              />
+            </CardContent>
+            <CardActions>
+          
+            </CardActions>
+          </Card>
+        </Grid>
+
+        the old weekly activity
+        */
   const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
   const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
   const xLabels = [
@@ -187,27 +213,6 @@ export default function DoctorDashboard (){
 
       <Box height={20} />
       <Grid container spacing={1}>
-        <Grid item xs={7}>
-        <Card sx={{height: 60+ "vh", maxWidth:600 }} className="card-2">
-            <CardContent>
-              <Typography gutterBottom component="div" className="sub-title">
-                  Weekly Activity
-              </Typography>
-              <BarChart
-                width={500}
-                height={300}
-                series={[
-                    { data: pData, label: 'Patients Online', id: 'poId', color:'#0b8fac'},
-                    { data: uData, label: 'Patient Apps', id: 'paId', color:'#16dbcc' },
-                  ]}
-                 xAxis={[{ data: xLabels, scaleType: 'band', }]}
-              />
-            </CardContent>
-            <CardActions>
-          
-            </CardActions>
-          </Card>
-        </Grid>
 
         <Grid item xs={5}>
         <Card sx={{ maxWidth: 700, height: 60+ "vh" }} className="card-2">
