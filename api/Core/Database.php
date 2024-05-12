@@ -60,4 +60,9 @@ class Database
 
         return $result;
     }
+
+    public function prepare($query)
+    {
+        return $this->connection->prepare($query);
+    }
 }

@@ -1,5 +1,5 @@
 import DoctorNavbar from "../../components/NavBar/DoctorNavbar";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Box from '@mui/material/Box';
 import DoctorAppBar from "../../components/NavBar/DoctorAppBar";
 import './style.css'
@@ -16,22 +16,53 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import './dashboard.css'
 import MasksIcon from '@mui/icons-material/Masks';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import { useNavigate, useLocation  } from "react-router-dom";
+
 
 export default function DoctorDashboard (){
-  const appointments = [
-    { id: 1, name: "John Doe", avatar: "https://example.com/avatar1.jpg", time: "9:00 AM" },
-    { id: 2, name: "Jane Smith", avatar: "https://example.com/avatar2.jpg", time: "10:30 AM" },
-    { id: 3, name: "Jane Smith", avatar: "https://example.com/avatar2.jpg", time: "10:30 AM" },
-    // Add more appointments as needed
-  ];
 
-  const labResults = [
-    { id: 1, name: "Patient A", avatar: "https://example.com/avatar1.jpg", type: "Blood Test", date: "2024-04-30 10:00 AM" },
-    { id: 2, name: "Patient B", avatar: "https://example.com/avatar2.jpg", type: "Urine Test", date: "2024-04-30 11:30 AM" },
-    { id: 3, name: "Patient C", avatar: "https://example.com/avatar3.jpg", type: "X-Ray", date: "2024-04-30 2:00 PM" },
-    // Add more lab results as needed
-  ];
+  const [appointments, setAppointments] = useState([]);
+  const [labResults, setLabResults] = useState([]);
+  const [patientsThisWeek, setPatientsThisWeek] = useState([]);
+  const [numberOfHours, setNumberOfHours] = useState(0)
+  const [ratings, setRatings] = useState([]);
 
+  const location = useLocation();
+
+  const doctorId = location.state ? location.state.doctorId : null;;
+
+  useEffect( () => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () =>{
+    try {
+
+      const response = await fetch(`http://localhost/HealthApp/api/getDashboard`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: doctorId }), 
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+
+        setAppointments(data.appointments);
+        setLabResults(data.labRequests);
+        setPatientsThisWeek(data.patientCountThisWeek);
+        const hours = (data.patientCountThisWeek*30);
+        setNumberOfHours(hours);
+        setRatings(data.ratings);
+
+      } else {
+        console.error("Failed to fetch previous data: bad res", await response.text());
+      }
+    } catch (error) {
+      console.error("Failed to fetch previous data: db", error.message);
+    }
+  };
 
   const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
   const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
@@ -45,22 +76,12 @@ export default function DoctorDashboard (){
     'Sunday',
     ];
 
-    const data = [
-      { label: '5 Stars', value: 40, color: '#0088FE' },
-      { label: '4 Stars', value: 300, color: '#00C49F' },
-      { label: '3 Stars', value: 300, color: '#FFBB28' },
-      { label: '2 Stars', value: 240, color: '#FF8042' },
-      { label: '1 Stars', value: 20, color: '#5F9EA0' },
-    ];
-    
-    
-    const TOTAL = data.map((item) => item.value).reduce((a, b) => a + b, 0);
-    
-    const getArcLabel = (params) => {
-      const percent = params.value / TOTAL;
-      return `${(percent * 100).toFixed(0)}%`;
-    };
-    
+    const chartData = Object.keys(ratings).map((rating, index) => ({
+      label: `${rating} Stars`,
+      value: ratings[rating],
+      color: index === 0 ? '#0088FE' : index === 1 ? '#5F9EA0' : index === 2 ? '#FF8042' : index === 3 ? '#FFBB28' : index === 4 ? '#00C49F' : '#0088FE',
+    }));
+
 
   return(
     <>
@@ -88,9 +109,9 @@ export default function DoctorDashboard (){
                   {/* Avatar */}
                   <Avatar alt={appointment.name} src={appointment.avatar} className="avatar-p" />
                   {/* Name */}
-                  <Typography variant="body1" className="p-name">{appointment.name}</Typography>
+                  <Typography variant="body1" className="p-name">{appointment.clientNameApp}</Typography>
                   {/* Time */}
-                  <Typography variant="body2" className="p-time">{appointment.time}</Typography>
+                  <Typography variant="body2" className="p-time">{appointment.dateOfAppointment}</Typography>
                   </Stack>
                   </Box>
                 ))}
@@ -109,9 +130,9 @@ export default function DoctorDashboard (){
                   <Box key={result.id} className="lab-result" sx={{ marginBottom: 1 }}>
                   <Stack direction="row" alignItems="center" spacing={2}>
                     <Avatar alt={result.name} src={result.avatar} className="avatar-p" />
-                    <Typography variant="body1" className="p-name">{result.name}</Typography>
-                    <Typography variant="body2"  className="p-type">{result.type}</Typography>
-                   <Typography variant="body2"  className="p-date">{result.date}</Typography>
+                    <Typography variant="body1" className="p-name">{result.clientNameReq}</Typography>
+                    <Typography variant="body2"  className="p-type">{result.testType}</Typography>
+                   <Typography variant="body2"  className="p-date">{result.requestDate}</Typography>
                   </Stack>
                   </Box>
                 ))}
@@ -129,14 +150,14 @@ export default function DoctorDashboard (){
             <Card sx={{ maxWidth: 700, height: 20+"vh" }} className="card">
             <CardContent>
              <Typography gutterBottom component="div"  className="sub-title">
-                 Number of Patients
+                 Number of Patients This Week
                </Typography>
                <CardContent className="sub-card">
                <Stack direction={'row'} spacing={2}>
                <MasksIcon className="icon"/>
                 <div className="card-text">
-                <span className="num-patients">243</span>
-                <span className="ev-patients">+21 from last week</span>
+                <span className="num-patients">{patientsThisWeek}</span>
+                <span className="ev-patients"></span>
                 </div>
 
                 </Stack>
@@ -153,8 +174,8 @@ export default function DoctorDashboard (){
                <Stack direction={'row'} spacing={2}>
                <WatchLaterIcon className="icon"/>
                <div className="card-text">
-                <span className="num-hours">243</span>
-                <span className="ev-patients">+21 from last week</span>
+                <span className="num-hours">{numberOfHours}</span>
+                <span className="ev-patients"></span>
                 </div>
                 </Stack>
                </CardContent>
@@ -199,8 +220,8 @@ export default function DoctorDashboard (){
               <PieChart
              series={[
               {
-                data,
-                arcLabel: getArcLabel,
+                data: chartData,
+                arcLabel: ({ value }) => `${((value / patientsThisWeek) * 100).toFixed(0)}%`,
               },
               ]}
               width={400}

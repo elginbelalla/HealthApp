@@ -1,19 +1,24 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styles from "./FrameComponent.module.css";
 
-const FrameComponent = React.forwardRef(({ setSelectedFilesCount }, ref) => {
+const FrameComponent = React.forwardRef(({ setSelectedFilesCount, setSelectedFiles: setSelectedFilesParent }, ref) => {
   const [selectedFilesCount, setSelectedFilesCountLocal] = useState(0);
-  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedFiles, setSelectedFilesLocal] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const fileInputRef = useRef(null);
 
   React.useImperativeHandle(ref, () => ({
     clearSelectedFiles() {
+      setSelectedFilesCount(0);
       setSelectedFilesCountLocal(0);
-      setSelectedFiles([]);
+      setSelectedFilesLocal([]);
       fileInputRef.current.value = '';
     }
   }));
+
+  useEffect(() => {
+    console.log("in frame", selectedFilesCount);
+  }, [selectedFilesCount]); // This effect runs when selectedFilesCount changes
 
   const handleFileChange = async (e) => {
     const files = e.target.files;
@@ -33,11 +38,10 @@ const FrameComponent = React.forwardRef(({ setSelectedFilesCount }, ref) => {
 
     // Update selected files count and display only for valid files
     const newSelectedFiles = [...selectedFiles, ...validFiles];
-    setSelectedFiles(newSelectedFiles);
+    setSelectedFilesLocal(newSelectedFiles); 
     setSelectedFilesCountLocal(newSelectedFiles.length);
     setSelectedFilesCount(newSelectedFiles.length);
-
-    console.log('Selected files:', newSelectedFiles);
+    setSelectedFilesParent(newSelectedFiles);
   };
 
   const handleFileSelect = () => {

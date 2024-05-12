@@ -78,7 +78,7 @@ function App() {
       <Route path="/signup-info2" element={<ProfileInfo2 />} />
       <Route path="/login" element={<SignInPage />} />
       <Route path="/sign-up" element={<SignUpPage />} />
-      <Route path="/doctor/dashboard" element={<DoctorDashboard/>} />
+      <Route path="/doctor/dashboard/" element={<DoctorDashboard/>} />
       <Route path="/doctor/appointments" element={<DoctorAppointments />} />
       <Route path="/doctor/patients" element={<DoctorPatients />} />
       <Route path="/doctor/messages" element={<DoctorMessages />} />

@@ -52,13 +52,16 @@ const SignInPage = () => {
       });
       if (response.ok) {
         const data = await response.json();
+        console.log(data.id);
+
         if (data.success) {
+
           switch (data.role) {
             case "client":
               navigate("/clientpage");
               break;
             case "doctor":
-              navigate("/doctor/dashboard");
+              navigate("/doctor/dashboard", { state: { doctorId: data.id } });
               break;
             case "clinic":
               navigate("/");  // TODO: add the clinic's main page url

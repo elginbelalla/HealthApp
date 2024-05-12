@@ -13,6 +13,7 @@ const SignUpPage = ({ userRole }) => {
     phoneNumber: "",
     password: "",
     role: "",
+    specialization: "",
   });
 
   const validateForm = () => {
@@ -61,12 +62,13 @@ const SignUpPage = ({ userRole }) => {
       if (response.ok) {
         const responseData = await response.json();
         const clientId = responseData.clientId;
-
         if (formData.role === "User") {
           console.log(clientId);
           navigate("/signup-info", { state: { clientId: clientId } });
         } else if (formData.role === "Doctor" || formData.role === "Clinic") {
-          navigate("/upload-documents", { state: { clientId: clientId } });
+          const doctorId = responseData.doctorId;
+          console.log(doctorId);
+          navigate("/upload-documents", { state: { doctorId: doctorId, role: formData.role } });
         }
       } else {
         console.error("Failed to save profile info:", await response.text());

@@ -1,20 +1,47 @@
 import React, { useState } from 'react';
 import styles from "./Footer.module.css";
+import { useNavigate } from "react-router-dom";
 
-const Footer = ({ onCancelClick, selectedFilesCount, userRole }) => {
+const Footer = ({ onCancelClick, selectedFiles, selectedFilesCount, id, userRole }) => {
   const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
 
-  const handleUploadClick = () => {
-    if (selectedFilesCount > 0) {
+  const handleUploadClick = async () => {
+    if (selectedFiles.length > 0) {
       setShowPopup(true);
-      setTimeout(() => {
-        setShowPopup(false);
+    
+      setTimeout(async () => {
         // Redirect user after 5 seconds based on role
-        if (userRole === 'doctor') {
-          window.location.href = '/doctor/dashboard';
-        } else if (userRole === 'clinic') {
-          window.location.href = '/clinic/dashboard';
-        }
+        try {
+
+          const formData = new FormData();
+          formData.append('userId', id);
+          formData.append('userType', userRole);
+          formData.append('file', selectedFiles[0]);
+
+          const response = await fetch(
+            "http://localhost/HealthApp/api/saveFiles",
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+    
+    
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log("Response data:", responseData);
+            if (userRole === 'Doctor') {
+              navigate("/doctor/dashboard", {state: {doctorId: id}});
+            } else if (userRole === 'Clinic') {
+              window.location.href = '/clinic/dashboard';
+            }
+          } else {
+            console.error("Failed to save profile info:", await response.text());
+          }
+        } catch (error) {
+          console.error("Failed to save profile info:", error.message);
+        }    
       }, 5000);
     } else {
       setShowPopup(true);

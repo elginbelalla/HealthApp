@@ -40,7 +40,6 @@ try {
     } else {
         // User not found as Client, try finding as Doctor
         $doctor = Doctor::findByEmail($email);
-
         if ($doctor) {
             // Verify password for Doctor
             if (password_verify($password, $doctor['password'])) {
@@ -48,7 +47,8 @@ try {
                 $response['success'] = true;
                 $response['message'] = 'Doctor login successful';
 
-                $reponse['role'] = 'doctor';
+                $response['role'] = 'doctor';
+                $response['id'] = $doctor['doctorId'];
             } else {
                 // Incorrect password for Doctor
                 $response['success'] = false;
