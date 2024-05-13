@@ -32,7 +32,7 @@ const Footer = ({ onCancelClick, selectedFiles, selectedFilesCount, id, userRole
             console.log(userRole);
             
             if (userRole === 'Doctor') {
-              navigate("/doctor/dashboard", {state: {doctorId: id}});
+              navigate("/doctor/dashboard", {state: {id: id}});
             } else if (userRole === 'Clinic') {
               window.location.href = '/clinic/dashboard';
             }

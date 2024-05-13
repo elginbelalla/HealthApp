@@ -67,7 +67,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function DoctorAppBar() {
+export default function DoctorAppBar( doctorId) {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const updateOpen = userAppStore((state) => state.updateOpen);

@@ -9,9 +9,14 @@ import Calendar from "../../../components/Calendar/Calendar";
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import './appointment.css'
+import { useNavigate, useLocation  } from "react-router-dom";
 
 export default function DoctorAppointments (){
   const [workingHours, setWorkingHours] = useState({ startTime: null, endTime: null });
+
+  const location = useLocation();
+  const doctorId = location.state ? location.state.id : null;;
+  console.log(doctorId);
 
   const handleTimeChange = (startTime, endTime) => {
     setWorkingHours({ startTime, endTime });
@@ -23,7 +28,9 @@ export default function DoctorAppointments (){
     <DoctorAppBar/>
     <Box height={60} />
     <Box sx={{ display: 'flex' }}>
-    <DoctorNavbar/>
+    <DoctorNavbar
+    doctorId={doctorId}
+    />
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
      <Paper className="body-container">
         <Grid container spacing={2} margin={1}>       

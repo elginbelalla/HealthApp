@@ -6,6 +6,8 @@ import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
+import {useEffect, useState} from "react";
+
 
 const Search = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -47,7 +49,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchPatientBar() {
+export default function SearchPatientBar({ onSearch }) {
+
+  const handleSearchChange = (event) => {
+    const searchTerm = event.target.value;
+    onSearch(searchTerm);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" elevation={0} sx={{ backgroundColor: 'transparent', color: '#202020' }}>
@@ -58,13 +66,12 @@ export default function SearchPatientBar() {
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
+              name="Search"
               inputProps={{ 'aria-label': 'search' }}
-            />
+              onChange={handleSearchChange}
+            />  
           </Search>
-          <Box sx={{ flexGrow: 1 }} /> 
-          <Button size="medium" variant="outlined" className="add-button">
-            Add New Patient
-          </Button>
+    
         </Toolbar>
       </AppBar>
     </Box>

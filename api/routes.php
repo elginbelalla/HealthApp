@@ -14,3 +14,6 @@ $router->get('/HealthApp/api/getFamilyHealth', 'Client/getFamilyHealth');
 $router->post('/HealthApp/api/saveFamilyHealth', 'Client/setFamilyHealth');
 
 $router->post('/HealthApp/api/getDashboard', 'Doctor/getDashboard');
+
+$router->post('/HealthApp/api/getPatients', 'Doctor/getPatients');
+$router->post('/HealthApp/api/getPatientSearchBar', 'Doctor/getPatientSearchBar');

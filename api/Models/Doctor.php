@@ -146,4 +146,15 @@ public static function calculateRatings($rating){
 
     return $stmt->fetch(PDO::FETCH_ASSOC)['count'];
 }
+
+public static function getPatientsByDoctorId ($doctorId){
+    $conn = App::resolve(Database::class);
+    $sql = 'SELECT * FROM patientslist WHERE doctorId = :doctorId';
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':doctorId' => $doctorId]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+}
 }

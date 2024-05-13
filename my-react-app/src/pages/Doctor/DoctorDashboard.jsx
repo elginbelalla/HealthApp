@@ -29,8 +29,9 @@ export default function DoctorDashboard (){
 
   const location = useLocation();
 
-  const doctorId = location.state ? location.state.doctorId : null;;
-
+  const doctorId = location.state ? location.state.id : null;;
+  
+  console.log(doctorId);
   useEffect( () => {
     fetchData();
   }, []);
@@ -52,7 +53,7 @@ export default function DoctorDashboard (){
         setAppointments(data.appointments);
         setLabResults(data.labRequests);
         setPatientsThisWeek(data.patientCountThisWeek);
-        const hours = (data.patientCountThisWeek*30);
+        const hours = (data.patientCountThisWeek*0.30);
         setNumberOfHours(hours);
         setRatings(data.ratings);
 
@@ -102,19 +103,25 @@ export default function DoctorDashboard (){
     'Sunday',
     ];
 
+    const totalRatingsCount = Object.values(ratings).reduce((total, count) => total + count, 0);
+
     const chartData = Object.keys(ratings).map((rating, index) => ({
       label: `${rating} Stars`,
-      value: ratings[rating],
-      color: index === 0 ? '#0088FE' : index === 1 ? '#5F9EA0' : index === 2 ? '#FF8042' : index === 3 ? '#FFBB28' : index === 4 ? '#00C49F' : '#0088FE',
+      value: (ratings[rating] / totalRatingsCount) * 100,
+      color: index === 1 ? '#5F9EA0' : index === 2 ? '#FF8042' : index === 3 ? '#FFBB28' : index === 4 ? '#00C49F' : '#0088FE',
     }));
 
 
   return(
     <>
-    <DoctorAppBar/>
+    <DoctorAppBar
+      doctorId={doctorId}
+    />
     <Box height={60} />
     <Box sx={{ display: 'flex' }}>
-    <DoctorNavbar/>
+    <DoctorNavbar
+      doctorId={doctorId}
+    />
      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
      <Paper className="body-container">
       
@@ -226,7 +233,7 @@ export default function DoctorDashboard (){
              series={[
               {
                 data: chartData,
-                arcLabel: ({ value }) => `${((value / patientsThisWeek) * 100).toFixed(0)}%`,
+                arcLabel: ({ value }) => `${((value / patientsThisWeek)).toFixed(0)}%`,
               },
               ]}
               width={400}

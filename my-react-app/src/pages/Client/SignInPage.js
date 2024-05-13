@@ -61,7 +61,7 @@ const SignInPage = () => {
               navigate("/clientpage");
               break;
             case "doctor":
-              navigate("/doctor/dashboard", { state: { doctorId: data.id } });
+              navigate("/doctor/dashboard", { state: { id: data.id } });
               break;
             case "clinic":
               navigate("/");  // TODO: add the clinic's main page url

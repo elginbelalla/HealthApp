@@ -1,5 +1,5 @@
 import DoctorNavbar from "../../../components/NavBar/DoctorNavbar";
-import React,  { useState } from "react";
+import React,  { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import DoctorAppBar from "../../../components/NavBar/DoctorAppBar";
 import Paper from '@mui/material/Paper';
@@ -16,48 +16,99 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { useNavigate, useLocation  } from "react-router-dom";
+
 
 export default function DoctorPatients() {
   
-  const patients = [
+  const location = useLocation();
+  const doctorId = location.state ? location.state.id : null;;
+  console.log(doctorId);
+
+
+  /*const patients = [
     { name: 'John Doe', date: '2024-05-03', diagnosis: 'Death', avatarSrc: '/path_to_avatar_image.jpg' },
     { name: 'John Doe', date: '2024-05-03', diagnosis: 'Death', avatarSrc: '/path_to_avatar_image.jpg' },
     { name: 'John Doe', date: '2024-05-03', diagnosis: 'Death', avatarSrc: '/path_to_avatar_image.jpg' },
     { name: 'John Doe', date: '2024-05-03', diagnosis: 'Death', avatarSrc: '/path_to_avatar_image.jpg' },
     // Add more patient data as needed
-  ];
+  ];*/
 
   const [open, setOpen] = useState(false);
   const [selectedPatient, setSelectedPatient] = useState(null);
+  const [patients, setPatients] = useState([]);
+  const [filteredPatients, setFilteredPatients] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
+
+  useEffect(() =>{
+    fetchData();
+  }, []);
+
+  const fetchData = async () =>{
+    try {
+
+      const response = await fetch(`http://localhost/HealthApp/api/getPatients`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: doctorId }), 
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+          setPatients(data);
+          setFilteredPatients(data);
+      } else {
+        console.error("Failed to fetch previous data: bad res", await response.text());
+      }
+    } catch (error) {
+      console.error("Failed to fetch previous data: db", error.message);
+    }
+  }
   const handleClickOpen = (patient) => {
     setSelectedPatient(patient);
     setOpen(true);
   };
 
+
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleSearch = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    const filteredPatients = patients.filter((patient) =>
+      patient.clientName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredPatients(filteredPatients);
+  };
+ 
   return (
     <>  
       <DoctorAppBar />
       <Box height={60} />
       <Box sx={{ display: 'flex' }}>
-        <DoctorNavbar />
+        <DoctorNavbar
+            doctorId={doctorId}
+            />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Paper className="body-container">
-            <SearchPatientBar />
+            <SearchPatientBar
+              onSearch={handleSearch}
+             />
             <Box className="card-container">
-              {patients.map((patient, index) => (
+              {filteredPatients.map((patient, index) => (
                 <Card className="patient-card" key={index}>
                   <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
                     <Avatar className="avatar" alt="User Avatar" src={patient.avatarSrc} />
                     <Box className="patient-info">
                       <Typography variant="h6" component="div" className="user">
-                        {patient.name}
+                        {patient.clientName}
                       </Typography>
                       <Typography variant="body2" className="regDate">
-                        Date: {patient.date}
+                        Date: {patient.dateOfBirth}
                       </Typography>
                       <Typography variant="body2" className="diagnosis">
                         {patient.diagnosis}
@@ -65,9 +116,7 @@ export default function DoctorPatients() {
                     </Box>
                   </CardContent>
                   <CardActions sx={{ display: 'flex', justifyContent: 'center', marginTop: 'auto' }}>
-                    <Button size="small" variant="outlined" className="button1">
-                      Scheduled meeting on the 12th of this month
-                    </Button>
+                    
         
                     <Button 
                     size="small"
@@ -98,8 +147,8 @@ export default function DoctorPatients() {
             {/* Display patient details here */}
             {selectedPatient && (
               <>
-                <Typography gutterBottom>Name: {selectedPatient.name}</Typography>
-                <Typography gutterBottom>Date: {selectedPatient.date}</Typography>
+                <Typography gutterBottom>Name: {selectedPatient.clientName}</Typography>
+                <Typography gutterBottom>Date: {selectedPatient.dateOfBirth}</Typography>
                 <Typography gutterBottom>Diagnosis: {selectedPatient.diagnosis}</Typography>
               </>
             )}

@@ -94,4 +94,25 @@ class Client
         $stmt = $conn->query($sql);
         return $stmt->findColumn();
     }
+
+    public static function getClientBirthById($clientId){
+        $conn = App::resolve(Database::class);
+        $sql = "SELECT * FROM clientinfo WHERE clientId = :clientId LIMIT 1";
+        $conn = $conn->query($sql, [':clientId' => $clientId]);
+        return $conn->find(PDO::FETCH_ASSOC);
+    }
+
+    public static function getClientsDoctorNotesById($clientId){
+        $conn = App::resolve(Database::class);
+        $sql = "SELECT * FROM doctorNotes WHERE clientId = :clientId LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([':clientId' => $clientId]);
+        
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result === false || empty($result['diagnosis'])) {
+            return ['diagnosis' => 'To be decided']; 
+        }
+        return $result;
+    }
 }
+
