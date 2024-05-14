@@ -7,6 +7,9 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 import {useEffect, useState} from "react";
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import SortIcon from '@mui/icons-material/Sort';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -56,6 +59,15 @@ export default function SearchPatientBar({ onSearch }) {
     onSearch(searchTerm);
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" elevation={0} sx={{ backgroundColor: 'transparent', color: '#202020' }}>
@@ -71,7 +83,25 @@ export default function SearchPatientBar({ onSearch }) {
               onChange={handleSearchChange}
             />  
           </Search>
-    
+          <SortIcon
+          sx={{color:'#4da4d0'}}
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
+          />
+           <Menu
+           id="basic-menu"
+           anchorEl={anchorEl}
+           open={open}
+           onClose={handleClose}
+           MenuListProps={{
+          'aria-labelledby': 'basic-button',
+           }}
+           >
+            <MenuItem onClick={handleClose}>Sort A-Z</MenuItem>
+            <MenuItem onClick={handleClose}>Sort by date</MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
     </Box>
