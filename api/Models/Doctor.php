@@ -18,9 +18,11 @@ class Doctor
     protected $address;
     protected $profileInfo;
     protected $password;
+    protected $startTime; 
+    protected $endTime;
     protected $conn;
 
-    public function __construct($doctorID, $name, $lastName, $email, $clinicID, $specialty, $phoneNo, $address, $profileInfo, $password)
+    public function __construct($doctorID, $name, $lastName, $email, $clinicID, $specialty, $phoneNo, $address, $profileInfo, $password, $startTime, $endTime)
     {
         $this->doctorID = $doctorID;
         $this->name = $name;
@@ -32,6 +34,8 @@ class Doctor
         $this->address = $address;
         $this->profileInfo = $profileInfo;
         $this->password = $password;
+        $this->startTime = $startTime; 
+        $this->endTime = $endTime; 
 
         $this->conn = App::resolve(Database::class);
     }
@@ -70,25 +74,28 @@ class Doctor
         return $stmt->find(PDO::FETCH_ASSOC);
     }
 
-    public static function update($doctorId, $name, $lastName, $email, $clinicid, $specialty, $phoneNo, $address, $profileInfo, $password, $document)
-{
+    public static function update($doctorId, $name, $lastName, $email, $clinicid, $specialty, $phoneNo, $address, $profileInfo, $password, $document, $startTime, $endTime){
     $conn = App::resolve(Database::class);
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "UPDATE doctors SET name = :name, lastName = :lastName, email = :email, clinicid = :clinicid, specialty = :specialty, phoneNo = :phoneNo, address = :address, profileInfo = :profileInfo, password = :password, document = :document WHERE doctorId = :doctorId";
+    $sql = "UPDATE doctors SET name = :name, lastName = :lastName, email = :email, clinicid = :clinicid, specialty = :specialty, phoneNo = :phoneNo, address = :address, profileInfo = :profileInfo, password = :password, document = :document, startTime = :startTime, endTime = :endTime WHERE doctorId = :doctorId";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':lastName', $lastName);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':clinicid', $clinicid);
-    $stmt->bindParam(':specialty', $specialty);
-    $stmt->bindParam(':phoneNo', $phoneNo);
-    $stmt->bindParam(':address', $address);
-    $stmt->bindParam(':profileInfo', $profileInfo);
-    $stmt->bindParam(':password', $password);
-    $stmt->bindParam(':document', $document, PDO::PARAM_LOB);
-    $stmt->bindParam(':doctorId', $doctorId);
+    $stmt->execute([
+        ':name' => $name,
+        ':lastName' => $lastName,
+        ':email' => $email,
+        ':clinicid' => $clinicid,
+        ':specialty' => $specialty,
+        ':phoneNo' => $phoneNo,
+        ':address' => $address,
+        ':profileInfo' => $profileInfo,
+        ':password' => $hashedPassword,
+        ':document' => $document,
+        ':startTime' => $startTime,
+        ':endTime' => $endTime,
+        ':doctorId' => $doctorId
+    ]);
     
-    return $stmt->execute();
+    return $stmt->rowCount() > 0;
 }
 
 public static function findAppointmensByDoctorId($doctorId){
@@ -157,4 +164,14 @@ public static function getPatientsByDoctorId ($doctorId){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 }
+
+public static function getWorkingHoursByDoctorId($doctorId)
+{
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT startTime, endTime FROM doctors WHERE doctorId = :doctorId LIMIT 1";
+    $stmt = $conn->query($sql, [':doctorId' => $doctorId]);
+    return $stmt->find(PDO::FETCH_ASSOC);
+}
+
+
 }

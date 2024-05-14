@@ -1,6 +1,6 @@
 import * as React from 'react';
 import dayjs from 'dayjs';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticTimePicker} from '@mui/x-date-pickers/StaticTimePicker';
@@ -11,10 +11,17 @@ import { Button } from 'react-bootstrap';
 import { colors } from '@mui/material';
 
 
-export default function TimePicker() {
+export default function TimePicker({ onSave, workingHours }) {
   const [selectedDay, setSelectedDay] = useState('Monday');
   const [startTime, setStartTime] = useState(dayjs().set('hour', 9).set('minute', 0)); // Default start time
   const [endTime, setEndTime] = useState(dayjs().set('hour', 17).set('minute', 0)); // Default end time
+
+  useEffect(() => {
+    if (workingHours) {
+      setStartTime(dayjs(workingHours.startTime)); 
+      setEndTime(dayjs(workingHours.endTime)); 
+    }
+  }, [workingHours]);
 
   const handleDayChange = (day) => {
     setSelectedDay(day);
@@ -27,6 +34,13 @@ export default function TimePicker() {
   const handleEndTimeChange = (time) => {
     setEndTime(time);
   };
+
+  const saveTimeRange = () => {
+    onSave({
+      startTime: dayjs(startTime).format(), 
+      endTime: dayjs(endTime).format(), 
+    });  };
+
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -78,7 +92,7 @@ export default function TimePicker() {
         </Box>
         <Box className='buttonArea'>
         <Button variant="text" className='button-text'>Cancel</Button>
-        <Button variant="text" className='button-text'>Save</Button>
+        <Button variant="text" className='button-text' onClick={saveTimeRange}>Save</Button>
         </Box>
       </Box>
     </LocalizationProvider>

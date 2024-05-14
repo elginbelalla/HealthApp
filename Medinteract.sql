@@ -195,8 +195,9 @@ CREATE TABLE `doctors` (
   `address` varchar(255) DEFAULT NULL,
   `profileInfo` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `document` longblob DEFAULT NULL
-
+  `document` longblob DEFAULT NULL,
+  `startTime` timestamp NULL DEFAULT NULL,
+  `endTime` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------

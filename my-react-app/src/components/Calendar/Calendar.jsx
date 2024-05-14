@@ -1,17 +1,26 @@
 import React from "react";
 import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
 
-function Calendar({workingHours}) {
+function Calendar({appointments}) {
+
+    const eventData = appointments.map(appointment => {
+        const startTime = new Date(appointment.dateOfAppointment);
+        const endTime = new Date(appointment.dateOfAppointment);
+        
+        endTime.setMinutes(endTime.getMinutes() + 30);
+        
+        return {
+            Id: appointment.appointmentId,
+            Subject: `Appointment with Client ${appointment.clientName}`,
+            StartTime: startTime,
+            EndTime: endTime
+        };
+    });
+
+
     // Define the dataSource for events
     const localData = {
-        dataSource: [
-            {
-                Id: 1,
-                Subject: 'Event 1',
-                StartTime: workingHours.startTime, 
-                EndTime: workingHours.endTime 
-            }
-        ]
+        dataSource: eventData
     };
 
 

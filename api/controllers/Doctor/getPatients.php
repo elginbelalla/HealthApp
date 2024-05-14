@@ -18,22 +18,30 @@ $data = json_decode($user, true);
 try{
     $doctorId = isset($data['id']) ? $data['id'] : null;
 
-    $patients = Doctor::getPatientsByDoctorId($doctorId);
+    $appointments = Doctor::findAppointmensByDoctorId($doctorId);
 
-    $patientsWithClientNames = [];
-    foreach ($patients as $patient) {
-        $clientId = $patient['clientId'];
-        $clientName = Client::findById($clientId)['name'];
-        $clientBirth = Client::getClientBirthById($clientId)['dateOfBirth'];
-        $clientDiagnosis = Client::getClientsDoctorNotesById($clientId)['diagnosis'];
-   
-        $patient['clientName'] = $clientName;
-        $patient['dateOfBirth'] = $clientBirth;
-        $patient['diagnosis'] = $clientDiagnosis;
-        $patientsWithClientNames[] = $patient;
+    $patientsWithClientInfo = [];
+    $uniquePatientIds = [];
+
+    foreach ($appointments as $appointment) {
+        $clientId = $appointment['clientId'];
+        if (!in_array($clientId, $uniquePatientIds)) {
+            $uniquePatientIds[] = $clientId; 
+            $clientName = Client::findById($clientId)['name'];
+            $clientBirth = Client::getClientBirthById($clientId)['dateOfBirth'];
+            $clientDiagnosis = Client::getClientsDoctorNotesById($clientId)['diagnosis'];
+    
+            // Add the patient info to the list
+            $patientsWithClientInfo[] = [
+                'clientId' => $clientId,
+                'clientName' => $clientName,
+                'dateOfBirth' => $clientBirth,
+                'diagnosis' => $clientDiagnosis
+            ];
+        }
     }
 
-    echo json_encode($patientsWithClientNames);
+    echo json_encode($patientsWithClientInfo);
 
 } catch(Exception $e) {
     http_response_code(500);

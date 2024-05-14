@@ -43,8 +43,10 @@ try {
                 $address = $doctorData['address'];
                 $profileInfo = $doctorData['profileInfo'];
                 $password = $doctorData['password'];
+                $startTime = NULL;
+                $endTime = NULL;
 
-                $success = Doctor::update($id, $name, $lastName, $email, $clinicid, $specialty, $phoneNo, $address, $profileInfo, $password, $fileContents);
+                $success = Doctor::update($id, $name, $lastName, $email, $clinicid, $specialty, $phoneNo, $address, $profileInfo, $password, $fileContents, $startTime, $endTime);
 
                 if ($success) {
                     echo json_encode(array("message" => "Record updated successfully", "previousData" => $doctorData));

@@ -6,16 +6,23 @@ import Chats from "../../../components/Chats/chat";
 import Conversation from "../../../components/Chats/conversation";
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
+import { useLocation  } from "react-router-dom";
 
 
 export default function DoctorMessages (){
+
+  const location = useLocation();
+  const doctorId = location.state ? location.state.id : null;;
+  console.log(doctorId);
+
   return(
     <>
     <DoctorAppBar/>
     <Box height={60} />
     <Box sx={{ display: 'flex' }}>
-    <DoctorNavbar/>
-     <Box component="main" sx={{ flexGrow: 1, p: 3}}>
+    <DoctorNavbar
+    doctorId={doctorId}
+    />     <Box component="main" sx={{ flexGrow: 1, p: 3}}>
        <Stack direction={"row"} spacing={2}>   
            <Chats/>
            <Conversation/>

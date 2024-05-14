@@ -17,3 +17,8 @@ $router->post('/HealthApp/api/getDashboard', 'Doctor/getDashboard');
 
 $router->post('/HealthApp/api/getPatients', 'Doctor/getPatients');
 $router->post('/HealthApp/api/getPatientSearchBar', 'Doctor/getPatientSearchBar');
+
+$router->post('/HealthApp/api/setDoctorWorkingHours', 'Doctor/setDoctorWorkingHours');
+$router->post('/HealthApp/api/getDoctorWorkingHours', 'Doctor/getDoctorWorkingHours');
+
+$router->post('/HealthApp/api/getDoctorAppointments', 'Doctor/getDoctorAppointments');
