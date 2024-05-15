@@ -106,7 +106,7 @@ export default function DoctorAppointments (){
     <Box height={60} />
     <Box sx={{ display: 'flex' }}>
     <DoctorNavbar
-    doctorId={doctorId}
+    id={doctorId}
     />
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
      <Paper className="body-container">

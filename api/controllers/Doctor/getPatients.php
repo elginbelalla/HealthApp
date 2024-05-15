@@ -18,7 +18,7 @@ $data = json_decode($user, true);
 try{
     $doctorId = isset($data['id']) ? $data['id'] : null;
 
-    $appointments = Doctor::findAppointmensByDoctorId($doctorId);
+    $appointments = Doctor::findAllAppointmensByDoctorId($doctorId);
 
     $patientsWithClientInfo = [];
     $uniquePatientIds = [];

@@ -29,9 +29,9 @@ export default function DoctorDashboard (){
 
   const location = useLocation();
 
-  const doctorId = location.state ? location.state.id : null;;
+  const id = location.state ? location.state.id : null;;
   
-  console.log(doctorId);
+  console.log(id);
   useEffect( () => {
     fetchData();
   }, []);
@@ -44,19 +44,25 @@ export default function DoctorDashboard (){
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id: doctorId }), 
+        body: JSON.stringify({ id: id }), 
       });
 
       if (response.ok) {
-        const data = await response.json();
-
-        setAppointments(data.appointments);
-        setLabResults(data.labRequests);
-        setPatientsThisWeek(data.patientCountThisWeek);
-        const hours = (data.patientCountThisWeek*0.30);
-        setNumberOfHours(hours);
-        setRatings(data.ratings);
-
+        const responseText = await response.text();
+        console.log('Raw response text:', responseText);
+        try {
+          const data = JSON.parse(responseText);
+          console.log('Received data:', data); 
+  
+          setAppointments(data.appointments);
+          setLabResults(data.labRequests);
+          setPatientsThisWeek(data.patientCountThisWeek);
+          const hours = (data.patientCountThisWeek * 0.30);
+          setNumberOfHours(hours);
+          setRatings(data.ratings);
+        } catch (jsonError) {
+          console.error("Failed to parse JSON:", jsonError);
+        }
       } else {
         console.error("Failed to fetch previous data: bad res", await response.text());
       }
@@ -104,23 +110,24 @@ export default function DoctorDashboard (){
     ];
 
     const totalRatingsCount = Object.values(ratings).reduce((total, count) => total + count, 0);
+    const defaultRatings = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+    const finalRatings = Object.keys(ratings).length ? ratings : defaultRatings;   
 
-    const chartData = Object.keys(ratings).map((rating, index) => ({
+    const chartData = Object.keys(finalRatings).map((rating, index) => ({
       label: `${rating} Stars`,
-      value: (ratings[rating] / totalRatingsCount) * 100,
+      value: (finalRatings[rating] / totalRatingsCount) * 100,
       color: index === 1 ? '#5F9EA0' : index === 2 ? '#FF8042' : index === 3 ? '#FFBB28' : index === 4 ? '#00C49F' : '#0088FE',
     }));
-
 
   return(
     <>
     <DoctorAppBar
-      doctorId={doctorId}
+      doctorId={id}
     />
     <Box height={60} />
     <Box sx={{ display: 'flex' }}>
     <DoctorNavbar
-      doctorId={doctorId}
+      id={id}
     />
      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
      <Paper className="body-container">
@@ -233,7 +240,7 @@ export default function DoctorDashboard (){
              series={[
               {
                 data: chartData,
-                arcLabel: ({ value }) => `${((value / patientsThisWeek)).toFixed(0)}%`,
+                arcLabel: null,
               },
               ]}
               width={400}

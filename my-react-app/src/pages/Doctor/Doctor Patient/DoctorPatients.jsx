@@ -16,7 +16,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useNavigate, useLocation  } from "react-router-dom";
+import { useLocation  } from "react-router-dom";
 
 
 export default function DoctorPatients() {
@@ -91,7 +91,7 @@ export default function DoctorPatients() {
       <Box height={60} />
       <Box sx={{ display: 'flex' }}>
         <DoctorNavbar
-            doctorId={doctorId}
+            id={doctorId}
             />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Paper className="body-container">

@@ -14,6 +14,7 @@ import SearchTestBar from './testBar';
 import Box from '@mui/material/Box';
 import './testList.css'
 
+
 const columns = [
   { id: 'id', label: 'Patient ID', minWidth: 50 },
   { id: 'user', label: 'User', minWidth: 130 },
@@ -23,19 +24,42 @@ const columns = [
   { id: 'actions', label: 'Actions', minWidth: 100 },
 ];
 
-const TestList = () => {
-  const [rows, setRows] = useState([]);
+const TestList = ({doctorId}) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [tests, setTests] = useState([]);
+  const [filteredTests, setFilteredTests] = useState([]);
+  const [file, setFile] = useState(null);
+
+  const fetchData = async () => {
+    console.log(doctorId, "in testLis");
+    try {
+      
+    const response = await fetch(`http://localhost/HealthApp/api/getTests`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ doctorId: doctorId }), 
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log("Received data:", data);
+      setTests(Array.isArray(data) ? data : []);
+      setFilteredTests(Array.isArray(data) ? data : []); // Set filteredTests initially with the fetched data
+    } else {
+      console.error("Failed to fetch previous data: bad res", await response.text());
+    }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   useEffect(() => {
-    // Simulated data for demonstration
-    const initialRows = [
-      { id: '1', user: 'Lea Kda', testType: 'Blood smth', reqDate: '10-20-2024', doc: '' },
-      // Add more rows as needed...
-    ];
-    setRows(initialRows);
-  }, []);
+    fetchData();
+  }, [doctorId]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -46,21 +70,67 @@ const TestList = () => {
     setPage(0);
   };
 
-  const handleUpload = (id) => (event) => {
-    const file = event.target.files[0];
-    // Perform file upload logic here (e.g., send file to backend)
-    const updatedRows = rows.map((row) =>
-      row.id === id ? { ...row, doc: file.name } : row
-    );
-    setRows(updatedRows);
+  const handleUpload = async (testId) => {
+    try {
+      const formData = new FormData();
+      formData.append('testId', testId);
+      
+    if (file) { 
+      formData.append('file', file);
+      const response = await fetch(`http://localhost/HealthApp/api/setTestFile`, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        const updatedTests = await response.json(); 
+        setTests(Array.isArray(updatedTests) ? updatedTests : []);
+        setFilteredTests(Array.isArray(updatedTests) ? updatedTests : []);
+        fetchData();
+      } else {
+        console.error("Failed to upload file: bad res", await response.text());
+      }
+    } else {
+      console.error("No file selected");
+    }
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
   };
 
+  const handleSearch = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    const filteredTests = tests.filter((test) =>
+      test.name && test.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+    setFilteredTests(filteredTests);
+  };
+  
+  const handleSort = (sortDirection) => {
+    const sortedTests = [...tests].sort((a, b) => {
+      if (sortDirection === 'asc') {
+        return a.clientId - b.clientId;
+      } else {
+        return b.clientId - a.clientId;
+      }
+    });
+    
+    setTests(sortedTests);
+    const filteredTests = sortedTests.filter((test) =>
+      test.name && test.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredTests(filteredTests);
+  };
+  
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <Typography className='title' gutterBottom variant='h5' component="div" sx={{ padding: "20px" }}>
         Test Request List
       </Typography>
-      <SearchTestBar />
+      <SearchTestBar
+      onSearch={handleSearch}
+      onSort={handleSort}
+       />
       <TableContainer sx={{ maxHeight: 440, paddingLeft: "30px" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -73,13 +143,13 @@ const TestList = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-              <TableRow key={row.id}>
-                <TableCell align="center">{row.id}</TableCell>
-                <TableCell align="center">{row.user}</TableCell>
-                <TableCell align="center">{row.testType}</TableCell>
-                <TableCell align="center">{row.reqDate}</TableCell>
-                <TableCell align="center">{row.doc}</TableCell>
+            {filteredTests.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((test) => (
+              <TableRow key={test.tableResultListId}>
+                <TableCell align="center">{test.clientId}</TableCell>
+                <TableCell align="center">{test.name}</TableCell>
+                <TableCell align="center">{test.testType}</TableCell>
+                <TableCell align="center">{test.requestDate}</TableCell>
+                <TableCell align="center">{test.arrivalDate}</TableCell>
                 <TableCell align="center">
                  <Box className="button-container">
                   <Button component="label" variant="contained" className='upload' >
@@ -87,10 +157,10 @@ const TestList = () => {
                     <Input
                       type="file"
                       style={{ display: 'none' }}
-                      onChange={handleUpload(row.id)}
-                    />
+                      onChange={(event) => setFile(event.target.files[0])}
+                      />
                   </Button>
-                  <Button component="label" variant="contained" className='submit'>
+                  <Button component="label" variant="contained" className='submit' onClick={() => handleUpload(test.tableResultListId)} disabled={!file}>
                     Submit
                   </Button>
                   </Box>
@@ -103,7 +173,7 @@ const TestList = () => {
       <TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
-        count={rows.length}
+        count={filteredTests.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

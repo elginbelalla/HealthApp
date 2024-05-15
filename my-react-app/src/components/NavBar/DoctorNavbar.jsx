@@ -66,7 +66,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function DoctorNavbar({doctorId}) {
+export default function DoctorNavbar({id}) {
   const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
@@ -96,7 +96,7 @@ export default function DoctorNavbar({doctorId}) {
               key={item.path}
               disablePadding
               className={isActive(item.path) ? "selectedListItem" : "unselectedListItem"}
-              onClick={() => navigate(item.path, {state: {id: doctorId}})}
+              onClick={() => navigate(item.path, {state: { id: id }})}
               sx={{
                 marginBottom: index == 4 ? '26px' : '0', // Add extra margin to items from index 5 onwards
               }}

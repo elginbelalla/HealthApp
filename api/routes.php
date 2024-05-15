@@ -22,3 +22,6 @@ $router->post('/HealthApp/api/setDoctorWorkingHours', 'Doctor/setDoctorWorkingHo
 $router->post('/HealthApp/api/getDoctorWorkingHours', 'Doctor/getDoctorWorkingHours');
 
 $router->post('/HealthApp/api/getDoctorAppointments', 'Doctor/getDoctorAppointments');
+
+$router->post('/HealthApp/api/getTests', 'Doctor/getTests');
+$router->post('/HealthApp/api/setTestFile', 'Doctor/setTestFile');

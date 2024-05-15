@@ -16,7 +16,7 @@ $data = json_decode($user, true);
 
 try{
     $doctorId = isset($data['doctorId']) ? $data['doctorId'] : null ;
-    $appointments = Doctor::findAppointmensByDoctorId($doctorId);
+    $appointments = Doctor::findAllAppointmensByDoctorId($doctorId);
 
     $appointmentsWithClientName = [];
     foreach ($appointments as $appointment) {
@@ -26,7 +26,7 @@ try{
         $appointmentsWithClientName[] = $appointment;
     }
 
-    if ($appointments) {
+    if ($appointmentsWithClientName) {
         echo json_encode($appointmentsWithClientName);
         http_response_code(200);
     } else {

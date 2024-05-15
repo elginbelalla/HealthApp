@@ -5,6 +5,8 @@ namespace App\Models;
 use Core\App;
 use Core\Database;
 use PDO;
+use PDOException;
+
 
 class Doctor
 {
@@ -53,14 +55,14 @@ class Doctor
     {
         $conn = App::resolve(Database::class);
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO doctors (name, lastName, email, phoneNo, password, specialty) VALUES (:name, :lastName, :email, :phoneNo, :password, :specialization)";
+        $sql = "INSERT INTO doctors (name, lastName, email, phoneNo, password, specialty) VALUES (:name, :lastName, :email, :phoneNo, :password, :specialty)";
         $conn->query($sql, [
             ':name' => $name,
             ':lastName' => $lastName,
             ':email' => $email,
             ':phoneNo' => $phoneNo,
             ':password' => $hashedPassword,
-            ':specialization' => $specialization
+            ':specialty' => $specialization
         ]);
 
         return $conn->connection->lastInsertId();
@@ -76,7 +78,6 @@ class Doctor
 
     public static function update($doctorId, $name, $lastName, $email, $clinicid, $specialty, $phoneNo, $address, $profileInfo, $password, $document, $startTime, $endTime){
     $conn = App::resolve(Database::class);
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $sql = "UPDATE doctors SET name = :name, lastName = :lastName, email = :email, clinicid = :clinicid, specialty = :specialty, phoneNo = :phoneNo, address = :address, profileInfo = :profileInfo, password = :password, document = :document, startTime = :startTime, endTime = :endTime WHERE doctorId = :doctorId";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
@@ -88,7 +89,7 @@ class Doctor
         ':phoneNo' => $phoneNo,
         ':address' => $address,
         ':profileInfo' => $profileInfo,
-        ':password' => $hashedPassword,
+        ':password' => $password,
         ':document' => $document,
         ':startTime' => $startTime,
         ':endTime' => $endTime,
@@ -109,7 +110,7 @@ public static function findAppointmensByDoctorId($doctorId){
 
 public static function findTestsByDoctorId($doctorId){
     $conn = App::resolve(Database::class);
-    $sql = "SELECT * FROM testresultlist WHERE doctorId = :doctorId ORDER BY requestDate DESC LIMIT 3";
+    $sql = "SELECT * FROM testresultlist WHERE doctorId = :doctorId AND document IS NULL ORDER BY requestDate DESC LIMIT 3";
     $stmt = $conn->prepare($sql);
     $stmt->execute([':doctorId' => $doctorId]);
 
@@ -144,12 +145,12 @@ public static function getRatingsByDoctorId($doctorId){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-public static function calculateRatings($rating){
+public static function calculateRatings($rating, $doctorId){
     $conn = App::resolve(Database::class);
-    $sql = "SELECT COUNT(*) as count FROM doctorratings WHERE rating = :rating";
+    $sql = "SELECT COUNT(*) as count FROM doctorratings WHERE rating = :rating AND doctorId = :doctorId";
 
     $stmt = $conn->prepare($sql);
-    $stmt->execute([':rating' => $rating]);
+    $stmt->execute([':rating' => $rating, ':doctorId' => $doctorId]);
 
     return $stmt->fetch(PDO::FETCH_ASSOC)['count'];
 }
@@ -173,5 +174,62 @@ public static function getWorkingHoursByDoctorId($doctorId)
     return $stmt->find(PDO::FETCH_ASSOC);
 }
 
+public static function findAllAppointmensByDoctorId($doctorId){
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT * FROM appointment WHERE doctorId = :doctorId";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':doctorId' => $doctorId]);
+    
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
+public static function getTestResultsByDoctorId($doctorId){
+    try {
+        $conn = App::resolve(Database::class);
+        $sql = "SELECT * FROM testresultlist WHERE doctorId = :doctorId";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([':doctorId' => $doctorId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die("Error fetching test results: " . $e->getMessage());
+    }
+}
+
+public static function getTestResultsWithNullDocumentByDoctorId($doctorId){
+    try {
+        $conn = App::resolve(Database::class);
+        $sql = "SELECT * FROM testresultlist WHERE doctorId = :doctorId AND document IS NULL";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([':doctorId' => $doctorId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die("Error fetching test results: " . $e->getMessage());
+    }
+}
+
+
+public static function getTestResulsListsByTestId($testId){
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT * FROM testresultlist WHERE tableResultListId = :testId LIMIT 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':testId' => $testId]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+public static function uploadTestDocumentByTestId($testId, $clientId, $doctorId, $clinicId, $testType, $requestDate, $arrivalDate, $document){
+    $conn = App::resolve(Database::class);
+    $sql = ("UPDATE testresultlist SET clientId = :clientId, doctorId = :doctorId, clinicId = :clinicId, testType = :testType, requestDate = :requestDate, arrivalDate = :arrivalDate, document = :document  WHERE tableResultListId = :testId");
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([
+        ':clientId' => $clientId,
+        ':doctorId' => $doctorId,
+        ':clinicId' => $clinicId,
+        ':testType' => $testType,
+        ':requestDate' => $requestDate,
+        ':arrivalDate' => $arrivalDate,
+        ':document' => $document,
+        ':testId' => $testId
+    ]);
+    return $stmt->rowCount() > 0;   
+}
 }

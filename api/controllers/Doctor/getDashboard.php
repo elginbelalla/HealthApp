@@ -16,9 +16,12 @@ $user = file_get_contents('php://input');
 $data = json_decode($user, true);
 
 try {
-
     $doctorId = isset($data['id']) ? $data['id'] : null;
-    
+
+    if (!$doctorId) {
+        throw new Exception("Doctor ID is missing");
+    }
+
     $doctorAppointments = Doctor::findAppointmensByDoctorId($doctorId);
     $labRequests = Doctor::findTestsByDoctorId($doctorId);
     $appointmentCount = Doctor::countDoctorAppointmentsForCurrentWeek($doctorId);
@@ -37,10 +40,19 @@ try {
     }
 
     $ratingCounts = [];
-    for ($i = 1; $i <= 5; $i++) {
-        $ratingCounts[$i] = Doctor::calculateRatings($i);        
+    if (!empty($ratings)) {
+        for ($i = 1; $i <= 5; $i++) {
+            $ratingCounts[$i] = Doctor::calculateRatings($i, $doctorId);        
+        }
+    } else {
+        $ratingCounts = [
+            1 => 0,
+            2 => 0,
+            3 => 0,
+            4 => 0,
+            5 => 0
+        ];
     }
-
 
     $responseData = [
         'appointments' => $doctorAppointments,
@@ -54,5 +66,6 @@ try {
     
 } catch(Exception $e) {
     http_response_code(500);
+    header('Content-Type: application/json');
     echo json_encode(['error' => $e->getMessage()]);
 }

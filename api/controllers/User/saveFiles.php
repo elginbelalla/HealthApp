@@ -43,6 +43,7 @@ try {
                 $address = $doctorData['address'];
                 $profileInfo = $doctorData['profileInfo'];
                 $password = $doctorData['password'];
+                echo($password);
                 $startTime = NULL;
                 $endTime = NULL;
 
