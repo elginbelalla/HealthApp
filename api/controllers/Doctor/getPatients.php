@@ -30,13 +30,15 @@ try{
             $clientName = Client::findById($clientId)['name'];
             $clientBirth = Client::getClientBirthById($clientId)['dateOfBirth'];
             $clientDiagnosis = Client::getClientsDoctorNotesById($clientId)['diagnosis'];
+            $clientsLastVisit = Doctor::findAppointmentByDoctorIdAndUser($doctorId, $clientId);
     
             // Add the patient info to the list
             $patientsWithClientInfo[] = [
                 'clientId' => $clientId,
                 'clientName' => $clientName,
-                'dateOfBirth' => $clientBirth,
-                'diagnosis' => $clientDiagnosis
+                //'dateOfBirth' => $clientBirth,
+                'diagnosis' => $clientDiagnosis,
+                'lastVisit' => $clientsLastVisit
             ];
         }
     }

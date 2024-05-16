@@ -52,7 +52,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchPatientBar({ onSearch }) {
+export default function SearchPatientBar({ onSearch, onSort }) {
 
   const handleSearchChange = (event) => {
     const searchTerm = event.target.value;
@@ -66,6 +66,16 @@ export default function SearchPatientBar({ onSearch }) {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleSortAtoZClick = () => {
+    onSort('name');
+    handleClose();
+  };
+
+  const handleSortByDateClick = () => {
+    onSort('date');
+    handleClose();
   };
 
   return (
@@ -99,8 +109,8 @@ export default function SearchPatientBar({ onSearch }) {
           'aria-labelledby': 'basic-button',
            }}
            >
-            <MenuItem onClick={handleClose}>Sort A-Z</MenuItem>
-            <MenuItem onClick={handleClose}>Sort by date</MenuItem>
+            <MenuItem onClick={handleSortAtoZClick}>Sort A-Z</MenuItem>
+            <MenuItem onClick={handleSortByDateClick}>Sort by date</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

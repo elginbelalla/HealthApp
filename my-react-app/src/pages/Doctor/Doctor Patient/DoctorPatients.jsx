@@ -39,11 +39,12 @@ export default function DoctorPatients() {
   const [patients, setPatients] = useState([]);
   const [filteredPatients, setFilteredPatients] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortMode, setSortMode] = useState('name');
 
 
   useEffect(() =>{
     fetchData();
-  }, []);
+  }, [sortMode]);
 
   const fetchData = async () =>{
     try {
@@ -58,8 +59,10 @@ export default function DoctorPatients() {
 
       if (response.ok) {
         const data = await response.json();
-          setPatients(data);
-          setFilteredPatients(data);
+        const sortedData = sortPatients(data, sortMode);
+
+        setPatients(sortedData);
+        setFilteredPatients(sortedData);
       } else {
         console.error("Failed to fetch previous data: bad res", await response.text());
       }
@@ -85,6 +88,22 @@ export default function DoctorPatients() {
     setFilteredPatients(filteredPatients);
   };
  
+  const sortPatients = (patientsArray, mode) => {
+    if (mode === 'name') {
+      return patientsArray.sort((a, b) => a.clientName.localeCompare(b.clientName));
+    } else if (mode === 'date') {
+      return patientsArray.sort((a, b) => new Date(b.dateOfBirth) - new Date(a.dateOfBirth));
+    }
+    return patientsArray;
+  };
+
+  const handleSort = (mode) => {
+    setSortMode(mode);
+    const sortedPatients = sortPatients([...filteredPatients], mode);
+    setFilteredPatients(sortedPatients);
+  };
+
+
   return (
     <>  
       <DoctorAppBar />
@@ -97,6 +116,7 @@ export default function DoctorPatients() {
           <Paper className="body-container">
             <SearchPatientBar
               onSearch={handleSearch}
+              onSort={handleSort}
              />
             <Box className="card-container">
               {filteredPatients.map((patient, index) => (
@@ -108,7 +128,7 @@ export default function DoctorPatients() {
                         {patient.clientName}
                       </Typography>
                       <Typography variant="body2" className="regDate">
-                        Date: {patient.dateOfBirth}
+                        Date: {patient.lastVisit['dateOfAppointment']}
                       </Typography>
                       <Typography variant="body2" className="diagnosis">
                         {patient.diagnosis}
@@ -148,7 +168,7 @@ export default function DoctorPatients() {
             {selectedPatient && (
               <>
                 <Typography gutterBottom>Name: {selectedPatient.clientName}</Typography>
-                <Typography gutterBottom>Date: {selectedPatient.dateOfBirth}</Typography>
+                <Typography gutterBottom>Date: {selectedPatient.lastVisit['dateOfAppointment']}</Typography>
                 <Typography gutterBottom>Diagnosis: {selectedPatient.diagnosis}</Typography>
               </>
             )}

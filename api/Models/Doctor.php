@@ -232,4 +232,14 @@ public static function uploadTestDocumentByTestId($testId, $clientId, $doctorId,
     ]);
     return $stmt->rowCount() > 0;   
 }
+
+public static function findAppointmentByDoctorIdAndUser($doctorId, $clientId){
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT * FROM appointment WHERE doctorId = :doctorId AND clientId = :clientId ORDER BY dateOfAppointment DESC LIMIT 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':doctorId' => $doctorId, ':clientId' => $clientId]);
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 }

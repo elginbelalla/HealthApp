@@ -159,7 +159,8 @@ export default function DoctorAppBar( doctorId) {
             />
           </Search>
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }} className='box-item'>
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }} className='box-item' onClick={() => navigate("/doctor/tests", {state: { id: doctorId }})}
+ >
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
@@ -169,6 +170,7 @@ export default function DoctorAppBar( doctorId) {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              
             >
               <Badge badgeContent={17} color="error">
                 <NotificationsIcon />
