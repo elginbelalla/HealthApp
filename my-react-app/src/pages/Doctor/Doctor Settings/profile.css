@@ -19,3 +19,8 @@
     color: #718ebf;
     align-self: flex-end;
 }
+
+.button{
+    background-color: #52b2e2!important;
+    font-family: var(--font-inter)!important;
+}

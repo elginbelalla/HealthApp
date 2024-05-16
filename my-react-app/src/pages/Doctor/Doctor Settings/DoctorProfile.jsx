@@ -94,7 +94,7 @@ export default function DoctorProfile() {
           </Grid>
         ))}
         <Grid item xs={12} sx={{ textAlign: "right" }}>
-          <Button variant="contained" color="primary" onClick={handleSave}>
+          <Button  className="button" variant="contained" onClick={handleSave}>
             Save
           </Button>
         </Grid>
