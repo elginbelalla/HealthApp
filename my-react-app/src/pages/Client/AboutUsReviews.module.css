@@ -34,7 +34,8 @@
   overflow-x: hidden; 
   background-color: var(--neutral-white);
   flex-direction: column;
-  padding: 0 2.156rem 3.563rem 7.625rem;
+  padding-left: 9.563rem;
+  padding-right: 2.156rem ;
   gap: 5rem;
   letter-spacing: normal;
   text-align: left;

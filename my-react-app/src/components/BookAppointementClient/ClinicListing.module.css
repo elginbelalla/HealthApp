@@ -75,6 +75,7 @@
   align-items: flex-start;
   padding: var(--padding-3xl) 0 var(--padding-5xl);
   row-gap: 20px;
+  margin-left:-5px;
 }
 .bottombar,
 .footer,

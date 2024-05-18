@@ -28,6 +28,12 @@ const DoctorA = ({
     };
   }, [propPadding1]);
 
+
+  const handleBookTextClick = () => {
+
+    window.location.href = '/calendly';
+  };
+
   return (
     <div className={styles.doctora} style={doctorAStyle}>
       <div className={styles.doctoraChild} />
@@ -47,7 +53,7 @@ const DoctorA = ({
         <div className={styles.doctorActions}>
           <div className={styles.doctorBooking}>
             <div className={styles.doctorBookingChild} />
-            <div className={styles.book}>Book</div>
+            <div className={styles.book} onClick={handleBookTextClick}>Book</div>
           </div>
           <div className={styles.doctorDetails} style={doctorDetailsStyle}>
             <div className={styles.doctorThumbnails}>

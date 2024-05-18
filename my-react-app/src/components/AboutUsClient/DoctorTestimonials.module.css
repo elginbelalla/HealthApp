@@ -184,6 +184,7 @@
   gap: var(--gap-20xl-8);
   min-width: 52rem;
   max-width: 100%;
+  margin-right:2rem;
 }
 .allRightsReserved {
   position: relative;
@@ -201,6 +202,7 @@
   align-items: flex-start;
   padding: var(--padding-3xl) 0 var(--padding-5xl);
   row-gap: 20px;
+  margin-left:-50px;
 }
 .bottombar,
 .footer,
