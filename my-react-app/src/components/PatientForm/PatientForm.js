@@ -1,5 +1,7 @@
 import "./PatientForm.css";
 import React from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Form } from "react-bootstrap";
 
 const PatientForm = ({ onClose }) => {
   return (
