@@ -172,7 +172,7 @@ export default function DoctorDashboard (){
                     <Avatar alt={result.name} src={result.avatar} className="avatar-p" />
                     <Typography variant="body1" className="p-name">{result.clientNameReq}</Typography>
                     <Typography variant="body2"  className="p-type">{result.testType}</Typography>
-                   <Typography variant="body2"  className="p-date">{result.requestDate}</Typography>
+                   <Typography variant="body2"   className="p-date">{result.requestDate}</Typography>
                   </Stack>
                   </Box>
                 ))}
@@ -227,6 +227,27 @@ export default function DoctorDashboard (){
 
       <Box height={20} />
       <Grid container spacing={1}>
+      <Grid item xs={7}>
+        <Card sx={{height: 60+ "vh", maxWidth:600 }} className="card-2">
+            <CardContent>
+              <Typography gutterBottom component="div" className="sub-title">
+                  Weekly Activity
+              </Typography>
+              <BarChart
+                width={500}
+                height={300}
+                series={[
+                    { data: pData, label: 'Number of Patients', id: 'poId', color:'#0b8fac'},
+                    { data: uData, label: 'Number of Appointments', id: 'paId', color:'#16dbcc' },
+                  ]}
+                 xAxis={[{ data: xLabels, scaleType: 'band', }]}
+              />
+            </CardContent>
+            <CardActions>
+          
+            </CardActions>
+          </Card>
+        </Grid>
 
         <Grid item xs={5}>
         <Card sx={{ maxWidth: 700, height: 60+ "vh" }} className="card-2">

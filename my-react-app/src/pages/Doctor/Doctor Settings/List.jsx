@@ -35,7 +35,7 @@ import DoctorSecurity from './DoctorSecurity';
       fontWeight: theme.typography.fontWeightRegular,
       fontSize: theme.typography.pxToRem(15),
       marginRight: theme.spacing(1),
-      color: '#718ebf',
+      color: '#388192',
       '&.Mui-selected': {
         color: '#52b2e2 ',
       },
