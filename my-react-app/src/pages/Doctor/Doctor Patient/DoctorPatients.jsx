@@ -98,7 +98,8 @@ export default function DoctorPatients() {
                       </Typography>
                     </Box>
                   </CardContent>
-                  <CardActions sx={{ display: 'flex', justifyContent: 'center', marginTop: 'auto' }}>
+                  
+                  <CardActions sx={{ display: 'flex', justifyContent:'flex-end', marginTop: 'auto' }}>
                     <Button
                       size="small"
                       variant="contained"

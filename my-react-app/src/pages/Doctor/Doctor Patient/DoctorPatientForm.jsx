@@ -6,6 +6,7 @@ import Avatar from '@mui/material/Avatar';
 import './patientForm.css'; // Import external CSS file
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
+import Button from "@mui/material/Button";
 
 export default function PatientForm({ patient }) {
   const {
@@ -32,26 +33,26 @@ export default function PatientForm({ patient }) {
         <Typography className="form-title">PATIENT CHART</Typography>
         
         {/* Personal Information Section */}
-        <Box className="section personal-info">
+        <Box className="section personal-info" >
           <Typography variant="h6" className="section-title">Personal Information</Typography>
-          <Box className="personal-info-container">
+          <Box className="personal-info-container" style={{ border: '1px solid #ccc', padding: '10px' }}>
            <Box className="personal-info-content">
             <Avatar className="avatar" src={avatarSrc} />
             <Box className="info-fields">
               <Form.Group className="mb-3" controlId="formId">
-                <Form.Label className='label'>ID:</Form.Label>
+                <Form.Label className='label' style={{paddingRight:'80px'}}>ID:</Form.Label>
                 <Form.Control type="text" placeholder="ID" value={id} readOnly className="info-input" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formFirstName">
-                <Form.Label className='label'>First Name:</Form.Label>
+                <Form.Label className='label' style={{paddingRight:'25px'}}>First Name:</Form.Label>
                 <Form.Control type="text" placeholder="First Name" value={firstName} readOnly className="info-input" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formLastName">
-                <Form.Label className='label'>Last Name:</Form.Label>
+                <Form.Label className='label' style={{paddingRight:'25px'}}>Last Name:</Form.Label>
                 <Form.Control type="text" placeholder="Last Name" value={lastName} readOnly className="info-input" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label className='label'>Email:</Form.Label>
+                <Form.Label className='label'style={{paddingRight:'60px'}}>Email:</Form.Label>
                 <Form.Control type="email" placeholder="Email" value={email} readOnly className="info-input" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formPhoneNumber">
@@ -97,7 +98,7 @@ export default function PatientForm({ patient }) {
         {/* Personal Health History Section */}
         <Box className="section health-history">
           <Typography variant="h6" className="section-title">Personal Health History</Typography>
-          <Box className="health-history-content">
+          <Box className="health-history-content" style={{ border: '1px solid #ccc', padding: '10px' }}>
             <Typography className='label'>Previous health-related concerns:</Typography>
             <Form.Group className="big-inputFormGroup">
                   <Form.Control
@@ -134,7 +135,7 @@ export default function PatientForm({ patient }) {
         {/* Family's Health History Section */}
         <Box className="section family-history">
           <Typography variant="h6" className="section-title">Family's Health History</Typography>
-          <Box className="family-history-content">
+          <Box className="family-history-content" style={{ border: '1px solid #ccc', padding: '10px' }}>
             <Typography className='label'>Previous health-related concerns:</Typography>
             <Form.Group className="big-inputFormGroup">
                   <Form.Control
@@ -172,7 +173,7 @@ export default function PatientForm({ patient }) {
         <Box className="section doctor-notes">
           <Typography variant="h6" className="section-title">Doctor’s Notes</Typography>
           <Typography  className='doc-name'>Dr Filan Fisteku</Typography>
-          <Box className="doctor-notes-content">
+          <Box className="doctor-notes-content" style={{ border: '1px solid #ccc', padding: '10px' }}>
             <Typography className='label'>Physical Exam: </Typography>
             <Form.Group className="big-inputFormGroup">
                   <Form.Control
@@ -214,7 +215,18 @@ export default function PatientForm({ patient }) {
                   />
                 </Form.Group>
           </Box>
+          <Box className="button-container">
+                <Button
+                    className="button"
+                    variant="contained"
+                >
+                    Save
+                </Button>
+          </Box>
+          
+          
         </Box>
+        
       </Paper>
     </Box>
   );

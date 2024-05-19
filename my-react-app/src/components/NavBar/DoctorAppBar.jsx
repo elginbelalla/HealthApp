@@ -5,11 +5,9 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -26,46 +24,7 @@ const AppBar = styled(MuiAppBar, {
   boxShadow: 'none', // Remove the shadow
 }));
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: '20px', // Adjust the value as needed for the desired roundness
-  backgroundColor: '#FFFFFF', // White background color
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.95),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
 
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
 
 export default function DoctorAppBar( doctorId) {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -132,7 +91,7 @@ export default function DoctorAppBar( doctorId) {
             className="logo clickable"
             src='/logo@2x.png'
             alt="Logo"
-            onClick={() => updateOpen(!dopen)}
+            
           />
 
           <Typography
@@ -143,25 +102,16 @@ export default function DoctorAppBar( doctorId) {
             sx={{ display: { xs: 'none', sm: 'block' }, paddingLeft:'40px' }}
 
           >
-            MedInteract
+            Welcome Dr. Filan
           </Typography>
 
 
           <Box sx={{ flexGrow: 1 }}/>
           
-          <Search className='box-item'>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }} className='box-item' onClick={() => navigate("/doctor/tests", {state: { id: doctorId }})}
+         
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }} className='box-item' 
  >
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton size="large" aria-label="show 4 new mails" color="inherit" onClick={() => navigate("/doctor/messages", {state: { id: doctorId }})}>
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
@@ -170,6 +120,7 @@ export default function DoctorAppBar( doctorId) {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              onClick={() => navigate("/doctor/tests", {state: { id: doctorId }})}
               
             >
               <Badge badgeContent={17} color="error">
@@ -198,7 +149,7 @@ export default function DoctorAppBar( doctorId) {
             onClick={() => navigate("/doctor/settings")}
             color="inherit"
           >
-            <AccountCircle />
+            <AccountCircle style={{color:'#4c869a'}}/>
           </IconButton>
         </Toolbar>
       </AppBar>

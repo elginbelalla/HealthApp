@@ -83,6 +83,7 @@
     display: inline-block;
     width: auto;
     flex-grow: 1;
+    font-size: 0.89rem!important;
     margin-left: 10px;
   }
   
@@ -105,4 +106,17 @@
   .big-input {
     height: 100px; /* Set a fixed height */
     resize: vertical; /* Allow vertical scrolling */
+    font-size: 0.89rem!important;
+    font-family: var( --font-poppins);
+    color: rgb(84, 84, 84);
   }
+
+  .button{
+    background-color: #52b2e2!important;
+    font-family: var(--font-inter)!important;
+}
+.button-container {
+  padding-top: 29px;
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+}

@@ -19,6 +19,9 @@
     height: 80vh;
     flex-grow: 1;
     background-color: #fff;
+    padding-top: 10px;
+    overflow-y: auto; /* Ensure messages can scroll if they overflow */
+    
 }
 
 .chat-footer{
