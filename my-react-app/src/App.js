@@ -25,6 +25,7 @@ import UploadDoc from "./pages/Client/UploadDoc";
 import BookingPage from "./pages/Client/BookingPage";
 import Calendly from "./components/BookAppointementClient/Calendly";
 import RequestTest from "./pages/Client/RequestTest";
+import MedicalRecords from "./pages/Client/MedicalRecords";
 import { registerLicense } from '@syncfusion/ej2-base';
 
 // Registering Syncfusion license key
@@ -91,6 +92,7 @@ function App() {
       <Route path="/booking-page"    element={<BookingPage />} />
       <Route path="/calendly"    element={<Calendly />} />
       <Route path="/request-test"    element={<RequestTest />} />
+      <Route path="/medical-records" element={<MedicalRecords />} />
 
     </Routes>
   );

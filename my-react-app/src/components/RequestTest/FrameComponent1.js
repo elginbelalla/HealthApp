@@ -11,7 +11,8 @@ const FrameComponent = () => {
           <div className={styles.reviews}>Reviews</div>
           <div className={styles.privacyPolicy}>Privacy Policy</div>
           <div className={styles.termsOfUse}>Terms of Use</div>
-          <div className={styles.allRightsReserved}>© 2024, All Rights Reserved</div>
+          <div className={styles.allRightsReserved}>© 2024, All Rights Reserved
+        </div>
         </div>
      
       </div>

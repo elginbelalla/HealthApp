@@ -23,8 +23,8 @@ const Navbar = () => {
   }, [navigate]);
 
   const onMedicalHistoryTextClick = useCallback(() => {
-    
-  }, []);
+    navigate("/medical-records");
+  }, [navigate]);
 
   const onNutritionPlanTextClick = useCallback(() => {
     

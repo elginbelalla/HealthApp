@@ -1,0 +1,407 @@
+.medicalHistory {
+  margin-block-start: 0;
+  margin-block-end: 20px;
+  font-weight: 600;
+  position: absolute;
+  top: 10rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  margin: 0;
+}
+.accessAndExamine {
+  position: absolute;
+  margin: 0;
+  color: var(--color-gray-200);
+  height: 3rem;
+  width: 33rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  top: 12.5rem;
+  font-size: 20px;
+  margin-bottom: 3rem;
+  left: 54%;
+  transform: translate(-50%, -50%);
+}
+.medicalHistoryAccessContainer1 {
+  width: 100%;
+}
+
+.medicalHistoryContent {
+  box-sizing: border-box;
+  max-width: 100%;
+  flex-shrink: 0;
+  background-color: white;
+}
+.fontistolaboratoryWrapper,
+.medicalHistoryContent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 0 var(--padding-6xl);
+}
+.testResult2 {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+}
+.frameParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-12xl);
+}
+.clinic {
+  font-family: var(--font-poppins);
+  color: var(--color-teal-200);
+  font-size:14px;
+}
+.clinicClinicA {
+  margin: 0;
+  font-size:14px;
+}
+.doctor {
+  font-family: var(--font-poppins);
+  color: var(--color-teal-200);
+  font-size:14px;
+}
+.doctorDoctorA {
+  margin: 0;
+  font-size:14px;
+}
+.test {
+  font-family: var(--font-poppins);
+  color: var(--color-teal-200);
+  font-size:14px;
+}
+.testTestA {
+  margin: 0;
+  font-size:14px;
+}
+.results {
+  font-family: var(--font-poppins);
+  color: var(--color-teal-200);
+  font-size:14px;
+}
+.resultsThisIsARandomResu {
+  margin-bottom: 45px;
+  font-size:14px;
+}
+.clinicClinicAContainer1 {
+  width: 100%;
+}
+.clinicClinicAContainer {
+  width: 18.5rem;
+  position: relative;
+  font-size: var(--menu-text-size);
+  display: flex;
+  align-items: center;
+  color: var(--color-darkslategray-200);
+}
+
+.result2 {
+  width: 15rem;
+  border-radius: var(--br-3xs);
+  background-color: white; 
+  border: 3px solid var(--color-deepskyblue-100);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-6xl) var(--padding-137xl) var(--padding-6xl);
+  gap: var(--gap-7xl);
+  max-width: 100%;
+}
+
+.result2 * {
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+.fontistolaboratoryContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 0 var(--padding-6xl);
+  margin-top: 20px;
+}
+.testResult5 {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+}
+.clinic1 {
+  font-family: var(--font-poppins);
+  color: var(--color-teal-200);
+}
+.clinicClinicA1 {
+  margin: 0;
+}
+.doctor1 {
+  font-family: var(--font-poppins);
+  color: var(--color-teal-200);
+}
+.doctorDoctorA1 {
+  margin: 0;
+}
+.test1 {
+  font-family: var(--font-poppins);
+  color: var(--color-teal-200);
+}
+.testTestA1 {
+  margin: 0;
+}
+.results1 {
+  font-family: var(--font-poppins);
+  color: var(--color-teal-200);
+}
+.resultsThisIsARandomResu1 {
+  margin: 0;
+}
+.clinicClinicAContainer3 {
+  width: 100%;
+}
+.clinicClinicAContainer2 {
+  width: 18.5rem;
+  position: relative;
+  font-size: var(--menu-text-size);
+  display: flex;
+  align-items: center;
+  color: var(--color-darkslategray-200);
+}
+.result21,
+.testResult5Parent {
+  flex-direction: column;
+  align-items: flex-end;
+}
+.testResult5Parent {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--gap-7xl);
+}
+.result21 {
+  width: 23.125rem;
+  border-radius: var(--br-3xs);
+  background-color: white;
+  border: 3px solid var(--color-deepskyblue-100);
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: var(--padding-26xl) var(--padding-16xl) var(--padding-137xl) var(--padding-6xl);
+  gap: var(--gap-12xl);
+}
+.content,
+.medicalHistoryContentParent,
+.result1Parent,
+.result21 {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+.result1Parent {
+  width:100vw;
+  position: relative;
+  align-self: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0rem 6rem;
+  min-height: 60rem;
+  font-size: var(--font-size-6xl);
+  color: var(--color-teal-200);
+  margin-top: 15rem;
+  background-color: white; 
+}
+.content,
+.medicalHistoryContentParent {
+  box-sizing: border-box;
+}
+.medicalHistoryContentParent {
+  height: 53.25rem;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 0 45.5rem;
+  gap: 7.75rem;
+  text-align: center;
+  font-size: var(--font-size-41xl);
+  color: var(--color-teal-100);
+  font-family: var(--font-poppins);
+  background-color: white; 
+}
+.content {
+  width: 100vw;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 4.437rem 23rem;
+}
+.aboutUs {
+  display: inline-block;
+  min-width: 4.313rem;
+  font-size:14px;
+}
+.aboutUs,
+.emergencyNum {
+  position: relative;
+  font-size:14px;
+}
+.privacyPolicy,
+.reviews,
+.termsOfUse {
+  position: relative;
+  display: inline-block;
+  min-width: 3.75rem;
+  font-size:14px;
+}
+.privacyPolicy,
+.termsOfUse {
+  min-width: 6.375rem;
+}
+.termsOfUse {
+  min-width: 6rem;
+}
+.items {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-20xl-8);
+  min-width: 46.625rem;
+  max-width: 100%;
+}
+.allRightsReserved {
+  position: relative;
+  text-align: right;
+  font-size:14px;
+}
+
+.bottombar {
+  box-sizing: border-box;
+  align-items: flex-start;
+  position:relative;
+  width: 82rem;
+  border-top: 1px solid var(--color-gray-100);
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: var(--padding-3xl) 0 var(--padding-5xl);
+  max-width: 100%;
+  row-gap: 20px;
+  top:8rem;
+}
+.bottombar,
+.medicalrecords {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.medicalrecords {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: white; 
+  flex-direction: column;
+  padding: 0 0 0 5rem;
+  gap: var(--gap-40xl);
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: var(--roboto-regular-16-size);
+
+} 
+@media screen and (max-width: 1525px) {
+  .medicalrecords {
+    height: auto;
+  }
+}
+@media screen and (max-width: 1225px) {
+ 
+  .medicalHistoryContentParent {
+    gap: 3.875rem;
+    padding-bottom: 19.188rem;
+    box-sizing: border-box;
+  }
+  .content {
+    padding-left: var(--padding-16xl);
+    padding-right: var(--padding-16xl);
+    padding-bottom: 23rem;
+    box-sizing: border-box;
+  }
+  .items {
+    min-width: 100%;
+  }
+
+}
+@media screen and (max-width: 850px) {
+  .result2,
+  .result21 {
+    padding-top: var(--padding-10xl);
+    padding-bottom: var(--padding-82xl);
+    box-sizing: border-box;
+  }
+  .result1Parent {
+    gap: var(--gap-13xl);
+  }
+  .medicalHistoryContentParent {
+    gap: var(--gap-12xl);
+  }
+  .content {
+    padding-bottom: 21.063rem;
+    box-sizing: border-box;
+  }
+  .items {
+    flex-wrap: wrap;
+    gap: var(--gap-xl);
+  }
+  .medicalrecords {
+    gap: var(--gap-10xl);
+    padding-left: var(--padding-11xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .medicalHistoryAccessContainer {
+    font-size: var(--roboto-regular-16-size);
+  }
+  .testResult2 {
+    font-size: var(--menu-text-size);
+  }
+  .frameParent {
+    gap: var(--gap-mini);
+  }
+  .clinicClinicAContainer {
+    font-size: var(--roboto-regular-16-size);
+  }
+  .testResult5 {
+    font-size: var(--menu-text-size);
+  }
+  .clinicClinicAContainer2 {
+    font-size: var(--roboto-regular-16-size);
+  }
+  .result21 {
+    gap: var(--gap-mini);
+  }
+  .result1Parent {
+    gap: var(--gap-base);
+  }
+  .medicalHistoryContentParent {
+    gap: var(--gap-mini);
+    padding-bottom: 12.5rem;
+    box-sizing: border-box;
+  }
+}

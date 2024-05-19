@@ -1,0 +1,119 @@
+.labTest {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 0 var(--padding-6xl);
+  margin-top:20px;
+}
+.testResult1 {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+}
+
+.fontistolaboratoryIcon {
+  height: 5rem;
+  width: 5rem;
+  position: relative;
+}
+
+
+.resultCategory {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-12xl);
+}
+.clinic {
+  font-family: var(--font-poppins);
+  color: var(--white);
+  font-size:14px;
+}
+.clinicClinicA {
+  margin: 0;
+  font-size:14px;
+}
+.doctor {
+  font-family: var(--font-poppins);
+  color: var(--white);
+  font-size:14px;
+}
+.doctorDoctorA {
+  margin: 0;
+  font-size:14px;
+}
+.test {
+  font-family: var(--font-poppins);
+  color: var(--white);
+  font-size:14px;
+}
+.testTestA {
+  margin: 0;
+  font-size:14px;
+}
+.results {
+  font-family: var(--font-poppins);
+  color: var(--white);
+  font-size:14px;
+}
+.resultsThisIsARandomResu {
+  margin: 0;
+  font-size:14px;
+}
+.clinicClinicAContainer {
+  flex: 1;
+  position: relative;
+}
+.clinicTest {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-base) 0 var(--padding-mid);
+  font-size: var(--menu-text-size);
+  color: var(--color-darkslategray-200);
+  margin-bottom:20px;
+}
+.result1 {
+  width: 15rem;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-deepskyblue-200);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  padding: var(--padding-30xl) var(--padding-19xl) var(--padding-141xl) var(--padding-9xl);
+  box-sizing: border-box;
+  gap: var(--gap-7xl);
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-6xl);
+  color: var(--color-teal-200);
+  font-family: var(--font-poppins);
+}
+
+@media screen and (max-width: 850px) {
+  .result1 {
+    padding-top: var(--padding-13xl);
+    padding-bottom: var(--padding-85xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .testResult1 {
+    font-size: var(--menu-text-size);
+  }
+  .resultCategory {
+    gap: var(--gap-mini);
+  }
+  .clinicClinicAContainer {
+    font-size: var(--roboto-regular-16-size);
+  }
+}
