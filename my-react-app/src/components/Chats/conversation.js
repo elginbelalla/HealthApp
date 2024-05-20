@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Stack, Avatar, Badge, Typography, IconButton, TextField, InputAdornment, Button } from "@mui/material";
 import './conversation.css';
 import { styled } from '@mui/material/styles';
 import AttachFileOutlinedIcon from '@mui/icons-material/AttachFileOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import Message from "./message";
-
-
 
 const StyleInput = styled(TextField)(({ theme }) => ({
   "& .MuiInputBase-input": {
@@ -51,10 +49,15 @@ const detectUrl = (message) => {
   return urls ? urls[0] : null;
 };
 
-const Conversation = () => {
+const Conversation = ({ selectedChat }) => {
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
   const [attachedFiles, setAttachedFiles] = useState([]);
+
+  useEffect(() => {
+    // Reset the chat history when a new chat is selected
+    setChatHistory([]);
+  }, [selectedChat]);
 
   const handleAttachFile = (e) => {
     const files = e.target.files;
@@ -62,7 +65,7 @@ const Conversation = () => {
       const extension = file.name.split('.').pop().toLowerCase();
       const url = URL.createObjectURL(file);  // Ensure URL creation is correct
       if (['png', 'jpeg', 'jpg'].includes(extension)) {
-        return { name: file.name, subtype: "img", img: url, message:""};
+        return { name: file.name, subtype: "img", img: url, message: "" };
       } else {
         return { name: file.name, subtype: "doc", url, message: file.name };
       }
@@ -74,10 +77,10 @@ const Conversation = () => {
     if (message.trim() === "" && attachedFiles.length === 0) {
       return; // Exit early if there's no message or files attached
     }
-  
+
     const newMessages = [];
     const timestamp = new Date();
-  
+
     // Process attached files
     attachedFiles.forEach(file => {
       if (file.subtype === "img") {
@@ -106,8 +109,6 @@ const Conversation = () => {
       }
     });
 
-    
-  
     // Add message for detected URL if any
     const detectedUrl = detectUrl(message);
     if (detectedUrl) {
@@ -123,17 +124,17 @@ const Conversation = () => {
       });
     }
 
-     // Handle plain text message
-  if (message.trim() !== "" && !detectedUrl && attachedFiles.length === 0) {
-    newMessages.push({
-      type: "msg",
-      message: message.trim(),
-      timestamp: timestamp.getTime(),
-      incoming: false,
-      outgoing: true
-    });
-  }
-  
+    // Handle plain text message
+    if (message.trim() !== "" && !detectedUrl && attachedFiles.length === 0) {
+      newMessages.push({
+        type: "msg",
+        message: message.trim(),
+        timestamp: timestamp.getTime(),
+        incoming: false,
+        outgoing: true
+      });
+    }
+
     setChatHistory(prev => [...prev, ...newMessages]);
     setMessage("");
     setAttachedFiles([]);
@@ -144,6 +145,10 @@ const Conversation = () => {
       handleMessageSend();
     }
   };
+
+  if (!selectedChat) {
+    return null; // Return null if no chat is selected
+  }
 
   return (
     <Box className="container">
@@ -157,15 +162,15 @@ const Conversation = () => {
                   overlap="circular"
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                   variant="dot">
-                  <Avatar />
+                  <Avatar src={selectedChat.avatar} alt={selectedChat.name} />
                 </StyledBadge>
               </Box>
               <Stack className="user-info" direction={'column'}>
-                <Typography className="user-namee">
-                  Filan Fisteku
+                <Typography className="user-name">
+                  {selectedChat.name}
                 </Typography>
                 <Typography className="user-time">
-                  Last seen time age
+                  Online
                 </Typography>
               </Stack>
             </Stack>
