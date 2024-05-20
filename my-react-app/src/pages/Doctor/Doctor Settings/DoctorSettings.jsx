@@ -8,6 +8,7 @@ import List from "./List";
 export default function DoctorSettings  (){
   return(
     <>
+    <div className="doctor-body">
      <DoctorAppBar/>
     <Box height={70} />
     <Box sx={{ display: 'flex' }}>
@@ -18,6 +19,7 @@ export default function DoctorSettings  (){
        </Paper>
       </Box>
     </Box>
+    </div>
     </>
   )
 };

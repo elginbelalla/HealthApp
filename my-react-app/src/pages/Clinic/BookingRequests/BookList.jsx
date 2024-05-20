@@ -9,30 +9,29 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Input from '@mui/material/Input';
-import SearchTestBar from './testBar';
 import Box from '@mui/material/Box';
-import './testList.css'
-
+import SearchBookBar from './bookRequestBar';
+import './bookList.css';
 
 const columns = [
   { id: 'id', label: 'Patient ID', minWidth: 50 },
-  { id: 'user', label: 'User', minWidth: 130 },
-  { id: 'testType', label: 'Test Type', minWidth: 100 },
+  { id: 'user', label: 'Patient', minWidth: 130 },
+  { id: 'doctor', label: 'Doctor', minWidth: 100 },
+  { id: 'time', label: 'Time', minWidth: 100 },
   { id: 'reqDate', label: 'Request Date', minWidth: 100 },
-  { id: 'doc', label: 'Document', minWidth: 100 },
   { id: 'actions', label: 'Actions', minWidth: 100 },
 ];
 
-const TestList = ({doctorId}) => {
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+const BookList = () => {
+
+  /*
   const [searchTerm, setSearchTerm] = useState('');
   const [tests, setTests] = useState([]);
   const [filteredTests, setFilteredTests] = useState([]);
   const [file, setFile] = useState(null);
 
   const fetchData = async () => {
+    
     console.log(doctorId, "in testLis");
     try {
       
@@ -61,14 +60,6 @@ const TestList = ({doctorId}) => {
     fetchData();
   }, [doctorId]);
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
 
   const handleUpload = async (testId) => {
     try {
@@ -97,6 +88,7 @@ const TestList = ({doctorId}) => {
       console.error('Error uploading file:', error);
     }
   };
+ 
 
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
@@ -121,48 +113,73 @@ const TestList = ({doctorId}) => {
     );
     setFilteredTests(filteredTests);
   };
-  
+   */
+
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rows, setRows] = useState([]);
+
+  useEffect(() => {
+    // Fetch booking requests here and update the state
+    // For now, we use static data
+    const fetchData = async () => {
+      // Example: replace with actual API call
+      const data = [
+        { id: '1', user: 'John Doe', doctor: 'Dr. Smith', startTime: '10:00 AM', endTime: '11:00 AM', reqDate: '2023-05-20' },
+        { id: '2', user: 'Jane Doe', doctor: 'Dr. Adams', startTime: '11:00 AM', endTime: '12:00 PM', reqDate: '2023-05-21' },
+        // Add more data as needed
+      ];
+      setRows(data);
+    };
+
+    fetchData();
+  }, []);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <Typography className='title' gutterBottom variant='h5' component="div" sx={{ padding: "20px" }}>
-        Test Request List
+        Booking Request List
       </Typography>
-      <SearchTestBar
-      onSearch={handleSearch}
-      onSort={handleSort}
-       />
+      <SearchBookBar
+        // onSearch={handleSearch}
+        // onSort={handleSort}
+      />
       <TableContainer sx={{ maxHeight: 440, paddingLeft: "30px" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-                <TableCell key={column.id} align="center" style={{ minWidth: column.minWidth,  color: '#959494'}}>
+                <TableCell key={column.id} align="center" style={{ minWidth: column.minWidth, color: '#959494' }}>
                   {column.label}
                 </TableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredTests.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((test) => (
-              <TableRow key={test.tableResultListId}>
-                <TableCell align="center">{test.clientId}</TableCell>
-                <TableCell align="center">{test.name}</TableCell>
-                <TableCell align="center">{test.testType}</TableCell>
-                <TableCell align="center">{test.requestDate}</TableCell>
-                <TableCell align="center">{test.arrivalDate}</TableCell>
+            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
+              <TableRow key={row.id}>
+                <TableCell align="center">{row.id}</TableCell>
+                <TableCell align="center">{row.user}</TableCell>
+                <TableCell align="center">{row.doctor}</TableCell>
+                <TableCell align="center">{`${row.startTime} - ${row.endTime}`}</TableCell>
+                <TableCell align="center">{row.reqDate}</TableCell>
                 <TableCell align="center">
-                 <Box className="test-button-container">
-                  <Button component="label" variant="contained" className='upload' >
-                    Upload
-                    <Input
-                      type="file"
-                      style={{ display: 'none' }}
-                      onChange={(event) => setFile(event.target.files[0])}
-                      />
-                  </Button>
-                  <Button component="label" variant="contained" className='submit' onClick={() => handleUpload(test.tableResultListId)} disabled={!file}>
-                    Submit
-                  </Button>
+                  <Box className="clinic-button-container" >
+                    <Button component="label" variant="contained" className='accept'>
+                      Accept
+                    </Button>
+                    <Button component="label" variant="contained" className='decline'>
+                      Decline
+                    </Button>
                   </Box>
                 </TableCell>
               </TableRow>
@@ -173,7 +190,7 @@ const TestList = ({doctorId}) => {
       <TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
-        count={filteredTests.length}
+        count={rows.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
@@ -183,4 +200,4 @@ const TestList = ({doctorId}) => {
   );
 };
 
-export default TestList;
+export default BookList;

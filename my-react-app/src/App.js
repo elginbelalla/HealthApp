@@ -27,6 +27,10 @@ import Calendly from "./components/BookAppointementClient/Calendly";
 import RequestTest from "./pages/Client/RequestTest";
 import MedicalRecords from "./pages/Client/MedicalRecords";
 import ClientMessages from "./pages/Client/ClientMessages";
+import ClinicSettings from "./pages/Clinic/Settings/ClinicSettings";
+import ClinicBookRequests from "./pages/Clinic/BookingRequests/ClinicBookRequests";
+import ClinicDashboard from "./pages/Clinic/ClinicDashboard";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 import { registerLicense } from '@syncfusion/ej2-base';
 
 // Registering Syncfusion license key
@@ -95,6 +99,10 @@ function App() {
       <Route path="/request-test"    element={<RequestTest />} />
       <Route path="/medical-records" element={<MedicalRecords />} />
       <Route path="/doctor-chat" element={<ClientMessages />} />
+      <Route path="/clinic/dashboard/" element={<ClinicDashboard/>} />
+      <Route path="/clinic/settings/" element={<ClinicSettings/>} />
+      <Route path="/clinic/booking-request/" element={<ClinicBookRequests/>} />
+      <Route path="/admin/dashboard/" element={<AdminDashboard/>} />
 
     </Routes>
   );

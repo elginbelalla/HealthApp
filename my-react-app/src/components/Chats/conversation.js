@@ -105,6 +105,8 @@ const Conversation = () => {
         });
       }
     });
+
+    
   
     // Add message for detected URL if any
     const detectedUrl = detectUrl(message);
@@ -120,11 +122,23 @@ const Conversation = () => {
         outgoing: true
       });
     }
+
+     // Handle plain text message
+  if (message.trim() !== "" && !detectedUrl && attachedFiles.length === 0) {
+    newMessages.push({
+      type: "msg",
+      message: message.trim(),
+      timestamp: timestamp.getTime(),
+      incoming: false,
+      outgoing: true
+    });
+  }
   
     setChatHistory(prev => [...prev, ...newMessages]);
     setMessage("");
     setAttachedFiles([]);
   };
+
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleMessageSend();

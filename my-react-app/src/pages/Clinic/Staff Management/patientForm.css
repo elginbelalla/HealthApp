@@ -1,0 +1,122 @@
+.patient-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+     
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 1600px; /* Ensure it can contain all elements */
+    padding: 20px;
+    
+    /* Ensure content does not overflow */
+  }
+  
+  .form-title {
+    margin-bottom: 20px;
+    text-align: center;
+    color:  #2d616e;
+    font-size: 1.7rem!important;
+    font-weight: 600!important;
+    font-family: var( --font-poppins);
+  }
+
+  .section {
+    margin-bottom: 20px;
+  }
+
+  .section-title{
+    color:  #2d616e;
+    font-size: 1.3rem;
+    font-family: 900;
+    font-family: var( --font-poppins);
+  }
+  
+  
+  .doc-name{
+    color:  #2d616e;
+    font-size: 1rem;
+    font-weight: 500!important;
+    font-family: var( --font-poppins);
+  }
+  
+  .label{
+    color: #2d616e;
+    font-family: var( --font-poppins);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  
+  .personal-info-content {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 40px; /* Increase the distance between avatar and info-fields */
+  }
+
+ .personal-info-container{
+    border-radius: 10px;
+    padding: 5px;
+ }
+  
+  .avatar {
+    width: 150px; /* Increase avatar size */
+    height: 150px; /* Increase avatar size */
+  }
+  
+  .info-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color:  #2d616e;
+  }
+  
+  .additional-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 columns */
+    gap: 20px; /* Space between items */
+  }
+  
+  .info-input {
+    display: inline-block;
+    width: auto;
+    flex-grow: 1;
+    font-size: 0.89rem!important;
+    margin-left: 10px;
+  }
+  
+  .info-fields .form-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .health-history-content, .family-history-content, .doctor-notes-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+  .big-inputFormGroup {
+    margin-bottom: 20px;
+  }
+  
+  .big-input {
+    height: 100px; /* Set a fixed height */
+    resize: vertical; /* Allow vertical scrolling */
+    font-size: 0.89rem!important;
+    font-family: var( --font-poppins);
+    color: rgb(84, 84, 84);
+  }
+
+  .button{
+    background-color: #52b2e2!important;
+    font-family: var(--font-inter)!important;
+}
+.button-container {
+  padding-top: 29px;
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+}

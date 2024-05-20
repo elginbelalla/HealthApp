@@ -16,6 +16,7 @@ export default function DoctorMessages (){
 
   return(
     <>
+    <div className="doctor-body">
     <DoctorAppBar/>
     <Box height={60} />
     <Box sx={{ display: 'flex' }}>
@@ -28,6 +29,7 @@ export default function DoctorMessages (){
         </Stack>
       </Box>
     </Box>
+    </div>
     </>
   )
 };

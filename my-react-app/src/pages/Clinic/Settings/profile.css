@@ -1,0 +1,35 @@
+.label{
+    font-family: var(--font-inter)!important;
+    color: #388192!important;
+}
+
+.input-text{
+    font-family: var(--font-inter)!important;
+    color: #718ebf!important;
+    font-size: 0.83rem!important;
+
+}
+
+.input-info-text{
+    height: 100px;
+    font-family: var(--font-inter)!important;
+    color: #718ebf!important;
+    font-size: 0.83rem!important;
+
+}
+
+.avatar-space{
+    display: flex;
+    flex-direction: column;
+    padding-right: 3rem;
+}
+
+.edit-icon{
+    color: #718ebf;
+    align-self: flex-end;
+}
+
+.button{
+    background-color: #52b2e2!important;
+    font-family: var(--font-inter)!important;
+}

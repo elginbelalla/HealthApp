@@ -9,6 +9,7 @@ import Calendar from "../../../components/Calendar/Calendar";
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import './appointment.css'
+import '../doc_style.css'
 import { useNavigate, useLocation  } from "react-router-dom";
 
 export default function DoctorAppointments (){
@@ -102,6 +103,7 @@ export default function DoctorAppointments (){
 
   return(
     <>
+    <div className="doctor-body">
     <DoctorAppBar/>
     <Box height={60} />
     <Box sx={{ display: 'flex' }}>
@@ -128,6 +130,7 @@ export default function DoctorAppointments (){
          </Paper>
       </Box>
     </Box>
+    </div>
     </>
   )
 };

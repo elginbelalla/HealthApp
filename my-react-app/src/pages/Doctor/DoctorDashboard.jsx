@@ -96,6 +96,7 @@ export default function DoctorDashboard (){
 
   return(
     <>
+    <div className="doctor-body">
     <DoctorAppBar
       doctorId={id}
     />
@@ -252,6 +253,7 @@ export default function DoctorDashboard (){
       </Paper>
       </Box>
     </Box>
+    </div>
     </>
   )
 };

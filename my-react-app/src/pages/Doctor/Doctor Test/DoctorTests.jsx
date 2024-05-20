@@ -16,6 +16,7 @@ export default function DoctorTests  (){
   
   return(
     <>
+    <div className="doctor-body">
      <DoctorAppBar/>
     <Box height={70} />
     <Box sx={{ display: 'flex' }}>
@@ -28,6 +29,7 @@ export default function DoctorTests  (){
       
       </Box>
     </Box>
+    </div>
     </>
   )
 };
