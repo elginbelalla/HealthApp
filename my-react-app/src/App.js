@@ -29,6 +29,7 @@ import MedicalRecords from "./pages/Client/MedicalRecords";
 import ClientMessages from "./pages/Client/ClientMessages";
 import LeaveReviewClinic from "./pages/Client/LeaveReviewClinc";
 import LeaveReviewDoctor from "./pages/Client/LeaveReviewDoctor";
+import ClientSettings from "./pages/Client/ClientSettings";
 import { registerLicense } from '@syncfusion/ej2-base';
 
 // Registering Syncfusion license key
@@ -99,6 +100,8 @@ function App() {
       <Route path="/doctor-chat" element={<ClientMessages />} />
       <Route path="/clinic-reviews" element={<LeaveReviewClinic />} />
       <Route path="/doctor-reviews" element={<LeaveReviewDoctor />} />
+      <Route path="/user-settings" element={<ClientSettings />} />
+      
 
 
     </Routes>
