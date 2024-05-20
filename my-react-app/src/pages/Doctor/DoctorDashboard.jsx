@@ -2,7 +2,7 @@ import DoctorNavbar from "../../components/NavBar/DoctorNavbar";
 import React, {useEffect, useState} from "react";
 import Box from '@mui/material/Box';
 import DoctorAppBar from "../../components/NavBar/DoctorAppBar";
-import './style.css'
+import './doc_style.css'
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';

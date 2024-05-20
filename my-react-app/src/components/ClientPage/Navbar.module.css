@@ -7,6 +7,10 @@
   right:0px;
 }
 
+body{
+  background:white;
+}
+
 .homePage {
   width: 4.5rem;
   height: 3rem;

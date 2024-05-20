@@ -1,14 +1,13 @@
-import DoctorNavbar from "../../../components/NavBar/DoctorNavbar";
+import Navbar from "../../components/ClientPage/Navbar";
 import React from "react";
 import Box from '@mui/material/Box';
-import DoctorAppBar from "../../../components/NavBar/DoctorAppBar";
-import Chats from "../../../components/Chats/chat";
-import Conversation from "../../../components/Chats/conversation";
+import Chats from "../../components/Chats/chat";
+import Conversation from "../../components/Chats/conversation";
 import Stack from '@mui/material/Stack';
 import { useLocation  } from "react-router-dom";
 
 
-export default function DoctorMessages (){
+export default function ClientMessages (){
 
   const location = useLocation();
   const doctorId = location.state ? location.state.id : null;;
@@ -16,10 +15,9 @@ export default function DoctorMessages (){
 
   return(
     <>
-    <DoctorAppBar/>
-    <Box height={60} />
+    <Box height={100} />
     <Box sx={{ display: 'flex' }}>
-    <DoctorNavbar
+    <Navbar
     doctorId={doctorId}
     />     <Box component="main" sx={{ flexGrow: 1, p: 3}}>
        <Stack direction={"row"} spacing={2}>   
