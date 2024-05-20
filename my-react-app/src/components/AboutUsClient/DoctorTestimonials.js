@@ -1,7 +1,20 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import FirstTeamReview from "./FirstTeamReview";
 import styles from "./DoctorTestimonials.module.css";
 
 const DoctorTestimonials = () => {
+
+  const navigate = useNavigate();
+
+  const handleClinicReviewsClick = () => {
+    navigate("/clinic-reviews");
+  };
+
+  const handleDoctorReviewsClick = () => {
+    navigate("/doctor-reviews");
+  };
+
   return (
     <div className={styles.doctorTestimonials}>
       <div className={styles.testimonialHeader}>
@@ -12,13 +25,13 @@ const DoctorTestimonials = () => {
       <div className={styles.doctorReviewList}>
         <div className={styles.doctorreviews}>
           <FirstTeamReview />
-          <FirstTeamReview propPadding="var(--padding-14xl) var(--padding-6xl) var(--padding-155xl) var(--padding-13xl-1)" />
-          <FirstTeamReview propPadding="var(--padding-14xl) var(--padding-7xl) var(--padding-155xl) var(--padding-12xl)" />
+          <FirstTeamReview />
+          <FirstTeamReview />
         </div>
       </div>
       <div className={styles.clinicTestimonials}>
         <div className={styles.clinicTestimonialHeader}>
-          <button className={styles.previousbutton}>
+          <button className={styles.previousbutton} onClick={handleDoctorReviewsClick}>
             <div className={styles.label}>Doctor Reviews</div>
           </button>
           <div className={styles.clinicTestimonialTitle}>
@@ -28,16 +41,18 @@ const DoctorTestimonials = () => {
           </div>
         </div>
       </div>
-      <div className={styles.clinicreviews}>
-        <FirstTeamReview propPadding="var(--padding-14xl) var(--padding-11xl) var(--padding-155xl) var(--padding-13xl-1)" />
-        <FirstTeamReview propPadding="var(--padding-14xl) var(--padding-11xl) var(--padding-155xl) var(--padding-13xl-1)" />
-        <FirstTeamReview propPadding="var(--padding-14xl) var(--padding-12xl) var(--padding-155xl)" />
+      <div className={styles.doctorReviewList}>
+        <div className={styles.doctorreviews}>
+          <FirstTeamReview />
+          <FirstTeamReview />
+          <FirstTeamReview />
+        </div>
       </div>
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
-            <button className={styles.previousbutton1}>
-              <div className={styles.label1}>Clinic Reviews</div>
-            </button>
+          <button className={styles.previousbutton1} onClick={handleClinicReviewsClick}>
+            <div className={styles.label1}>Clinic Reviews</div>
+          </button>
           <div className={styles.bottombar}>
             <div className={styles.items}>
               <div className={styles.aboutUs}>About Us</div>

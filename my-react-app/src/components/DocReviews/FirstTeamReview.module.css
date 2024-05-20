@@ -1,0 +1,114 @@
+.userIcon {
+    height: 3rem;
+    width: 3rem;
+    position: relative;
+    border-radius: var(--br-11xl);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .starHalfIcon,
+  .starOutlineIcon,
+  .starPurple500Icon,
+  .starPurple500Icon1,
+  .starPurple500Icon2 {
+    height: 1.5rem;
+    width: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    min-height: 2rem;
+  }
+  .starRatingContainer,
+  .starsRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .starsRow {
+    align-self: stretch;
+    flex-direction: row;
+    gap: var(--gap-7xs-3);
+  }
+  .starRatingContainer {
+    width: 11.363rem;
+    flex-direction: column;
+    padding: var(--padding-sm-6) 0 0;
+    box-sizing: border-box;
+    margin-left: 6rem; 
+  }
+  
+  .userReviewContainer {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+  }
+  .foe,
+  .sampleReview {
+    position: relative;
+    letter-spacing: 0.02em;
+    display: inline-block;
+  }
+  .foe {
+    font-weight: 600;
+    min-width: 3.5rem;
+    font-size:20px;
+  }
+  .sampleReview {
+    align-self: stretch;
+    height: 1.875rem;
+    font-size: var(--font-size-2xl-4);
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size:14px;
+    padding-left:10px;
+  }
+  .firstteamreview,
+  .foeParent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .foeParent {
+    align-self: stretch;
+    gap: var(--gap-base-1);
+  }
+  .firstteamreview {
+    width: 20rem;
+    border-radius: 5.35px;
+    background-color: var(--neutral-white);
+    border: 1.3px solid var(--color-whitesmoke);
+    box-sizing: border-box;
+    padding: var(--padding-14xl) var(--padding-7xl) var(--padding-155xl)
+      var(--padding-12xl);
+    gap: var(--gap-14xl-9);
+    max-width: 100%;
+    text-align: center;
+    font-size: var(--font-size-10xl-4);
+    color: var(--color-darkslategray-300);
+    font-family: var(--font-manrope);
+  }
+  @media screen and (max-width: 450px) {
+    .userReviewContainer {
+      flex-wrap: wrap;
+    }
+    .foe {
+      font-size: var(--font-size-5xl);
+    }
+    .sampleReview {
+      font-size: var(--font-size-mid);
+    }
+    .firstteamreview {
+      gap: var(--gap-mid);
+      padding-top: var(--padding-2xl);
+      padding-bottom: var(--padding-94xl);
+      box-sizing: border-box;
+    }
+  }
+  

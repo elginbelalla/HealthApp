@@ -1,0 +1,428 @@
+.yourOwnReview {
+    margin-block-start: 0;
+    margin-block-end: 20px;
+    font-weight: 600;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    margin: 0;
+  
+  }
+  .feelFreeTo {
+    font-size: var(--menu-text-size);
+    color: var(--color-gray-200);
+    margin-block-start: 0;
+    margin-block-end: 20px;
+    position: absolute;
+    top: 7rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  
+  }
+  .yourOwnReviewContainer {
+    height: 7.75rem;
+    width: 54.125rem;
+    position: relative;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    margin-bottom:1rem;
+  
+  }
+  .leaveAReview,
+  .pleaseLeaveYour {
+    align-self: stretch;
+    position: relative;
+    font-size: var(--font-size-lg);
+    line-height: 1.5rem;
+    font-weight: 600;
+    font-family: var(--font-poppins);
+    color: var(--color-darkslategray-100);
+    text-align: left;
+  }
+  .pleaseLeaveYour {
+    font-size: var(--font-size-xs);
+    line-height: 1rem;
+    font-weight: 300;
+    color: var(--color-dimgray-100);
+  }
+  .reviewInputLabel {
+    width: 24.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-11xs);
+    max-width: 100%;
+  }
+  .searchBar {
+    border: 1px solid var(--color-darkslategray-100);
+    background-color: var(--neutral-white);
+    height: 7.875rem;
+    width: 24.688rem;
+    outline: 0;
+    position: relative;
+    border-radius: var(--br-11xl);
+    box-sizing: border-box;
+    max-width: 100%;
+    font-size: 14px;
+    padding-left: 10px; 
+    padding-right:10px;
+  }
+  
+  .input,
+  .reviewInputContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .input {
+    align-self: stretch;
+    flex-direction: row;
+    max-width: 100%;
+  }
+  .reviewInputContainer {
+    width: 28rem;
+    flex-direction: column;
+    gap: var(--gap-mini);
+    max-width: 115%;
+    flex-shrink: 0;
+  }
+  .leaveARating,
+  .pleaseLeaveYour1 {
+    align-self: stretch;
+    position: relative;
+    font-size: var(--font-size-lg);
+    line-height: 1.5rem;
+    font-weight: 600;
+    font-family: var(--font-poppins);
+    color: var(--color-darkslategray-100);
+    text-align: left;
+  }
+  .pleaseLeaveYour1 {
+    font-size: var(--font-size-xs);
+    line-height: 1rem;
+    font-weight: 300;
+    color: var(--color-dimgray-100);
+  }
+  .inputLabelContainer {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-11xs);
+  }
+  .starHalfIcon,
+  .starOutlineIcon,
+  .starPurple500Icon,
+  .starPurple500Icon1,
+  .starPurple500Icon2 {
+    height: 2.006rem;
+    width: 2.006rem;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    min-height: 2rem;
+  }
+  .ratingStars {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--gap-7xs-3);
+  }
+  .chooseTheClinic,
+  .selectAClinic {
+    align-self: stretch;
+    position: relative;
+    font-size: var(--font-size-lg);
+    line-height: 1.5rem;
+    font-weight: 600;
+    font-family: var(--font-poppins);
+    color: var(--color-darkslategray-100);
+    text-align: left;
+  }
+  .chooseTheClinic {
+    font-size: var(--font-size-xs);
+    line-height: 1rem;
+    font-weight: 300;
+    color: var(--color-dimgray-100);
+  }
+  .inputLabelContainer1 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-11xs);
+  }
+  .defaultSelectionFormselect,
+  .firstSelection {
+    font-size: var(--roboto-regular-16-size);
+    font-family: var(--roboto-regular-16);
+  }
+  .defaultSelectionFormselect {
+    align-self: stretch;
+    height: 3rem;
+    color: var(--grey-grey-45);
+  }
+  .firstSelection {
+    flex: 1;
+    position: relative;
+    letter-spacing: 0.01em;
+    line-height: 1.25rem;
+    color: var(--grey-grey-10);
+    text-align: left;
+  }
+  .selectionItem {
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    background-color: var(--neutral-white);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-3xs) var(--padding-base);
+    white-space: nowrap;
+  }
+  .firstSelection1 {
+    flex: 1;
+    position: relative;
+    font-size: var(--roboto-regular-16-size);
+    letter-spacing: 0.01em;
+    line-height: 1.25rem;
+    font-family: var(--roboto-regular-16);
+    color: var(--grey-grey-10);
+    text-align: left;
+  }
+  .selectionItem1 {
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    background-color: var(--neutral-white);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-3xs) var(--padding-base);
+    white-space: nowrap;
+  }
+  .firstSelection2 {
+    flex: 1;
+    position: relative;
+    font-size: var(--roboto-regular-16-size);
+    letter-spacing: 0.01em;
+    line-height: 1.25rem;
+    font-family: var(--roboto-regular-16);
+    color: var(--grey-grey-10);
+    text-align: left;
+  }
+  .selectionItem2 {
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    background-color: var(--neutral-white);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-3xs) var(--padding-base);
+    white-space: nowrap;
+  }
+  .firstSelection3 {
+    flex: 1;
+    position: relative;
+    font-size: var(--roboto-regular-16-size);
+    letter-spacing: 0.01em;
+    line-height: 1.25rem;
+    font-family: var(--roboto-regular-16);
+    color: var(--grey-grey-10);
+    text-align: left;
+  }
+  .selectionItem3 {
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    background-color: var(--neutral-white);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-3xs) var(--padding-base);
+    white-space: nowrap;
+  }
+  .firstSelection4 {
+    flex: 1;
+    position: relative;
+    font-size: var(--roboto-regular-16-size);
+    letter-spacing: 0.01em;
+    line-height: 1.25rem;
+    font-family: var(--roboto-regular-16);
+    color: var(--grey-grey-10);
+    text-align: left;
+  }
+  .selectionItem4 {
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    background-color: var(--neutral-white);
+    flex-direction: row;
+    padding: var(--padding-3xs) var(--padding-base);
+    white-space: nowrap;
+  }
+  .dropDownBox,
+  .lists,
+  .selectionItem4,
+  .selectionList {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .lists {
+    flex: 1;
+    flex-direction: column;
+    padding: 0 var(--padding-9xs);
+    gap: var(--gap-9xs);
+  }
+  .dropDownBox,
+  .selectionList {
+    border-radius: var(--br-5xs);
+  }
+  .selectionList {
+    align-self: stretch;
+    background-color: var(--neutral-white);
+    border: 1px solid var(--grey-grey-45);
+    flex-direction: row;
+    padding: var(--padding-xl) 0 var(--padding-7xl);
+  }
+  .dropDownBox {
+    width: 13.75rem;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    padding: 0 0 var(--padding-lgi-1);
+    box-sizing: border-box;
+    gap: var(--gap-5xs-9);
+  }
+  .submit1 {
+    position: relative;
+    font-size: var(--menu-text-size);
+    font-weight: 600;
+    font-family: var(--font-poppins);
+    color: var(--color-skyblue); 
+    text-align: left;
+    display: inline-block;
+    min-width: 4.625rem;
+  }
+  
+  .submit {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-lgi) var(--padding-28xl);
+    background-color: var(--primary);
+    border-radius: var(--br-11xl);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .submit:hover {
+    background-color: var(--color-skyblue); 
+  }
+  
+  .submit:hover .submit1 {
+    color: var(--neutral-white); 
+  }
+  
+  
+  .form,
+  .formContent {
+    box-sizing: border-box;
+  }
+  .form {
+    margin: 0;
+    width: 28.5rem;
+    border-radius: var(--br-5xs);
+    border: 1px solid var(--color-gainsboro-100);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-11xl) var(--padding-13xl);
+    gap: var(--gap-14xl);
+    max-width: 100%;
+  }
+  .formContent {
+    align-self: stretch;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 var(--padding-xl);
+  }
+  .formContent,
+  .userReviewForm,
+  .userReviewFormContainer {
+    display: flex;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .userReviewForm {
+    width: 54.125rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--gap-73xl);
+  }
+  .userReviewFormContainer {
+    width: 90.125rem;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 var(--padding-xl);
+    box-sizing: border-box;
+    text-align: center;
+    font-size: var(--font-size-41xl);
+    color: var(--color-teal-100);
+    font-family: var(--font-poppins);
+  }
+  
+  .ratingStars {
+    display: flex;
+    gap: 0.5rem; 
+  }
+  
+  .starFilled {
+    color: var(--color-skyblue); 
+    font-size: 2rem; 
+    cursor: pointer;
+  }
+  
+  .starOutline {
+    color: #d3d3d3; 
+    font-size: 1.5rem; 
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 1225px) {
+    .form {
+      padding-top: var(--padding-xl);
+      padding-bottom: var(--padding-xl);
+      box-sizing: border-box;
+    }
+    .userReviewForm {
+      gap: var(--gap-27xl);
+    }
+  }
+  @media screen and (max-width: 850px) {
+    .form {
+      gap: var(--gap-base);
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .submit1,
+    .yourOwnReviewContainer {
+      font-size: var(--roboto-regular-16-size);
+    }
+    .userReviewForm {
+      gap: var(--gap-4xl);
+    }
+  }
+  
