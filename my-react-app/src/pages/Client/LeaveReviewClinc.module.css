@@ -1,0 +1,126 @@
+.clinicsReviews {
+  margin-block-start: 0;
+  margin-block-end: 20px;
+  font-weight: 600;
+  position: absolute;
+  top: 10rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  margin: 0;
+}
+.haveALook {
+  margin: 0;
+  font-size: var(--menu-text-size);
+  color: var(--color-gray-200);
+  margin-block-start: 0;
+  margin-block-end: 20px;
+  position: absolute;
+  top: 14rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+.clinicsReviewsHaveContainer1 {
+  width: 100%;
+}
+.clinicsReviewsHaveContainer {
+  width: 54.125rem;
+  position: relative;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  max-width: 100%;
+  margin-bottom:14rem;
+}
+.firstteamreviewParent,
+.reviewHeaderContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.reviewHeaderContainer {
+  width: 88.375rem;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+.firstteamreviewParent {
+  display: flex;
+  align-items: center; 
+  align-self: stretch;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 5.062rem 3.875rem;
+}
+
+.leavereviewclinc,
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.mainContent {
+  width: 96.25rem;
+  padding: 0 2.687rem 5.118rem;
+  gap: 8.937rem;
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-41xl);
+  color: var(--color-teal-100);
+  font-family: var(--font-poppins);
+}
+.leavereviewclinc {
+  width: 100%;
+  position: relative;
+  background-color: var(--neutral-white);
+  overflow: hidden;
+  padding: 0 5.562rem 0 0;
+  gap: var(--gap-78xl);
+  line-height: normal;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1225px) {
+  .mainContent {
+    gap: var(--gap-52xl);
+    padding-right: var(--padding-2xl);
+    padding-bottom: var(--padding-15xl);
+    box-sizing: border-box;
+  }
+  .leavereviewclinc {
+    padding-right: 2.75rem;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 850px) {
+  .firstteamreviewParent {
+    gap: var(--gap-12xl);
+  }
+  .mainContent {
+    gap: var(--gap-17xl);
+    box-sizing: border-box;
+  }
+  .leavereviewclinc {
+    gap: var(--gap-29xl);
+    padding-right: var(--padding-3xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .clinicsReviewsHaveContainer {
+    font-size: var(--roboto-regular-16-size);
+  }
+  .firstteamreviewParent {
+    gap: var(--gap-mini);
+  }
+  .mainContent {
+    gap: var(--gap-lg);
+  }
+  .leavereviewclinc {
+    gap: var(--gap-5xl);
+  }
+}
