@@ -18,6 +18,10 @@
     font-size: 0.8rem!important;
 }
 
+.timestamp{
+    font-family: var(font-poppins);
+    font-size: 0.7rem!important;
+}
 
 .msg-img{
     max-height: 200px;
@@ -29,4 +33,6 @@
 .msg-icon{
     width: 20px;
     height: 20px;
+    color:#2d616e ;
 }
+

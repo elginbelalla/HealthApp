@@ -3,9 +3,10 @@ import { Box, Stack, Avatar, Badge, Typography, IconButton, TextField, InputAdor
 import './conversation.css';
 import { styled } from '@mui/material/styles';
 import AttachFileOutlinedIcon from '@mui/icons-material/AttachFileOutlined';
-import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfiedOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import Message from "./message";
+
+
 
 const StyleInput = styled(TextField)(({ theme }) => ({
   "& .MuiInputBase-input": {
@@ -44,6 +45,12 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
+const detectUrl = (message) => {
+  const urlPattern = /(https?:\/\/[^\s]+)/g;
+  const urls = message.match(urlPattern);
+  return urls ? urls[0] : null;
+};
+
 const Conversation = () => {
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
@@ -52,42 +59,72 @@ const Conversation = () => {
   const handleAttachFile = (e) => {
     const files = e.target.files;
     const categorizedFiles = Array.from(files).map(file => {
-      // Get the file extension
       const extension = file.name.split('.').pop().toLowerCase();
-      // Check if the file extension indicates an image
+      const url = URL.createObjectURL(file);  // Ensure URL creation is correct
       if (['png', 'jpeg', 'jpg'].includes(extension)) {
-        // For images, set img property
-        return { name: file.name, subtype: "img", img: URL.createObjectURL(file), message: file.name };
+        return { name: file.name, subtype: "img", img: url, message:""};
       } else {
-        // For documents, set message property
-        return { name: file.name, subtype: "doc", message: file.name };
+        return { name: file.name, subtype: "doc", url, message: file.name };
       }
     });
-    // Update the attachedFiles state
     setAttachedFiles(prev => [...prev, ...categorizedFiles]);
   };
 
-  
   const handleMessageSend = () => {
-    // Check if either the message field is not empty or there are attached files
-    if ((message.trim() !== "" || attachedFiles.length > 0)) {
-      // Prepare the message object
-      const newMessage = { type: "msg", message, incoming: false, outgoing: true };
-  
-      // If there are attached files, include them in the message
-      if (attachedFiles.length > 0) {
-        newMessage.attachedFiles = attachedFiles;
-      }
-  
-      // Add the current message to the chat history
-      setChatHistory(prev => [...prev, newMessage]);
-  
-      // Clear the input field
-      setMessage("");
-      setAttachedFiles([]);
+    if (message.trim() === "" && attachedFiles.length === 0) {
+      return; // Exit early if there's no message or files attached
     }
+  
+    const newMessages = [];
+    const timestamp = new Date();
+  
+    // Process attached files
+    attachedFiles.forEach(file => {
+      if (file.subtype === "img") {
+        const imgMessage = message.trim() !== "" ? message : ""; // Empty message if no text input
+        newMessages.push({
+          type: "msg",
+          message: imgMessage,
+          img: file.img || null,
+          url: file.url || null,
+          subtype: file.subtype,
+          timestamp: timestamp.getTime(),
+          incoming: false,
+          outgoing: true
+        });
+      } else {
+        const fileMessage = `${file.name} - ${message}`; // Use both file name and message for documents
+        newMessages.push({
+          type: "msg",
+          message: fileMessage,
+          url: file.url || null,
+          subtype: file.subtype,
+          timestamp: timestamp.getTime(),
+          incoming: false,
+          outgoing: true
+        });
+      }
+    });
+  
+    // Add message for detected URL if any
+    const detectedUrl = detectUrl(message);
+    if (detectedUrl) {
+      newMessages.push({
+        type: "msg",
+        subtype: "link",
+        url: detectedUrl,
+        preview: detectedUrl,
+        message: message.replace(detectedUrl, "").trim(),
+        timestamp: timestamp.getTime(),
+        incoming: false,
+        outgoing: true
+      });
+    }
+  
+    setChatHistory(prev => [...prev, ...newMessages]);
+    setMessage("");
+    setAttachedFiles([]);
   };
-
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleMessageSend();
@@ -97,7 +134,7 @@ const Conversation = () => {
   return (
     <Box className="container">
       <Stack maxHeight={"100vh"}>
-        {/*Chat header*/}
+        {/* Chat header */}
         <Box className="chat-header">
           <Stack className="header" direction={'row'}>
             <Stack direction="row" spacing={4} alignItems="center">
@@ -120,11 +157,11 @@ const Conversation = () => {
             </Stack>
           </Stack>
         </Box>
-        {/*Message*/}
+        {/* Message */}
         <Box className="chat-msg">
           <Message chatHistory={chatHistory} />
         </Box>
-        {/*Chat footer*/}
+        {/* Chat footer */}
         <Box className="chat-footer">
           <Stack direction={'row'} spacing={2} alignItems={'center'}>
             <StyleInput
@@ -136,21 +173,14 @@ const Conversation = () => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment>
-                      <input
-                       type="file"
-                       style={{ display: 'none' }}
-                       multiple
-                       onChange={handleAttachFile} // Connect handleAttachFile function here
-                      />
-                      <IconButton onClick={() => document.querySelector('input[type="file"]').click()}>
+                    <input
+                      type="file"
+                      style={{ display: 'none' }}
+                      multiple
+                      onChange={handleAttachFile}
+                    />
+                    <IconButton onClick={() => document.querySelector('input[type="file"]').click()}>
                       <AttachFileOutlinedIcon />
-                      </IconButton>
-                      </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment>
-                    <IconButton>
-                      <SentimentSatisfiedOutlinedIcon />
                     </IconButton>
                   </InputAdornment>
                 ),
@@ -159,12 +189,12 @@ const Conversation = () => {
           </Stack>
         </Box>
         {/* Display attached file names, if needed */}
-          {attachedFiles.length > 0 && (
+        {attachedFiles.length > 0 && (
           <Box>
-          Attached Files:
-          {attachedFiles.map((file, index) => (
-          <div key={index}>{file.name} ({file.type})</div>
-          ))}
+            Attached Files:
+            {attachedFiles.map((file, index) => (
+              <div key={index}>{file.name} ({file.subtype})</div>
+            ))}
           </Box>
         )}
       </Stack>
