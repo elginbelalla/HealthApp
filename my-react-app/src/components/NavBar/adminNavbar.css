@@ -1,0 +1,18 @@
+.selectedListItem {
+    color: #FFFFFF;
+    background-color: #52B2E2;
+    border-radius: 8px 0 0 8px; /* Rounded left corners when selected */
+}
+
+.unselectedListItem {
+    color: #388192;
+    background-color: transparent;
+    border-radius: 0; /* No rounding when unselected */
+}
+
+
+.menuItem{
+    font-family: var(--font-poppins);
+    font-size: 20px;
+}
+

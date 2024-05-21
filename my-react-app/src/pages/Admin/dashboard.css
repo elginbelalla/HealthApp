@@ -1,0 +1,116 @@
+.body-container{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 50px;
+  }
+
+  .app-body{
+    background: #def2fd;
+    border-radius: 15px;
+    padding:10px 10px 10px 10px;
+    width: 100%;
+
+  }
+
+  
+  .appointment {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 2px solid #E0E0E0;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+
+  .avatar-p{
+    width: 0.7rem;
+    height:0.7rem;
+  }
+
+   .p-name{
+    font-family: var(font-poppins);
+    font-size: 0.7rem;
+    color: #434343 ;
+  }
+
+  .p-time{
+    font-family: var(font-poppins);
+    font-size: 0.7rem;
+    color: #2d616e;
+  }
+
+  .lab-body{
+    background: #def2fd;
+    border-radius: 15px;
+    padding:20px 0 20px 5px;
+    width: 100%;
+
+  }
+
+   
+  .lab-result {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 2px solid #E0E0E0;
+    padding: 10px;
+   
+  }
+
+  .lab-result  .avatar-p{
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+
+  .lab-result.p-name{
+    font-family: var(font-poppins);
+    font-size: 0.5rem;
+    color: #434343 ;
+  }
+
+  .p-type{
+    font-family: var(font-poppins);
+    font-size: 0.5rem;
+    color: #434343 ;
+
+  }
+
+  .p-date{
+    font-family: var(font-poppins);
+    font-size: 0.5rem;
+    color: #2d616e;
+  }
+  
+
+  .sub-title{
+    font-family: var(font-poppins);
+    font-size: 0.2rem;
+    font-weight: 600;
+    color: #2a5f71 ;
+  }
+
+  .card{
+    box-shadow: none !important;
+    border: none;
+  }
+
+  .sub-card{
+    color: white;
+    border: 10px solid #def2fd ;
+    border-radius: 8px;
+  }
+
+  .card-text{
+    color:#2a5f71 ;
+    font-family: var(font-poppins);
+    font-size: 1.4rem;
+  }
+
+  .icon{
+    color: #2a5f71;
+    
+  }
+
+  .ev-patients{
+    font-size: 1rem!important;
+    color: #2a5f71;
+    padding-left:2rem;
+  }
