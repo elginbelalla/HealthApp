@@ -56,6 +56,7 @@
 }
 .book {
   cursor: pointer;
+  position:relative;
   border: 0;
   padding: var(--padding-6xs-2) var(--padding-lg-5) var(--padding-6xs-2) var(--padding-3xl-5);
   background-color: var(--primary);
@@ -67,7 +68,26 @@
   z-index: 1;
   font-weight: bold;
   color: var(--color-deepskyblue);
+  margin-left:10px;
+}
 
+
+.chat {
+  cursor: pointer;
+  position:relative;
+  border: 0;
+  padding: var(--padding-6xs-2) var(--padding-lg-5) var(--padding-6xs-2) var(--padding-3xl-5);
+  background-color: var(--primary);
+  border-radius: var(--br-xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 1;
+  font-weight: bold;
+  color: var(--color-deepskyblue);
+  margin-right:3rem;
+  top:-5px;
 }
 .doctorBooking {
   height: 1.775rem;

@@ -15,6 +15,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { userAppStore } from '../../appStore';
 import './doctorAppbar.css';
 import { useNavigate } from 'react-router-dom';
+import {useEffect, useState} from "react";
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'elevation',
@@ -26,12 +27,45 @@ const AppBar = styled(MuiAppBar, {
 
 
 
-export default function DoctorAppBar( doctorId) {
+export default function DoctorAppBar({ doctorId }) {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const updateOpen = userAppStore((state) => state.updateOpen);
   const dopen = userAppStore((state) => state.dopen);
   const navigate = useNavigate();
+  const [doctorName, setDoctorName] = useState('');
+
+  useEffect( () => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () =>{
+    try {
+
+      const response = await fetch(`http://localhost/HealthApp/api/getDashboard`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: doctorId }), 
+      });
+
+      if (response.ok) {
+        const responseText = await response.text();
+        try {
+          const data = JSON.parse(responseText);
+          setDoctorName(data.doctorName);
+
+        } catch (jsonError) {
+          console.error("Failed to parse JSON:", jsonError);
+        }
+      } else {
+        console.error("Failed to fetch previous data: bad res", await response.text());
+      }
+    } catch (error) {
+      console.error("Failed to fetch previous data: db", error.message);
+    }
+  };
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -102,7 +136,7 @@ export default function DoctorAppBar( doctorId) {
             sx={{ display: { xs: 'none', sm: 'block' }, paddingLeft:'40px' }}
 
           >
-            Welcome Dr. Filan
+            Welcome Dr. {doctorName}
           </Typography>
 
 

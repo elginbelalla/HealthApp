@@ -32,9 +32,10 @@ import LeaveReviewDoctor from "./pages/Client/LeaveReviewDoctor";
 import ClientSettings from "./pages/Client/ClientSettings";
 import ClinicSettings from "./pages/Clinic/Settings/ClinicSettings";
 import ClinicBookRequests from "./pages/Clinic/BookingRequests/ClinicBookRequests";
+import StaffManagement from "./pages/Clinic/Staff Management/ClinicStaff";
 import ClinicDashboard from "./pages/Clinic/ClinicDashboard";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
-import StaffManagement from "./pages/Clinic/Staff Management/ClinicStaff";
+import AdminSettings from "./pages/Admin/AdminSettings";
 
 import { registerLicense } from '@syncfusion/ej2-base';
 
@@ -112,6 +113,7 @@ function App() {
       <Route path="/clinic/booking-request/" element={<ClinicBookRequests/>} />
       <Route path="/clinic/staffmanagement" element={<StaffManagement/>} />
       <Route path="/admin/dashboard/" element={<AdminDashboard/>} />
+      <Route path="/admin/settings/" element={<AdminSettings/>} />
 
 
     </Routes>

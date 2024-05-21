@@ -13,11 +13,13 @@ export default function DoctorTests  (){
   const location = useLocation();
   const doctorId = location.state ? location.state.id : null;;
   console.log(doctorId);
-  
+
   return(
     <>
     <div className="doctor-body">
-     <DoctorAppBar/>
+     <DoctorAppBar
+     doctorId={doctorId}
+     />
     <Box height={70} />
     <Box sx={{ display: 'flex' }}>
     <DoctorNavbar

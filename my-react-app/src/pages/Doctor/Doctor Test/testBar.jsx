@@ -57,7 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchTestBar() {
+export default function SearchTestBar({ onSearch, onSort }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -66,6 +66,22 @@ export default function SearchTestBar() {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+    const handleSortAtoZClick = () => {
+      onSort('name');
+      handleClose();
+    };
+  
+    const handleSortByDateClick = () => {
+      onSort('date');
+      handleClose();
+    };
+  
+    const handleSearchChange = (event) => {
+      const searchTerm = event.target.value;
+      onSearch(searchTerm);
+    };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" elevation={0} sx={{ backgroundColor: '#f3f2f2', color:'#202020'}}>
@@ -92,8 +108,8 @@ export default function SearchTestBar() {
               'aria-labelledby': 'basic-button',
               }}
                >
-                <MenuItem onClick={handleClose}>Sort A-Z</MenuItem>
-                <MenuItem onClick={handleClose}>Sort by date</MenuItem>
+                <MenuItem onClick={handleSortAtoZClick}>Sort A-Z</MenuItem>
+                <MenuItem onClick={handleSortByDateClick}>Sort by date</MenuItem>
               </Menu>
           </IconButton>
           
@@ -105,6 +121,7 @@ export default function SearchTestBar() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onChange={handleSearchChange}
             />
           </Search>
         </Toolbar>

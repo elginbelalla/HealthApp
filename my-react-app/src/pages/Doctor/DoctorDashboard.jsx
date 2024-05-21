@@ -26,6 +26,8 @@ export default function DoctorDashboard (){
   const [patientsThisWeek, setPatientsThisWeek] = useState([]);
   const [numberOfHours, setNumberOfHours] = useState(0)
   const [ratings, setRatings] = useState([]);
+  const [weeklyAppointments, setWeeklyAppointments] = useState({});
+  const [uniquePatientsPerDay, setUniquePatientsPerDay] = useState([]);
 
   const location = useLocation();
 
@@ -57,9 +59,12 @@ export default function DoctorDashboard (){
           setAppointments(data.appointments);
           setLabResults(data.labRequests);
           setPatientsThisWeek(data.patientCountThisWeek);
-          const hours = (data.patientCountThisWeek * 0.30);
+          const hours = (data.patientCountThisWeek * 0.30).toFixed(2);
           setNumberOfHours(hours);
           setRatings(data.ratings);
+          setWeeklyAppointments(data.weeklyAppointments);
+          setUniquePatientsPerDay(data.uniquePatientsPerDay);
+
         } catch (jsonError) {
           console.error("Failed to parse JSON:", jsonError);
         }
@@ -72,8 +77,6 @@ export default function DoctorDashboard (){
   };
 
 
-  const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
-  const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
   const xLabels = [
     'Monday',
     'Tuesday',
@@ -84,12 +87,15 @@ export default function DoctorDashboard (){
     'Sunday',
     ];
 
+    const uData = xLabels.map(day=> weeklyAppointments[day] || 0);
+    const pData = xLabels.map(day=> uniquePatientsPerDay[day] || 0);
+
     const totalRatingsCount = Object.values(ratings).reduce((total, count) => total + count, 0);
     const defaultRatings = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
     const finalRatings = Object.keys(ratings).length ? ratings : defaultRatings;   
 
     const chartData = Object.keys(finalRatings).map((rating, index) => ({
-      label: `${rating} Stars`,
+      label: `${rating} Stars `,
       value: (finalRatings[rating] / totalRatingsCount) * 100,
       color: index === 1 ? '#5F9EA0' : index === 2 ? '#FF8042' : index === 3 ? '#FFBB28' : index === 4 ? '#00C49F' : '#0088FE',
     }));
@@ -236,7 +242,7 @@ export default function DoctorDashboard (){
               <PieChart
              series={[
               {
-                data: chartData,
+                data: chartData ,
                 arcLabel: null,
               },
               ]}

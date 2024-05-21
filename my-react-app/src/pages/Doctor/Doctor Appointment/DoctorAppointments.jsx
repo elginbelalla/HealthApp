@@ -33,8 +33,10 @@ export default function DoctorAppointments (){
         });
         if (response.ok) {
           const data = await response.json();
-          setWorkingHours(data);
-        } else {
+          console.log("Fetched working hours:", data);
+        setWorkingHours(data);
+        console.log("Working hours state:", workingHours);
+      } else {
           console.error('Failed to fetch working hours');
         }
       } catch (error) {
@@ -71,6 +73,7 @@ export default function DoctorAppointments (){
     console.log("Saving working hours...");
     console.log("Doctor ID:", doctorId);
     console.log(startTime);
+    
 
     try {
       setSaving(true); 
@@ -104,7 +107,9 @@ export default function DoctorAppointments (){
   return(
     <>
     <div className="doctor-body">
-    <DoctorAppBar/>
+    <DoctorAppBar
+      doctorId={doctorId}
+    />
     <Box height={60} />
     <Box sx={{ display: 'flex' }}>
     <DoctorNavbar

@@ -63,7 +63,19 @@
   position: relative;
   text-align: right;
   font-size:14px;
+  margin-left:27rem;
 }
+.emergencyNum a,
+.privacyPolicy a,
+.termsOfUse a,
+.aboutUs a,
+.reviews a{
+  text-decoration: none; /* Remove underline */
+  color: black; /* Change text color */
+  cursor: pointer; /* Ensure cursor changes on hover */
+  font-size:14px;
+}
+
 .bottombar {
   position: relative;
   align-self: stretch;

@@ -5,9 +5,8 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
-import DoctorProfile from './DoctorProfile';
-import DoctorPerformance from './DoctorPerformance';
-import DoctorSecurity from './DoctorSecurity';
+import AdminProfile from '../Admin/AdminProfile';
+import AdminSecurity from '../Admin/AdminSecurity';
 
 
 
@@ -78,7 +77,7 @@ function a11yProps(index) {
   };
 }
 
-export default function List({ doctorId }) {
+export default function List() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -90,22 +89,14 @@ export default function List({ doctorId }) {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <StyledTabs value={value} onChange={handleChange} className='title'>
           <StyledTab label="Profile" {...a11yProps(0)} />
-          <StyledTab label="Performance"  {...a11yProps(1)} />
-          <StyledTab label="Security"  {...a11yProps(2)} />
+          <StyledTab label="Security"  {...a11yProps(1)} />
         </StyledTabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <DoctorProfile
-        doctorId = {doctorId}
-        />
+        <AdminProfile/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <DoctorPerformance/>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        <DoctorSecurity
-        doctorId = {doctorId}
-        />
+        <AdminSecurity/>
       </CustomTabPanel>
     </Box>
   );

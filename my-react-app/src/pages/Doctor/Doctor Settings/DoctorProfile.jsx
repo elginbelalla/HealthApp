@@ -9,26 +9,91 @@ import Grid from "@mui/material/Grid";
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import './profile.css'
 
-export default function DoctorProfile() {
-    const initialDoctorProfile = {
-      name: "John Doe",
-      specialty: "Cardiologist",
-      email: "johndoe@example.com",
-      phoneNumber: "123-456-7890",
-      clinic: "Cardio Clinic",
-      address: "123 Main St, City, Country",
-      profileInformation: "Additional profile information...",
-    };
+export default function DoctorProfile({ doctorId }) {
+
+  const [doctorProfile, setDoctorProfile] = useState({
+    name: '',
+    specialty: '',
+    email: '',
+    phoneNumber: '',
+    clinic: '',
+    address: '',
+    profileInformation: '',
+  });
+  const [editableProfile, setEditableProfile] = useState({
+    name: '',
+    specialty: '',
+    email: '',
+    phoneNumber: '',
+    clinic: '',
+    address: '',
+    profileInformation: '',
+  });
+  const [avatarImage, setAvatarImage] = useState("/path_to_avatar_image.jpg"); // State for avatar image
   
-    const [doctorProfile, setDoctorProfile] = useState(initialDoctorProfile);
-    const [editableProfile, setEditableProfile] = useState({ ...initialDoctorProfile });
-    const [avatarImage, setAvatarImage] = useState("/path_to_avatar_image.jpg"); // State for avatar image
-  
-    const handleSave = () => {
-      // Perform save operation with editableProfile data
-      console.log("Saving doctor profile:", editableProfile);
-      // Example: You can send a request to your backend to save the data here
+    useEffect(() => {
+      fetchDoctorProfile(); 
+  }, [doctorId]);
+
+  const fetchDoctorProfile = async () => {
+    try {
+        const response = await fetch(`http://localhost/HealthApp/api/getDoctorProfile`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id: doctorId }),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            setDoctorProfile({
+              name: data.name,
+              specialty: data.specialty,
+              email: data.email,
+              phoneNumber: data.phoneNumber,
+              clinic: data.clinicName || '', 
+              address: data.address || '', 
+              profileInformation: data.profileInfo || '', 
+            });
+            setEditableProfile({
+              name: data.name,
+              specialty: data.specialty,
+              email: data.email,
+              phoneNumber: data.phoneNumber,
+              clinic: data.clinicName || '', 
+              address: data.address || '', 
+              profileInformation: data.profileInfo || '',
+            });        } else {
+            console.error("Failed to fetch doctor profile:", response.statusText);
+        }
+    } catch (error) {
+        console.error("Error fetching doctor profile:", error);
+    }
     };
+
+
+    const handleSave = async () => {
+      try{
+
+        const response = await fetch(`http://localhost/HealthApp/api/setDoctorProfile`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ doctorId, editableProfile }),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+        } else {
+            console.error("Failed to fetch doctor profile:", response.statusText);
+        }
+    } catch (error) {
+        console.error("Error fetching doctor profile:", error);
+    }
+    };
+
   
     const handleInputChange = (field, value) => {
       setEditableProfile((prevProfile) => ({
@@ -74,7 +139,7 @@ export default function DoctorProfile() {
           />
         </Box>
       <Grid container spacing={2} sx={{ width: "100%" }}>
-        {Object.entries(initialDoctorProfile).map(([field, value]) => (
+      {Object.entries(editableProfile).map(([field, value]) => (
           <Grid item xs={12} md={field === "profileInformation" ? 12 : 6} key={field}>
             <FormControl fullWidth>
               <FormLabel className="label">{field.charAt(0).toUpperCase() + field.slice(1)}</FormLabel>
@@ -82,7 +147,7 @@ export default function DoctorProfile() {
                 <Input
                   className="input-text"
                   placeholder={`Enter ${field}`}
-                  value={value}
+                  value={value || ''}
                   readOnly
                   disabled
                 />
@@ -90,7 +155,7 @@ export default function DoctorProfile() {
                 <Input
                   className="input-text"
                   placeholder={`Enter ${field}`}
-                  value={editableProfile[field]}
+                  value={editableProfile[field] || ''}
                   onChange={(e) => handleInputChange(field, e.target.value)}
                 />
               )}

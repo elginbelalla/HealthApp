@@ -68,6 +68,19 @@
   position:relative;
 }
 
+
+.emergencyNum a,
+.privacyPolicy a,
+.termsOfUse a,
+.aboutUs a,
+.reviews a{
+  text-decoration: none; /* Remove underline */
+  color: black; /* Change text color */
+  cursor: pointer; /* Ensure cursor changes on hover */
+  font-size:14px;
+}
+
+
 .whatPeopleAre1 {
   margin: 0;
   flex: 1 1;
@@ -190,6 +203,7 @@
   position: relative;
   text-align: right;
   font-size:14px;
+  margin-left:27rem;
 }
 .bottombar {
   position:relative;

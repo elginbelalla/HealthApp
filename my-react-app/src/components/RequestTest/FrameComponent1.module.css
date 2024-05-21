@@ -2,11 +2,16 @@
   display: inline-block;
   min-width: 4.313rem;
   font-size:14px;
+  cursor: pointer;
+  text-decoration:none;
+  color:black;
 }
 .aboutUs,
 .emergencyNum {
   position: relative;
   font-size:14px;
+  cursor: pointer;
+  text-decoration:none;
 }
 .privacyPolicy,
 .reviews,
@@ -15,16 +20,35 @@
   display: inline-block;
   min-width: 3.75rem;
   font-size:14px;
+  cursor: pointer;
+  text-decoration:none;
 }
 .privacyPolicy,
 .termsOfUse {
   min-width: 6.375rem;
   font-size:14px;
+  cursor: pointer;
+  text-decoration:none;
 }
 .termsOfUse {
   min-width: 6rem;
   font-size:14px;
+  cursor: pointer;
+  text-decoration:none;
+  color:black;
 }
+
+.emergencyNum a,
+.privacyPolicy a,
+.termsOfUse a,
+.aboutUs a,
+.reviews a{
+  text-decoration: none; /* Remove underline */
+  color: black; /* Change text color */
+  cursor: pointer; /* Ensure cursor changes on hover */
+  font-size:14px;
+}
+
 .items {
   position:relative;
   flex: 1;
@@ -36,6 +60,8 @@
   min-width: 52rem;
   max-width: 100%;
   margin-left:-2rem;
+  text-decoration:none;
+  font-size:14px;
 }
 .allRightsReserved {
   position: relative;

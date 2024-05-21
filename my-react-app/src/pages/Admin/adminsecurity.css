@@ -1,0 +1,37 @@
+.body {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, Form, Button */
+    height: 100%; /* Ensure component takes up full height */
+    gap: 13px; /* Spacing between grid items */
+}
+
+.header{
+    color: #388192;
+    font-family: var(--font-inter)!important;
+    font-size: 1rem;
+}
+
+.label{
+    color: #388192!important;
+    font-family: var(--font-inter)!important;
+    font-size: 0.8rem;
+}
+
+.button{
+    background-color: #52b2e2!important;
+    font-family: var(--font-inter)!important;
+}
+
+.form-container{
+    display: grid;
+    gap: 12px;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+
+.button-container {
+    padding-top: 29px;
+    display: flex;
+    justify-content: flex-end; /* Align button to the right */
+}

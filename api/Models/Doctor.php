@@ -81,6 +81,7 @@ class Doctor
     $sql = "UPDATE doctors SET name = :name, lastName = :lastName, email = :email, clinicid = :clinicid, specialty = :specialty, phoneNo = :phoneNo, address = :address, profileInfo = :profileInfo, password = :password, document = :document, startTime = :startTime, endTime = :endTime WHERE doctorId = :doctorId";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
+        ':doctorId' => $doctorId,
         ':name' => $name,
         ':lastName' => $lastName,
         ':email' => $email,
@@ -92,8 +93,7 @@ class Doctor
         ':password' => $password,
         ':document' => $document,
         ':startTime' => $startTime,
-        ':endTime' => $endTime,
-        ':doctorId' => $doctorId
+        ':endTime' => $endTime
     ]);
     
     return $stmt->rowCount() > 0;
@@ -242,4 +242,21 @@ public static function findAppointmentByDoctorIdAndUser($doctorId, $clientId){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+public static function countUniquePatientsPerDay($doctorId) {
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT DATE(dateOfAppointment) as appointmentDate, COUNT(DISTINCT clientId) as uniquePatients 
+            FROM appointment 
+            WHERE doctorId = :doctorId 
+            GROUP BY appointmentDate";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':doctorId' => $doctorId]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+public static function findClinicById($clinicId){
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT * FROM clinic WHERE clinicId = :clinicId LIMIT 1";
+    $stmt = $conn->query($sql, [':clinicId' => $clinicId]);
+    return $stmt->find(PDO::FETCH_ASSOC);
+}
 }

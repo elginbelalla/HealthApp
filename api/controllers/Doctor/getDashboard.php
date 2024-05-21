@@ -26,8 +26,52 @@ try {
     $labRequests = Doctor::findTestsByDoctorId($doctorId);
     $appointmentCount = Doctor::countDoctorAppointmentsForCurrentWeek($doctorId);
     $ratings = Doctor::getRatingsByDoctorId($doctorId);
+    $doctorName = Doctor::findById($doctorId)['name'];
+    $weeklyAppointments = [
+        'Monday' => 0,
+        'Tuesday' => 0,
+        'Wednesday' => 0,
+        'Thursday' => 0,
+        'Friday' => 0,
+        'Saturday' => 0,
+        'Sunday' => 0,
+    ];
+    $uniquePatientsPerDay = [];
 
-    foreach ($doctorAppointments as &$appointment) {
+    $startOfWeek = (new \DateTime())->setISODate((new \DateTime())->format('o'), (new \DateTime())->format('W'), 1)->format('Y-m-d');
+    $endOfWeek = (new \DateTime())->setISODate((new \DateTime())->format('o'), (new \DateTime())->format('W'), 7)->format('Y-m-d');
+
+    foreach ($doctorAppointments as $appointment) {
+        $appointmentDate = new \DateTime($appointment['dateOfAppointment']);
+        $dayOfWeek = $appointmentDate->format('l');
+        $appointmentDate = $appointmentDate->format('Y-m-d');
+        $clientId = $appointment['clientId'];
+
+        $weeklyAppointments[$dayOfWeek]++;
+
+        if ($appointmentDate >= $startOfWeek && $appointmentDate <= $endOfWeek) {
+                if (!isset($uniquePatientsPerDay[$dayOfWeek][$clientId])) {
+                $uniquePatientsPerDay[$dayOfWeek][$clientId] = true;
+            }
+        }
+    }
+
+
+    $uniquePatientCountPerDay = [
+    'Monday' => 0,
+    'Tuesday' => 0,
+    'Wednesday' => 0,
+    'Thursday' => 0,
+    'Friday' => 0,
+    'Saturday' => 0,
+    'Sunday' => 0,
+    ];
+
+    foreach ($uniquePatientsPerDay as $day => $patients) {
+        $uniquePatientCountPerDay[$day] = count($patients);
+    }
+    
+    foreach ($doctorAppointments as $appointment) {
         $clientId = $appointment['clientId'];
         $clientNameApp = Client::findById($clientId)['name'];
         $appointment['clientNameApp'] = $clientNameApp;
@@ -53,12 +97,16 @@ try {
             5 => 0
         ];
     }
+    
 
     $responseData = [
         'appointments' => $doctorAppointments,
         'labRequests' => $labRequests,
         'patientCountThisWeek' => $appointmentCount,
         'ratings' => $ratingCounts,
+        'weeklyAppointments' => $weeklyAppointments,
+        'uniquePatientsPerDay' => $uniquePatientCountPerDay,
+        'doctorName' => $doctorName,
     ];
     
     header('Content-Type: application/json');
