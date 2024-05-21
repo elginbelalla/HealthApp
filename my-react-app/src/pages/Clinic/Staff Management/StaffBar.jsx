@@ -52,7 +52,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchPatientBar({ onSearch, onSort }) {
+export default function SearchStaffBar({ onSearch, onSort }) {
 
   const handleSearchChange = (event) => {
     const searchTerm = event.target.value;

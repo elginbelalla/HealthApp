@@ -19,8 +19,9 @@
 }
 
 .timestamp{
+    padding-top: 2px;
     font-family: var(font-poppins);
-    font-size: 0.7rem!important;
+    font-size: 0.6rem!important;
 }
 
 .msg-img{

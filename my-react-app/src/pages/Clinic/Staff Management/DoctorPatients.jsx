@@ -14,7 +14,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import { useLocation } from 'react-router-dom';
 import DoctorAppBar from '../../../components/NavBar/DoctorAppBar';
 import DoctorNavbar from '../../../components/NavBar/DoctorNavbar';
-import SearchPatientBar from './PatientBar';
+import SearchPatientBar from './StaffBar';
 import PatientForm from './DoctorPatientForm'; // Import the new PatientForm component
 import './patient.css'; // Import external CSS file
 

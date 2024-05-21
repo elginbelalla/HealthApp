@@ -1,8 +1,8 @@
-  .body-container {
+  .staff-body-container {
     padding: 20px 20px 20px 20px;
     display: flex;
     gap: 10px;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: flex-start;
   }
   
@@ -15,20 +15,28 @@
   }
 
   
-  .patient-card {
+  .staff-card {
     border-radius: 10px !important;
     box-shadow: none !important;
     border: 3px solid #52b2e2;
-    padding: 10px 10px 10px 10px;
-    width: 340px;
-    margin-bottom: 20px;
+    padding: 5px;
+    width: 320px;
     flex: 0 0 auto;
   }
   
-  .patient-info{
+  .staff-info{
     display: flex;
     flex-direction: column;
+    gap:0.7rem;
   }
+  
+  .staff-position{
+    display: flex;
+    flex-direction: row;
+    color: #355f6d;
+    gap: 0.5rem;
+  }
+
 
   .button-container {
     display: flex;
@@ -48,13 +56,13 @@
   .button1 {
     color: #355f6d !important;
     border: 1px solid #355f6d !important;
-    font-size: 0.7rem !important;
+    font-size: 0.8rem !important;
   }
   
   .view-more {
     color: white;
     background-color: #52b2e2 !important;
-    font-size: 0.7rem !important;
+    font-size: 0.8rem !important;
   }
   
   .avatar {
@@ -62,7 +70,8 @@
     height: 60px !important;
     margin-right: 15px;
   }
-  
+
+
   .user,
   .regDate,
   .diagnosis {
@@ -81,5 +90,10 @@
     border-radius: 10px !important;
   }
 
-  
+  .staff-icon{
+    background-color: #dfeaf2;
+    border-radius: 75%; /* Increased from 50% to 75% for a more rounded effect */
+    width: 30px!important; /* Example width */
+    padding: 2px;
+  }
  
