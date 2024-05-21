@@ -31,6 +31,7 @@ const TestList = ({doctorId}) => {
   const [tests, setTests] = useState([]);
   const [filteredTests, setFilteredTests] = useState([]);
   const [file, setFile] = useState(null);
+  const [sortMode, setSortMode] = useState('name');
 
   const fetchData = async () => {
     console.log(doctorId, "in testLis");
@@ -48,7 +49,7 @@ const TestList = ({doctorId}) => {
       const data = await response.json();
       console.log("Received data:", data);
       setTests(Array.isArray(data) ? data : []);
-      setFilteredTests(Array.isArray(data) ? data : []); // Set filteredTests initially with the fetched data
+      setFilteredTests(Array.isArray(data) ? data : []); 
     } else {
       console.error("Failed to fetch previous data: bad res", await response.text());
     }
@@ -59,7 +60,7 @@ const TestList = ({doctorId}) => {
 
   useEffect(() => {
     fetchData();
-  }, [doctorId]);
+  }, [doctorId, sortMode]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -106,20 +107,19 @@ const TestList = ({doctorId}) => {
     setFilteredTests(filteredTests);
   };
   
-  const handleSort = (sortDirection) => {
-    const sortedTests = [...tests].sort((a, b) => {
-      if (sortDirection === 'asc') {
-        return a.clientId - b.clientId;
-      } else {
-        return b.clientId - a.clientId;
-      }
-    });
-    
-    setTests(sortedTests);
-    const filteredTests = sortedTests.filter((test) =>
-      test.name && test.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredTests(filteredTests);
+  const handleSort = (mode) => {
+    setSortMode(mode);
+    const sortedTests = sortTests([...filteredTests], mode);
+    setFilteredTests(sortedTests);
+  };
+
+  const sortTests = (patientsArray, mode) => {
+    if (mode === 'name') {
+      return patientsArray.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (mode === 'date') {
+      return patientsArray.sort((a, b) => new Date(b.requestDate) - new Date(a.requestDate));
+    }
+    return patientsArray;
   };
   
   return (

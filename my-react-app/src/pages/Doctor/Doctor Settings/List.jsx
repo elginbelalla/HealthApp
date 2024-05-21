@@ -78,7 +78,7 @@ function a11yProps(index) {
   };
 }
 
-export default function List() {
+export default function List({ doctorId }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -95,13 +95,17 @@ export default function List() {
         </StyledTabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <DoctorProfile/>
+        <DoctorProfile
+        doctorId = {doctorId}
+        />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <DoctorPerformance/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <DoctorSecurity/>
+        <DoctorSecurity
+        doctorId = {doctorId}
+        />
       </CustomTabPanel>
     </Box>
   );
