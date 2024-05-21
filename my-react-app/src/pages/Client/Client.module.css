@@ -143,6 +143,7 @@
   position: relative;
   text-align: right;
   font-size:14px;
+  margin-left:28rem;
 }
 
 .component1 {
@@ -228,6 +229,18 @@
 .buttonShape,
 .submit{
   cursor: pointer;
+}
+
+
+.emergencyNum a,
+.privacyPolicy a,
+.termsOfUse a,
+.aboutUs a,
+.reviews a{
+  text-decoration: none; /* Remove underline */
+  color: black; /* Change text color */
+  cursor: pointer; /* Ensure cursor changes on hover */
+  font-size:14px;
 }
 
 

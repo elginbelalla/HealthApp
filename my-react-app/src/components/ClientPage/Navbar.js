@@ -1,10 +1,17 @@
-import { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-
   const navigate = useNavigate();
+
+  // State to manage showing the user menu
+  const [showUserMenu, setShowUserMenu] = useState(false);
+
+  // Function to toggle the user menu
+  const toggleUserMenu = () => {
+    setShowUserMenu(!showUserMenu);
+  };
 
   const onHomePageTextClick = useCallback(() => {
     navigate("/clientpage");
@@ -26,9 +33,13 @@ const Navbar = () => {
     navigate("/medical-records");
   }, [navigate]);
 
-  const onNutritionPlanTextClick = useCallback(() => {
-    
-  }, []);
+  const handleSettingsClick = () => {
+    navigate('/user-settings');
+  };
+
+  const handleLogoutClick = () => {
+    navigate('/');
+  };
 
   return (
     <header className={styles.navbar}>
@@ -40,7 +51,7 @@ const Navbar = () => {
       />
       <nav className={styles.topBar}>
         <nav className={styles.homePageParent}>
-        <div className={styles.homePage} onClick={onHomePageTextClick}>
+          <div className={styles.homePage} onClick={onHomePageTextClick}>
             Home Page
           </div>
           <div className={styles.aboutUs} onClick={onAboutUsTextClick}>
@@ -50,7 +61,7 @@ const Navbar = () => {
             className={styles.bookAppointement}
             onClick={onBookAppointementTextClick}
           >
-            Book Appointement
+            Book Appointment
           </div>
           <div className={styles.requestTest} onClick={onRequestTestTextClick}>
             Request Test
@@ -61,12 +72,6 @@ const Navbar = () => {
           >
             Medical History
           </div>
-          <div
-            className={styles.nutritionPlan}
-            onClick={onNutritionPlanTextClick}
-          >
-            Nutrition Plan
-          </div>
         </nav>
       </nav>
       <div className={styles.userWrapper}>
@@ -75,7 +80,14 @@ const Navbar = () => {
           loading="lazy"
           alt=""
           src="/user.svg"
+          onClick={toggleUserMenu} // Toggle menu when user icon is clicked
         />
+        {showUserMenu && (
+          <div className={styles.userMenu}>
+            <div className={styles.userMenuItem} onClick={handleSettingsClick} >Settings</div>
+            <div className={styles.userMenuItem} onClick={handleLogoutClick} >Log out</div>
+          </div>
+        )}
       </div>
     </header>
   );

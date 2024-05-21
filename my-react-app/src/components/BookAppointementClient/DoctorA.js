@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import { useMemo, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./DoctorA.module.css";
 
 const DoctorA = ({
@@ -9,6 +10,8 @@ const DoctorA = ({
   propWidth,
   propPadding1,
 }) => {
+  const navigate = useNavigate();
+
   const doctorAStyle = useMemo(() => {
     return {
       gap: propGap,
@@ -28,11 +31,13 @@ const DoctorA = ({
     };
   }, [propPadding1]);
 
-
   const handleBookTextClick = () => {
-
     window.location.href = '/calendly';
   };
+
+  const handleChatTextClick = useCallback(() => {
+    navigate("/doctor-chat");
+  }, [navigate]);
 
   return (
     <div className={styles.doctora} style={doctorAStyle}>
@@ -55,16 +60,17 @@ const DoctorA = ({
             <div className={styles.doctorBookingChild} />
             <div className={styles.book} onClick={handleBookTextClick}>Book</div>
           </div>
-          <div className={styles.doctorDetails} style={doctorDetailsStyle}>
-            <div className={styles.doctorThumbnails}>
-              <img
-                className={styles.thumbnailImagesIcon}
-                alt=""
-                src="/frame.svg"
-              />
-              <div className={styles.thumbnailSpacing}>
-                <div className={styles.spacingElements}>5.0</div>
-              </div>
+          <div className={styles.chat} onClick={handleChatTextClick}>Chat</div>
+        </div>
+        <div className={styles.doctorDetails} style={doctorDetailsStyle}>
+          <div className={styles.doctorThumbnails}>
+            <img
+              className={styles.thumbnailImagesIcon}
+              alt=""
+              src="/frame.svg"
+            />
+            <div className={styles.thumbnailSpacing}>
+              <div className={styles.spacingElements}>5.0</div>
             </div>
           </div>
         </div>
