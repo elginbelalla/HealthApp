@@ -1,99 +1,63 @@
+import React, { useState, useEffect } from "react";
 import DoctorA from "./DoctorA";
 import styles from "./ClinicListing.module.css";
-import { NavLink } from "react-router-dom";
-
 
 const DoctorListing = () => {
+  const [doctors, setDoctors] = useState([]);
+
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const response = await fetch("http://localhost/HealthApp/api/getDoctors", {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          const responseData = await response.json();
+          setDoctors(responseData.data);
+          console.log(responseData.data);
+        } else {
+          console.log("Failed to fetch clinics:", await response.text())
+        }
+      } catch (error) {
+        console.error("Error fetching clinics:", error.message);
+      }
+    };
+
+    // Call fetchDoctors function when the component mounts
+    fetchDoctors();
+  }, []); // Empty dependency array to ensure useEffect runs only once
+
   return (
     <section className={styles.clinicListing}>
       <div className={styles.clinicOptions}>
-        <DoctorA
-          d17c77810d0afc9bdb1cb7fbd="/3d17c77810d0afc9bdb1cb7fbd1aef2d-1@2x.png"
-          doctorA="DoctorA"
-        />
-        <DoctorA
-          d17c77810d0afc9bdb1cb7fbd="/3d17c77810d0afc9bdb1cb7fbd1aef2d-1-1@2x.png"
-          doctorA="DoctorB"
-        />
-        <DoctorA
-          d17c77810d0afc9bdb1cb7fbd="/3d17c77810d0afc9bdb1cb7fbd1aef2d-1-1@2x.png"
-          doctorA="DoctorC"
-        />
-        <DoctorA
-          d17c77810d0afc9bdb1cb7fbd="/3d17c77810d0afc9bdb1cb7fbd1aef2d-1-1@2x.png"
-          doctorA="DoctorD"
-        />
-        <DoctorA
-          d17c77810d0afc9bdb1cb7fbd="/3d17c77810d0afc9bdb1cb7fbd1aef2d-1-1@2x.png"
-          doctorA="DoctorE"
-        />
-        <DoctorA
-          d17c77810d0afc9bdb1cb7fbd="/3d17c77810d0afc9bdb1cb7fbd1aef2d-1-1@2x.png"
-          doctorA="DoctorF"
-        />
-        <DoctorA
-          d17c77810d0afc9bdb1cb7fbd="/3d17c77810d0afc9bdb1cb7fbd1aef2d-1-1@2x.png"
-          doctorA="DoctorH"
-        />
-        <DoctorA
-          d17c77810d0afc9bdb1cb7fbd="/3d17c77810d0afc9bdb1cb7fbd1aef2d-1-1@2x.png"
-          doctorA="DoctorG"
-        />
-<footer className={styles.footer}>
-      <div className={styles.footerContent}>
-        <div className={styles.bottombar}>
-          <div className={styles.items}>
-            <div className={styles.aboutUs}>
-              <NavLink to="/aboutus" className={styles.link}>
-                About Us
-              </NavLink>
+        {doctors.map((doctor) => (
+          <DoctorA
+            d17c77810d0afc9bdb1cb7fbd={"/3d17c77810d0afc9bdb1cb7fbd1aef2d-1@2x.png"}
+            doctorA={`${doctor.name} ${doctor.lastName}`}
+            id={doctor.doctorId}
+          />
+        ))}
+      </div>
+      <footer className={styles.footer}>
+        <div className={styles.footerContent}>
+          <div className={styles.bottombar}>
+            <div className={styles.items}>
+              <div className={styles.aboutUs}>About Us</div>
+              <div className={styles.emergencyNum}>Emergency Numbers</div>
+              <div className={styles.reviews}>Reviews</div>
+              <div className={styles.privacyPolicy}>Privacy Policy</div>
+              <div className={styles.termsOfUse}>Terms of Use</div>
             </div>
-
-            <div className={styles.emergencyNum}>
-              <a
-                href="https://tirana.embassy.qa/en/republic-of-albania/important-phones"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Emergency Numbers
-              </a>
-            </div>
-
-            <div className={styles.reviews}>
-              <NavLink to="/clinic-reviews" className={styles.link}>
-                Reviews
-              </NavLink>
-            </div>
-
-            <div className={styles.privacyPolicy}>
-              <a
-                href="https://www.freeprivacypolicy.com/live/60dc5000-d7c2-4b92-8209-cab2be28c6e3"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Privacy Policy
-              </a>
-            </div>
-
-            <div className={styles.termsOfUse}>
-              <a
-                href="https://www.termsofusegenerator.net/live.php?token=cLMGUkrecP8YO0WnQqJMZZm1TxG80ll2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Terms Of Use
-              </a>
-            </div>
-
             <div className={styles.allRightsReserved}>
               © 2024, All Rights Reserved
             </div>
           </div>
         </div>
-      </div>
-    </footer>
-
-      </div>
+      </footer>
     </section>
   );
 };

@@ -6,6 +6,7 @@ const ClinicA = ({
   clinicA,
   propPadding,
   propMinWidth,
+  id,
 }) => {
   const clinicAStyle = useMemo(() => {
     return {
@@ -20,8 +21,27 @@ const ClinicA = ({
   }, [propMinWidth]);
 
   const handleBookTextClick = () => {
+    const fetchClinics = async () => {
+      try {
+        const response = await fetch("http://localhost/HealthApp/api/setClinicAppointment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ clinicId: id }),
+        });
 
-    window.location.href = '/calendly';
+        if (response.ok) {
+          window.location.href = '/calendly';
+        } else {
+          console.error("Failed to fetch clinics:", await response.text());
+        }
+      } catch (error) {
+        console.error("Error fetching clinics:", error.message);
+      }
+    };
+
+    fetchClinics();
   };
 
   return (

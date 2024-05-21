@@ -95,24 +95,57 @@ class Client
         return $stmt->findColumn();
     }
 
-    public static function getClientBirthById($clientId){
+    public static function getClientBirthById($clientId)
+    {
         $conn = App::resolve(Database::class);
         $sql = "SELECT * FROM clientinfo WHERE clientId = :clientId LIMIT 1";
         $conn = $conn->query($sql, [':clientId' => $clientId]);
         return $conn->find(PDO::FETCH_ASSOC);
     }
 
-    public static function getClientsDoctorNotesById($clientId){
+    public static function getClientsDoctorNotesById($clientId)
+    {
         $conn = App::resolve(Database::class);
         $sql = "SELECT * FROM doctorNotes WHERE clientId = :clientId LIMIT 1";
         $stmt = $conn->prepare($sql);
         $stmt->execute([':clientId' => $clientId]);
-        
+
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($result === false || empty($result['diagnosis'])) {
-            return ['diagnosis' => 'To be decided']; 
+            return ['diagnosis' => 'To be decided'];
         }
         return $result;
     }
-}
 
+    public static function getAllClinics()
+    {
+        $columns = ['clinicId', 'clinicName', 'clinicAddress', 'clinicPhoneNo', 'clinicInfo', 'clinicLogo'];
+        $conn = App::resolve(Database::class);
+        $sql = "SELECT " . implode(", ", $columns) . " FROM clinic";
+        $conn = $conn->query($sql);
+        return $conn->get(PDO::FETCH_ASSOC);
+    }
+
+    public static function getAllDoctors()
+    {
+        $columns = ['doctorId', 'name', 'lastName', 'email', 'specialty', 'phoneNo', 'address', 'profileInfo'];
+        $conn = App::resolve(Database::class);
+        $sql = "SELECT " . implode(", ", $columns) . " FROM doctor";
+        $conn = $conn->query($sql);
+        return $conn->get(PDO::FETCH_ASSOC);
+    }
+
+    public static function setClinicAppointment($clientID, $clinicId)
+    {
+        $conn = App::resolve(Database::class);
+        $sql = "INSERT INTO appointment (clientId, clinicId) VALUES (:clientId, :clinicId)";
+        $conn = $conn->query($sql, [':clientId' => $clientID, ':clinicId' => $clinicId]);
+    }
+
+    public static function setDoctorAppointment($clientID, $doctorId)
+    {
+        $conn = App::resolve(Database::class);
+        $sql = "INSERT INTO appointment (clientId, doctorId) VALUES (:clientId, :doctorId)";
+        $conn = $conn->query($sql, [':clientId' => $clientID, ':doctorId' => $doctorId]);
+    }
+}

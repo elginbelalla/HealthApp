@@ -1,5 +1,4 @@
-import { useMemo, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useMemo } from "react";
 import styles from "./DoctorA.module.css";
 
 const DoctorA = ({
@@ -9,9 +8,8 @@ const DoctorA = ({
   propPadding,
   propWidth,
   propPadding1,
+  id,
 }) => {
-  const navigate = useNavigate();
-
   const doctorAStyle = useMemo(() => {
     return {
       gap: propGap,
@@ -31,13 +29,30 @@ const DoctorA = ({
     };
   }, [propPadding1]);
 
-  const handleBookTextClick = () => {
-    window.location.href = '/calendly';
-  };
 
-  const handleChatTextClick = useCallback(() => {
-    navigate("/doctor-chat");
-  }, [navigate]);
+  const handleBookTextClick = () => {
+    const fetchClinics = async () => {
+      try {
+        const response = await fetch("http://localhost/HealthApp/api/setDoctorAppointment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ doctorId: id }),
+        });
+
+        if (response.ok) {
+          window.location.href = '/calendly';
+        } else {
+          console.error("Failed to fetch clinics:", await response.text());
+        }
+      } catch (error) {
+        console.error("Error fetching clinics:", error.message);
+      }
+    };
+
+    fetchClinics();
+  };
 
   return (
     <div className={styles.doctora} style={doctorAStyle}>
@@ -60,17 +75,16 @@ const DoctorA = ({
             <div className={styles.doctorBookingChild} />
             <div className={styles.book} onClick={handleBookTextClick}>Book</div>
           </div>
-          <div className={styles.chat} onClick={handleChatTextClick}>Chat</div>
-        </div>
-        <div className={styles.doctorDetails} style={doctorDetailsStyle}>
-          <div className={styles.doctorThumbnails}>
-            <img
-              className={styles.thumbnailImagesIcon}
-              alt=""
-              src="/frame.svg"
-            />
-            <div className={styles.thumbnailSpacing}>
-              <div className={styles.spacingElements}>5.0</div>
+          <div className={styles.doctorDetails} style={doctorDetailsStyle}>
+            <div className={styles.doctorThumbnails}>
+              <img
+                className={styles.thumbnailImagesIcon}
+                alt=""
+                src="/frame.svg"
+              />
+              <div className={styles.thumbnailSpacing}>
+                <div className={styles.spacingElements}>5.0</div>
+              </div>
             </div>
           </div>
         </div>
