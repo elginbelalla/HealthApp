@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
@@ -16,6 +17,11 @@ import './staff.css'; // Import external CSS file
 import { Stack } from 'react-bootstrap';
 
 export default function StaffManagement() {
+    const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    navigate('/clinic/staffmanagement/doctor-details');
+  };
 
   return (
     <>
@@ -35,7 +41,6 @@ export default function StaffManagement() {
                       <Typography variant="h5" component="div" className="user">
                          Name
                       </Typography>
-
                        <Box className="staff-position">
                         <PeopleAltOutlinedIcon className='staff-icon'/>
                         <Typography variant="body1" component="div" className="user">
@@ -57,6 +62,7 @@ export default function StaffManagement() {
                       size="small"
                       variant="contained"
                       className="view-more"
+                      onClick={handleViewDetails}
                     >
                       View Details
                     </Button>

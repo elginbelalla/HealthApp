@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import {useEffect, useState} from "react";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import SortIcon from '@mui/icons-material/Sort';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -93,7 +93,7 @@ export default function SearchStaffBar({ onSearch, onSort }) {
               onChange={handleSearchChange}
             />  
           </Search>
-          <SortIcon
+          <MenuOutlinedIcon
           sx={{color:'#4da4d0'}}
           aria-controls={open ? 'basic-menu' : undefined}
           aria-haspopup="true"
@@ -109,8 +109,9 @@ export default function SearchStaffBar({ onSearch, onSort }) {
           'aria-labelledby': 'basic-button',
            }}
            >
-            <MenuItem onClick={handleSortAtoZClick}>Sort A-Z</MenuItem>
-            <MenuItem onClick={handleSortByDateClick}>Sort by date</MenuItem>
+            <MenuItem >Department 1</MenuItem>
+            <MenuItem >Department 2</MenuItem>
+            <MenuItem>Department 3</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

@@ -34,6 +34,8 @@ import ClinicSettings from "./pages/Clinic/Settings/ClinicSettings";
 import ClinicBookRequests from "./pages/Clinic/BookingRequests/ClinicBookRequests";
 import StaffManagement from "./pages/Clinic/Staff Management/ClinicStaff";
 import ClinicDashboard from "./pages/Clinic/ClinicDashboard";
+import DoctorDetails from "./pages/Clinic/Staff Management/DoctorDetails";
+import PatientRecords from "./pages/Clinic/PatientRecords/PatientRecords";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminSettings from "./pages/Admin/AdminSettings";
 
@@ -112,6 +114,8 @@ function App() {
       <Route path="/clinic/settings/" element={<ClinicSettings/>} />
       <Route path="/clinic/booking-request/" element={<ClinicBookRequests/>} />
       <Route path="/clinic/staffmanagement" element={<StaffManagement/>} />
+      <Route path="/clinic/staffmanagement/doctor-details" element={<DoctorDetails/>} />
+      <Route path="/clinic/patientrecords" element={<PatientRecords/>} />
       <Route path="/admin/dashboard/" element={<AdminDashboard/>} />
       <Route path="/admin/settings/" element={<AdminSettings/>} />
 

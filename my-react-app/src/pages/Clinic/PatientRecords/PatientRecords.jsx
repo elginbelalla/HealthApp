@@ -12,13 +12,13 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import { useLocation } from 'react-router-dom';
-import DoctorAppBar from '../../../components/NavBar/DoctorAppBar';
-import DoctorNavbar from '../../../components/NavBar/DoctorNavbar';
-import SearchPatientBar from './StaffBar';
-import PatientForm from './DoctorPatientForm'; // Import the new PatientForm component
+import ClinicAppBar from '../../../components/NavBar/ClinicAppBar';
+import ClinicNavbar from '../../../components/NavBar/ClinicNavbar';
+import SearchPatientBar from '../../Doctor/Doctor Patient/PatientBar';
+import PatientForm from '../../Doctor/Doctor Patient/DoctorPatientForm';
 import './patient.css'; // Import external CSS file
 
-export default function DoctorPatients() {
+export default function PatientRecords() {
   const location = useLocation();
   const doctorId = location.state ? location.state.id : null;
   console.log(doctorId);
@@ -28,10 +28,11 @@ export default function DoctorPatients() {
   const [patients, setPatients] = useState([]);
   const [filteredPatients, setFilteredPatients] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortMode, setSortMode] = useState('name');
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [sortMode]);
 
   const fetchData = async () => {
     try {
@@ -47,6 +48,7 @@ export default function DoctorPatients() {
         const data = await response.json();
         setPatients(data);
         setFilteredPatients(data);
+        const sortedData = sortPatients(data, sortMode);
       } else {
         console.error('Failed to fetch previous data: bad res', await response.text());
       }
@@ -72,16 +74,32 @@ export default function DoctorPatients() {
     setFilteredPatients(filteredPatients);
   };
 
+  const handleSort = (mode) => {
+    setSortMode(mode);
+    const sortedPatients = sortPatients([...filteredPatients], mode);
+    setFilteredPatients(sortedPatients);
+  };
+
+  const sortPatients = (patientsArray, mode) => {
+    if (mode === 'name') {
+      return patientsArray.sort((a, b) => a.clientName.localeCompare(b.clientName));
+    } else if (mode === 'date') {
+      return patientsArray.sort((a, b) => new Date(b.dateOfBirth) - new Date(a.dateOfBirth));
+    }
+    return patientsArray;
+  };
+
   return (
     <>
     <div className="doctor-body">
-      <DoctorAppBar />
-      <Box height={60} />
+    <ClinicAppBar
+    />
+    <Box height={60} />
       <Box sx={{ display: 'flex' }}>
-        <DoctorNavbar id={doctorId} />
+        <ClinicNavbar/>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Paper className="body-container">
-            <SearchPatientBar onSearch={handleSearch} />
+            <SearchPatientBar onSearch={handleSearch} onSort ={handleSort}/>
             <Box className="card-container">
               {filteredPatients.map((patient, index) => (
                 <Card className="patient-card" key={index}>
