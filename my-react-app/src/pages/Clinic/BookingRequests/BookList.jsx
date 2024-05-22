@@ -13,8 +13,9 @@ import Box from '@mui/material/Box';
 import SearchBookBar from './bookRequestBar';
 import './bookList.css';
 
+
 const columns = [
-  { id: 'id', label: 'Patient ID', minWidth: 50 },
+  { id: 'id', label: 'Patient ID', minWidth: 50 , className:'id-column'},
   { id: 'user', label: 'Patient', minWidth: 130 },
   { id: 'doctor', label: 'Doctor', minWidth: 100 },
   { id: 'time', label: 'Time', minWidth: 100 },
@@ -159,7 +160,6 @@ const BookList = () => {
             <TableRow>
               {columns.map((column) => (
                 <TableCell key={column.id} align="center" style={{ minWidth: column.minWidth, color: '#959494' }}>
-                  {column.label}
                 </TableCell>
               ))}
             </TableRow>
@@ -167,7 +167,7 @@ const BookList = () => {
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
               <TableRow key={row.id}>
-                <TableCell align="center">{row.id}</TableCell>
+                <TableCell align="center" className='id-column'>{row.id}</TableCell>
                 <TableCell align="center">{row.user}</TableCell>
                 <TableCell align="center">{row.doctor}</TableCell>
                 <TableCell align="center">{`${row.startTime} - ${row.endTime}`}</TableCell>

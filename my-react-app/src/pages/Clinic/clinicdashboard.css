@@ -1,0 +1,73 @@
+.body-container {
+    display: flex;
+    flex-direction: column;
+    font-family: var(font-poppins);
+    height: 100%;
+  }
+  
+  .upper-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .table-req{
+    border: 10px solid #def2fd;
+   }
+
+   
+   .card-content{
+    border: 10px solid #def2fd;
+   }
+
+   .clinic-label{
+   
+    font-size: 0.2rem;
+    font-weight: 600;
+    color: #2a5f71 ;
+   }
+
+   .cell-title{
+    color: #959494!important;
+   
+   }
+   
+   .action-column{
+    color: #959494!important;
+   }
+  
+  .element {
+    background-color: white;
+    padding: 16px;
+    margin: 8px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    margin: 10px;
+    min-width: 250px;
+  }
+  
+  #element3 {
+    width: 100%;
+    
+  }
+  
+  @media (max-width: 1000px) {
+    .upper-container {
+      flex-direction: column;
+
+    }
+   
+  }
+
+
+  @media(max-width: 1200px){
+    .action-column {
+      display: none!important;
+    }
+  }
+
+  
+   

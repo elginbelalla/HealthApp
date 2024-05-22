@@ -44,7 +44,7 @@ export default function StaffManagement() {
                        <Box className="staff-position">
                         <PeopleAltOutlinedIcon className='staff-icon'/>
                         <Typography variant="body1" component="div" className="user">
-                           Department
+                           Specialty
                         </Typography>
                         </Box>
 

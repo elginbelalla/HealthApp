@@ -23,3 +23,21 @@
     background-color: #e2526c!important;
 }
 
+
+@media(max-width: 1200px){
+    .id-column {
+      display: none!important;
+    }
+
+    .accept, .decline{
+        width: 1rem!important;
+        font-size: 0.6rem!important;
+    
+    }
+    .clinic-button-container{
+        justify-content: flex-start;
+    }    
+  }
+
+  
+

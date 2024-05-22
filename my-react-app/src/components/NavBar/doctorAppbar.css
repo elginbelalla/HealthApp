@@ -1,20 +1,32 @@
-.logo {
-    width: 10rem; /* Set the initial size of the image */
+  .logo-container{
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    cursor: pointer;
+    margin-right: 3.3rem;
+  }
+
+  .logo{
+    width: 1.4rem!important; /* Set the initial size of the image */
     height: auto; /* Maintain aspect ratio */
   }
-  
-  .clickable:hover {
-    cursor: pointer; /* Change cursor to pointer on hover */
+
+  .logoName{
+    color: #4c869a;
+    font-family: var(--font-poppins);
+    font-size: 1.2rem;
+    font-weight: 500;
+    align-content: center;
   }
   
-  .clickable:active {
-    opacity: 0.7; /* Reduce opacity when clicked */
-  }
+  
 
   .pageIndicator{
     color: #4c869a;
     font-family: var(--font-poppins);
-    font-weight: 10;
+    font-weight: 200;
+    font-size: 1.5rem!important;
+  
   }
 
   .box-item{

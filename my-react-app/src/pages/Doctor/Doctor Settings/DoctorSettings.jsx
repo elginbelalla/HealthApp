@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import DoctorAppBar from "../../../components/NavBar/DoctorAppBar";
 import Paper from '@mui/material/Paper';
 import List from "./List";
+import '../doc_style.css'
 import { useLocation  } from "react-router-dom";
 
 

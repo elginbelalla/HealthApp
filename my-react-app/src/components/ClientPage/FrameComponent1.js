@@ -1,6 +1,18 @@
 import styles from "./FrameComponent1.module.css";
+import { useNavigate } from 'react-router-dom';
 
 const FrameComponent1 = () => {
+
+  const navigate = useNavigate();
+
+  const handleBookAppointment = () => {
+    navigate('/booking-page');
+  };
+
+  const handleAccessHistory = () => {
+    navigate('/medical-records');
+  };
+
   return (
     <div className={styles.servicesWrapper}>
       <div className={styles.services}>
@@ -13,9 +25,9 @@ const FrameComponent1 = () => {
               src="/-icon-stethoscope.svg"
             />
           </div>
-          <div className={styles.bookAnAppointmentParent}>
+          <div className={styles.bookAnAppointmentParent} onClick={handleBookAppointment}>
             <div
-              className={styles.bookAnAppointment}
+              className={styles.bookAnAppointment}  
             >{`Book an appointment `}</div>
             <div className={styles.bookAnAppointmentWithOurPWrapper}>
               <div className={styles.bookAnAppointment1}>
@@ -26,7 +38,7 @@ const FrameComponent1 = () => {
             </div>
           </div>
         </div>
-        <div className={styles.medicalhistory}>
+        <div className={styles.medicalhistory} onClick={handleAccessHistory}> 
           <div className={styles.groupWrapper}>
             <img
               className={styles.groupIcon}

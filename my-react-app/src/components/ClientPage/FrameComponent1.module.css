@@ -69,6 +69,7 @@
   box-sizing: border-box;
   gap: var(--gap-4xl);
   align-items:center;
+  cursor: pointer;
 }
 .groupIcon {
   height: 4rem;
@@ -141,6 +142,7 @@
   padding: var(--padding-30xl) var(--padding-19xl);
   gap: var(--gap-4xl);
   align-items:center;
+  cursor: pointer;
 }
 
 
@@ -207,7 +209,7 @@
   box-sizing: border-box;
   gap: var(--gap-4xl);
   align-items:center;
-
+ cursor: pointer;
 }
 
 

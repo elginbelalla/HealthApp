@@ -83,23 +83,24 @@ export default function ClinicAppBar({ doctorId }) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ height: '60px', background: 'transparent' }}>
+      <AppBar position="absolute" sx={{ height: '60px', background: 'transparent' }}>
         <Toolbar>
+          <div className='logo-container'>
           <img
-            className="logo clickable"
-            src="/logo@2x.png"
+            className="logo"
+            src='/logo.png'
             alt="Logo"
-            onClick={() => navigate('/')}
           />
+          <span className='logoName'>MedInteract</span>
+          </div>
 
           <Typography
-            variant="h5"
             noWrap
             component="div"
-            className="pageIndicator"
-            sx={{ display: { xs: 'none', sm: 'block' }, paddingLeft: '60px' }}
+            className = "pageIndicator"
+            sx={{marginLeft:'21px'}}
           >
-            Welcome
+            Welcome Clinic
           </Typography>
 
           <Box sx={{ flexGrow: 1 }} />

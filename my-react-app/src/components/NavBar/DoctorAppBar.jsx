@@ -119,22 +119,21 @@ export default function DoctorAppBar({ doctorId }) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ height: '60px', background: 'transparent' }}>
+      <AppBar position="absolute" sx={{ height: '60px', background: 'transparent' }}>
         <Toolbar>
+          <div className='logo-container'>
           <img
-            className="logo clickable"
-            src='/logo@2x.png'
+            className="logo"
+            src='/logo.png'
             alt="Logo"
-            
           />
+          <span className='logoName'>MedInteract</span>
+          </div>
 
           <Typography
-            variant="h6"
             noWrap
             component="div"
             className = "pageIndicator"
-            sx={{ display: { xs: 'none', sm: 'block' }, paddingLeft:'40px' }}
-
           >
             Welcome Dr. {doctorName}
           </Typography>

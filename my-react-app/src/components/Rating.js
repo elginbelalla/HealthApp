@@ -5,6 +5,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { styled } from '@mui/system';
 import LinearProgress from '@mui/material/LinearProgress';
 
+
 const RatingBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -33,9 +34,15 @@ const BarLabel = styled(Typography)(({ theme }) => ({
   minWidth: 35,
 }));
 
+const CustomStarIcon = styled(StarIcon)(({ theme }) => ({
+  color: '#52b2e2', // Change this color to whatever you prefer
+}));
+
 const RatingComponent = ({ rating, ratingCount }) => {
   const totalRatingsCount = ratingCount.reduce((acc, count) => acc + count, 0);
   const ratingLabels = ['1', '2', '3', '4', '5'];
+
+
 
   return (
     <Box>
@@ -43,7 +50,7 @@ const RatingComponent = ({ rating, ratingCount }) => {
       <RatingBox>
         <StarRating>
           {rating}
-          <StarIcon color="primary" fontSize="large" />
+          <CustomStarIcon  fontSize="large"/>
         </StarRating>
         <StarCount>({totalRatingsCount.toLocaleString()})</StarCount>
       </RatingBox>
