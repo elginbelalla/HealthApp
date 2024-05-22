@@ -17,12 +17,15 @@ export default function DoctorMessages (){
   return(
     <>
     <div className="doctor-body">
-    <DoctorAppBar/>
+    <DoctorAppBar
+       doctorId={doctorId}
+    />
     <Box height={60} />
     <Box sx={{ display: 'flex' }}>
     <DoctorNavbar
-    doctorId={doctorId}
-    />     <Box component="main" sx={{ flexGrow: 1, p: 3}}>
+      id={doctorId}
+      />     
+      <Box component="main" sx={{ flexGrow: 1, p: 3}}>
        <Stack direction={"row"} spacing={2}>   
            <Chats/>
            <Conversation/>

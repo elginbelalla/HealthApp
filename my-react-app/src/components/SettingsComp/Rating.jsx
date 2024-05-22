@@ -5,19 +5,14 @@ import Typography from '@mui/material/Typography';
 import ProgressBar from './ProgressBar';
 import './rating.css';
 
-const ratingsData = [
-  { stars: 5, count: 200000 },
-  { stars: 4, count: 150000 },
-  { stars: 3, count: 100000 },
-  { stars: 2, count: 30000 },
-  { stars: 1, count: 20000 },
-];
 
-export default function RatingStar() {
-  const totalRatings = ratingsData.reduce((acc, value) => acc + value.count, 0);
-  const averageRating =
-    ratingsData.reduce((acc, value) => acc + value.stars * value.count, 0) / totalRatings;
+export default function RatingStar({ratingData}) {
+  const totalRatings = ratingData.reduce((acc, rating) => acc + rating.count, 0);
+  const weightedSum = ratingData.reduce((acc, rating) => acc + rating.stars * rating.count, 0);
 
+  const averageRating = weightedSum / totalRatings;
+
+    
   return (
     <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
       <Box sx={{ mr: 4 }} className="rating-box">
@@ -29,15 +24,15 @@ export default function RatingStar() {
           precision={0.5}
           readOnly
         />
-        <Typography component="legend">234,222</Typography>
+        <Typography component="legend">{totalRatings}</Typography>
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: '100%' }}>
-        {ratingsData.map((rating) => (
+        {ratingData.map((rating) => (
           <ProgressBar
             key={rating.stars}
             label={rating.stars}
             value={rating.count}
-            max={500000}
+            max={totalRatings}
             count={rating.count}
           />
         ))}

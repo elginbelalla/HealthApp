@@ -259,4 +259,46 @@ public static function findClinicById($clinicId){
     $stmt = $conn->query($sql, [':clinicId' => $clinicId]);
     return $stmt->find(PDO::FETCH_ASSOC);
 }
+
+public static function getTestResultsWithNullDocumentCountByDoctorId($doctorId){
+    try {
+        $conn = App::resolve(Database::class);
+        $sql = "SELECT COUNT(*) AS test_count FROM testresultlist WHERE doctorId = :doctorId AND document IS NULL";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([':doctorId' => $doctorId]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['test_count'];
+    } catch (PDOException $e) {
+        die("Error fetching test results count: " . $e->getMessage());
+    }
+}
+
+public static function findAppointmensCountByDoctorId($doctorId){
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT COUNT(*) AS appointment_count FROM appointment WHERE doctorId = :doctorId";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':doctorId' => $doctorId]);
+    
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result['appointment_count'];
+}
+
+public static function getPatientCountByDoctorId($doctorId){
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT COUNT(*) AS patient_count FROM appointment WHERE doctorId = :doctorId";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':doctorId' => $doctorId]);
+    
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result['patient_count'];
+}
+
+public static function getDoctorReviewsByDoctorId($doctorId){
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT * FROM doctorratings WHERE doctorId = :doctorId ORDER BY dateOfReview DESC LIMIT 5";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':doctorId' => $doctorId]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 }

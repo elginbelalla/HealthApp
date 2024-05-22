@@ -14,6 +14,7 @@ $router->get('/HealthApp/api/getFamilyHealth', 'Client/getFamilyHealth');
 $router->post('/HealthApp/api/saveFamilyHealth', 'Client/setFamilyHealth');
 
 $router->post('/HealthApp/api/getDashboard', 'Doctor/getDashboard');
+$router->post('/HealthApp/api/getAppBar', 'Doctor/getAppBar');
 
 $router->post('/HealthApp/api/getPatients', 'Doctor/getPatients');
 $router->post('/HealthApp/api/getPatientSearchBar', 'Doctor/getPatientSearchBar');
@@ -29,6 +30,7 @@ $router->post('/HealthApp/api/setTestFile', 'Doctor/setTestFile');
 $router->post('/HealthApp/api/getDoctorProfile', 'Doctor/getDoctorProfile');
 $router->post('/HealthApp/api/setDoctorProfile', 'Doctor/setDoctorProfile');
 $router->post('/HealthApp/api/setDoctorSecurity', 'Doctor/setDoctorSecurity');
+$router->post('/HealthApp/api/getDoctorPerformance', 'Doctor/getDoctorPerformance');
 
 $router->post('/HealthApp/api/setClinicAppointment', 'Client/setClinicAppointment');
 $router->post('/HealthApp/api/setDoctorAppointment', 'Client/setDoctorAppointment');

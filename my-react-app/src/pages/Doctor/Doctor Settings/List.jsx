@@ -100,7 +100,9 @@ export default function List({ doctorId }) {
         />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <DoctorPerformance/>
+        <DoctorPerformance 
+        doctorId = {doctorId}
+        />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <DoctorSecurity

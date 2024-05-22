@@ -34,6 +34,8 @@ export default function DoctorAppBar({ doctorId }) {
   const dopen = userAppStore((state) => state.dopen);
   const navigate = useNavigate();
   const [doctorName, setDoctorName] = useState('');
+  const [notificationCount, setNotificationCount] = useState('');
+
 
   useEffect( () => {
     fetchData();
@@ -42,7 +44,7 @@ export default function DoctorAppBar({ doctorId }) {
   const fetchData = async () =>{
     try {
 
-      const response = await fetch(`http://localhost/HealthApp/api/getDashboard`, {
+      const response = await fetch(`http://localhost/HealthApp/api/getAppBar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,6 +57,7 @@ export default function DoctorAppBar({ doctorId }) {
         try {
           const data = JSON.parse(responseText);
           setDoctorName(data.doctorName);
+          setNotificationCount(data.labRequestsCount);
 
         } catch (jsonError) {
           console.error("Failed to parse JSON:", jsonError);
@@ -105,10 +108,10 @@ export default function DoctorAppBar({ doctorId }) {
       <MenuItem>
         <IconButton
           size="large"
-          aria-label="show 17 new notifications"
+          aria-label="show {notificationCount} new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
+          <Badge badgeContent={notificationCount} color="error">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -151,12 +154,12 @@ export default function DoctorAppBar({ doctorId }) {
             </IconButton>
             <IconButton
               size="large"
-              aria-label="show 17 new notifications"
+              aria-label="show {notificationCount} new notifications"
               color="inherit"
               onClick={() => navigate("/doctor/tests", {state: { id: doctorId }})}
               
             >
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={notificationCount} color="error">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
@@ -179,7 +182,7 @@ export default function DoctorAppBar({ doctorId }) {
             size="large"
             aria-label="account of current user"
             aria-haspopup="true"
-            onClick={() => navigate("/doctor/settings")}
+            onClick={() => navigate("/doctor/settings", {state: { id: doctorId }})}
             color="inherit"
           >
             <AccountCircle style={{color:'#4c869a'}}/>

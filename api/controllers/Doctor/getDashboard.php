@@ -77,7 +77,7 @@ try {
         $appointment['clientNameApp'] = $clientNameApp;
     }
 
-    foreach ($labRequests as &$requests) {
+    foreach ($labRequests as $requests) {
         $clientId = $requests['clientId'];
         $clientNameReq = Client::findById($clientId)['name'];
         $requests['clientNameReq'] = $clientNameReq;

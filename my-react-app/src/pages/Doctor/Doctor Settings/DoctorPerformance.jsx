@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
@@ -21,17 +21,53 @@ function refreshMessages() {
   );
 }
 
-export default function DoctorPerformance() {
+
+export default function DoctorPerformance({ doctorId }) {
   const [value, setValue] = React.useState(0);
   const ref = React.useRef(null);
   const [messages, setMessages] = React.useState(() => refreshMessages());
   const isSmallScreen = useMediaQuery('(max-width:900px)');
+  const [ratings, setRatings] = useState([]);
+  const [appointmentCount, setAppointmentCount] = useState('');
+  const [patientCount, setPatientCount] = useState('');
+  const [reviews, setReviews] = useState([]);
 
   React.useEffect(() => {
     ref.current.ownerDocument.body.scrollTop = 0;
     setMessages(refreshMessages());
   }, [value, setMessages]);
 
+  useEffect(() => {
+    fetchInfo();
+  }, [doctorId]);
+
+  const fetchInfo = async () => {
+    try{
+      const response = await fetch(`http://localhost/HealthApp/api/getDoctorPerformance`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id: doctorId }),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            const transformedRatings = Object.keys(data.ratings).map(star => ({
+              stars: parseInt(star),
+              count: data.ratings[star]
+            }));
+
+            setRatings(transformedRatings);
+            setAppointmentCount(data.appointmentCount);
+            setPatientCount(data.patients);
+            setReviews(data.reviews);
+            console.log(reviews);
+        }
+    }catch (error){
+      console.error("Error fetching review data:", error);
+    }
+  };
   return (
     <Box sx={{ pb: 7, p: 2 }} ref={ref}>
       <CssBaseline />
@@ -41,16 +77,18 @@ export default function DoctorPerformance() {
             <Paper sx={{ p: 1, boxShadow: 'none' }}>
               <Typography className='header-title'>Ratings</Typography>
               <Box sx={{ boxShadow: 1, p: 2 }}>
-                <RatingStar />
+                <RatingStar 
+                ratingData = {ratings}
+                />
               </Box>
             </Paper>
             <Paper sx={{ p: 2, boxShadow: 'none', mt: 2 }}>
               <Typography className='header-title'>Number of Patients</Typography>
-              <Typography variant="h4" sx={{ boxShadow: 1, p: 3 }}>150</Typography>
+              <Typography variant="h4" sx={{ boxShadow: 1, p: 3 }}>{patientCount}</Typography>
             </Paper>
             <Paper sx={{ p: 2, boxShadow: 'none', mt: 2 }}>
               <Typography className='header-title'>Number of Appointments</Typography>
-              <Typography variant="h4" sx={{ boxShadow: 1, p: 3 }}>200</Typography>
+              <Typography variant="h4" sx={{ boxShadow: 1, p: 3 }}>{appointmentCount}</Typography>
             </Paper>
           </Box>
         </Grid>
@@ -58,12 +96,12 @@ export default function DoctorPerformance() {
           <Paper sx={{ p: 1, boxShadow: 'none', mt: isSmallScreen ? 2 : 0 }}>
             <Typography className='header-title'>Reviews</Typography>
             <List sx={{ boxShadow: 1, p: 1 }}>
-              {messages.map(({ primary, secondary, person }, index) => (
-                <ListItemButton key={index + person}>
+              {reviews.map((review, index) => (
+                <ListItemButton key={index}>
                   <ListItemAvatar>
-                    <Avatar alt="Profile Picture" src={person} />
+                    <Avatar alt="Profile Picture"/>
                   </ListItemAvatar>
-                  <ListItemText primary={primary} secondary={secondary} />
+                  <ListItemText primary={review.clientName || 'No client name provided'} secondary={review.review || 'No review provided'} />
                 </ListItemButton>
               ))}
             </List>
