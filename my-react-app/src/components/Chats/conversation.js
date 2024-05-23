@@ -5,6 +5,7 @@ import { styled } from '@mui/material/styles';
 import AttachFileOutlinedIcon from '@mui/icons-material/AttachFileOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import Message from "./message";
+
 const StyleInput = styled(TextField)(({ theme }) => ({
   "& .MuiInputBase-input": {
     paddingTop: "12px",
@@ -54,15 +55,18 @@ const Conversation = ({ selectedChat }) => {
   const [attachedFiles, setAttachedFiles] = useState([]);
 
   useEffect(() => {
-    // Reset the chat history when a new chat is selected
-    setChatHistory([]);
+    if (selectedChat) {
+      setChatHistory(selectedChat.messages || []);
+    } else {
+      setChatHistory([]);
+    }
   }, [selectedChat]);
 
   const handleAttachFile = (e) => {
     const files = e.target.files;
     const categorizedFiles = Array.from(files).map(file => {
       const extension = file.name.split('.').pop().toLowerCase();
-      const url = URL.createObjectURL(file);  // Ensure URL creation is correct
+      const url = URL.createObjectURL(file);
       if (['png', 'jpeg', 'jpg'].includes(extension)) {
         return { name: file.name, subtype: "img", img: url, message: "" };
       } else {
@@ -74,16 +78,15 @@ const Conversation = ({ selectedChat }) => {
 
   const handleMessageSend = () => {
     if (message.trim() === "" && attachedFiles.length === 0) {
-      return; // Exit early if there's no message or files attached
+      return;
     }
 
     const newMessages = [];
     const timestamp = new Date();
 
-    // Process attached files
     attachedFiles.forEach(file => {
       if (file.subtype === "img") {
-        const imgMessage = message.trim() !== "" ? message : ""; // Empty message if no text input
+        const imgMessage = message.trim() !== "" ? message : "";
         newMessages.push({
           type: "msg",
           message: imgMessage,
@@ -95,7 +98,7 @@ const Conversation = ({ selectedChat }) => {
           outgoing: true
         });
       } else {
-        const fileMessage = `${file.name} - ${message}`; // Use both file name and message for documents
+        const fileMessage = `${file.name} - ${message}`;
         newMessages.push({
           type: "msg",
           message: fileMessage,
@@ -108,7 +111,6 @@ const Conversation = ({ selectedChat }) => {
       }
     });
 
-    // Add message for detected URL if any
     const detectedUrl = detectUrl(message);
     if (detectedUrl) {
       newMessages.push({
@@ -123,7 +125,6 @@ const Conversation = ({ selectedChat }) => {
       });
     }
 
-    // Handle plain text message
     if (message.trim() !== "" && !detectedUrl && attachedFiles.length === 0) {
       newMessages.push({
         type: "msg",
@@ -146,13 +147,20 @@ const Conversation = ({ selectedChat }) => {
   };
 
   if (!selectedChat) {
-    return null; // Return null if no chat is selected
+    return (
+      <Box className="container">
+        <Box className="default-convo">
+        <Typography >
+          Select a conversation
+        </Typography>
+        </Box>
+      </Box>
+    );
   }
 
   return (
     <Box className="container">
       <Stack maxHeight={"100vh"}>
-        {/* Chat header */}
         <Box className="chat-header">
           <Stack className="header" direction={'row'}>
             <Stack direction="row" spacing={4} alignItems="center">
@@ -161,12 +169,12 @@ const Conversation = ({ selectedChat }) => {
                   overlap="circular"
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                   variant="dot">
-                  <Avatar src={selectedChat.avatar} alt={selectedChat.name} />
+                  <Avatar src={selectedChat.avatar} alt={selectedChat.clientName} />
                 </StyledBadge>
               </Box>
               <Stack className="user-info" direction={'column'}>
                 <Typography className="user-name">
-                  {selectedChat.name}
+                  {selectedChat.clientName}
                 </Typography>
                 <Typography className="user-time">
                   Online
@@ -175,11 +183,9 @@ const Conversation = ({ selectedChat }) => {
             </Stack>
           </Stack>
         </Box>
-        {/* Message */}
         <Box className="chat-msg">
           <Message chatHistory={chatHistory} />
         </Box>
-        {/* Chat footer */}
         <Box className="chat-footer">
           <Stack direction={'row'} spacing={2} alignItems={'center'}>
             <StyleInput
@@ -206,7 +212,6 @@ const Conversation = ({ selectedChat }) => {
             <Button variant="none" endIcon={<SendIcon />} onClick={handleMessageSend} />
           </Stack>
         </Box>
-        {/* Display attached file names, if needed */}
         {attachedFiles.length > 0 && (
           <Box>
             Attached Files:
@@ -218,6 +223,6 @@ const Conversation = ({ selectedChat }) => {
       </Stack>
     </Box>
   );
-}
+};
 
 export default Conversation;

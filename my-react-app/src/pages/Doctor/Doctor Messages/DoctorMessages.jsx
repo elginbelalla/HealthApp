@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
-import Box from '@mui/material/Box';
 import DoctorNavbar from "../../../components/NavBar/DoctorNavbar";
+import React, {useState, useEffect} from "react";
+import Box from '@mui/material/Box';
 import DoctorAppBar from "../../../components/NavBar/DoctorAppBar";
 import Chats from "../../../components/Chats/chat";
-import Conversation from "../../../components/Chats/conversation"; // Import Conversation component
+import Conversation from "../../../components/Chats/conversation";
 import Stack from '@mui/material/Stack';
-import { useLocation } from "react-router-dom";
-import { Typography } from "@mui/material";
 import './messages.css'
+import { useLocation } from "react-router-dom";
 
-export default function DoctorMessages() {
+
+
+export default function DoctorMessages (){
+
+
   const [selectedChat, setSelectedChat] = useState(null);
   const [conversations, setConversations] = useState([]);
 
@@ -46,34 +49,28 @@ export default function DoctorMessages() {
     fetchData();
   }, [doctorId]);
 
-  return (
+  return(
+    <>
     <div className="doctor-body">
-      <DoctorAppBar doctorId={doctorId} />
-      <Box height={60} />
-      <Box sx={{ display: 'flex' }}>
-        <DoctorNavbar id={doctorId} />     
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Stack direction={"row"} spacing={2}>
-            <Box sx={{ width: '30%', borderRight: "1px solid #e0e0e0", overflowY: "auto" }}>
-              <Chats 
-                conversations={conversations} 
-                onSelectChat={setSelectedChat} 
-                selectedChat={selectedChat} 
-              />
-            </Box>
-            <Box className="convo-default">
-              {selectedChat ? (
-                <Conversation selectedChat={selectedChat} />
-              ) : (
-  
-                <Typography className="convo-default-title">  
-                  Select a conversation
-                </Typography>
-              )}
-            </Box>
-          </Stack>
-        </Box>
+    <DoctorAppBar
+       doctorId={doctorId}
+    />
+    <Box height={60} />
+    <Box sx={{ display: 'flex' }}>
+    <DoctorNavbar
+      id={doctorId}
+      />     
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
+       <Stack direction={"row"} spacing={2}>   
+           <Chats className="chat-main" conversations={conversations} onSelectChat={setSelectedChat} />
+           <Conversation
+           selectedChat={selectedChat}
+           />
+        </Stack>
       </Box>
+    </Box>
     </div>
-  );
-}
+    </>
+  )
+};
+

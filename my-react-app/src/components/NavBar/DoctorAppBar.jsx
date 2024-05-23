@@ -122,7 +122,7 @@ export default function DoctorAppBar({ doctorId }) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="absolute" sx={{ height: '60px', background: 'transparent' }}>
+      <AppBar position="absolute"  sx={{ height: '60px', background: 'transparent' }}>
         <Toolbar>
           <div className='logo-container'>
           <img

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
+import './chat.css';
 import Stack from '@mui/material/Stack';
 import { styled, alpha } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
@@ -9,19 +10,18 @@ import SearchIcon from '@mui/icons-material/Search';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { Avatar, Typography } from "@mui/material";
 import Badge from '@mui/material/Badge';
-import './chat.css'
 
 const Search = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   position: 'relative',
   borderRadius: '10px',
-  backgroundColor: alpha('#CCCCCC', 0.1),
+  backgroundColor: alpha('#CCCCCC', 0.1), // Very light grey background
   width: '100%',
-  maxWidth: '20ch',
-  marginRight: theme.spacing(2),
+  maxWidth: '20ch', // Max width for search input
+  marginRight: theme.spacing(2), // Margin to separate search input and button
   height: 36,
-  boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+  boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Shadow
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -32,11 +32,11 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: '#909090',
+  color: '#909090', // Search icon color
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: theme.palette.text.primary,
+  color: theme.palette.text.primary, // Grey text color
   width: '100%',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1),
@@ -70,9 +70,9 @@ const ChatElement = ({ avatar, name, message, time, badgeCount, onClick }) => {
           {time}
         </Typography>
         <Badge sx={{
-          "& .MuiBadge-badge": {
-            color: "white",
-            backgroundColor: "#b7d9e4"
+            "& .MuiBadge-badge": {
+              color: "white",
+              backgroundColor: "#b7d9e4"
           }
         }} badgeContent={badgeCount}></Badge>
       </Stack>
@@ -80,7 +80,7 @@ const ChatElement = ({ avatar, name, message, time, badgeCount, onClick }) => {
   );
 };
 
-const Chats = ({ conversations, onSelectChat, selectedChat }) => {
+const Chats = ({ conversations, onSelectChat }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleChatClick = (chat) => {
@@ -107,45 +107,46 @@ const Chats = ({ conversations, onSelectChat, selectedChat }) => {
   };
 
   return (
-    <Box className='main-container' sx={{ overflow: "hidden", display: "flex", flexDirection: "column", height: "100%" }}>
-      <Toolbar>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="open drawer"
-          sx={{ mr: 1, color: 'grey' }}
-          onClick={handleMenuClick}
-        >
-          <MenuOutlinedIcon />
-        </IconButton>
-
-        <Box sx={{ flexGrow: 1 }} />
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search…"
-            inputProps={{ 'aria-label': 'search' }}
-            value={searchQuery}
-            onChange={handleSearchChange}
-          />
-        </Search>
-      </Toolbar>
-      <Box className="chat-container">
-        <Stack spacing={2} direction={'column'} sx={{ overflow: "hidden", height: "100%", scrollbarWidth: "none", msOverflowStyle: "none" }}>
-          {filteredChatElements.map((conversation, index) => (
-            <ChatElement
-              key={index}
-              name={conversation.clientName}
-              message={getLastMessage(conversation).text}
-              time={new Date(getLastMessage(conversation).timestamp).toLocaleString()}
-              badgeCount={0}
-              onClick={() => handleChatClick(conversation)}
+    <Box className='main-container' sx={{ overflow: "hidden", display: "flex", height: "100vh" }}>
+      <Box >
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 1, color: 'grey' }}
+            onClick={handleMenuClick}
+          >
+            <MenuOutlinedIcon />
+          </IconButton>
+          <Box sx={{ flexGrow: 1 }} />
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+              value={searchQuery}
+              onChange={handleSearchChange}
             />
-          ))}
-        </Stack>
+          </Search>
+        </Toolbar>
+        <Box className="chat-container">
+          <Stack spacing={2} direction={'column'} sx={{ overflow: "hidden", height: "100%", scrollbarWidth: "none", msOverflowStyle: "none" }}>
+            {filteredChatElements.map((conversation, index) => (
+              <ChatElement
+                key={index}
+                name={conversation.clientName}
+                message={getLastMessage(conversation).text}
+                time={new Date(getLastMessage(conversation).timestamp).toLocaleString()}
+                badgeCount={1}
+                onClick={() => handleChatClick(conversation)}
+              />
+            ))}
+          </Stack>
+        </Box>
       </Box>
     </Box>
   );

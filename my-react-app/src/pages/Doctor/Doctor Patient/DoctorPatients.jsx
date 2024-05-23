@@ -92,7 +92,7 @@ export default function DoctorPatients() {
 
   return (
     <>
-    <div className="doctor-body">
+    <div className="doctor-body" sx={{ overflow: "hidden", height: "100%", scrollbarWidth: "none", msOverflowStyle: "none"}}>
     <DoctorAppBar
       doctorId={doctorId}
     />
