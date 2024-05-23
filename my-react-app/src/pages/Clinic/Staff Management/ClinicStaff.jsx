@@ -30,7 +30,7 @@ export default function StaffManagement() {
       <Box height={60} />
       <Box sx={{ display: 'flex' }}>
         <ClinicNavbar />
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
           <Paper className="staff-body-container">
             <SearchStaffBar  />
             <Box className="card-container">

@@ -115,7 +115,7 @@ export default function DoctorAppointments (){
     <DoctorNavbar
     id={doctorId}
     />
-    <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+    <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
      <Paper className="body-container">
         <Grid container spacing={2} margin={1}>       
          <Stack direction={'row'} spacing={2}>

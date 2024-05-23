@@ -109,7 +109,7 @@ export default function DoctorDashboard (){
     <DoctorNavbar
       id={id}
     />
-     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+     <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
      <Paper className="body-container">
       
       <Grid container spacing={2}>

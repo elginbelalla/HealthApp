@@ -85,7 +85,7 @@ export default function ClinicAppBar({ doctorId }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="absolute" sx={{ height: '60px', background: 'transparent' }}>
         <Toolbar>
-          <div className='logo-container'>
+          <div className='logo-container' >
           <img
             className="logo"
             src='/logo.png'
@@ -98,7 +98,7 @@ export default function ClinicAppBar({ doctorId }) {
             noWrap
             component="div"
             className = "pageIndicator"
-            sx={{marginLeft:'21px'}}
+            sx={{marginLeft:'210px'}}
           >
             Welcome Clinic
           </Typography>

@@ -26,7 +26,7 @@ export default function DoctorSettings  (){
     <DoctorNavbar
     id={id}
     />
-    <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+    <Box component="main" sx={{ flexGrow: 1, p:1 }}>
        <Paper className="body-container">
          <List
          doctorId={id}

@@ -99,7 +99,7 @@ export default function DoctorPatients() {
     <Box height={60} />
       <Box sx={{ display: 'flex' }}>
         <DoctorNavbar id={doctorId} />
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
           <Paper className="body-container">
             <SearchPatientBar onSearch={handleSearch} onSort ={handleSort}/>
             <Box className="card-container">

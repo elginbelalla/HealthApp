@@ -13,7 +13,7 @@ export default function ClinicSettings() {
       <Box height={70} />
       <Box sx={{ display: 'flex' }}>
         <ClinicNavbar />
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
           <Paper className="body-container">
             <List />
           </Paper>

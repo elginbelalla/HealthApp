@@ -4,17 +4,18 @@
     gap: 0.4rem;
     cursor: pointer;
     margin-right: 3.3rem;
+    position: fixed;
   }
 
   .logo{
-    width: 1.4rem!important; /* Set the initial size of the image */
+    width: 1rem; /* Set the initial size of the image */
     height: auto; /* Maintain aspect ratio */
   }
 
   .logoName{
     color: #4c869a;
     font-family: var(--font-poppins);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 500;
     align-content: center;
   }

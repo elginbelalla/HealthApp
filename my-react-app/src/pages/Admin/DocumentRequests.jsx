@@ -12,7 +12,7 @@ export default function ClinicBookRequests() {
       <Box height={70} />
       <Box sx={{ display: 'flex' }}>
         <AdminNavbar />
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
           <DocumentsList className="table" />
         </Box>
       </Box>

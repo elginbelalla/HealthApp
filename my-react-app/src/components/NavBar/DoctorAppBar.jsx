@@ -137,6 +137,7 @@ export default function DoctorAppBar({ doctorId }) {
             noWrap
             component="div"
             className = "pageIndicator"
+            sx={{marginLeft:'210px'}}
           >
             Welcome Dr. {doctorName}
           </Typography>

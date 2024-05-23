@@ -39,7 +39,7 @@ export default function ClinicDashboard() {
         <Box height={60} />
         <Box sx={{ display: 'flex' }}>
           <ClinicNavbar />
-          <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
             <Paper className="body-container">
               <div className="upper-container">
                 <div className="element" id="element1">

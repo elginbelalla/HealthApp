@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./GroupComponentSignIn.module.css";
 
-const GroupComponentSignIn = ({ formData = { email: '', password: '' }, onFormChange }) => {
+const GroupComponentSignIn = ({ formData = { email: '', password: '' }, onFormChange, onKeyPress }) => {
   const { email, password } = formData;
 
   const handleInputChange = (field, value) => {
@@ -22,6 +22,7 @@ const GroupComponentSignIn = ({ formData = { email: '', password: '' }, onFormCh
                 value={email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
                 className={styles.xhbazegmailcom}
+                onKeyPress={onKeyPress}
               />
             </div>
             <div className={styles.frameItem} />
@@ -37,6 +38,7 @@ const GroupComponentSignIn = ({ formData = { email: '', password: '' }, onFormCh
               value={password}
               onChange={(e) => handleInputChange("password", e.target.value)}
               className={styles.passwordInput}
+              onKeyPress={onKeyPress}
             />
           </div>
           <div className={styles.button}></div>

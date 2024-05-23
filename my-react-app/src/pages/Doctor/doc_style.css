@@ -1,5 +1,5 @@
 .doctor-body {
-    height: 100%; 
+    height: 100vh; 
     background: linear-gradient(#e8f5fc, white);
     background-size: cover;
     background-position: center;

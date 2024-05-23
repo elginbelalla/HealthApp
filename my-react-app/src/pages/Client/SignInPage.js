@@ -90,6 +90,13 @@ const SignInPage = () => {
     });
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      onComponent1ContainerClick();
+    }
+  };
+
+
   const test = () => {
     console.log("Email: " + formData.email);
     console.log("Password: " + formData.password);
@@ -101,7 +108,7 @@ const SignInPage = () => {
       <div className={styles.signinpageInner}>
         <div className={styles.frameParent}>
           <div className={styles.instanceParent}>
-            <GroupComponentSignIn formData={formData} onFormChange={handleFormChange} />
+            <GroupComponentSignIn formData={formData} onFormChange={handleFormChange} onKeyPress={handleKeyPress} />
             <RectangleComponent />
           </div>
           <div className={styles.frameWrapper}>

@@ -60,7 +60,7 @@ export default function DoctorMessages (){
     <DoctorNavbar
       id={doctorId}
       />     
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
+      <Box component="main" sx={{ flexGrow: 1, p: 1 }} >
        <Stack direction={"row"} spacing={2}>   
            <Chats conversations={conversations} onSelectChat={setSelectedChat} />
            <Conversation
