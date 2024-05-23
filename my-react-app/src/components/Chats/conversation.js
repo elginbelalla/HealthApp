@@ -5,7 +5,6 @@ import { styled } from '@mui/material/styles';
 import AttachFileOutlinedIcon from '@mui/icons-material/AttachFileOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import Message from "./message";
-
 const StyleInput = styled(TextField)(({ theme }) => ({
   "& .MuiInputBase-input": {
     paddingTop: "12px",

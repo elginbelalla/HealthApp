@@ -51,10 +51,8 @@ export default function DoctorDashboard (){
 
       if (response.ok) {
         const responseText = await response.text();
-        console.log('Raw response text:', responseText);
         try {
           const data = JSON.parse(responseText);
-          console.log('Received data:', data); 
   
           setAppointments(data.appointments);
           setLabResults(data.labRequests);

@@ -3,3 +3,16 @@
     flex-direction: row;
     gap: 1rem;
 }
+
+.convo-default{
+    display: flex;
+    align-items: center;
+    width: 70%;
+    height: 85vh;
+    overflow: auto;
+    background-color: white;
+    justify-content: center; 
+}
+
+
+

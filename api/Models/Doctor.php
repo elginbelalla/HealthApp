@@ -301,4 +301,30 @@ public static function getDoctorReviewsByDoctorId($doctorId){
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+public static function getConversationsByDoctorId($doctorId){
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT * FROM client_doctorconversation WHERE Doctor_doctorID = :doctorId";
+    $stmt = $conn->prepare($sql);
+    $stmt-> execute(['doctorId' => $doctorId]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+public static function getDoctorMessagesById($clientDoctorConversationId){
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT * FROM clientdoctormessages WHERE sender = :doctor AND clientDoctorConversationId = :clientDoctorConversationId";
+    $stmt = $conn->prepare($sql);
+    $stmt-> execute(['clientDoctorConversationId' => $clientDoctorConversationId, 'doctor' => 'doctor']);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+public static function getClientMessagesById($clientDoctorConversationId){
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT * FROM clientdoctormessages WHERE sender = :client AND clientDoctorConversationId = :clientDoctorConversationId";
+    $stmt = $conn->prepare($sql);
+    $stmt-> execute(['clientDoctorConversationId' => $clientDoctorConversationId, 'client' => 'client']);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 }
