@@ -9,13 +9,12 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import Avatar from "@mui/material/Avatar";
+import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
 import Paper from "@mui/material/Paper";
 import { BarChart } from "@mui/x-charts";
 import { PieChart } from "@mui/x-charts/PieChart";
 import "./dashboard.css";
 import MasksIcon from "@mui/icons-material/Masks";
-import WatchLaterIcon from "@mui/icons-material/WatchLater";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -231,11 +230,11 @@ export default function AdminDashboard() {
                           component="div"
                           className="sub-title"
                         >
-                          Number of Hours
+                          Requests
                         </Typography>
                         <CardContent className="sub-card">
                           <Stack direction={"row"} spacing={2}>
-                            <WatchLaterIcon className="icon" />
+                            <FactCheckOutlinedIcon className="icon" />
                             <div className="card-text">
                               <span className="num-hours">{numberOfHours}</span>
                               <span className="ev-patients"></span>
