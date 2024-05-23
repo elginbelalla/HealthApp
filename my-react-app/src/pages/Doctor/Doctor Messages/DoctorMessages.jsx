@@ -62,7 +62,7 @@ export default function DoctorMessages (){
       />     
       <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
        <Stack direction={"row"} spacing={2}>   
-           <Chats className="chat-main" conversations={conversations} onSelectChat={setSelectedChat} />
+           <Chats conversations={conversations} onSelectChat={setSelectedChat} />
            <Conversation
            selectedChat={selectedChat}
            />

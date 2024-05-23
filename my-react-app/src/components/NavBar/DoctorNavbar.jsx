@@ -66,6 +66,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
+
 export default function DoctorNavbar({id}) {
   const theme = useTheme();
   const navigate = useNavigate();
@@ -74,6 +75,8 @@ export default function DoctorNavbar({id}) {
   const open = userAppStore((state) => state.dopen);
 
   const isActive = (path) => location.pathname === path;
+
+
 
   return (
     <Box sx={{ display: 'flex'}}>

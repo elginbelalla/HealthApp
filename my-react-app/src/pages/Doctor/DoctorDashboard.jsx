@@ -115,12 +115,10 @@ export default function DoctorDashboard (){
       <Grid container spacing={2}>
         <Grid item xs={7}>
         <Stack direction={"row"}>
-          
-          <Card sx={{ maxWidth:700, height: 40+"vh"}} className="card">
-            <CardContent>
-              <Typography gutterBottom component="div" className="sub-title">
-                 My Appointments
-              </Typography>
+           {/* Recent Appointments */}
+        <div className="element" id="element1">
+         <Typography className='sub-title'>My Appointments</Typography>
+          <Card sx={{ maxWidth:1000, height: 40+"vh"}} className="card">
               <CardContent className="app-body">
                  {/* Mapping through appointments to render each appointment */}
                   {appointments.map((appointment, index) => (
@@ -136,15 +134,14 @@ export default function DoctorDashboard (){
                   </Box>
                 ))}
             </CardContent>
-            </CardContent>
           </Card> 
+        </div>
+
 
            {/* Recent Lab Results Card */}
-           <Card sx={{ maxWidth:700,  height: 40+"vh" }} className="card">
-             <CardContent>
-              <Typography gutterBottom  component="div" className="sub-title">
-                  Recent Lab Requests
-              </Typography>
+           <div className="element" id="element1">
+              <Typography className='sub-title'> Recent Lab Requests</Typography>
+              <Card sx={{ maxWidth:1000,  height: 40+"vh" }} className="card">
               <CardContent className="lab-body">
                 {labResults.map((result) => (
                   <Box key={result.id} className="lab-result" sx={{ marginBottom: 1 }}>
@@ -157,50 +154,38 @@ export default function DoctorDashboard (){
                   </Box>
                 ))}
                 </CardContent>
-              </CardContent>
             <CardActions>
            </CardActions>
            </Card>
-           </Stack>
+          </div>
+
+          
+          
+        </Stack>
           </Grid>
 
            <Grid item xs={5}>
             <Stack direction={'column'}>
-
-            <Card sx={{ maxWidth: 700, height: 20+"vh" }} className="card">
-            <CardContent>
-             <Typography gutterBottom component="div"  className="sub-title">
-                 Number of Patients This Week
-               </Typography>
-               <CardContent className="sub-card">
-               <Stack direction={'row'} spacing={2}>
-               <MasksIcon className="icon"/>
-                <div className="card-text">
-                <span className="num-patients">{patientsThisWeek}</span>
-                <span className="ev-patients"></span>
+            <div className="element" id="element1">
+                  <Typography className='sub-title'>Number of Doctors</Typography>
+                  <Card className='card'>
+                    <CardContent className='card-content'>
+                   <MasksIcon className="icon"/>
+                    <span className="num-patients">{patientsThisWeek}</span>
+                    </CardContent>
+                  </Card>
+                </div>
+              
+              <div className="element" id="element1">
+                  <Typography className='sub-title'>Number of Hours</Typography>
+                  <Card className='card'>
+                    <CardContent className='card-content'>
+                     <WatchLaterIcon className="icon"/>
+                    <span className="num-hours">{numberOfHours}</span>
+                    </CardContent>
+                  </Card>
                 </div>
 
-                </Stack>
-             </CardContent>
-             </CardContent>
-            </Card>
-
-            <Card sx={{ maxWidth: 700,height: 20+"vh" }} className="card">
-              <CardContent>
-               <Typography gutterBottom component="div"  className="sub-title">
-                 Number of Hours
-               </Typography>
-               <CardContent className="sub-card">
-               <Stack direction={'row'} spacing={2}>
-               <WatchLaterIcon className="icon"/>
-               <div className="card-text">
-                <span className="num-hours">{numberOfHours}</span>
-                <span className="ev-patients"></span>
-                </div>
-                </Stack>
-               </CardContent>
-               </CardContent>
-            </Card>
            </Stack>
           </Grid>
         </Grid>

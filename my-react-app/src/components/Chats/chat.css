@@ -1,14 +1,13 @@
 .main-container{
     position: relative;
-    height: 100vh;
     background-color: white;
     border: 1px solid rgb(216, 216, 216);
-    width: 50%;
-    margin-left:2rem;
+    width: 600px;
+    height: 100vh;
 }
 
 .chat{
-    width: 90%;
+    width: 96%;
     border-radius: 10px;
     background-color: white;
     border: 0.3px solid rgb(219, 219, 219);
@@ -38,7 +37,10 @@
     justify-content: end;
 }
 
+
 .chat-container{
     padding-top: 10px;
 }
+
+
 

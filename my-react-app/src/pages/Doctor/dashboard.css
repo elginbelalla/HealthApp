@@ -92,11 +92,7 @@
     border: none;
   }
 
-  .sub-card{
-    color: white;
-    border: 10px solid #def2fd ;
-    border-radius: 8px;
-  }
+ 
 
   .card-text{
     color:#2a5f71 ;
@@ -114,3 +110,25 @@
     color: #2a5f71;
     padding-left:2rem;
   }
+
+
+  .element {
+    background-color: white;
+    padding: 16px;
+    margin: 8px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    margin: 10px;
+    min-width: 250px;
+  }
+  
+  .card-content{
+    border: 10px solid #def2fd;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+   }
+

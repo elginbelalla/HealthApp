@@ -97,15 +97,15 @@ export default function DoctorAppBar({ doctorId }) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem  onClick={() => navigate("/doctor/messages", {state: { id: doctorId }})}>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
-            <MailIcon />
+            <MailIcon/>
           </Badge>
         </IconButton>
         <p>Messages</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={() => navigate("/doctor/tests", {state: { id: doctorId }})}>
         <IconButton
           size="large"
           aria-label="show {notificationCount} new notifications"

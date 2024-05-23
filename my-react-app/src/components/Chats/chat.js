@@ -107,8 +107,7 @@ const Chats = ({ conversations, onSelectChat }) => {
   };
 
   return (
-    <Box className='main-container' sx={{ overflow: "hidden", display: "flex", height: "100vh" }}>
-      <Box >
+    <Box className='main-container' sx={{overflow:"scroll",  scrollbarWidth: "none", msOverflowStyle: "none"}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -148,7 +147,6 @@ const Chats = ({ conversations, onSelectChat }) => {
           </Stack>
         </Box>
       </Box>
-    </Box>
   );
 };
 

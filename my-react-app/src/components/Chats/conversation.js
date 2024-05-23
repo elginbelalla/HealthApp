@@ -183,9 +183,13 @@ const Conversation = ({ selectedChat }) => {
             </Stack>
           </Stack>
         </Box>
+
+
         <Box className="chat-msg">
           <Message chatHistory={chatHistory} />
         </Box>
+
+
         <Box className="chat-footer">
           <Stack direction={'row'} spacing={2} alignItems={'center'}>
             <StyleInput
@@ -212,6 +216,8 @@ const Conversation = ({ selectedChat }) => {
             <Button variant="none" endIcon={<SendIcon />} onClick={handleMessageSend} />
           </Stack>
         </Box>
+
+        
         {attachedFiles.length > 0 && (
           <Box>
             Attached Files:
