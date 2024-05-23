@@ -5,6 +5,8 @@
   border-radius: var(--br-11xl);
   overflow: hidden;
   flex-shrink: 0;
+  margin-top:10px;
+  margin-left:5px;
 }
 .starHalfIcon,
 .starOutlineIcon,
@@ -64,6 +66,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   flex-shrink: 0;
+  margin-left:5px;
 }
 .firstteamreview,
 .reviewContent {

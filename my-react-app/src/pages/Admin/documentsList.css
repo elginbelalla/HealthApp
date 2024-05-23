@@ -1,0 +1,48 @@
+/* documentsList.css */
+
+.clinic-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .accept, .decline {
+    color: white !important;
+    border-radius: 10px !important;
+    font-family: var(--font-inter) !important;
+    font-size: var(--font-size-xs) !important;
+    box-shadow: none !important;
+  }
+  
+  .accept {
+    background-color: #52b2e2 !important;
+  }
+  
+  .decline {
+    background-color: #e2526c !important;
+  }
+  
+  @media (max-width: 1200px) {
+    .id-column {
+      display: none !important;
+    }
+  
+    .accept, .decline {
+      width: 1rem !important;
+      font-size: 0.6rem !important;
+    }
+  
+    .clinic-button-container {
+      justify-content: flex-start;
+    }
+  }
+
+  .MuiTableCell-head {
+    border-bottom: 2px solid #000;
+  }
+  
+  .table-header-cell {
+    border-bottom: 2px solid #000;
+  }
+  

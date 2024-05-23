@@ -38,6 +38,7 @@ import DoctorDetails from "./pages/Clinic/Staff Management/DoctorDetails";
 import PatientRecords from "./pages/Clinic/PatientRecords/PatientRecords";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminSettings from "./pages/Admin/AdminSettings";
+import DocumentRequests from "./pages/Admin/DocumentRequests";
 
 import { registerLicense } from '@syncfusion/ej2-base';
 
@@ -118,6 +119,7 @@ function App() {
       <Route path="/clinic/patientrecords" element={<PatientRecords/>} />
       <Route path="/admin/dashboard/" element={<AdminDashboard/>} />
       <Route path="/admin/settings/" element={<AdminSettings/>} />
+      <Route path="/admin/requests/" element={<DocumentRequests/>} />
 
 
     </Routes>

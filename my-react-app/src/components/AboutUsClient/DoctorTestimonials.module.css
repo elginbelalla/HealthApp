@@ -2,8 +2,8 @@
   margin: 0;
   flex: 1;
   position: relative;
-  font-size: 33px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 600;
   font-family: inherit;
   display: inline-block;
   max-width: 100%;
@@ -85,8 +85,8 @@
   margin: 0;
   flex: 1 1;
   position: relative;
-  font-size: 33px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 600;
   font-family: inherit;
   display: inline-block;
   max-width: 100%;

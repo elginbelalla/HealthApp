@@ -59,7 +59,7 @@
 }
 
 .bookappointement {
-  width: 15rem;
+  width: 18rem;
   height:25rem;
   border-radius: var(--br-3xs);
   background-color: var(--color-deepskyblue-200);
@@ -79,7 +79,6 @@
 
 }
 .groupWrapper {
-  width: 18.35rem;
   height: 8rem;
   display: flex;
   flex-direction: row;
@@ -130,7 +129,7 @@
   gap: var(--gap-5xs);
 }
 .medicalhistory {
-  width: 15rem;
+  width: 18rem;
   height:25rem;
   border-radius: var(--br-3xs);
   background: linear-gradient(#fff, #fff), #52b2e2;
@@ -150,7 +149,7 @@
   height: 5rem;
   width: 5rem;
   position: relative;
-  margin-top: -1rem; 
+  margin-top: 0.7rem; 
   margin-left: auto; 
   margin-right: auto; 
 }
@@ -170,7 +169,6 @@
   justify-content: center;
 }
 .requestNutritionAdvice {
-  align-self: flex-start;
   height: 22%; 
   position: relative;
   font-weight: 600;
@@ -179,6 +177,7 @@
   flex-shrink: 0;
   font-size: 70%; 
   align-items: flex-start; 
+  margin-top:2rem;
 
 }
 .unlockPersonalizedNutrition {
@@ -199,7 +198,7 @@
 
 }
 .nutrition {
-  width: 15rem;
+  width: 18rem;
   height:25rem;
   border-radius: var(--br-3xs);
   background-color: var(--color-deepskyblue-200);
@@ -217,15 +216,15 @@
 .servicesWrapper {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+  justify-content:center;
   max-width: 98.5%;
 }
 .services {
   flex: 1;
   overflow-x: scroll; 
   overflow-y: hidden;
-  justify-content: space-between;
-  gap: var(--gap-xl);
+  gap: 3rem;
 }
 
 .services::-webkit-scrollbar {

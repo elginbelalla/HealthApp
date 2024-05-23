@@ -4,7 +4,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 2rem;
+  font-size: 25px;
   font-family: inherit;
   white-space: pre-wrap;
   text-align: left;
@@ -21,18 +21,18 @@
   font-weight: 600;
   display: flex;
   align-items: center;
-  font-size:small;
+  font-size:16px;
 }
 .firstnameChild {
-  border: 0;
-  background-color: var(--color-deepskyblue-300);
-  height: 2rem;
-  width: 10rem;
-  outline: 0;
+  height: 3rem;
+  width: 12rem;
   position: relative;
-  border-radius: var(--br-3xs);
   max-width: 100%;
+  border: 5px solid var(--color-deepskyblue-300); 
+  border-radius: 15px;
+  overflow-y: hidden;
 }
+
 .firstname,
 .lastName {
   display: flex;
@@ -60,18 +60,17 @@
   font-weight: 600;
   display: flex;
   align-items: center;
-  font-size:small;
+  font-size:16px;
 
 }
 .lastnameChild {
-  border: 0;
-  background-color: var(--color-deepskyblue-300);
-  height: 2rem;
-  width: 10rem;
-  outline: 0;
+  height: 3rem;
+  width: 12rem;
   position: relative;
-  border-radius: var(--br-3xs);
   max-width: 100%;
+  border: 5px solid var(--color-deepskyblue-300); 
+  border-radius: 15px;
+  overflow-y: hidden;
 
 }
 .email1,
@@ -103,18 +102,17 @@
   font-weight: 600;
   display: flex;
   align-items: center;
-  font-size:small;
+  font-size:16px;
 
 }
 .frameChild {
-  border: 0;
-  background-color: var(--color-deepskyblue-300);
-  height: 2rem;
-  width: 10rem;
-  outline: 0;
+  height: 3rem;
+  width: 12rem;
   position: relative;
-  border-radius: var(--br-3xs);
   max-width: 100%;
+  border: 5px solid var(--color-deepskyblue-300); 
+  border-radius: 15px;
+  overflow-y: hidden;
 
 }
 .email,
@@ -150,7 +148,7 @@
   font-weight: 600;
   display: flex;
   align-items: center;
-  font-size:small;
+  font-size:16px;
 
 }
 .phoneNumberWrapper {
@@ -163,14 +161,13 @@
   box-sizing: border-box;
 }
 .phonenumberChild {
-  border: 0;
-  background-color: var(--color-deepskyblue-300);
-  height: 2rem;
-  width: 10rem;
-  outline: 0;
+  height: 3rem;
+  width: 12rem;
   position: relative;
-  border-radius: var(--br-3xs);
   max-width: 100%;
+  border: 5px solid var(--color-deepskyblue-300); 
+  border-radius: 15px;
+  overflow-y: hidden;
 
 }
 .message1,
@@ -201,7 +198,7 @@
   font-weight: 600;
   align-items: center;
   justify-content: center;
-  font-size:medium;
+  font-size:17px;
 }
 
 .frameItem {
@@ -228,6 +225,7 @@
   flex-direction: row;
   padding: 0 var(--padding-xl) 0 var(--padding-14xl);
   box-sizing: border-box;
+
 }
 
 .message {
@@ -242,6 +240,7 @@
   padding: 0 var(--padding-8xs) var(--padding-11xl);
   box-sizing: border-box;
   gap: var(--gap-sm);
+  
 }
 
 .getincontact {
@@ -272,6 +271,7 @@
   overflow: hidden;
   object-fit: cover;
   z-index: 2;
+  
 }
 
 .instanceParent {

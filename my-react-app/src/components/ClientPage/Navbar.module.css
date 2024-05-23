@@ -21,7 +21,7 @@ body{
   justify-content: center;
   white-space: nowrap;
   padding: 2.5rem 3rem;
-  font-size: small;
+  font-size: 14px;
   bottom:1rem;
   cursor:pointer;
 }
@@ -38,7 +38,7 @@ body{
   white-space: nowrap;
   cursor: pointer;
   padding: 2.5rem 3rem;
-  font-size: small;
+  font-size: 14px;
   bottom:1rem;
 }
 .bookAppointement {
@@ -53,7 +53,7 @@ body{
   white-space: nowrap;
   cursor: pointer;
   padding: 2.5rem 5rem;
-  font-size: small;
+  font-size: 14px;
   bottom:1rem;
 }
 
@@ -67,25 +67,22 @@ body{
   white-space: nowrap;
   cursor: pointer;
   padding: 2.5rem 4rem;
-  font-size: small;
+  font-size: 14px;
   bottom:1rem;
 }
 .requestTest {
   width: 7.563rem;
   min-width: 7.563rem;
   height: 3rem;
-  font-size: small;
+  font-size: 14px;
   bottom:1rem;
 }
-.medicalHistory,
-.nutritionPlan {
+.medicalHistory {
   width: 9.063rem;
   height: 3rem;
+  font-size:14px;
 }
-.nutritionPlan {
-  width: 8.125rem;
-  height: 3rem;
-}
+
 
 
 .homePageParent {
@@ -111,7 +108,7 @@ body{
   overflow: hidden;
   flex-shrink: 0;
   height: 5rem;
-  right: 40px;
+  right: 10px;
   bottom:1rem;
 }
 
@@ -146,6 +143,7 @@ body{
   align-items: center;
   display: flex;
   flex-direction: column;
+  z-index:999;
 }
 
 .userMenuItem {

@@ -58,7 +58,7 @@ const FrameComponent1 = () => {
           </div>
         </div>
         <div className={styles.nutrition}>
-          <div className={styles.healthiconsnutritionOutlineWrapper}>
+          <div>
             <img
               className={styles.healthiconsnutritionOutline}
               loading="lazy"

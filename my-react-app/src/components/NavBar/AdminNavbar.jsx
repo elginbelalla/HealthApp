@@ -15,6 +15,7 @@ import './adminNavbar.css';
 import SettingsInputComponentOutlinedIcon from '@mui/icons-material/SettingsInputComponentOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
 
 const drawerWidth = 200;
 
@@ -81,6 +82,7 @@ export default function AdminNavbar({id}) {
         <List>
           {[
             { path: '/admin/dashboard', icon: < HomeOutlinedIcon /> },
+            { path: '/admin/requests', icon: <FactCheckOutlinedIcon /> },
             { path: '/admin/settings', icon: <SettingsInputComponentOutlinedIcon /> },
             { path: '/', icon: <LogoutOutlinedIcon /> },
           ].map((item, index) => (

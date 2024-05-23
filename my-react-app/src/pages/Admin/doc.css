@@ -1,0 +1,14 @@
+.body-container{
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.table{
+    padding-top: 10px;
+}
+
+.title{
+    color: #2d616e;
+    font-family: var(font-poppins);
+}

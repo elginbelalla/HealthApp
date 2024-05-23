@@ -223,6 +223,7 @@
   max-width: 100%;
   flex-shrink: 0;
 }
+
 .result1Parent {
   width:100vw;
   position: relative;
@@ -234,8 +235,9 @@
   min-height: 60rem;
   font-size: var(--font-size-6xl);
   color: var(--color-teal-200);
-  margin-top: 15rem;
+  margin-top: 7rem;
   background-color: white; 
+  align-items:center;
 }
 .content,
 .medicalHistoryContentParent {

@@ -4,7 +4,6 @@ import MuiAppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
@@ -63,7 +62,7 @@ export default function AdminAppBar(adminId) {
       <AppBar position="absolute" sx={{ height: '60px', background: 'transparent' }}>
         <Toolbar>
           <img
-            className="logo clickable"
+            className="admin_logo clickable"
             src='/logo@2x.png'
             alt="Logo"
             style={{ position: 'fixed' }}
@@ -74,7 +73,7 @@ export default function AdminAppBar(adminId) {
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }} className='box-item'>
             <IconButton
-              size="large"
+              size="larger"
               aria-label="show more"
               aria-controls={mobileMenuId}
               aria-haspopup="true"
