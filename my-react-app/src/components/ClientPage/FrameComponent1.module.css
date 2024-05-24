@@ -232,7 +232,7 @@
 }
 
 .servicesWrapper {
-  width: 80rem;
+  width: 100%;
   padding: 0 var(--padding-50xl) 0 var(--padding-13xl); 
   box-sizing: border-box;
   text-align: center;

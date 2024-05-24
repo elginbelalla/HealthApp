@@ -13,7 +13,7 @@ const formatTimestamp = (timestamp) => {
 };
 
 const DocMsg = ({ el }) => {
-  const fileName = el.documentUrl.split('/').pop(); 
+  const fileName = el.message.split(' - ')[0]; // Extracting filename before ' - '
   const fileExtension = fileName.split('.').pop().toLowerCase();
   
   let fileIcon;
@@ -76,7 +76,9 @@ const MediaMsg = ({ el }) => {
     <Stack direction={'row'} justifyContent={el.sender === 'client' ? "start" : "end"}>
       <Box className="media-msg-box" sx={{ backgroundColor: el.sender === 'client' ? "#d8d8d8" : "#61bfd6" }}>
         <Stack spacing={1}>
-          <img src={`data:${el.fileType};base64,${el.document}`} alt={el.text} className="msg-img" />
+        <a href={el.img} download>
+            <img src={el.img} alt={el.message} className="msg-img" />
+           </a>
           <Typography className="msg-text" sx={{ color: el.sender === 'client' ? "#3f3f3f" : "white" }}>{el.text}</Typography>
           <Typography sx={{ color: el.sender === 'client' ? "#3f3f3f" : "white", textAlign: "right" }} className="timestamp">
             {formatTimestamp(el.timestamp)}

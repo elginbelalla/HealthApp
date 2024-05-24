@@ -12,15 +12,16 @@ const Message = ({ chatHistory }) => {
           <React.Fragment key={index}>
             <TimelineDivider text={group.date} />
             {group.messages.map((el, msgIndex) => {
-              if (el.imageUrl) {
+             switch (el.subtype) {
+              case "img":
                 return <MediaMsg key={msgIndex} el={el} />;
-              } else if (el.documentUrl) {
+              case "doc":
                 return <DocMsg key={msgIndex} el={el} />;
-              } else if (el.link) {
+              case "link":
                 return <LinkMsg key={msgIndex} el={el} />;
-              } else {
+              default:
                 return <TextMsg key={msgIndex} el={el} />;
-              }
+            }
             })}
           </React.Fragment>
         ))}

@@ -66,16 +66,18 @@ const Conversation = ({ selectedChat, sender, refreshConversations }) => {
 
   const handleAttachFile = (e) => {
     const files = e.target.files;
-    Array.from(files).forEach(file => {
+    const categorizedFiles = Array.from(files).map(file => {
       const extension = file.name.split('.').pop().toLowerCase();
-      const reader = new FileReader();
-      reader.onload = () => {
-        const fileData = reader.result;
-        setAttachedFiles(prev => [...prev, { name: file.name, subtype: "doc", document: fileData }]);
-      };
-      reader.readAsDataURL(file);
+      const url = URL.createObjectURL(file);  // Ensure URL creation is correct
+      if (['png', 'jpeg', 'jpg'].includes(extension)) {
+        return { name: file.name, subtype: "img", img: url, message: "" };
+      } else {
+        return { name: file.name, subtype: "doc", url, message: file.name };
+      }
     });
+    setAttachedFiles(prev => [...prev, ...categorizedFiles]);
   };
+
 
   const handleMessageSend = async () => {
     if (message.trim() === "" && attachedFiles.length === 0) {
