@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Client;
 use App\Models\Doctor;
+use App\Models\Clinic;
 use Core\App;
 use Core\Database;
 use PDOException;
@@ -38,13 +39,10 @@ try {
             http_response_code(200);
             break;
         case "Clinic":
-            $sql = "INSERT INTO Clinic (firstName, email, password, phoneNo) VALUES (:name, :email, :password, :phoneNo)";
-            $conn->query($sql, [
-                ':name' => $name,
-                ':email' => $email,
-                ':password' => $password,
-                ':phoneNo' => $phoneNumber
-            ]);
+            $clinicId = Clinic::create($name, $email, $phoneNumber, $password);
+            header("Content-Type: application/json");
+            header("clinic-id: $clinicId");
+            echo json_encode(['clinicId' => $clinicId, 'role' => 'clinic', 'message' => 'User created successfully']);
             http_response_code(200);
             break;
         default:

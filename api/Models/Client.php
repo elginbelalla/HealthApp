@@ -130,7 +130,7 @@ class Client
     {
         $columns = ['doctorId', 'name', 'lastName', 'email', 'specialty', 'phoneNo', 'address', 'profileInfo'];
         $conn = App::resolve(Database::class);
-        $sql = "SELECT " . implode(", ", $columns) . " FROM doctor";
+        $sql = "SELECT " . implode(", ", $columns) . " FROM doctors";
         $conn = $conn->query($sql);
         return $conn->get(PDO::FETCH_ASSOC);
     }

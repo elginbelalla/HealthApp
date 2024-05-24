@@ -64,7 +64,7 @@ const SignInPage = () => {
               navigate("/doctor/dashboard", { state: { id: data.id } });
               break;
             case "clinic":
-              navigate("/");  // TODO: add the clinic's main page url
+              navigate("/clinic/dashboard");  // TODO: add the clinic's main page url
               break;
             default:
               alert("User not found");

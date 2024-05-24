@@ -60,7 +60,7 @@ try {
 
             if ($clinic) {
                 // Verify password for Clinic
-                if (password_verify($password, $clinic['password'])) {
+                if (password_verify($password, $clinic['clinicPassword'])) {
                     // Password is correct, login successful for Clinic
                     $response['success'] = true;
                     $response['message'] = 'Clinic login successful';
