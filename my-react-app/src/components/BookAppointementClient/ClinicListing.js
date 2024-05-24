@@ -28,7 +28,11 @@ const ClinicListing = () => {
       }
     };
 
+    const setAppointment = async () => {
+    };
+
     fetchClinics();
+    setAppointment();
   }, []);
 
 

@@ -37,3 +37,7 @@ $router->post('/HealthApp/api/getDoctorConversations', 'Doctor/getDoctorConversa
 $router->post('/HealthApp/api/setClinicAppointment', 'Client/setClinicAppointment');
 $router->post('/HealthApp/api/setDoctorAppointment', 'Client/setDoctorAppointment');
 
+$router->get('/HealthApp/api/getClinics', 'Client/getClinics');
+$router->get('/HealthApp/api/getDoctors', 'Client/getDoctors');
+
+$router->get('/HealthApp/api/controllers/Client/testCalendly', 'Client/testCalendly');
