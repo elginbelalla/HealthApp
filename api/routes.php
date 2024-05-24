@@ -33,6 +33,7 @@ $router->post('/HealthApp/api/setDoctorSecurity', 'Doctor/setDoctorSecurity');
 $router->post('/HealthApp/api/getDoctorPerformance', 'Doctor/getDoctorPerformance');
 
 $router->post('/HealthApp/api/getDoctorConversations', 'Doctor/getDoctorConversations');
+$router->post('/HealthApp/api/setMessagesToBackend', 'Doctor/setMessagesToBackend');
 
 $router->post('/HealthApp/api/setClinicAppointment', 'Client/setClinicAppointment');
 $router->post('/HealthApp/api/setDoctorAppointment', 'Client/setDoctorAppointment');

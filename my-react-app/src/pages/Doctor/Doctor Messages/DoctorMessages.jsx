@@ -5,47 +5,48 @@ import DoctorAppBar from "../../../components/NavBar/DoctorAppBar";
 import Chats from "../../../components/Chats/chat";
 import Conversation from "../../../components/Chats/conversation";
 import Stack from '@mui/material/Stack';
-import './messages.css'
+import './messages.css';
 import { useLocation } from "react-router-dom";
 
-
-
 export default function DoctorMessages (){
-
-
   const [selectedChat, setSelectedChat] = useState(null);
   const [conversations, setConversations] = useState([]);
 
+  const sender = 'doctor';
   const location = useLocation();
   const doctorId = location.state ? location.state.id : null;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`http://localhost/HealthApp/api/getDoctorConversations`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ id: doctorId }), 
-        });
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`http://localhost/HealthApp/api/getDoctorConversations`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: doctorId }), 
+      });
 
-        if (response.ok) {
-          const responseText = await response.text();
-          try {
-            const data = JSON.parse(responseText);
-            setConversations(data.conversationInfo);
-          } catch (jsonError) {
-            console.error("Failed to parse JSON:", jsonError);
-          }
-        } else {
-          console.error("Failed to fetch previous data: bad res", await response.text());
+      if (response.ok) {
+        const responseText = await response.text();
+        try {
+          const data = JSON.parse(responseText);
+          setConversations(data.conversationInfo);
+        } catch (jsonError) {
+          console.error("Failed to parse JSON:", jsonError);
         }
-      } catch (error) {
-        console.error("Failed to fetch previous data: db", error.message);
+      } else {
+        console.error("Failed to fetch previous data: bad res", await response.text());
       }
-    };
+    } catch (error) {
+      console.error("Failed to fetch previous data: db", error.message);
+    }
+  };
 
+  const refreshConversations = async() => {
+    fetchData();
+  };
+
+  useEffect(() => {
     fetchData();
   }, [doctorId]);
 
@@ -65,6 +66,8 @@ export default function DoctorMessages (){
            <Chats conversations={conversations} onSelectChat={setSelectedChat} />
            <Conversation
            selectedChat={selectedChat}
+           sender={sender}
+           refreshConversations={refreshConversations}
            />
         </Stack>
       </Box>
@@ -73,4 +76,3 @@ export default function DoctorMessages (){
     </>
   )
 };
-

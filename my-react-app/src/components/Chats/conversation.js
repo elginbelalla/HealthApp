@@ -49,14 +49,16 @@ const detectUrl = (message) => {
   return urls ? urls[0] : null;
 };
 
-const Conversation = ({ selectedChat }) => {
+const Conversation = ({ selectedChat, sender, refreshConversations }) => {
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
   const [attachedFiles, setAttachedFiles] = useState([]);
 
   useEffect(() => {
     if (selectedChat) {
-      setChatHistory(selectedChat.messages || []);
+      const allMessages = [...selectedChat.clientMessages, ...selectedChat.doctorMessages];
+      allMessages.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+      setChatHistory(allMessages);
     } else {
       setChatHistory([]);
     }
@@ -64,19 +66,18 @@ const Conversation = ({ selectedChat }) => {
 
   const handleAttachFile = (e) => {
     const files = e.target.files;
-    const categorizedFiles = Array.from(files).map(file => {
+    Array.from(files).forEach(file => {
       const extension = file.name.split('.').pop().toLowerCase();
-      const url = URL.createObjectURL(file);
-      if (['png', 'jpeg', 'jpg'].includes(extension)) {
-        return { name: file.name, subtype: "img", img: url, message: "" };
-      } else {
-        return { name: file.name, subtype: "doc", url, message: file.name };
-      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        const fileData = reader.result;
+        setAttachedFiles(prev => [...prev, { name: file.name, subtype: "doc", document: fileData }]);
+      };
+      reader.readAsDataURL(file);
     });
-    setAttachedFiles(prev => [...prev, ...categorizedFiles]);
   };
 
-  const handleMessageSend = () => {
+  const handleMessageSend = async () => {
     if (message.trim() === "" && attachedFiles.length === 0) {
       return;
     }
@@ -120,8 +121,8 @@ const Conversation = ({ selectedChat }) => {
         preview: detectedUrl,
         message: message.replace(detectedUrl, "").trim(),
         timestamp: timestamp.getTime(),
-        incoming: false,
-        outgoing: true
+        sender: sender,
+        clientDoctorConversationId: selectedChat.clientDoctoraConversationId,
       });
     }
 
@@ -130,19 +131,36 @@ const Conversation = ({ selectedChat }) => {
         type: "msg",
         message: message.trim(),
         timestamp: timestamp.getTime(),
-        incoming: false,
-        outgoing: true
+        sender: sender,
+        clientDoctorConversationId: selectedChat.clientDoctoraConversationId,
       });
     }
 
-    setChatHistory(prev => [...prev, ...newMessages]);
+    setChatHistory(prevChatHistory => [...prevChatHistory, ...newMessages]);
     setMessage("");
     setAttachedFiles([]);
+
+    try {
+      const response = await fetch('http://localhost/HealthApp/api/setMessagesToBackend', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newMessages), 
+      });
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+      refreshConversations();  
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
   };
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleMessageSend();
+      refreshConversations();  
     }
   };
 
@@ -150,9 +168,7 @@ const Conversation = ({ selectedChat }) => {
     return (
       <Box className="container">
         <Box className="default-convo">
-        <Typography >
-          Select a conversation
-        </Typography>
+          <Typography>Select a conversation</Typography>
         </Box>
       </Box>
     );
@@ -173,12 +189,7 @@ const Conversation = ({ selectedChat }) => {
                 </StyledBadge>
               </Box>
               <Stack className="user-info" direction={'column'}>
-                <Typography className="user-name">
-                  {selectedChat.clientName}
-                </Typography>
-                <Typography className="user-time">
-                  Online
-                </Typography>
+                <Typography className="user-name">{selectedChat.clientName}</Typography>
               </Stack>
             </Stack>
           </Stack>
@@ -203,21 +214,25 @@ const Conversation = ({ selectedChat }) => {
                   <InputAdornment>
                     <input
                       type="file"
-                      style={{ display: 'none' }}
+                      id="file"
                       multiple
                       onChange={handleAttachFile}
+                      style={{ display: 'none' }}
                     />
-                    <IconButton onClick={() => document.querySelector('input[type="file"]').click()}>
-                      <AttachFileOutlinedIcon />
-                    </IconButton>
+                    <label htmlFor="file">
+                      <IconButton component="span">
+                        <AttachFileOutlinedIcon />
+                      </IconButton>
+                    </label>
                   </InputAdornment>
                 ),
-              }} />
-            <Button variant="none" endIcon={<SendIcon />} onClick={handleMessageSend} />
+              }}
+            />
+            <Button onClick={handleMessageSend}>
+              <SendIcon />
+            </Button>
           </Stack>
         </Box>
-
-        
         {attachedFiles.length > 0 && (
           <Box>
             Attached Files:

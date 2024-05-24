@@ -5,7 +5,6 @@ import { TextMsg, MediaMsg, LinkMsg, DocMsg } from "./MessageTypes/MessageTypes"
 
 const Message = ({ chatHistory }) => {
   const groupedMessages = groupMessagesByDate(chatHistory);
-
   return (
     <Box className="msg-container">
       <Stack spacing={3}>
@@ -13,24 +12,14 @@ const Message = ({ chatHistory }) => {
           <React.Fragment key={index}>
             <TimelineDivider text={group.date} />
             {group.messages.map((el, msgIndex) => {
-              switch (el.type) {
-                case "msg":
-                  // Different types of possibilities
-                  switch (el.subtype) {
-                    case "img":
-                      // Render MediaMsg component for images
-                      return <MediaMsg key={msgIndex} el={el} />;
-                    case "doc":
-                      // Render DocMsg component for documents
-                      return <DocMsg key={msgIndex} el={el} />;
-                    case "link":
-                      // Render LinkMsg component for links
-                      return <LinkMsg key={msgIndex} el={el} />;
-                    default:
-                      return <TextMsg key={msgIndex} el={el} />;
-                  }
-                default:
-                  return <></>;
+              if (el.imageUrl) {
+                return <MediaMsg key={msgIndex} el={el} />;
+              } else if (el.documentUrl) {
+                return <DocMsg key={msgIndex} el={el} />;
+              } else if (el.link) {
+                return <LinkMsg key={msgIndex} el={el} />;
+              } else {
+                return <TextMsg key={msgIndex} el={el} />;
               }
             })}
           </React.Fragment>

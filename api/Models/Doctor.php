@@ -327,4 +327,11 @@ public static function getClientMessagesById($clientDoctorConversationId){
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+public static function findDoctorClientConvoById ($clientDoctorConversationId){
+    $conn = App::resolve(Database::class);
+    $sql = "SELECT * FROM clientdoctormessages WHERE clientDoctorConversationId = :clientDoctorConversationId LIMIT 1";
+    $stmt = $conn->query($sql, [':clientDoctorConversationId' => $clientDoctorConversationId]);
+    return $stmt->find(PDO::FETCH_ASSOC);
+}
 }

@@ -74,6 +74,7 @@ CREATE TABLE `clientdoctormessages` (
   `clientDoctorConversationId` int DEFAULT NULL,
   `sender` enum('client','doctor') DEFAULT NULL,
   `text` varchar(255) DEFAULT NULL,
+  `document` longblob,
   `timestamp` datetime DEFAULT (now())
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
