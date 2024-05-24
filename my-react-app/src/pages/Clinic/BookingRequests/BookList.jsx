@@ -160,6 +160,7 @@ const BookList = () => {
             <TableRow>
               {columns.map((column) => (
                 <TableCell key={column.id} align="center" style={{ minWidth: column.minWidth, color: '#959494' }}>
+                    {column.label}
                 </TableCell>
               ))}
             </TableRow>
